@@ -16,7 +16,7 @@
     --ph-brand-600: var(--front-color-primary-hover, var(--ph-brand));
     --ph-brand-50: rgba(var(--ph-brand-rgb), 0.09);
     --ph-brand-100: rgba(var(--ph-brand-rgb), 0.18);
-    --ph-accent: var(--main-color-2, var(--front-color-accent, #22bdff));
+    --ph-accent: var(--main-color-2, var(--front-color-accent, #38bdf8));
     --ph-accent-rgb: var(--front-color-accent-rgb, 34, 189, 255);
     --ph-accent-soft: linear-gradient(135deg, rgba(var(--ph-brand-rgb), 0.08), rgba(var(--ph-accent-rgb), 0.08));
     --ph-danger: var(--front-palette-ef4351);

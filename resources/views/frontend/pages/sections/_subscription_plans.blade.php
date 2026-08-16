@@ -50,7 +50,7 @@
     <div class="lp-sub-plans__header">
         <div class="container">
             <div class="lp-sub-plans__eyebrow wow fadeInUp" data-wow-delay=".1s">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L7.5 4.1L11 4.6L8.5 7L9.1 10.5L6 8.9L2.9 10.5L3.5 7L1 4.6L4.5 4.1L6 1Z" fill="#4663EE" stroke="#4663EE" stroke-width=".8" stroke-linejoin="round"/></svg>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L7.5 4.1L11 4.6L8.5 7L9.1 10.5L6 8.9L2.9 10.5L3.5 7L1 4.6L4.5 4.1L6 1Z" fill="#2563EB" stroke="#2563EB" stroke-width=".8" stroke-linejoin="round"/></svg>
                 {{ $lpEyebrow }}
             </div>
             <h2 class="lp-sub-plans__title wow fadeInUp" data-wow-delay=".2s">

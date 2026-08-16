@@ -3100,7 +3100,7 @@ ul {
     padding: 7px 14px;
     border: 1px solid var(--kyc-btn-border);
     background: linear-gradient(180deg, var(--kyc-btn-start) 0%, var(--kyc-btn-end) 100%);
-    box-shadow: 0 1px 2px rgba(70, 99, 238, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.22);
     color: var(--front-color-white);
     font-size: var(--front-font-size-rem-086);
     font-weight: var(--front-font-semibold);
@@ -6550,7 +6550,7 @@ ul {
 
 .single-form-card .user-feature-header {
     --user-feature-header-primary: var(--main-color, var(--front-color-primary));
-    --user-feature-header-primary-rgb: var(--front-color-primary-rgb, 70, 99, 238);
+    --user-feature-header-primary-rgb: var(--front-color-primary-rgb, 37, 99, 235);
     --user-feature-header-primary-hover: var(--front-color-primary-hover, var(--user-feature-header-primary));
     --user-feature-header-accent: var(--main-color-2, var(--front-color-accent, #17a86a));
     --user-feature-header-accent-rgb: var(--front-color-accent-rgb, 23, 168, 106);
@@ -13987,7 +13987,7 @@ Notification Card
 .feature-summary-widget {
     position: relative;
     --feature-summary-primary: var(--main-color, var(--front-color-primary));
-    --feature-summary-primary-rgb: var(--front-color-primary-rgb, 70, 99, 238);
+    --feature-summary-primary-rgb: var(--front-color-primary-rgb, 37, 99, 235);
     --feature-summary-accent: var(--main-color-2, var(--front-color-accent, #17a86a));
     --feature-summary-accent-rgb: var(--front-color-accent-rgb, 23, 168, 106);
 }
@@ -14654,7 +14654,7 @@ Notification Card
 .quick-function-dropdown {
     --quick-menu-theme-primary: var(--main-color, var(--front-color-primary));
     --quick-menu-theme-primary-rgb: var(--front-color-primary-rgb, 37, 99, 235);
-    --quick-menu-theme-accent: var(--main-color-2, var(--front-color-accent, #22bdff));
+    --quick-menu-theme-accent: var(--main-color-2, var(--front-color-accent, #38bdf8));
     --quick-menu-theme-accent-rgb: var(--front-color-accent-rgb, 34, 189, 255);
     --quick-menu-theme-gradient: linear-gradient(135deg, var(--quick-menu-theme-primary) 0%, var(--quick-menu-theme-accent) 100%);
     --quick-menu-surface: rgba(var(--front-color-white-rgb), 0.96);
@@ -17838,7 +17838,7 @@ select.form-select option:focus, select.form-select option:active {
 /* Empty state */
 .payment-link-empty {
     --payment-link-empty-primary: var(--main-color, var(--front-color-primary));
-    --payment-link-empty-primary-rgb: var(--front-color-primary-rgb, 70, 99, 238);
+    --payment-link-empty-primary-rgb: var(--front-color-primary-rgb, 37, 99, 235);
     --payment-link-empty-accent: var(--main-color-2, var(--front-color-accent, #17a86a));
     --payment-link-empty-accent-rgb: var(--front-color-accent-rgb, 23, 168, 106);
     position: relative;

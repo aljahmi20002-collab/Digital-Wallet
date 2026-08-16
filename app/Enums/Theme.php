@@ -43,7 +43,7 @@ enum Theme: string
     public function accentColor(): string
     {
         return match ($this) {
-            self::Classic => '#4663EE',
+            self::Classic => '#2563EB',
             self::Golden  => '#D4AF37',
         };
     }

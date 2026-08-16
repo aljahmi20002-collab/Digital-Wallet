@@ -3,7 +3,7 @@
 @section('styles')
 	<style>
 		.notification-template-page .notification-template-hero {
-			background: linear-gradient(135deg, rgba(var(--cui-primary-rgb), 0.08), rgba(13, 110, 253, 0.02));
+			background: linear-gradient(135deg, rgba(var(--cui-primary-rgb), 0.08), rgba(37, 99, 235, 0.02));
 			border: 1px solid rgba(var(--cui-primary-rgb), 0.12);
 			border-radius: 1rem;
 			padding: 1.5rem;

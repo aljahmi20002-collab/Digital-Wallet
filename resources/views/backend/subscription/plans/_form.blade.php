@@ -499,7 +499,7 @@
         }
 
         .billing-cycle-block__icon--monthly {
-            background: rgba(13, 110, 253, .10);
+            background: rgba(37, 99, 235, .10);
             color: #0d6efd;
         }
 

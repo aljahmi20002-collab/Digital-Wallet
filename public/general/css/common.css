@@ -4,13 +4,13 @@
 .daterangepicker td.active,
 .daterangepicker td.active:hover,
 .daterangepicker .ranges li.active {
-    background-color: #4663EE !important;
+    background-color: #2563EB !important;
     color: #fff !important;
 }
 
 .daterangepicker .ranges li:hover {
-    background-color: rgba(13, 110, 253, 0.1); /* Optional hover effect */
-    color: #4663EE;
+    background-color: rgba(37, 99, 235, 0.1); /* Optional hover effect */
+    color: #2563EB;
 }
 /*---------------------------------------
     ## Transaction or other info  summery color

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264 64" role="img" aria-labelledby="dwl-title dwl-desc">
+    <title id="dwl-title">DigitalWallet</title>
+    <desc id="dwl-desc">DigitalWallet horizontal lockup — brand mark with wordmark</desc>
+    <defs>
+        <linearGradient id="dwl-tile" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#38BDF8"/>
+            <stop offset=".48" stop-color="#2563EB"/>
+            <stop offset="1" stop-color="#1D4ED8"/>
+        </linearGradient>
+        <linearGradient id="dwl-text" x1="80" y1="0" x2="262" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#2563EB"/>
+            <stop offset="1" stop-color="#1D4ED8"/>
+        </linearGradient>
+        <filter id="dwl-shadow" x="-30%" y="-30%" width="160%" height="170%">
+            <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#1D4ED8" flood-opacity=".30"/>
+        </filter>
+    </defs>
+
+    <!-- mark -->
+    <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#dwl-tile)" filter="url(#dwl-shadow)"/>
+    <path d="M4 20a16 16 0 0 1 16-16h24a16 16 0 0 1 16 16v-2a16 16 0 0 0-16-16H20a16 16 0 0 0-16 16Z" fill="#ffffff" opacity=".10"/>
+    <rect x="16" y="30" width="32" height="14" rx="6" fill="#ffffff"/>
+    <path d="M16 30c0-10 32-10 32 0" fill="none" stroke="url(#dwl-tile)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="32" cy="22.4" r="2.6" fill="#ffffff"/>
+    <circle cx="45.5" cy="15.5" r="4.6" fill="#ffffff"/>
+    <circle cx="45.5" cy="15.5" r="1.8" fill="url(#dwl-tile)"/>
+
+    <!-- wordmark -->
+    <text x="78" y="43" font-family="'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="27" font-weight="700" letter-spacing="-0.5">
+        <tspan fill="#0F172A">Digital</tspan><tspan fill="url(#dwl-text)">Wallet</tspan>
+    </text>
+</svg>

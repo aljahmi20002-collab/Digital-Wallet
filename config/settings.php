@@ -124,7 +124,7 @@ return [
                 'key'   => 'light_logo',
                 'label' => 'Light Logo',
                 'rules' => 'mimes:jpeg,jpg,png,svg|max:1000',
-                'value' => 'general/static/logo/digitalwallet-mark.svg',
+                'value' => 'general/static/logo/digitalwallet-logo.svg',
                 'class' => 'col-md-4',
             ],
             [
@@ -142,7 +142,7 @@ return [
                 'key'   => 'site_favicon',
                 'label' => 'Site Favicon',
                 'rules' => 'mimes:jpeg,jpg,png,ico,svg|max:1000',
-                'value' => 'general/static/logo/digitalwallet-mark.svg',
+                'value' => 'favicon.ico',
                 'class' => 'col-md-4',
             ],
             [
@@ -290,7 +290,7 @@ return [
                 'key'     => 'user_role_primary_color',
                 'label'   => 'User Primary Color',
                 'rules'   => 'required|regex:/^#[0-9A-Fa-f]{6}$/',
-                'value'   => '#4663ee',
+                'value'   => '#2563EB',
                 'class'   => 'col-md-6',
                 'message' => 'Main customer-facing action color used in auth and dashboard screens.',
             ],
@@ -1077,9 +1077,9 @@ return [
                 'key'     => 'pwa_theme_color',
                 'label'   => 'Theme Color',
                 'rules'   => 'required|regex:/^#[0-9A-Fa-f]{6}$/',
-                'value'   => '#4663ee',
+                'value'   => '#2563EB',
                 'class'   => 'col-md-6',
-                'message' => 'Hex color (e.g. #4663ee) used for the browser status bar in the installed app.',
+                'message' => 'Hex color (e.g. #2563EB) used for the browser status bar in the installed app.',
             ],
             [
                 'type'    => 'color',

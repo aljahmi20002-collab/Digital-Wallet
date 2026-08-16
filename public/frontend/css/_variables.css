@@ -106,11 +106,11 @@
     --front-font-black: 900;
 
     /* Frontend Semantic Colors */
-    --front-color-primary: #4663ee;
-    --front-color-primary-rgb: 70, 99, 238;
-    --front-color-primary-hover: #354ccc;
-    --front-color-primary-dark: #354c8c;
-    --front-color-secondary: #22bdff;
+    --front-color-primary: #2563eb;
+    --front-color-primary-rgb: 37, 99, 235;
+    --front-color-primary-hover: #1d4ed8;
+    --front-color-primary-dark: #1e40af;
+    --front-color-secondary: #38bdf8;
     --front-color-accent: #17a86a;
     --front-color-success: #16a34a;
     --front-color-success-rgb: 22, 163, 74;

@@ -5,7 +5,7 @@
             'accent'  => '#22c55e',
         ],
         'user' => [
-            'primary' => '#4663ee',
+            'primary' => '#2563EB',
             'accent'  => '#17a86a',
         ],
         'merchant' => [

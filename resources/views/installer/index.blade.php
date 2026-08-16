@@ -13,9 +13,9 @@
             --line: #e2e8f0;
             --panel: #ffffff;
             --page: #f8fafc;
-            --primary: #4663ee;
-            --primary-dark: #354c8c;
-            --primary-rgb: 70, 99, 238;
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-rgb: 37, 99, 235;
             --side: #111827;
             --side-deep: #172554;
             --side-soft: #1f2937;
@@ -1819,9 +1819,12 @@
             <div class="brand">
                 <span class="brand-mark" aria-hidden="true">
                     <svg viewBox="0 0 32 32" role="img">
-                        <rect x="5" y="6" width="22" height="20" rx="6" fill="rgba(255,255,255,.18)"/>
-                        <path d="M11 14h11a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3v-8a2 2 0 0 1 2-2h9" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M20 17h5v4h-5a2 2 0 0 1 0-4Z" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="2" y="2" width="28" height="28" rx="8" fill="rgba(255,255,255,.14)"/>
+                        <rect x="8" y="15" width="16" height="7" rx="3" fill="#fff"/>
+                        <path d="M8 15c0-5 16-5 16 0" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.6" stroke-linecap="round"/>
+                        <circle cx="16" cy="11.1" r="1.4" fill="#fff"/>
+                        <circle cx="22.7" cy="7.7" r="2.3" fill="#fff"/>
+                        <circle cx="22.7" cy="7.7" r="0.9" fill="#1D4ED8"/>
                     </svg>
                 </span>
                 <span>DigitalWallet</span>

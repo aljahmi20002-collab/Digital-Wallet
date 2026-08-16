@@ -48,7 +48,7 @@
             border-radius: 18px;
             display: grid;
             place-items: center;
-            background: linear-gradient(135deg, var(--dk-primary), #22bdff);
+            background: linear-gradient(135deg, var(--dk-primary), #38bdf8);
             color: #ffffff;
             font-size: 22px;
             font-weight: 800;

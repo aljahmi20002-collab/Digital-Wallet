@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class PwaController extends Controller
 {
-    private const FALLBACK_THEME_COLOR = '#4663ee';
+    private const FALLBACK_THEME_COLOR = '#2563eb';
 
     private const FALLBACK_BACKGROUND = '#f3f7fb';
 

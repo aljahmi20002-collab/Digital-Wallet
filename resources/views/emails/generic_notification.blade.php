@@ -22,10 +22,11 @@
             border: 1px solid #e5e7eb;
         }
         .mail-header {
-            background-color: #0d6efd;
+            background: linear-gradient(135deg, #F4F8FF 0%, #E8F0FE 100%);
             padding: 30px 20px 20px;
-            color: #fff;
+            color: #0B1F5C;
             text-align: center;
+            border-bottom: 3px solid #2563EB;
         }
         .mail-header img {
             max-height: 60px;
@@ -44,7 +45,7 @@
         .mail-body h2 {
             font-size: 22px;
             margin-bottom: 20px;
-            color: #0d6efd;
+            color: #2563EB;
         }
         .mail-body p {
             margin-bottom: 20px;
@@ -57,7 +58,7 @@
             color: #6c757d;
         }
         .mail-footer a {
-            color: #0d6efd;
+            color: #2563EB;
             text-decoration: none;
         }
 	</style>
