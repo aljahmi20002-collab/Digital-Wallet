@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Bangladesh Card to Card">
+  <rect width="128" height="128" rx="28" fill="#145da0"/>
+  <rect x="24" y="34" width="56" height="36" rx="8" fill="#fff" opacity=".95"/>
+  <rect x="48" y="58" width="56" height="36" rx="8" fill="#8bd3ff"/>
+  <path d="M72 52h14v8h10L79 76 62 60h10v-8Z" fill="#145da0"/>
+</svg>

@@ -1,0 +1,44 @@
+<div class="col-lg-12 col-xl-5">
+    <div class="single-form-card">
+        <x-user-feature-header
+            :title="__('Summary')"
+            :subtitle="__('Check fees, conversion, and final payable before confirming.')"
+            icon="fas fa-chart-pie"
+            compact
+        />
+        <div class="card-main">
+            <ul class="summery-list list-unstyled">
+                <li class="d-flex justify-content-between">
+                    <span>{{ __('Payment Method') }}</span>
+                    <span class="summary-method-name"></span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <span>{{ __('Amount') }}</span>
+                    <span class="summary-amount"></span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <span>{{ __('Charge') }}</span>
+                    <span class="summary-charge"></span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <strong>{{ __('Total') }}</strong>
+                    <strong class="summary-total" ></strong>
+                </li>
+
+                <li class="d-flex justify-content-between text-primary">
+                    <strong>{{ __('Conversion Rate') }}</strong>
+                    <strong class="summary-rate" ></strong>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <strong>{{ __('Wallet Added') }}</strong>
+                    <strong class="wallet-added"></strong>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <strong>{{ __('Payable') }}</strong>
+                    <strong class="summary-payable"></strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

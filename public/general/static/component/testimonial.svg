@@ -1,0 +1,9 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="testimonialBg" x1="12" y1="12" x2="84" y2="84" gradientUnits="userSpaceOnUse"><stop stop-color="#0284C7"/><stop offset="1" stop-color="#0EA5E9"/></linearGradient></defs>
+<rect x="8" y="8" width="80" height="80" rx="24" fill="url(#testimonialBg)"/>
+<rect x="8.5" y="8.5" width="79" height="79" rx="23.5" stroke="#FFFFFF" stroke-opacity=".24"/>
+<rect x="22" y="25" width="52" height="38" rx="14" fill="#FFFFFF" fill-opacity=".18"/>
+<path d="M34 45H30C29.4 45 29 44.6 29 44V38C29 37.4 29.4 37 30 37H37V44C37 44.6 36.6 45 36 45H34Z" fill="#F8FAFC"/>
+<path d="M55 45H51C50.4 45 50 44.6 50 44V38C50 37.4 50.4 37 51 37H58V44C58 44.6 57.6 45 57 45H55Z" fill="#F8FAFC"/>
+<path d="M39 63L48 71L57 63" stroke="#FDE68A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

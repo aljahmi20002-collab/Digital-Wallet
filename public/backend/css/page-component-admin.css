@@ -1,0 +1,910 @@
+.page-component-admin {
+    --pc-ink: var(--color-text);
+    --pc-soft-ink: var(--color-text-soft);
+    --pc-muted: var(--color-text-muted);
+    --pc-line: rgba(var(--color-secondary-rgb), 0.24);
+    --pc-brand: var(--color-primary);
+    --pc-brand-2: var(--color-info);
+    --pc-surface: var(--color-card);
+    --pc-surface-alt: var(--color-surface-alt);
+    --pc-shadow: var(--shadow-md);
+    color: var(--pc-ink);
+}
+
+.page-component-admin svg {
+    display: block;
+}
+
+.page-component-admin .pc-hero {
+    position: relative;
+    min-height: 15rem;
+    overflow: hidden;
+    border: 1px solid rgba(var(--color-text-faint-rgb), 0.18);
+    background:
+        radial-gradient(circle at 18% 18%, rgba(var(--color-white-rgb), 0.18), transparent 28%),
+        radial-gradient(circle at 86% 16%, rgba(var(--color-info-rgb), 0.24), transparent 28%),
+        linear-gradient(135deg, var(--color-palette-082f49) 0%, var(--color-palette-0f766e) 48%, var(--color-text) 100%);
+    box-shadow: 0 12px 28px rgba(var(--color-text-rgb), 0.08);
+    color: var(--color-surface-alt);
+}
+
+.page-component-admin .pc-hero .card-body {
+    display: flex;
+    align-items: stretch;
+}
+
+.page-component-admin .pc-hero .row {
+    width: 100%;
+}
+
+.page-component-admin .pc-hero__main,
+.page-component-admin .pc-hero__aside {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.page-component-admin .pc-hero__main {
+    justify-content: space-between;
+    gap: 0.72rem;
+}
+
+.page-component-admin .pc-hero__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: center;
+    gap: 0.72rem;
+    padding-block: 0.1rem;
+}
+
+.page-component-admin .pc-hero__pills {
+    margin-top: 0.9rem;
+}
+
+.page-component-admin .pc-hero__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.42rem;
+}
+
+.page-component-admin .pc-hero::before,
+.page-component-admin .pc-hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    background: rgba(var(--color-white-rgb), 0.08);
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.page-component-admin .pc-hero::before {
+    right: -3rem;
+    bottom: -4rem;
+    width: 16rem;
+    height: 16rem;
+}
+
+.page-component-admin .pc-hero::after {
+    top: -4rem;
+    left: -2rem;
+    width: 10rem;
+    height: 10rem;
+}
+
+.page-component-admin .pc-hero__title {
+    max-width: 18ch;
+    font-size: clamp(1.55rem, 2.2vw, 2.1rem);
+    line-height: 1.08;
+    font-weight: var(--font-extrabold);
+    letter-spacing: -0.03em;
+}
+
+.page-component-admin .pc-hero__subtitle {
+    max-width: 58ch;
+    color: rgba(var(--color-rgb-248-250-252), 0.78);
+    font-size: var(--font-size-rem-09);
+}
+
+.page-component-admin .pc-hero__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.page-component-admin .pc-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 0.7rem;
+    height: 2.1rem;
+    padding: 0 0.88rem;
+    border: 1px solid rgba(var(--color-white-rgb), 0.12);
+    border-radius: 1rem;
+    background: rgba(var(--color-white-rgb), 0.14);
+    color: var(--color-surface-alt);
+    box-shadow: inset 0 1px 0 rgba(var(--color-white-rgb), 0.1);
+    backdrop-filter: saturate(180%) blur(10px);
+}
+
+.page-component-admin .pc-primary-btn:hover,
+.page-component-admin .pc-primary-btn:focus {
+    background: rgba(var(--color-white-rgb), 0.2);
+    color: var(--color-white);
+}
+
+.page-component-admin .pc-btn__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.45rem;
+    height: 1.45rem;
+    border-radius: 0.65rem;
+    background: rgba(var(--color-white-rgb), 0.16);
+}
+
+.page-component-admin .pc-btn__icon svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.page-component-admin .pc-primary-btn--back {
+    width: 2.1rem;
+    padding: 0;
+    justify-content: center;
+    border-radius: 0.78rem;
+}
+
+.page-component-admin .pc-primary-btn--back .pc-btn__icon {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: transparent;
+    border-radius: inherit;
+}
+
+.page-component-admin .pc-primary-btn--back .pc-btn__icon > svg {
+    display: block;
+    width: 0.95rem;
+    height: 0.95rem;
+    margin: 0 !important;
+}
+
+.page-component-admin .pc-hero__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.page-component-admin .pc-hero-pill {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    padding: 0.4rem 0.72rem;
+    border: 1px solid rgba(var(--color-white-rgb), 0.12);
+    border-radius: 999px;
+    background: rgba(var(--color-white-rgb), 0.08);
+}
+
+.page-component-admin .pc-hero-pill strong {
+    font-size: var(--font-size-rem-098);
+    font-weight: var(--font-extrabold);
+}
+
+.page-component-admin .pc-hero-pill span:last-child {
+    color: rgba(var(--color-rgb-248-250-252), 0.82);
+    font-size: var(--font-size-rem-08);
+}
+
+.page-component-admin .pc-hero-panel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.74rem;
+    border: 1px solid rgba(var(--color-white-rgb), 0.12);
+    border-radius: 1.35rem;
+    background: rgba(var(--color-white-rgb), 0.12);
+    backdrop-filter: blur(18px);
+}
+
+.page-component-admin .pc-hero-panel__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.65rem;
+}
+
+.page-component-admin .pc-hero-panel__label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: rgba(var(--color-rgb-248-250-252), 0.7);
+    font-size: var(--font-size-rem-076);
+    font-weight: var(--font-bold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.page-component-admin .pc-hero-panel__value {
+    font-size: var(--font-size-rem-155);
+    font-weight: var(--font-extrabold);
+    letter-spacing: -0.04em;
+}
+
+.page-component-admin .pc-hero-panel__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.36rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(var(--color-white-rgb), 0.16);
+    font-size: var(--font-size-rem-075);
+    font-weight: var(--font-bold);
+}
+
+.page-component-admin .pc-hero-panel__text {
+    color: rgba(var(--color-rgb-248-250-252), 0.78);
+    font-size: var(--font-size-rem-078);
+    line-height: 1.34;
+}
+
+.page-component-admin .pc-hero-panel__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin-top: 0.68rem;
+}
+
+.page-component-admin .pc-hero-panel__metric {
+    padding: 0.72rem 0.85rem;
+    border-radius: 0.85rem;
+    background: rgba(var(--color-white-rgb), 0.08);
+}
+
+.page-component-admin .pc-hero-panel__metric span {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: rgba(var(--color-rgb-248-250-252), 0.72);
+    font-size: var(--font-size-rem-08);
+}
+
+.page-component-admin .pc-hero-panel__metric strong {
+    font-size: var(--font-size-rem-108);
+    font-weight: var(--font-extrabold);
+}
+
+.page-component-admin .pc-shell {
+    overflow: hidden;
+    border: 1px solid rgba(var(--color-text-faint-rgb), 0.16);
+    box-shadow: 0 10px 26px rgba(var(--color-text-rgb), 0.05);
+}
+
+.page-component-admin .pc-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1rem 0.85rem;
+    border-bottom: 1px solid var(--pc-line);
+    background: linear-gradient(180deg, rgba(var(--color-rgb-248-250-252), 0.88) 0%, rgba(var(--color-white-rgb), 0.98) 100%);
+}
+
+.page-component-admin .pc-toolbar__title {
+    font-size: var(--font-size-rem-1);
+    font-weight: var(--font-extrabold);
+    color: var(--pc-ink);
+}
+
+.page-component-admin .pc-toolbar__subtitle {
+    color: var(--pc-muted);
+    font-size: var(--font-size-rem-084);
+}
+
+.page-component-admin .pc-toolbar__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.7rem;
+}
+
+.page-component-admin .pc-search {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    width: min(100%, 18rem);
+    padding: 0.65rem 0.85rem;
+    border: 1px solid rgba(var(--color-text-faint-rgb), 0.22);
+    border-radius: 0.72rem;
+    background: var(--pc-surface);
+    transition: none;
+    animation: none;
+}
+
+.page-component-admin .pc-search__icon {
+    color: var(--color-palette-0f766e);
+}
+
+.page-component-admin .pc-search__icon svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.page-component-admin .pc-search__input {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--pc-ink);
+    box-shadow: none !important;
+    transition: none;
+    animation: none;
+}
+
+.page-component-admin .pc-search__input::placeholder {
+    color: var(--color-text-faint);
+}
+
+.page-component-admin .pc-toolbar__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.62rem 0.8rem;
+    border: 1px solid rgba(var(--color-text-faint-rgb), 0.2);
+    border-radius: 1rem;
+    background: var(--pc-surface-alt);
+    color: var(--pc-soft-ink);
+    font-size: var(--font-size-rem-08);
+    font-weight: var(--font-semibold);
+}
+
+.page-component-admin .pc-toolbar__meta strong {
+    font-size: var(--font-size-rem-1);
+    color: var(--pc-ink);
+}
+
+.page-component-admin .pc-table {
+    margin-bottom: 0;
+}
+
+.page-component-admin .pc-table thead th {
+    padding: 0.8rem 1rem;
+    border-bottom-color: rgba(var(--color-text-faint-rgb), 0.18);
+    background: var(--color-surface-alt);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-rem-075);
+    font-weight: var(--font-extrabold);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.page-component-admin .pc-table tbody td {
+    padding: 0.85rem 1rem;
+    vertical-align: middle;
+    border-top-color: rgba(var(--color-text-faint-rgb), 0.16);
+}
+
+.page-component-admin .pc-table tbody tr {
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.page-component-admin .pc-table tbody tr:hover {
+    background: linear-gradient(180deg, rgba(var(--color-rgb-248-250-252), 0.72) 0%, rgba(var(--color-white-rgb), 0.98) 100%);
+    box-shadow: inset 0 1px 0 rgba(var(--color-white-rgb), 0.65);
+}
+
+.page-component-admin .pc-component-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-width: 15rem;
+}
+
+.page-component-admin .pc-component-thumb {
+    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-palette-eff6ff) 100%);
+}
+
+.page-component-admin .pc-component-cell__content {
+    min-width: 0;
+}
+
+.page-component-admin .pc-component-cell__title {
+    margin-bottom: 0.18rem;
+    color: var(--pc-ink);
+    font-size: var(--font-size-rem-094);
+    font-weight: var(--font-bold);
+}
+
+.page-component-admin .pc-component-cell__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--pc-muted);
+    font-size: var(--font-size-rem-078);
+}
+
+.page-component-admin .pc-component-cell__meta code {
+    padding: 0.2rem 0.45rem;
+    border-radius: 0.45rem;
+    background: var(--color-border);
+    color: var(--color-text);
+    font-size: var(--font-size-rem-078);
+}
+
+.page-component-admin .pc-type-badge,
+.page-component-admin .pc-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.42rem 0.65rem;
+    border-radius: 999px;
+    font-size: var(--font-size-rem-074);
+    font-weight: var(--font-bold);
+    white-space: nowrap;
+}
+
+.page-component-admin .pc-type-badge__icon,
+.page-component-admin .pc-action-btn__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-component-admin .pc-type-badge__icon svg,
+.page-component-admin .pc-action-btn__icon svg {
+    width: 0.95rem;
+    height: 0.95rem;
+}
+
+.page-component-admin .pc-type-badge--static {
+    background: rgba(var(--color-info-rgb), 0.1);
+    color: var(--color-info-deep);
+}
+
+.page-component-admin .pc-type-badge--dynamic {
+    background: rgba(var(--color-text-rgb), 0.08);
+    color: var(--color-text-soft);
+}
+
+.page-component-admin .pc-status-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.page-component-admin .pc-status-pill--success {
+    background: rgba(var(--color-success-rgb), 0.12);
+    color: var(--color-success-deep);
+}
+
+.page-component-admin .pc-status-pill--danger {
+    background: rgba(var(--color-rgb-244-63-94), 0.12);
+    color: var(--color-danger-deep);
+}
+
+.page-component-admin .pc-status-pill--warning {
+    background: rgba(var(--color-warning-rgb), 0.15);
+    color: var(--color-warning-deep);
+}
+
+.page-component-admin .pc-status-pill--neutral {
+    background: rgba(var(--color-text-faint-rgb), 0.14);
+    color: var(--color-text-subtle);
+}
+
+.page-component-admin .pc-action-group {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.page-component-admin .pc-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.58rem 0.82rem;
+    border: 1px solid transparent;
+    border-radius: 0.95rem;
+    font-size: var(--font-size-rem-078);
+    font-weight: var(--font-bold);
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.page-component-admin .pc-action-btn:hover {
+    transform: translateY(-1px);
+}
+
+.page-component-admin .pc-action-btn--primary {
+    background: var(--color-text);
+    color: var(--color-surface-alt);
+    box-shadow: 0 6px 16px rgba(var(--color-text-rgb), 0.12);
+}
+
+.page-component-admin .pc-action-btn--primary:hover,
+.page-component-admin .pc-action-btn--primary:focus {
+    color: var(--color-white);
+    background: var(--color-palette-020617);
+}
+
+.page-component-admin .pc-action-btn--danger {
+    background: rgba(var(--color-danger-rgb), 0.1);
+    color: var(--color-danger-deep);
+}
+
+.page-component-admin .pc-action-btn--danger:hover,
+.page-component-admin .pc-action-btn--danger:focus {
+    color: var(--color-palette-991b1b);
+    background: rgba(var(--color-danger-rgb), 0.16);
+}
+
+.page-component-admin .pc-action-btn--muted,
+.page-component-admin .pc-action-btn--ghost {
+    background: rgba(var(--color-text-faint-rgb), 0.12);
+    color: var(--color-text-subtle);
+}
+
+.page-component-admin .pc-action-btn--ghost.is-static {
+    color: var(--color-palette-0f766e);
+    background: rgba(var(--color-rgb-15-118-110), 0.09);
+}
+
+.page-component-admin .pc-action-btn.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+.page-component-admin .pc-empty-state {
+    display: grid;
+    place-items: center;
+    gap: 0.8rem;
+    padding: 3rem 1.25rem;
+    color: var(--pc-muted);
+    text-align: center;
+}
+
+.page-component-admin .pc-empty-state__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 1.4rem;
+    background: rgba(var(--color-info-rgb), 0.1);
+    color: var(--color-info-strong);
+}
+
+.page-component-admin .pc-empty-state__icon svg {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.page-component-admin .pc-empty-state h3 {
+    margin: 0;
+    color: var(--pc-ink);
+    font-size: var(--font-size-rem-105);
+    font-weight: var(--font-extrabold);
+}
+
+.page-component-admin .pc-empty-state p {
+    max-width: 34rem;
+    font-size: var(--font-size-rem-092);
+}
+
+@media (max-width: 991.98px) {
+    .page-component-admin .pc-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .page-component-admin .pc-toolbar__actions {
+        justify-content: stretch;
+    }
+
+    .page-component-admin .pc-search {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .page-component-admin .pc-hero {
+        min-height: auto;
+    }
+
+    .page-component-admin .pc-hero__pills,
+    .page-component-admin .pc-hero-panel__grid,
+    .page-component-admin .pc-action-group,
+    .page-component-admin .pc-status-stack {
+        width: 100%;
+    }
+
+    .page-component-admin .pc-hero__actions {
+        width: 100%;
+    }
+
+    .page-component-admin .pc-primary-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .page-component-admin .pc-table thead {
+        display: none;
+    }
+
+    .page-component-admin .pc-table tbody tr {
+        display: block;
+        padding: 0.65rem 0;
+    }
+
+    .page-component-admin .pc-table tbody td {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.7rem 1rem;
+        border-top: 0;
+    }
+
+    .page-component-admin .pc-table tbody td::before {
+        content: attr(data-label);
+        color: var(--color-text-muted);
+        font-size: var(--font-size-rem-072);
+        font-weight: var(--font-extrabold);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .page-component-admin .pc-table tbody td.pc-table__cell--component {
+        display: block;
+        padding-bottom: 0.35rem;
+    }
+
+    .page-component-admin .pc-table tbody td.pc-table__cell--component::before {
+        display: none;
+    }
+
+    .page-component-admin .pc-component-cell {
+        align-items: flex-start;
+        min-width: 0;
+    }
+
+    .page-component-admin .pc-action-group {
+        justify-content: flex-start;
+    }
+
+    .page-component-admin .pc-action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+ * Hero polish — eyebrow tag, pill icons, status dot
+ * Added during the 'premium polish' pass. These rules layer on top of the
+ * existing .pc-hero scoped CSS above; no existing rule was modified.
+ * -------------------------------------------------------------------------- */
+
+.page-component-admin .pc-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.22rem 0.65rem;
+    margin-bottom: 0.55rem;
+    border: 1px solid rgba(var(--color-white-rgb), 0.14);
+    border-radius: 999px;
+    background: rgba(var(--color-white-rgb), 0.08);
+    color: rgba(var(--color-rgb-248-250-252), 0.82);
+    font-size: 0.7rem;
+    font-weight: var(--font-bold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    align-self: flex-start;
+    backdrop-filter: blur(8px);
+}
+
+.page-component-admin .pc-hero__eyebrow-dot {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--color-info, #38bdf8);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
+}
+
+.page-component-admin .pc-hero-pill {
+    gap: 0.5rem;
+    padding: 0.4rem 0.78rem 0.4rem 0.4rem;
+}
+
+.page-component-admin .pc-hero-pill__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.45rem;
+    height: 1.45rem;
+    border-radius: 999px;
+    background: rgba(var(--color-white-rgb), 0.16);
+    color: rgba(var(--color-rgb-248-250-252), 0.92);
+    flex: none;
+}
+
+.page-component-admin .pc-hero-pill__icon svg {
+    width: 0.85rem;
+    height: 0.85rem;
+}
+
+.page-component-admin .pc-hero-panel__badge {
+    gap: 0.4rem;
+}
+
+.page-component-admin .pc-hero-panel__badge-dot {
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 50%;
+    background: var(--color-success, #22c55e);
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.22);
+}
+
+.page-component-admin .pc-hero-panel__value {
+    font-feature-settings: 'tnum' 1;
+}
+
+/* --------------------------------------------------------------------------
+ * Hero v2 — compact + dark-bg contrast fix
+ *
+ * Two problems addressed here:
+ *
+ *   1. _variables.css sets color: var(--color-text) on every h1-h6
+ *      globally. That dark slate beats the inherited light colour the
+ *      .pc-hero block sets, so the headline rendered as black on the
+ *      teal gradient. Forcing the title + panel value to white restores
+ *      contrast (WCAG AA on the gradient backdrop).
+ *
+ *   2. The hero was tall and roomy — fine when it was the only thing on
+ *      the page, but now it's competing with the catalog card right
+ *      below. Tighter padding, smaller title size, less letter-spacing,
+ *      and a shorter min-height pull the whole block in by ~25% of its
+ *      vertical footprint without losing hierarchy.
+ * -------------------------------------------------------------------------- */
+
+.page-component-admin .pc-hero {
+    min-height: 11rem;
+}
+
+.page-component-admin .pc-hero .card-body {
+    padding: 1rem 1.2rem;
+}
+
+@media (min-width: 1200px) {
+    .page-component-admin .pc-hero .card-body {
+        padding: 1.15rem 1.5rem;
+    }
+}
+
+/* Tighten the inner gap on .pc-hero__main / __content so the trim above
+   actually lands instead of being eaten by the existing rhythm. */
+.page-component-admin .pc-hero__main {
+    gap: 0.5rem;
+}
+
+.page-component-admin .pc-hero__content {
+    gap: 0.5rem;
+    padding-block: 0;
+}
+
+.page-component-admin .pc-hero__copy {
+    gap: 0.3rem;
+}
+
+.page-component-admin .pc-hero__pills {
+    margin-top: 0.6rem;
+}
+
+/* Light text on the dark gradient — explicit, beats the global h1 rule */
+.page-component-admin .pc-hero .pc-hero__title,
+.page-component-admin .pc-hero h1.pc-hero__title {
+    color: #ffffff;
+    font-size: clamp(1.3rem, 1.7vw, 1.65rem);
+    line-height: 1.12;
+    letter-spacing: -0.018em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+}
+
+.page-component-admin .pc-hero__subtitle {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: rgba(248, 250, 252, 0.74);
+}
+
+/* Eyebrow — keep it visually subordinate to the title */
+.page-component-admin .pc-hero__eyebrow {
+    padding: 0.18rem 0.6rem;
+    margin-bottom: 0.1rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+}
+
+.page-component-admin .pc-hero__eyebrow-dot {
+    width: 0.32rem;
+    height: 0.32rem;
+}
+
+/* Right-hand status panel — same dark-bg contrast fix on the big number */
+.page-component-admin .pc-hero-panel .pc-hero-panel__value,
+.page-component-admin .pc-hero-panel h2.pc-hero-panel__value {
+    color: #ffffff;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+}
+
+.page-component-admin .pc-hero-panel {
+    padding: 0.65rem 0.8rem;
+}
+
+.page-component-admin .pc-hero-panel__head {
+    margin-bottom: 0.4rem;
+}
+
+.page-component-admin .pc-hero-panel__label {
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+}
+
+.page-component-admin .pc-hero-panel__text {
+    font-size: 0.72rem;
+    line-height: 1.4;
+}
+
+.page-component-admin .pc-hero-panel__grid {
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.page-component-admin .pc-hero-panel__metric {
+    padding: 0.55rem 0.7rem;
+    border-radius: 0.7rem;
+}
+
+.page-component-admin .pc-hero-panel__metric strong {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* Smaller pills + Add button so the trimmed hero stays balanced */
+.page-component-admin .pc-hero-pill {
+    padding: 0.3rem 0.66rem 0.3rem 0.32rem;
+    gap: 0.4rem;
+}
+
+.page-component-admin .pc-hero-pill strong {
+    font-size: 0.88rem;
+}
+
+.page-component-admin .pc-hero-pill__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.page-component-admin .pc-hero-pill__icon svg {
+    width: 0.78rem;
+    height: 0.78rem;
+}
+
+.page-component-admin .pc-primary-btn {
+    height: 1.95rem;
+    padding: 0 0.75rem;
+    font-size: 0.82rem;
+}
+
+.page-component-admin .pc-primary-btn--back {
+    width: 1.95rem;
+}

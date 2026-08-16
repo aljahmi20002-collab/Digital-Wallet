@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+    <!-- Card body -->
+    <path d="M22 9v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2zm0 0H6"/>
+    <!-- Top-up (plus) indicator -->
+    <path d="M16 6v4m-2-2h4"/>
+    <!-- Bottom detail line (like card number placeholder) -->
+    <path d="M8 16h5"/>
+  </g>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="SEPA Bank Transfer">
+  <rect width="128" height="128" rx="28" fill="#204b9b"/>
+  <circle cx="64" cy="64" r="34" fill="#fff" opacity=".95"/>
+  <path d="M46 66c0-11 8-20 18-20 6 0 11 2 15 6l-6 7c-2-2-5-4-9-4-6 0-11 5-11 11s5 11 11 11c4 0 7-2 9-4l6 7c-4 4-9 6-15 6-10 0-18-9-18-20Z" fill="#204b9b"/>
+  <rect x="74" y="58" width="12" height="16" rx="2" fill="#f4b400"/>
+</svg>

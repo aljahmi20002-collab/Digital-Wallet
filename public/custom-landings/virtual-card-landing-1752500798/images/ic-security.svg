@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Card security</title>
+  <rect width="64" height="64" rx="18" fill="#fee2e2"/>
+  <path d="M32 15l16 7v11c0 11-7 18-16 22-9-4-16-11-16-22V22l16-7z" fill="#ef4444"/>
+  <path d="M25 33l5 5 10-12" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

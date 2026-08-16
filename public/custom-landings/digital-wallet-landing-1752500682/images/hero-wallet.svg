@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" role="img" aria-labelledby="title">
+  <title id="title">Digital wallet app preview</title>
+  <rect width="520" height="420" rx="36" fill="#dcfce7"/>
+  <rect x="158" y="36" width="204" height="348" rx="34" fill="#0f172a"/>
+  <rect x="178" y="70" width="164" height="282" rx="22" fill="#f8fafc"/>
+  <rect x="200" y="98" width="120" height="68" rx="18" fill="#16a34a"/>
+  <path d="M216 133h70" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M216 222h88M216 258h66M216 294h96" stroke="#94a3b8" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="330" cy="84" r="54" fill="#22c55e" opacity=".35"/>
+  <circle cx="162" cy="320" r="58" fill="#0ea5e9" opacity=".18"/>
+</svg>

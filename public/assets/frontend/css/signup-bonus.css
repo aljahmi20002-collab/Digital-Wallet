@@ -1,0 +1,551 @@
+/* ============================================================
+   DigiKash · Welcome Bonus Popup
+   Pixel-accurate translation of the design canvas modal.
+   ============================================================ */
+
+.signup-bonus-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1080;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(8, 14, 36, 0.55);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    animation: signup-bonus-backdrop-in 220ms ease-out both;
+}
+
+.signup-bonus-overlay.is-open {
+    display: flex;
+}
+
+@keyframes signup-bonus-backdrop-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ---- Modal shell -------------------------------------------- */
+.signup-bonus-modal {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: #0f172a;
+    box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.04),
+        0 8px 16px rgba(15, 23, 42, 0.06),
+        0 30px 60px -10px rgba(15, 23, 42, 0.25),
+        0 0 0 1px rgba(15, 23, 42, 0.04);
+    transform: translateZ(0);
+    animation: signup-bonus-modal-in 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes signup-bonus-modal-in {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ---- Close button ------------------------------------------- */
+.signup-bonus-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.10);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: #e2e8f0;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    padding: 0;
+}
+
+.signup-bonus-close:hover,
+.signup-bonus-close:focus-visible {
+    background: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    outline: none;
+}
+
+.signup-bonus-close:focus-visible {
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.55);
+}
+
+/* ---- Decoration zone (navy gradient + coin + sparkles) ----- */
+.signup-bonus-decoration {
+    position: relative;
+    height: 188px;
+    background: linear-gradient(160deg, #0F1B3F 0%, #1E3A8A 45%, #2A4FA8 85%, #3B5BC2 100%);
+    overflow: hidden;
+}
+
+.signup-bonus-deco-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Confetti motes — positioned absolutely with tiny rotation */
+.signup-bonus-confetti {
+    position: absolute;
+    border-radius: 1.5px;
+    transform-origin: center;
+    opacity: 0.85;
+}
+
+.signup-bonus-confetti.sb-c1 {
+    left: 14%; top: 22%;
+    width: 8px; height: 2.5px;
+    background: #FCD34D;
+    box-shadow: 0 0 4px rgba(252, 211, 77, 0.4);
+    transform: translate(-50%, -50%) rotate(25deg);
+}
+.signup-bonus-confetti.sb-c2 {
+    left: 24%; top: 70%;
+    width: 6px; height: 2px;
+    background: #34D399;
+    box-shadow: 0 0 4px rgba(52, 211, 153, 0.4);
+    transform: translate(-50%, -50%) rotate(-18deg);
+}
+.signup-bonus-confetti.sb-c3 {
+    left: 78%; top: 30%;
+    width: 7px; height: 2px;
+    background: #60A5FA;
+    box-shadow: 0 0 4px rgba(96, 165, 250, 0.4);
+    transform: translate(-50%, -50%) rotate(40deg);
+}
+.signup-bonus-confetti.sb-c4 {
+    left: 84%; top: 72%;
+    width: 8px; height: 2.5px;
+    background: #FCD34D;
+    box-shadow: 0 0 4px rgba(252, 211, 77, 0.4);
+    transform: translate(-50%, -50%) rotate(-10deg);
+}
+.signup-bonus-confetti.sb-c5 {
+    left: 42%; top: 12%;
+    width: 5px; height: 2px;
+    background: #34D399;
+    box-shadow: 0 0 4px rgba(52, 211, 153, 0.4);
+    transform: translate(-50%, -50%) rotate(60deg);
+}
+.signup-bonus-confetti.sb-c6 {
+    left: 58%; top: 88%;
+    width: 6px; height: 2px;
+    background: #FCD34D;
+    box-shadow: 0 0 4px rgba(252, 211, 77, 0.4);
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+.signup-bonus-confetti.sb-c7 {
+    left: 8%; top: 50%;
+    width: 4px; height: 1.6px;
+    background: #A5B4FC;
+    box-shadow: 0 0 4px rgba(165, 180, 252, 0.4);
+    transform: translate(-50%, -50%) rotate(8deg);
+}
+.signup-bonus-confetti.sb-c8 {
+    left: 92%; top: 50%;
+    width: 5px; height: 2px;
+    background: #34D399;
+    box-shadow: 0 0 4px rgba(52, 211, 153, 0.4);
+    transform: translate(-50%, -50%) rotate(-22deg);
+}
+
+/* Coin + cast shadow */
+.signup-bonus-coin-wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -52%);
+    width: 92px;
+    height: 92px;
+}
+
+.signup-bonus-coin {
+    width: 92px;
+    height: 92px;
+    filter:
+        drop-shadow(0 8px 16px rgba(245, 158, 11, 0.45))
+        drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+    animation: signup-bonus-coin-float 5s ease-in-out infinite;
+}
+
+@keyframes signup-bonus-coin-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-3px); }
+}
+
+.signup-bonus-coin-pad {
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 87.4px; /* 0.95 * 92 */
+    height: 14px;
+    transform: translateX(-50%);
+    background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+    filter: blur(2px);
+}
+
+/* Sparkles positioned around the coin centre (50% / 50%) */
+.signup-bonus-sparkle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    animation: signup-bonus-sparkle-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes signup-bonus-sparkle-pulse {
+    0%, 100% { opacity: 0.55; transform-origin: center; }
+    50%      { opacity: 1; }
+}
+
+/* Reproduces the dx/dy offsets from modal.jsx (coinSize = 92) */
+.signup-bonus-sparkle.sb-s1 {
+    width: 22px; height: 22px;
+    transform: translate(calc(-50% + -87.4px), calc(-50% + -50.6px));
+    filter: drop-shadow(0 0 6px rgba(252, 211, 77, 0.67));
+    animation-delay: 0s;
+}
+.signup-bonus-sparkle.sb-s2 {
+    width: 18px; height: 18px;
+    transform: translate(calc(-50% + 78.2px), calc(-50% + -59.8px));
+    filter: drop-shadow(0 0 6px rgba(167, 243, 208, 0.67));
+    animation-delay: 0.4s;
+}
+.signup-bonus-sparkle.sb-s3 {
+    width: 14px; height: 14px;
+    transform: translate(calc(-50% + 96.6px), calc(-50% + 27.6px));
+    filter: drop-shadow(0 0 6px rgba(252, 211, 77, 0.67));
+    animation-delay: 0.8s;
+}
+.signup-bonus-sparkle.sb-s4 {
+    width: 16px; height: 16px;
+    transform: translate(calc(-50% + -101.2px), calc(-50% + 32.2px));
+    filter: drop-shadow(0 0 6px rgba(147, 197, 253, 0.67));
+    animation-delay: 1.2s;
+}
+.signup-bonus-sparkle.sb-s5 {
+    width: 10px; height: 10px;
+    transform: translate(calc(-50% + 0px), calc(-50% + -87.4px));
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.67));
+    animation-delay: 1.6s;
+}
+.signup-bonus-sparkle.sb-s6 {
+    width: 9px; height: 9px;
+    transform: translate(calc(-50% + 36.8px), calc(-50% + 78.2px));
+    filter: drop-shadow(0 0 6px rgba(167, 243, 208, 0.67));
+    animation-delay: 2s;
+}
+
+/* ---- Body --------------------------------------------------- */
+.signup-bonus-body {
+    padding: 28px 32px;
+    text-align: center;
+}
+
+.signup-bonus-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: #EFF6FF;
+    border: 1px solid #DBEAFE;
+    color: #1D4ED8;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+}
+
+.signup-bonus-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563EB, #16A34A);
+}
+
+.signup-bonus-title {
+    margin: 14px 0 0;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #0f172a;
+    line-height: 1.15;
+    text-wrap: balance;
+}
+
+.signup-bonus-brand {
+    color: #1D4ED8;
+}
+
+/* Hero amount */
+.signup-bonus-hero-wrap {
+    position: relative;
+    display: inline-block;
+    margin: 18px 0 6px;
+}
+
+.signup-bonus-hero-glow {
+    position: absolute;
+    inset: 20% -10% 10% -10%;
+    background: radial-gradient(60% 60% at 50% 50%, rgba(37, 99, 235, 0.18), rgba(22, 163, 74, 0.10) 60%, transparent 80%);
+    filter: blur(8px);
+    z-index: 0;
+}
+
+.signup-bonus-hero-amount {
+    position: relative;
+    z-index: 1;
+    font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    font-weight: 700;
+    font-size: var(--hero-size-desktop, 92px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(96deg, #1D4ED8 0%, #2563EB 35%, #0EA5E9 65%, #16A34A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 0 2px;
+    font-variant-numeric: tabular-nums;
+    display: inline-block;
+}
+
+.signup-bonus-hero-currency {
+    position: absolute;
+    right: 0;
+    bottom: 12px;
+    transform: translateX(100%);
+    padding-left: 10px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #64748B;
+}
+
+.signup-bonus-subtitle {
+    margin: 12px auto 26px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: #475569;
+    text-wrap: pretty;
+    max-width: 320px;
+}
+
+/* CTAs */
+.signup-bonus-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.signup-bonus-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 16px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.15s ease;
+    border: 1px solid transparent;
+}
+
+.signup-bonus-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.55);
+}
+
+.signup-bonus-btn:active {
+    transform: translateY(1px);
+}
+
+.signup-bonus-btn-primary {
+    background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+    color: #ffffff;
+    border-color: rgba(147, 197, 253, 0.45);
+    box-shadow:
+        0 6px 16px rgba(37, 99, 235, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.signup-bonus-btn-primary:hover {
+    color: #ffffff;
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.40),
+        inset 0 1px 0 rgba(255, 255, 255, 0.30);
+}
+
+.signup-bonus-btn-secondary {
+    background: #ffffff;
+    color: #0F172A;
+    border-color: #E2E8F0;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.signup-bonus-btn-secondary:hover {
+    color: #0F172A;
+    background: #F8FAFC;
+}
+
+/* Loading state (applied to overlay while acknowledge AJAX in flight) */
+.signup-bonus-overlay.is-loading .signup-bonus-btn-primary {
+    cursor: progress;
+    background: linear-gradient(135deg, #5A8BF5, #3B6FD8);
+    opacity: 0.94;
+    pointer-events: none;
+}
+
+.signup-bonus-overlay.is-loading .signup-bonus-btn-secondary {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.signup-bonus-overlay.is-loading .signup-bonus-close {
+    pointer-events: none;
+}
+
+/* Show spinner + alternate label only in the loading state */
+.signup-bonus-btn-spinner {
+    display: none;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: signup-bonus-spin 0.9s linear infinite;
+}
+
+.signup-bonus-btn-label-loading {
+    display: none;
+}
+
+.signup-bonus-overlay.is-loading .signup-bonus-btn-spinner {
+    display: inline-block;
+}
+
+.signup-bonus-overlay.is-loading .signup-bonus-btn-primary .signup-bonus-btn-icon,
+.signup-bonus-overlay.is-loading .signup-bonus-btn-primary .signup-bonus-btn-label {
+    display: none;
+}
+
+.signup-bonus-overlay.is-loading .signup-bonus-btn-primary .signup-bonus-btn-label-loading {
+    display: inline;
+}
+
+@keyframes signup-bonus-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---- Mobile (≤576px) — narrower body, smaller decoration, stacked CTAs ---- */
+@media (max-width: 576px) {
+    .signup-bonus-overlay {
+        padding: 0 16px;
+    }
+
+    .signup-bonus-modal {
+        max-width: 328px;
+    }
+
+    .signup-bonus-decoration {
+        height: 156px;
+    }
+
+    .signup-bonus-coin-wrap,
+    .signup-bonus-coin {
+        width: 78px;
+        height: 78px;
+    }
+
+    .signup-bonus-coin-pad {
+        width: 74.1px; /* 0.95 * 78 */
+    }
+
+    .signup-bonus-sparkle.sb-s1 {
+        transform: translate(calc(-50% + -74.1px), calc(-50% + -42.9px));
+    }
+    .signup-bonus-sparkle.sb-s2 {
+        transform: translate(calc(-50% + 66.3px), calc(-50% + -50.7px));
+    }
+    .signup-bonus-sparkle.sb-s3 {
+        transform: translate(calc(-50% + 81.9px), calc(-50% + 23.4px));
+    }
+    .signup-bonus-sparkle.sb-s4 {
+        transform: translate(calc(-50% + -85.8px), calc(-50% + 27.3px));
+    }
+    .signup-bonus-sparkle.sb-s5 {
+        transform: translate(calc(-50% + 0px), calc(-50% + -74.1px));
+    }
+    .signup-bonus-sparkle.sb-s6 {
+        transform: translate(calc(-50% + 31.2px), calc(-50% + 66.3px));
+    }
+
+    .signup-bonus-body {
+        padding: 22px;
+    }
+
+    .signup-bonus-title {
+        font-size: 22px;
+    }
+
+    .signup-bonus-hero-wrap {
+        margin: 14px 0 4px;
+    }
+
+    .signup-bonus-hero-amount {
+        font-size: var(--hero-size-mobile, 68px);
+    }
+
+    .signup-bonus-hero-currency {
+        right: -2px;
+        bottom: 8px;
+        font-size: 13px;
+    }
+
+    .signup-bonus-subtitle {
+        margin: 10px 0 22px;
+        font-size: 13.5px;
+        max-width: 100%;
+    }
+
+    .signup-bonus-actions {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* ---- Reduced motion ----------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .signup-bonus-overlay,
+    .signup-bonus-modal,
+    .signup-bonus-coin,
+    .signup-bonus-sparkle {
+        animation: none !important;
+    }
+    .signup-bonus-modal {
+        opacity: 1;
+        transform: none;
+    }
+}

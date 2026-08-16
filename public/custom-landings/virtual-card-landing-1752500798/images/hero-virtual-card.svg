@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 420" role="img" aria-labelledby="title">
+  <title id="title">Virtual card dashboard preview</title>
+  <rect width="540" height="420" rx="36" fill="#dbeafe"/>
+  <rect x="70" y="88" width="400" height="246" rx="26" fill="#ffffff"/>
+  <rect x="110" y="128" width="230" height="132" rx="22" fill="#2563eb"/>
+  <path d="M134 168h78M134 220h154" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="296" cy="178" r="20" fill="#bfdbfe"/>
+  <circle cx="323" cy="178" r="20" fill="#93c5fd"/>
+  <path d="M372 145h56M372 184h42M372 223h66" stroke="#94a3b8" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="424" cy="104" r="58" fill="#60a5fa" opacity=".32"/>
+</svg>

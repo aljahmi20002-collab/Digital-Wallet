@@ -1,0 +1,44 @@
+/* DigiKash Error/Maintenance Minimal Styles */
+/* Philosophy: simple, robust, no complex positioning or animations */
+
+.error-body {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.error-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.error-section { width: 100%; }
+
+.error-card {
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+}
+
+.error-illustration {
+  max-height: 280px;
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Compact, readable headings */
+.error-card h1,
+.error-card .h1,
+.error-card .h2 { line-height: 1.3; }
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .error-body { background-color: #0f1115; color: #e9ecef; }
+  .error-card { background-color: #151923; }
+  .text-muted { color: #adb5bd !important; }
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+  .error-main { padding: 1rem; }
+  .error-illustration { max-height: 200px; }
+}

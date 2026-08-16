@@ -1,0 +1,2322 @@
+/*
+ * Frontend / Merchant workspace design layer
+ * Mirrors the Agent service workspace language with the merchant role palette.
+ */
+
+.btn-merchant {
+    color: var(--front-color-white);
+    background: var(--front-gradient-merchant);
+    border: 1px solid var(--front-color-merchant);
+    box-shadow: var(--front-shadow-merchant);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.btn-merchant:hover,
+.btn-merchant:focus,
+.btn-merchant:active {
+    color: var(--front-color-white);
+    background: var(--front-color-merchant-hover);
+    border-color: var(--front-color-merchant-hover);
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
+
+.btn-merchant:disabled,
+.btn-merchant.disabled {
+    opacity: 0.65;
+    transform: none;
+}
+
+.btn-light-merchant,
+.btn-outline-merchant,
+.btn-merchant-soft {
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    border: 1px solid var(--front-color-merchant-soft-border);
+    box-shadow: none;
+}
+
+.btn-outline-merchant {
+    background: transparent;
+}
+
+.btn-light-merchant:hover,
+.btn-light-merchant:focus,
+.btn-outline-merchant:hover,
+.btn-outline-merchant:focus,
+.btn-merchant-soft:hover,
+.btn-merchant-soft:focus {
+    color: var(--front-color-white);
+    background: var(--front-color-merchant);
+    border-color: var(--front-color-merchant);
+}
+
+.dashboard-user-layout .merchant-service-card {
+    border-color: rgba(var(--front-color-primary-rgb), 0.1);
+    box-shadow: none;
+}
+
+.merchant-context,
+.merchant-application,
+.merchant-console {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.merchant-application-hero,
+.merchant-command-panel,
+.merchant-application-note,
+.merchant-field-summary,
+.merchant-shop-card,
+.merchant-config-hero,
+.merchant-config-panel,
+.merchant-credential-card,
+.merchant-checklist-card,
+.merchant-integration-card {
+    border: 1px solid rgba(var(--front-color-primary-rgb), 0.12);
+    border-radius: 8px;
+    background: var(--front-color-white);
+}
+
+.merchant-application-hero,
+.merchant-config-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.95rem 1rem;
+    border-color: rgba(var(--front-color-merchant-rgb), 0.16);
+    background:
+        linear-gradient(135deg, rgba(var(--front-color-merchant-rgb), 0.1), rgba(var(--front-color-merchant-accent-rgb), 0.035)),
+        var(--front-color-white);
+    box-shadow: 0 12px 26px -24px rgba(var(--front-color-merchant-rgb), 0.45);
+}
+
+.merchant-application-hero__intro,
+.merchant-config-hero__copy {
+    min-width: 0;
+    max-width: 40rem;
+}
+
+.merchant-application-hero__eyebrow,
+.merchant-command-panel__eyebrow,
+.merchant-section-head span,
+.merchant-config-hero__eyebrow,
+.merchant-credential-card__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--front-color-merchant);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.merchant-application-hero h2,
+.merchant-command-panel h2,
+.merchant-config-hero h2 {
+    color: var(--front-color-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0.3rem 0 0.28rem;
+}
+
+.merchant-application-hero p,
+.merchant-command-panel p,
+.merchant-config-hero p {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    line-height: 1.5;
+    margin: 0;
+    max-width: 46rem;
+}
+
+.merchant-process-rail {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex: 0 0 auto;
+}
+
+.merchant-process-step {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.48rem;
+    min-width: 7.4rem;
+    min-height: 3.25rem;
+    padding: 0.5rem 0.58rem;
+    border-radius: 8px;
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.14);
+    background: rgba(var(--front-color-white-rgb), 0.78);
+}
+
+.merchant-process-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: calc(100% + 0.15rem);
+    top: 50%;
+    width: 0.25rem;
+    height: 1px;
+    background: rgba(var(--front-color-merchant-rgb), 0.28);
+}
+
+.merchant-process-step span {
+    width: 1.75rem;
+    height: 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 1.75rem;
+    border-radius: 8px;
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.merchant-process-step.is-active span {
+    color: var(--front-color-white);
+    background: var(--front-color-merchant);
+}
+
+.merchant-process-step strong,
+.merchant-process-step small {
+    display: block;
+    line-height: 1.2;
+}
+
+.merchant-process-step strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+}
+
+.merchant-process-step small {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    margin-top: 0.18rem;
+}
+
+.merchant-application-main {
+    display: grid;
+    grid-template-columns: minmax(14.5rem, 18rem) minmax(0, 1fr);
+    gap: 0.9rem;
+    padding: 0.9rem;
+    border: 1px solid rgba(var(--front-color-primary-rgb), 0.1);
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(var(--front-color-primary-rgb), 0.025), rgba(var(--front-color-white-rgb), 0)),
+        var(--front-color-white);
+}
+
+.merchant-application-main--edit {
+    grid-template-columns: minmax(13rem, 16.5rem) minmax(0, 1fr);
+    gap: 0.8rem;
+    padding: 0.78rem;
+}
+
+.merchant-application-logo,
+.merchant-application-fields {
+    min-width: 0;
+}
+
+.merchant-application-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.merchant-logo-uploader {
+    min-width: 0;
+}
+
+.merchant-application-logo .avatar-upload {
+    min-height: 9.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px dashed rgba(var(--front-color-merchant-rgb), 0.24);
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(var(--front-color-merchant-rgb), 0.045), rgba(var(--front-color-merchant-accent-rgb), 0.025)),
+        var(--front-color-white);
+    overflow: hidden;
+}
+
+.merchant-application-logo .avatar-upload::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(var(--front-color-white-rgb), 0.38), rgba(var(--front-color-white-rgb), 0));
+}
+
+.merchant-application-logo .avatar-edit {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.65rem;
+    z-index: 2;
+}
+
+.merchant-application-logo .avatar-edit label {
+    width: 2.15rem;
+    height: 2.15rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.18);
+    background: var(--front-color-white);
+    border-radius: 8px;
+    box-shadow: 0 8px 18px -16px rgba(var(--front-color-black-rgb), 0.45);
+}
+
+.merchant-application-logo .avatar-preview {
+    position: relative;
+    z-index: 1;
+    width: 6.35rem;
+    height: 6.35rem;
+    border-radius: 8px;
+    background: rgba(var(--front-color-white-rgb), 0.76);
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.1);
+    box-shadow: 0 12px 24px -22px rgba(var(--front-color-merchant-rgb), 0.7);
+}
+
+.merchant-application-logo .avatar-preview > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-size: 82%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.merchant-application-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.merchant-field-title span,
+.merchant-field-title strong,
+.merchant-field-title small {
+    display: block;
+}
+
+.merchant-field-title span {
+    color: var(--front-color-merchant);
+    font-size: var(--front-font-2xs);
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.merchant-field-title strong {
+    color: var(--front-color-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-top: 0.15rem;
+}
+
+.merchant-field-title small,
+.merchant-upload-hint span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+}
+
+.merchant-upload-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 2.25rem;
+    padding: 0.48rem 0.62rem;
+    border-radius: 8px;
+    background: var(--front-color-surface);
+    border: 1px solid var(--front-color-border-soft);
+}
+
+.merchant-upload-hint i {
+    color: var(--front-color-merchant);
+}
+
+.merchant-demo-request {
+    display: grid;
+    gap: 0.18rem;
+    padding: 0.62rem 0.68rem;
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.12);
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(var(--front-color-merchant-rgb), 0.055), rgba(var(--front-color-merchant-accent-rgb), 0.035)),
+        var(--front-color-white);
+}
+
+.merchant-demo-request span,
+.merchant-demo-request strong,
+.merchant-demo-request small {
+    display: block;
+}
+
+.merchant-demo-request span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--front-color-merchant);
+    font-size: var(--front-font-2xs);
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.merchant-demo-request strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-sm);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.merchant-demo-request small {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.merchant-application-note {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.75rem;
+    min-height: 0;
+    background: rgba(var(--front-color-merchant-rgb), 0.07);
+    border-color: rgba(var(--front-color-merchant-rgb), 0.12);
+}
+
+.merchant-application-note__icon {
+    width: 2.05rem;
+    height: 2.05rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 2.05rem;
+    color: var(--front-color-white);
+    background: var(--front-color-merchant);
+    border-radius: 8px;
+    box-shadow: 0 8px 18px -14px rgba(var(--front-color-merchant-rgb), 0.9);
+    overflow: hidden;
+    text-align: center;
+}
+
+.merchant-application-note__icon i {
+    color: var(--front-color-white) !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1;
+    margin: 0;
+}
+
+.merchant-application-note > div > strong,
+.merchant-application-note > div > span {
+    display: block;
+}
+
+.merchant-application-note > div > strong {
+    color: var(--front-color-heading);
+    font-weight: 800;
+}
+
+.merchant-application-note > div > span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    line-height: 1.45;
+    margin-top: 0.12rem;
+}
+
+.merchant-application-note--compact {
+    padding: 0.62rem 0.68rem;
+}
+
+.merchant-application-form {
+    display: block;
+}
+
+.merchant-application-form .form-label {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    margin-bottom: 0.35rem;
+}
+
+.merchant-application-form .form-control,
+.merchant-application-form .form-select {
+    min-height: 2.65rem;
+    border-color: rgba(var(--front-color-merchant-rgb), 0.16);
+    border-radius: 8px;
+    background-color: var(--front-color-white);
+}
+
+.merchant-application-form textarea.form-control {
+    min-height: 5.8rem;
+    resize: vertical;
+}
+
+.merchant-application-form .form-control:focus,
+.merchant-application-form .form-select:focus {
+    border-color: var(--front-color-merchant);
+    box-shadow: 0 0 0 0.18rem rgba(var(--front-color-merchant-rgb), 0.12);
+}
+
+.merchant-currency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem;
+}
+
+.merchant-currency-card__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.merchant-currency-card {
+    min-height: 3.65rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.58rem;
+    border: 1px solid rgba(var(--front-color-primary-rgb), 0.12);
+    border-radius: 8px;
+    background: var(--front-color-white);
+    cursor: pointer;
+    transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+}
+
+.merchant-currency-card:hover {
+    border-color: rgba(var(--front-color-merchant-rgb), 0.34);
+    background: rgba(var(--front-color-merchant-rgb), 0.035);
+}
+
+.merchant-currency-card__mark {
+    width: 1.7rem;
+    height: 1.7rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 1.7rem;
+    color: transparent;
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.18);
+    border-radius: 8px;
+    background: var(--front-color-surface);
+}
+
+.merchant-currency-card__mark i {
+    font-size: 0.75rem;
+    line-height: 1;
+}
+
+.merchant-currency-card__body {
+    min-width: 0;
+}
+
+.merchant-currency-card__body strong,
+.merchant-currency-card__body small {
+    display: block;
+}
+
+.merchant-currency-card__body strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+}
+
+.merchant-currency-card__body small {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    margin-top: 0.08rem;
+    overflow-wrap: anywhere;
+}
+
+.merchant-currency-card__input:checked + .merchant-currency-card {
+    border-color: rgba(var(--front-color-merchant-rgb), 0.46);
+    background: rgba(var(--front-color-merchant-rgb), 0.08);
+    box-shadow: 0 10px 20px -19px rgba(var(--front-color-merchant-rgb), 0.7);
+}
+
+.merchant-currency-card__input:checked + .merchant-currency-card .merchant-currency-card__mark {
+    color: var(--front-color-white);
+    background: var(--front-color-merchant);
+    border-color: var(--front-color-merchant);
+}
+
+.merchant-application-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-top: 0.15rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(var(--front-color-primary-rgb), 0.08);
+}
+
+.merchant-application-actions strong,
+.merchant-application-actions span {
+    display: block;
+}
+
+.merchant-application-actions strong {
+    color: var(--front-color-heading);
+    font-weight: 800;
+}
+
+.merchant-application-actions span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-sm);
+    margin-top: 0.12rem;
+}
+
+.merchant-application-actions .btn {
+    min-height: 2.55rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    white-space: nowrap;
+}
+
+.merchant-field-summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 3.25rem;
+    padding: 0.75rem;
+    background: var(--front-color-surface);
+}
+
+.merchant-field-summary--compact {
+    min-height: 0;
+    padding: 0.62rem;
+    background:
+        linear-gradient(135deg, rgba(var(--front-color-merchant-rgb), 0.08), rgba(var(--front-color-merchant-accent-rgb), 0.035)),
+        var(--front-color-white);
+}
+
+.merchant-field-summary__icon,
+.merchant-field-summary__logo {
+    width: 2.4rem;
+    height: 2.4rem;
+    flex: 0 0 2.4rem;
+    border-radius: 8px;
+}
+
+.merchant-field-summary__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--front-color-white);
+    background: var(--front-color-merchant);
+}
+
+.merchant-field-summary__logo {
+    object-fit: contain;
+    padding: 0.2rem;
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.14);
+    background: var(--front-color-white);
+}
+
+.merchant-field-summary strong,
+.merchant-field-summary span {
+    display: block;
+}
+
+.merchant-field-summary strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-sm);
+    font-weight: 800;
+}
+
+.merchant-field-summary span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    margin-top: 0.15rem;
+    overflow-wrap: anywhere;
+}
+
+.merchant-command-panel {
+    display: grid;
+    grid-template-columns: minmax(16rem, 0.95fr) minmax(0, 1.45fr);
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.78rem;
+}
+
+.merchant-command-panel__identity {
+    display: flex;
+    align-items: center;
+    gap: 0.78rem;
+    min-width: 0;
+}
+
+.merchant-command-panel__empty-icon,
+.merchant-command-panel__logo {
+    width: 4.25rem;
+    height: 4.25rem;
+    flex: 0 0 4.25rem;
+    border-radius: 8px;
+}
+
+.merchant-command-panel__logo {
+    object-fit: cover;
+    border: 1px solid rgba(var(--front-color-primary-rgb), 0.12);
+    background: var(--front-color-white);
+    box-shadow: 0 12px 22px -20px rgba(var(--front-color-black-rgb), 0.42);
+}
+
+.merchant-command-panel__empty-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    font-size: 1.65rem;
+}
+
+.merchant-command-panel__meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.45rem;
+}
+
+.merchant-command-panel__facts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.45rem;
+    width: 100%;
+}
+
+.merchant-command-panel__facts div {
+    min-height: 3.45rem;
+    padding: 0.58rem;
+    border-radius: 8px;
+    background: rgba(var(--front-color-white-rgb), 0.72);
+    border: 1px solid var(--front-color-border-soft);
+}
+
+.merchant-command-panel__facts span,
+.merchant-command-panel__facts strong {
+    display: block;
+}
+
+.merchant-command-panel__facts span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.32rem;
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.merchant-command-panel__facts span i {
+    color: var(--front-color-merchant);
+    font-size: 0.95rem;
+}
+
+.merchant-command-panel p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.merchant-command-panel__facts strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-sm);
+    font-weight: 800;
+    margin-top: 0.18rem;
+    overflow-wrap: anywhere;
+}
+
+.merchant-command-panel--success {
+    border-color: rgba(25, 135, 84, 0.22);
+    background: linear-gradient(135deg, rgba(25, 135, 84, 0.08), var(--front-color-white));
+}
+
+.merchant-command-panel--warning,
+.merchant-command-panel--info,
+.merchant-command-panel--neutral {
+    border-color: rgba(var(--front-color-merchant-rgb), 0.18);
+}
+
+.merchant-command-panel--danger {
+    border-color: rgba(220, 53, 69, 0.22);
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.08), var(--front-color-white));
+}
+
+.merchant-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.merchant-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.58rem;
+    min-height: 4.25rem;
+    padding: 0.62rem;
+    border: 1px solid rgba(var(--front-color-primary-rgb), 0.1);
+    border-radius: 8px;
+    background: var(--front-color-white);
+}
+
+.merchant-stat__icon {
+    width: 2.55rem;
+    height: 2.55rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 2.55rem;
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    border-radius: 8px;
+}
+
+.merchant-stat__icon i {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.08rem;
+    color: var(--front-color-merchant) !important;
+    line-height: 1;
+    margin: 0 !important;
+}
+
+.merchant-stat span,
+.merchant-stat strong,
+.merchant-stat small {
+    display: block;
+}
+
+.merchant-stat span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    font-weight: 700;
+}
+
+.merchant-stat strong {
+    color: var(--front-color-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-top: 0.1rem;
+}
+
+.merchant-stat small {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    line-height: 1.25;
+    margin-top: 0.08rem;
+}
+
+.merchant-shop-list {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.merchant-shop-list__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    min-height: 3.15rem;
+    padding: 0.62rem 0.72rem;
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.12);
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(var(--front-color-merchant-rgb), 0.055), rgba(var(--front-color-merchant-accent-rgb), 0.025)),
+        var(--front-color-white);
+}
+
+.merchant-shop-list__head span,
+.merchant-shop-list__head strong,
+.merchant-shop-list__head small {
+    display: block;
+}
+
+.merchant-shop-list__head span {
+    color: var(--front-color-merchant);
+    font-size: var(--front-font-2xs);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.merchant-shop-list__head strong {
+    color: var(--front-color-heading);
+    font-weight: 800;
+    margin-top: 0.05rem;
+}
+
+.merchant-shop-list__head small {
+    flex: 0 1 18rem;
+    max-width: 18rem;
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    line-height: 1.35;
+    text-align: right;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+.merchant-shop-card {
+    display: grid;
+    grid-template-columns: minmax(16.5rem, 1.08fr) minmax(11.5rem, 0.82fr) minmax(20rem, 1.25fr);
+    align-items: center;
+    gap: 0.68rem;
+    padding: 0.68rem;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.merchant-shop-card:hover {
+    border-color: rgba(var(--front-color-merchant-rgb), 0.24);
+    box-shadow: 0 12px 24px -22px rgba(var(--front-color-merchant-rgb), 0.7);
+    transform: translateY(-1px);
+}
+
+.merchant-shop-card__identity {
+    display: flex;
+    align-items: center;
+    gap: 0.68rem;
+    min-width: 0;
+}
+
+.merchant-shop-card__logo {
+    width: 3.55rem;
+    height: 3.55rem;
+    flex: 0 0 3.55rem;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid rgba(var(--front-color-primary-rgb), 0.12);
+    background: var(--front-color-white);
+}
+
+.merchant-shop-card__name,
+.merchant-shop-card__url,
+.merchant-shop-card__label {
+    overflow-wrap: anywhere;
+}
+
+.merchant-shop-card__title-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.42rem;
+}
+
+.merchant-shop-card__title-line .badge {
+    margin-top: 0 !important;
+}
+
+.merchant-shop-card__name {
+    display: block;
+    color: var(--front-color-heading);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.merchant-shop-card__url {
+    display: inline-block;
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    line-height: 1.25;
+    margin-top: 0.16rem;
+    text-decoration: none;
+}
+
+.merchant-shop-card__url:hover,
+.merchant-shop-card__url:focus {
+    color: var(--front-color-merchant);
+}
+
+.merchant-shop-card__badges {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.28rem;
+    margin-top: 0.38rem;
+}
+
+.merchant-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.24rem;
+    min-height: 1.58rem;
+    padding: 0.2rem 0.38rem;
+    border-radius: 8px;
+    color: var(--front-color-merchant-dark);
+    background: var(--front-color-merchant-soft);
+    border: 1px solid var(--front-color-merchant-soft-border);
+    font-size: var(--front-font-2xs);
+    font-weight: 800;
+}
+
+.merchant-chip i {
+    font-size: 0.92rem;
+}
+
+.merchant-chip--muted {
+    color: var(--front-color-muted);
+    background: var(--front-color-surface);
+    border-color: var(--front-color-border-soft);
+}
+
+.merchant-chip--wallet {
+    color: var(--front-color-merchant-dark);
+    background: rgba(var(--front-color-merchant-rgb), 0.08);
+    border-color: rgba(var(--front-color-merchant-rgb), 0.16);
+}
+
+.merchant-chip--wallet.is-missing {
+    color: #9a6700;
+    background: rgba(255, 193, 7, 0.12);
+    border-color: rgba(255, 193, 7, 0.26);
+}
+
+.merchant-status-note {
+    display: grid;
+    grid-template-columns: 1.45rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.38rem;
+    padding: 0.34rem 0.4rem;
+    border: 1px solid var(--front-color-border-soft);
+    border-radius: 8px;
+    background: var(--front-color-surface);
+}
+
+.merchant-status-note > i {
+    width: 1.45rem;
+    height: 1.45rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    font-size: 0.82rem;
+    line-height: 1;
+    margin: 0 !important;
+}
+
+.merchant-status-note strong,
+.merchant-status-note span {
+    display: block;
+}
+
+.merchant-status-note strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.merchant-status-note span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    line-height: 1.22;
+    margin-top: 0.06rem;
+}
+
+.merchant-status-note--success {
+    background: rgba(25, 135, 84, 0.06);
+    border-color: rgba(25, 135, 84, 0.18);
+}
+
+.merchant-status-note--success > i {
+    color: #198754;
+    background: rgba(25, 135, 84, 0.12);
+}
+
+.merchant-status-note--warning {
+    background: rgba(255, 193, 7, 0.08);
+    border-color: rgba(255, 193, 7, 0.24);
+}
+
+.merchant-status-note--warning > i {
+    color: #9a6700;
+    background: rgba(255, 193, 7, 0.16);
+}
+
+.merchant-status-note--danger {
+    background: rgba(220, 53, 69, 0.06);
+    border-color: rgba(220, 53, 69, 0.18);
+}
+
+.merchant-status-note--danger > i {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.12);
+}
+
+.merchant-shop-card__rail {
+    display: grid;
+    gap: 0.38rem;
+    min-width: 0;
+}
+
+.merchant-shop-card__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.36rem;
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.merchant-shop-card__label i {
+    color: var(--front-color-merchant);
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.merchant-currency-rail {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.32rem;
+}
+
+.merchant-currency-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    min-height: 1.72rem;
+    padding: 0.22rem 0.48rem;
+    color: var(--front-color-muted);
+    background: var(--front-color-surface);
+    border: 1px solid var(--front-color-border-soft);
+    border-radius: 8px;
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.merchant-currency-pill i {
+    font-size: 0.9rem;
+}
+
+.merchant-currency-pill.is-primary {
+    color: var(--front-color-white);
+    background: var(--front-color-merchant);
+    border-color: var(--front-color-merchant);
+}
+
+.merchant-currency-pill.is-missing {
+    color: #a15c00;
+    background: rgba(255, 193, 7, 0.14);
+    border-color: rgba(255, 193, 7, 0.32);
+}
+
+.merchant-shop-card__rail small {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    line-height: 1.25;
+}
+
+.merchant-shop-card__fact-list {
+    display: grid;
+    grid-template-columns: minmax(7.4rem, 1.35fr) minmax(5.35rem, 0.78fr) minmax(4.7rem, 0.65fr);
+    gap: 0.32rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.merchant-shop-card__fact-list li {
+    min-height: 3.1rem;
+    display: grid;
+    grid-template-columns: 1.35rem minmax(0, 1fr);
+    align-items: center;
+    column-gap: 0.26rem;
+    padding: 0.36rem;
+    border: 1px solid var(--front-color-border-soft);
+    border-radius: 8px;
+    background: var(--front-color-surface);
+}
+
+.merchant-shop-card__fact-list i,
+.merchant-shop-card__fact-list span,
+.merchant-shop-card__fact-list strong {
+    display: block;
+}
+
+.merchant-shop-card__fact-list i {
+    grid-row: 1 / span 2;
+    width: 1.35rem;
+    height: 1.35rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    border-radius: 7px;
+    font-size: 0.95rem;
+    line-height: 1;
+    margin: 0 !important;
+}
+
+.merchant-shop-card__fact-list span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.merchant-shop-card__fact-list strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    line-height: 1.25;
+    overflow-wrap: normal;
+    white-space: nowrap;
+}
+
+.merchant-shop-card__ops {
+    display: grid;
+    gap: 0.42rem;
+    min-width: 0;
+}
+
+.merchant-shop-card__actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.34rem;
+    min-width: 0;
+}
+
+.merchant-shop-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.34rem;
+    min-height: 2.05rem;
+    padding: 0.34rem 0.44rem;
+    border-radius: 8px;
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.merchant-shop-action i {
+    width: 1rem;
+    height: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1;
+    margin: 0 !important;
+}
+
+.merchant-shop-action.disabled,
+.merchant-shop-action[aria-disabled="true"] {
+    pointer-events: none;
+    opacity: 0.62;
+}
+
+.merchant-config-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.92fr);
+    align-items: start;
+    gap: 0.85rem;
+}
+
+.merchant-config-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.55rem;
+    margin: 0.72rem 0 0.85rem;
+}
+
+.merchant-config-summary div {
+    min-height: 4.05rem;
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    align-items: center;
+    column-gap: 0.5rem;
+    padding: 0.58rem;
+    border: 1px solid rgba(var(--front-color-primary-rgb), 0.1);
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(var(--front-color-primary-rgb), 0.035), rgba(var(--front-color-merchant-rgb), 0.025)),
+        var(--front-color-white);
+}
+
+.merchant-config-summary i {
+    grid-row: 1 / span 2;
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    border-radius: 8px;
+    line-height: 1;
+}
+
+.merchant-config-summary span,
+.merchant-config-summary strong {
+    display: block;
+    min-width: 0;
+}
+
+.merchant-config-summary span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    font-weight: 800;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.merchant-config-summary strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-top: 0.14rem;
+    overflow-wrap: anywhere;
+}
+
+.merchant-config-panel,
+.merchant-checklist-card,
+.merchant-integration-card {
+    padding: 0.78rem;
+}
+
+.merchant-config-panel__head,
+.merchant-checklist-card__head,
+.merchant-integration-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.62rem;
+}
+
+.merchant-config-panel__head h3,
+.merchant-checklist-card__head h3,
+.merchant-integration-card__head h3 {
+    color: var(--front-color-heading);
+    font-size: 0.98rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.merchant-config-panel__head p,
+.merchant-checklist-card__head p,
+.merchant-integration-card__head p {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    line-height: 1.45;
+    margin: 0.14rem 0 0;
+}
+
+.merchant-panel-icon {
+    width: 2.08rem;
+    height: 2.08rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 2.08rem;
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    border-radius: 8px;
+}
+
+.merchant-panel-icon i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    line-height: 1;
+}
+
+.merchant-config-pill {
+    min-height: 1.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    flex: 0 0 auto;
+    padding: 0.28rem 0.55rem;
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    border: 1px solid var(--front-color-merchant-soft-border);
+    border-radius: 8px;
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.merchant-config-pill i {
+    font-size: 0.88rem;
+    line-height: 1;
+    margin: 0 !important;
+}
+
+.merchant-environment-switch {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.42rem;
+    padding: 0.28rem;
+    border-radius: 8px;
+    background: var(--front-color-surface);
+    border: 1px solid var(--front-color-border-soft);
+}
+
+.merchant-environment-btn {
+    display: grid;
+    grid-template-columns: 1.75rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.42rem;
+    min-height: 3.05rem;
+    padding: 0.42rem 0.5rem;
+    border-radius: 8px;
+    color: var(--front-color-text);
+    text-align: left;
+    font-weight: 800;
+    border: 1px solid transparent;
+    background: transparent;
+}
+
+.merchant-environment-btn__icon,
+.merchant-environment-btn__lock {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    line-height: 1;
+}
+
+.merchant-environment-btn__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--front-color-merchant);
+    background: var(--front-color-white);
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.12);
+}
+
+.merchant-environment-btn__copy {
+    display: block;
+    min-width: 0;
+}
+
+.merchant-environment-btn__copy strong,
+.merchant-environment-btn__copy small {
+    display: block;
+}
+
+.merchant-environment-btn__copy strong {
+    font-size: var(--front-font-xs);
+    line-height: 1.15;
+}
+
+.merchant-environment-btn__copy small {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 0.12rem;
+}
+
+.merchant-environment-btn__lock {
+    width: 1.35rem;
+    height: 1.35rem;
+    color: #9a6700;
+    background: rgba(255, 193, 7, 0.16);
+    border: 1px solid rgba(255, 193, 7, 0.28);
+}
+
+.merchant-environment-btn.is-locked {
+    cursor: not-allowed;
+}
+
+.merchant-environment-btn.active {
+    color: var(--front-color-white);
+    background: var(--front-gradient-merchant);
+    border-color: var(--front-color-merchant);
+}
+
+.merchant-environment-btn.active .merchant-environment-btn__icon {
+    color: var(--front-color-merchant);
+    background: var(--front-color-white);
+}
+
+.merchant-environment-btn.active .merchant-environment-btn__copy small {
+    color: rgba(var(--front-color-white-rgb), 0.82);
+}
+
+.merchant-environment-lock-note {
+    display: grid;
+    grid-template-columns: 1.55rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.42rem;
+    margin-top: 0.52rem;
+    padding: 0.48rem 0.58rem;
+    color: #805500;
+    background: rgba(255, 193, 7, 0.11);
+    border: 1px solid rgba(255, 193, 7, 0.25);
+    border-radius: 8px;
+    font-size: var(--front-font-xs);
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.merchant-environment-lock-note i {
+    width: 1.55rem;
+    height: 1.55rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #9a6700;
+    background: rgba(255, 193, 7, 0.16);
+    border-radius: 7px;
+}
+
+.merchant-mode-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.58rem;
+    padding: 0.62rem;
+    border-radius: 8px;
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.14);
+    background: rgba(var(--front-color-merchant-rgb), 0.06);
+    color: var(--front-color-text);
+    margin-top: 0.7rem;
+}
+
+.merchant-mode-alert i {
+    color: var(--front-color-merchant);
+    margin-top: 0.1rem;
+    width: 1.25rem;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.merchant-mode-alert strong,
+.merchant-mode-alert span {
+    display: block;
+}
+
+.merchant-mode-alert strong {
+    color: var(--front-color-heading);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.merchant-mode-alert span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    line-height: 1.45;
+    margin-top: 0.12rem;
+}
+
+.merchant-credential-grid {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.merchant-credential-card {
+    display: grid;
+    grid-template-columns: 2.1rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.58rem;
+}
+
+.merchant-credential-card__icon {
+    width: 2.1rem;
+    height: 2.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    border-radius: 8px;
+}
+
+.merchant-credential-card strong,
+.merchant-credential-card code,
+.merchant-credential-card small {
+    display: block;
+}
+
+.merchant-credential-card strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.merchant-credential-card code {
+    color: var(--front-color-text);
+    font-family: var(--front-font-mono);
+    font-size: var(--front-font-xs);
+    margin-top: 0.12rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.merchant-credential-card small {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    line-height: 1.25;
+    margin-top: 0.08rem;
+}
+
+.merchant-credential-guide {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin-top: 0.58rem;
+}
+
+.merchant-credential-guide div {
+    min-height: 5rem;
+    padding: 0.55rem;
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.12);
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(var(--front-color-merchant-rgb), 0.055), rgba(var(--front-color-merchant-accent-rgb), 0.025)),
+        var(--front-color-white);
+}
+
+.merchant-credential-guide i,
+.merchant-credential-guide strong,
+.merchant-credential-guide span {
+    display: block;
+}
+
+.merchant-credential-guide i {
+    width: 1.7rem;
+    height: 1.7rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    border-radius: 7px;
+    line-height: 1;
+    margin: 0 0 0.35rem !important;
+}
+
+.merchant-credential-guide strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.merchant-credential-guide span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    line-height: 1.32;
+    margin-top: 0.18rem;
+}
+
+.merchant-copy-btn {
+    width: 2.05rem;
+    height: 2.05rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    border: 1px solid var(--front-color-merchant-soft-border);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.merchant-copy-btn:hover,
+.merchant-copy-btn:focus {
+    color: var(--front-color-white);
+    background: var(--front-color-merchant);
+    border-color: var(--front-color-merchant);
+}
+
+.merchant-checklist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.merchant-checklist li {
+    display: grid;
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+    gap: 0.42rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: var(--front-color-surface);
+    border: 1px solid var(--front-color-border-soft);
+}
+
+.merchant-checklist i {
+    width: 1.75rem;
+    height: 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--front-color-merchant);
+    background: var(--front-color-merchant-soft);
+    border-radius: 8px;
+}
+
+.merchant-checklist strong,
+.merchant-checklist span {
+    display: block;
+}
+
+.merchant-checklist strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.merchant-checklist span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    line-height: 1.45;
+    margin-top: 0.08rem;
+}
+
+.merchant-integration-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.42rem;
+}
+
+.merchant-integration-actions .btn {
+    min-height: 2.28rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    white-space: nowrap;
+}
+
+.merchant-gateway-form {
+    display: block;
+}
+
+.merchant-gateway-statusbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.36rem;
+    margin-bottom: 0.55rem;
+}
+
+.merchant-gateway-statusbar span {
+    min-height: 1.7rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    padding: 0.22rem 0.46rem;
+    color: var(--front-color-muted);
+    background: var(--front-color-surface);
+    border: 1px solid var(--front-color-border-soft);
+    border-radius: 8px;
+    font-size: var(--front-font-2xs);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.merchant-gateway-statusbar i {
+    color: var(--front-color-merchant);
+    font-size: 0.9rem;
+}
+
+.merchant-gateway-grid {
+    display: grid;
+    gap: 0.42rem;
+}
+
+.merchant-gateway-grid--scroll {
+    max-height: 16.25rem;
+    overflow-y: auto;
+    padding-right: 0.18rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--front-color-merchant-rgb), 0.46) rgba(var(--front-color-primary-rgb), 0.06);
+}
+
+.merchant-gateway-grid--scroll::-webkit-scrollbar {
+    width: 0.42rem;
+}
+
+.merchant-gateway-grid--scroll::-webkit-scrollbar-track {
+    background: rgba(var(--front-color-primary-rgb), 0.06);
+    border-radius: 999px;
+}
+
+.merchant-gateway-grid--scroll::-webkit-scrollbar-thumb {
+    background: rgba(var(--front-color-merchant-rgb), 0.46);
+    border-radius: 999px;
+}
+
+.merchant-gateway-card__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.merchant-gateway-card {
+    min-height: 3.65rem;
+    display: grid;
+    grid-template-columns: 1.65rem 2.15rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.48rem;
+    padding: 0.48rem;
+    border: 1px solid rgba(var(--front-color-primary-rgb), 0.12);
+    border-radius: 8px;
+    background: var(--front-color-white);
+    cursor: pointer;
+    transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+}
+
+.merchant-gateway-card:hover {
+    border-color: rgba(var(--front-color-merchant-rgb), 0.34);
+    background: rgba(var(--front-color-merchant-rgb), 0.035);
+}
+
+.merchant-gateway-card__mark {
+    width: 1.65rem;
+    height: 1.65rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.18);
+    border-radius: 8px;
+    background: var(--front-color-surface);
+}
+
+.merchant-gateway-card__logo {
+    width: 2.15rem;
+    height: 2.15rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--front-color-border-soft);
+    border-radius: 8px;
+    background: var(--front-color-surface);
+    overflow: hidden;
+}
+
+.merchant-gateway-card__logo img {
+    max-width: 1.62rem;
+    max-height: 1.62rem;
+    object-fit: contain;
+}
+
+.merchant-gateway-card__body {
+    min-width: 0;
+}
+
+.merchant-gateway-card__body strong,
+.merchant-gateway-card__body small {
+    display: block;
+}
+
+.merchant-gateway-card__body strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.merchant-gateway-card__body small {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    margin-top: 0.06rem;
+    overflow-wrap: anywhere;
+}
+
+.merchant-gateway-card__input:checked + .merchant-gateway-card {
+    border-color: rgba(var(--front-color-merchant-rgb), 0.46);
+    background: rgba(var(--front-color-merchant-rgb), 0.08);
+    box-shadow: 0 10px 20px -19px rgba(var(--front-color-merchant-rgb), 0.7);
+}
+
+.merchant-gateway-card__input:checked + .merchant-gateway-card .merchant-gateway-card__mark {
+    color: var(--front-color-white);
+    background: var(--front-color-merchant);
+    border-color: var(--front-color-merchant);
+}
+
+.merchant-gateway-save {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.65rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid rgba(var(--front-color-primary-rgb), 0.08);
+}
+
+.merchant-gateway-save span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-xs);
+    font-weight: 800;
+}
+
+.merchant-gateway-save .btn {
+    min-height: 2.3rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    white-space: nowrap;
+}
+
+.merchant-config-hero__identity {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    min-width: 0;
+}
+
+.merchant-config-hero__logo {
+    width: 4.35rem;
+    height: 4.35rem;
+    flex: 0 0 4.35rem;
+    border-radius: 8px;
+    object-fit: cover;
+    background: var(--front-color-white);
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.16);
+}
+
+.merchant-config-hero__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(5.5rem, 1fr));
+    gap: 0.45rem;
+    flex: 0 0 min(100%, 26rem);
+}
+
+.merchant-config-hero__stats div {
+    min-height: 3.7rem;
+    padding: 0.65rem;
+    border-radius: 8px;
+    background: rgba(var(--front-color-white-rgb), 0.78);
+    border: 1px solid rgba(var(--front-color-merchant-rgb), 0.14);
+}
+
+.merchant-config-hero__stats span,
+.merchant-config-hero__stats strong {
+    display: block;
+}
+
+.merchant-config-hero__stats span {
+    color: var(--front-color-muted);
+    font-size: var(--front-font-2xs);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.merchant-config-hero__stats strong {
+    color: var(--front-color-heading);
+    font-size: var(--front-font-sm);
+    font-weight: 800;
+    margin-top: 0.2rem;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 1199.98px) {
+    .merchant-config-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1399.98px) {
+    .merchant-shop-card {
+        grid-template-columns: minmax(15.5rem, 1.08fr) minmax(11rem, 0.82fr) minmax(19rem, 1.25fr);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .merchant-application-hero,
+    .merchant-config-hero {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .merchant-command-panel {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .merchant-process-rail,
+    .merchant-stat-grid,
+    .merchant-command-panel__facts,
+    .merchant-config-summary,
+    .merchant-config-hero__stats {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .merchant-process-step {
+        min-width: 0;
+    }
+
+    .merchant-process-step:not(:last-child)::after {
+        display: none;
+    }
+
+    .merchant-application-main,
+    .merchant-application-main--edit,
+    .merchant-shop-card {
+        grid-template-columns: 1fr;
+    }
+
+    .merchant-shop-list__head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .merchant-shop-list__head small {
+        text-align: left;
+    }
+
+    .merchant-shop-card__actions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .merchant-shop-action {
+        flex: 1 1 auto;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .dashboard-user-layout .merchant-index-card {
+        margin-bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .dashboard-user-layout .merchant-index-card > .card-body,
+    .dashboard-user-layout .merchant-index-card > .card-main {
+        padding: 0.58rem;
+    }
+
+    .merchant-index-card .merchant-console {
+        gap: 0.5rem;
+        padding-bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px)) !important;
+    }
+
+    .dashboard-user-layout .merchant-index-card .user-feature-header {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0.52rem;
+        padding: 0.68rem !important;
+        border-radius: 8px;
+    }
+
+    .dashboard-user-layout .merchant-index-card .user-feature-header__main {
+        align-items: flex-start;
+        gap: 0.52rem;
+    }
+
+    .dashboard-user-layout .merchant-index-card .user-feature-header__icon {
+        width: 2.15rem;
+        height: 2.15rem;
+        flex: 0 0 2.15rem;
+    }
+
+    .dashboard-user-layout .merchant-index-card .user-feature-header__title {
+        font-size: 0.95rem;
+        line-height: 1.15;
+    }
+
+    .dashboard-user-layout .merchant-index-card .user-feature-header__subtitle {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        font-size: 0.72rem;
+        line-height: 1.32;
+    }
+
+    .dashboard-user-layout .merchant-index-card .user-feature-header__actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.42rem;
+        width: 100%;
+    }
+
+    .dashboard-user-layout .merchant-index-card .user-feature-header__actions .btn {
+        width: 100%;
+        min-height: 2rem;
+        padding: 0.34rem 0.45rem;
+        font-size: 0.72rem;
+        white-space: nowrap;
+    }
+
+    .merchant-application-hero,
+    .merchant-application-main,
+    .merchant-command-panel,
+    .merchant-shop-card,
+    .merchant-config-hero,
+    .merchant-config-panel,
+    .merchant-checklist-card,
+    .merchant-integration-card {
+        padding: 0.72rem;
+    }
+
+    .merchant-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+
+    .merchant-stat {
+        min-height: 3.65rem;
+        padding: 0.5rem;
+        gap: 0.45rem;
+    }
+
+    .merchant-stat__icon {
+        width: 2.1rem;
+        height: 2.1rem;
+        flex: 0 0 2.1rem;
+        border-radius: 8px;
+    }
+
+    .merchant-stat span {
+        font-size: var(--front-font-2xs);
+        line-height: 1.1;
+    }
+
+    .merchant-stat strong {
+        font-size: 0.98rem;
+        line-height: 1.15;
+        margin-top: 0.04rem;
+    }
+
+    .merchant-stat small {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        font-size: 0.64rem;
+        line-height: 1.2;
+        margin-top: 0.06rem;
+    }
+
+    .merchant-process-rail,
+    .merchant-command-panel__facts,
+    .merchant-checklist,
+    .merchant-currency-grid,
+    .merchant-credential-guide,
+    .merchant-config-summary,
+    .merchant-shop-card__fact-list,
+    .merchant-integration-actions,
+    .merchant-config-hero__stats {
+        grid-template-columns: 1fr;
+    }
+
+    .merchant-shop-list {
+        gap: 0.5rem;
+    }
+
+    .merchant-shop-list__head {
+        min-height: auto;
+        gap: 0.38rem;
+        padding: 0.58rem;
+    }
+
+    .merchant-shop-list__head strong {
+        font-size: 0.95rem;
+        line-height: 1.2;
+    }
+
+    .merchant-shop-list__head small {
+        flex: 0 1 auto;
+        max-width: none;
+        font-size: 0.72rem;
+        line-height: 1.3;
+        text-align: left;
+    }
+
+    .merchant-application-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .merchant-application-actions .btn {
+        width: 100%;
+    }
+
+    .merchant-environment-switch {
+        grid-template-columns: 1fr;
+    }
+
+    .merchant-shop-card {
+        gap: 0.45rem;
+        padding: 0.5rem;
+    }
+
+    .merchant-shop-card__identity {
+        display: grid;
+        grid-template-columns: 2.75rem minmax(0, 1fr);
+        align-items: flex-start;
+        gap: 0.48rem;
+    }
+
+    .merchant-shop-card__logo {
+        width: 2.75rem;
+        height: 2.75rem;
+        flex-basis: 2.75rem;
+    }
+
+    .merchant-shop-card__title-line {
+        gap: 0.3rem;
+    }
+
+    .merchant-shop-card__name {
+        font-size: 0.94rem;
+        line-height: 1.18;
+    }
+
+    .merchant-shop-card__url {
+        display: block;
+        max-width: 100%;
+        font-size: 0.72rem;
+        line-height: 1.2;
+        margin-top: 0.1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .merchant-shop-card__badges {
+        grid-column: 1 / -1;
+        gap: 0.26rem;
+        margin-top: 0.22rem;
+    }
+
+    .merchant-shop-card__badges .merchant-chip--muted {
+        display: none;
+    }
+
+    .merchant-chip {
+        min-height: 1.45rem;
+        padding: 0.18rem 0.36rem;
+        font-size: 0.66rem;
+    }
+
+    .merchant-shop-card__rail {
+        gap: 0.3rem;
+    }
+
+    .merchant-status-note {
+        grid-template-columns: 1.2rem minmax(0, 1fr);
+        gap: 0.3rem;
+        padding: 0.28rem 0.36rem;
+    }
+
+    .merchant-status-note > i {
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 6px;
+        font-size: 0.68rem;
+    }
+
+    .merchant-status-note strong {
+        font-size: 0.72rem;
+        line-height: 1.15;
+    }
+
+    .merchant-index-card .merchant-status-note span {
+        display: none;
+    }
+
+    .merchant-currency-rail {
+        gap: 0.26rem;
+    }
+
+    .merchant-currency-pill {
+        min-height: 1.55rem;
+        padding: 0.18rem 0.4rem;
+        font-size: 0.7rem;
+    }
+
+    .merchant-shop-card__fact-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.3rem;
+    }
+
+    .merchant-shop-card__fact-list li:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .merchant-shop-card__fact-list li {
+        min-height: 2.58rem;
+        grid-template-columns: 1.12rem minmax(0, 1fr);
+        padding: 0.32rem;
+    }
+
+    .merchant-shop-card__fact-list i {
+        width: 1.12rem;
+        height: 1.12rem;
+        font-size: 0.76rem;
+    }
+
+    .merchant-shop-card__fact-list span {
+        font-size: 0.58rem;
+    }
+
+    .merchant-shop-card__fact-list strong {
+        font-size: 0.7rem;
+        max-width: 100%;
+        overflow: hidden;
+        overflow-wrap: normal;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .merchant-shop-card__fact-list li:not(:first-child) strong {
+        white-space: normal;
+    }
+
+    .merchant-shop-card__actions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.32rem;
+    }
+
+    .merchant-shop-action {
+        width: 100%;
+        min-height: 2.05rem;
+        padding: 0.28rem 0.34rem;
+        font-size: 0.72rem;
+    }
+
+    .merchant-gateway-save {
+        grid-template-columns: 1fr;
+    }
+
+    .merchant-gateway-save .btn {
+        width: 100%;
+    }
+
+    .merchant-credential-card {
+        grid-template-columns: 2.4rem minmax(0, 1fr);
+    }
+
+    .merchant-copy-btn {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+	<defs>
+		<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color="#1c1c26"/>
+			<stop offset="100%" stop-color="#0A0A0F"/>
+		</linearGradient>
+		<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0%" stop-color="#F5E6A8"/>
+			<stop offset="50%" stop-color="#D4AF37"/>
+			<stop offset="100%" stop-color="#B8860B"/>
+		</linearGradient>
+	</defs>
+	<rect width="200" height="200" fill="url(#bg)"/>
+	<g transform="translate(100,100)">
+		<ellipse cx="0" cy="80" rx="80" ry="50" fill="#0A0A0F" opacity=".85"/>
+		<circle cx="0" cy="0" r="44" fill="#16161E"/>
+		<circle cx="0" cy="0" r="46" stroke="url(#gold)" stroke-width="1.4" fill="none" opacity=".6"/>
+		<text x="0" y="10" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif"
+		      font-style="italic" font-weight="600" font-size="24" fill="url(#gold)">YD</text>
+	</g>
+</svg>

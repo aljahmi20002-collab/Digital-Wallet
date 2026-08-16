@@ -1,0 +1,670 @@
+/*
+ * Admin Payment Link module — scoped under .pla-admin so it cannot leak
+ * into other backend modules. Uses ONLY design tokens from
+ * `public/backend/css/_variables.css` — no hardcoded hex / rgb /
+ * numeric font-size declarations.
+ *
+ * Mirrors the structural pattern used by `subscription-admin.css` and
+ * `wallet-earn.css` to stay visually consistent across the admin UI.
+ */
+
+.pla-admin {
+    --pla-text:           var(--color-text);
+    --pla-muted:          var(--color-text-muted);
+    --pla-soft:           var(--color-text-faint);
+    --pla-border:         rgba(var(--color-text-rgb), 0.1);
+    --pla-surface:        var(--color-card);
+    --pla-surface-alt:    var(--color-surface-alt);
+    --pla-primary:        var(--color-primary);
+    --pla-primary-soft:   var(--color-primary-soft);
+    --pla-success:        var(--color-success);
+    --pla-success-soft:   var(--color-success-soft);
+    --pla-warning:        var(--color-warning);
+    --pla-warning-soft:   var(--color-warning-soft);
+    --pla-danger:         var(--color-danger);
+    --pla-danger-soft:    var(--color-danger-soft);
+    --pla-info:           var(--color-info);
+    --pla-info-soft:      var(--color-info-soft);
+    color: var(--pla-text);
+}
+
+/* ─── Header ─────────────────────────────────────── */
+.pla-admin .pla-admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.pla-admin .pla-admin-header__title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: var(--font-size-rem-155);
+    font-weight: var(--font-extrabold);
+    line-height: 1.15;
+    color: var(--pla-text);
+}
+
+.pla-admin .pla-admin-header__icon {
+    display: inline-flex;
+    color: var(--pla-primary);
+}
+
+.pla-admin .pla-admin-header__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* ─── Shell ──────────────────────────────────────── */
+.pla-admin .pla-admin-shell {
+    border-radius: 0.55rem;
+    background: var(--pla-surface);
+}
+
+/* ─── KPI grid ───────────────────────────────────── */
+.pla-admin .pla-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.7rem;
+}
+
+.pla-admin .pla-kpi {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border: 1px solid var(--pla-border);
+    border-radius: 0.55rem;
+    padding: 1rem;
+    background: var(--pla-surface);
+}
+
+.pla-admin .pla-kpi__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 0.45rem;
+    flex-shrink: 0;
+    background: var(--pla-primary-soft);
+    color: var(--pla-primary);
+}
+
+.pla-admin .pla-kpi__icon--primary { background: var(--pla-primary-soft); color: var(--pla-primary); }
+.pla-admin .pla-kpi__icon--success { background: var(--pla-success-soft); color: var(--pla-success); }
+.pla-admin .pla-kpi__icon--warning { background: var(--pla-warning-soft); color: var(--pla-warning); }
+.pla-admin .pla-kpi__icon--info    { background: var(--pla-info-soft);    color: var(--pla-info); }
+.pla-admin .pla-kpi__icon--danger  { background: var(--pla-danger-soft);  color: var(--pla-danger); }
+
+.pla-admin .pla-kpi__label {
+    color: var(--pla-muted);
+    font-size: var(--font-size-rem-076);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.pla-admin .pla-kpi__value {
+    color: var(--pla-text);
+    font-size: var(--font-size-rem-115);
+    font-weight: var(--font-bold);
+    line-height: 1.2;
+}
+
+/* ─── Filter ─────────────────────────────────────── */
+.pla-admin .pla-filter {
+    border: 1px solid var(--pla-border);
+    border-radius: 0.55rem;
+    background: var(--pla-surface);
+    padding: 0.85rem 0.95rem;
+}
+
+.pla-admin .pla-filter__row {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.pla-admin .pla-filter__field {
+    flex: 1 1 160px;
+    min-width: 0;
+}
+
+.pla-admin .pla-filter__field--user {
+    flex-basis: 240px;
+}
+
+.pla-admin .pla-filter__field--check {
+    flex: 0 0 auto;
+    align-self: flex-end;
+    padding-bottom: 0.35rem;
+}
+
+.pla-admin .pla-filter__check {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0;
+    font-size: var(--font-size-rem-085);
+    color: var(--color-text-soft);
+}
+
+.pla-admin .pla-filter__actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pla-admin .pla-filter .form-label {
+    font-size: var(--font-size-rem-078);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-soft);
+}
+
+.pla-admin .pla-filter .form-control,
+.pla-admin .pla-filter .form-select {
+    border-color: var(--pla-border);
+    font-size: var(--font-size-rem-088);
+}
+
+/* ─── Table ──────────────────────────────────────── */
+.pla-admin .pla-table-card {
+    border: 1px solid var(--pla-border);
+    border-radius: 0.55rem;
+    background: var(--pla-surface);
+    overflow: hidden;
+}
+
+.pla-admin .pla-table {
+    width: 100%;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.pla-admin .pla-table thead th {
+    background: var(--pla-surface-alt);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-rem-076);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.85rem 0.9rem;
+    border-bottom: 1px solid var(--pla-border);
+    white-space: nowrap;
+}
+
+.pla-admin .pla-table tbody td {
+    padding: 0.82rem 0.9rem;
+    vertical-align: middle;
+    border-top: 1px solid var(--pla-border);
+    font-size: var(--font-size-rem-089);
+}
+
+.pla-admin .pla-table-card__footer {
+    padding: 0.75rem 0.9rem;
+    border-top: 1px solid var(--pla-border);
+}
+
+.pla-admin .pla-table-empty {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: var(--pla-soft);
+}
+
+.pla-admin .pla-table-empty svg {
+    display: block;
+    margin: 0 auto 0.6rem;
+    color: var(--pla-soft);
+}
+
+.pla-admin .pla-table-empty span {
+    display: block;
+}
+
+.pla-admin .pla-link-title {
+    font-size: var(--font-size-rem-088);
+    color: var(--pla-text);
+}
+
+.pla-admin .pla-token {
+    color: var(--color-text-subtle);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-rem-076);
+    overflow-wrap: anywhere;
+}
+
+.pla-admin .pla-amount {
+    font-size: var(--font-size-rem-088);
+    white-space: nowrap;
+}
+
+.pla-admin .pla-amount-meta {
+    font-size: var(--font-size-rem-073);
+    margin-top: 0.15rem;
+}
+
+.pla-admin .pla-muted {
+    color: var(--pla-muted);
+    font-size: var(--font-size-rem-08);
+}
+
+.pla-admin .pla-nowrap {
+    white-space: nowrap;
+}
+
+/* ─── User cell ──────────────────────────────────── */
+.pla-admin .pla-user {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
+}
+
+.pla-admin .pla-user__name {
+    font-weight: var(--font-semibold);
+    font-size: var(--font-size-rem-088);
+}
+
+.pla-admin .pla-user__email {
+    color: var(--pla-muted);
+    font-size: var(--font-size-rem-078);
+}
+
+/* ─── Pills ──────────────────────────────────────── */
+.pla-admin .pla-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.24rem 0.58rem;
+    border-radius: 999px;
+    font-size: var(--font-size-rem-073);
+    font-weight: var(--font-bold);
+    line-height: 1;
+}
+
+.pla-admin .pla-pill--success   { background: var(--pla-success-soft);          color: var(--color-success-deep); }
+.pla-admin .pla-pill--warning   { background: var(--pla-warning-soft);          color: var(--color-warning-deep); }
+.pla-admin .pla-pill--danger    { background: var(--pla-danger-soft);           color: var(--color-danger-deep); }
+.pla-admin .pla-pill--primary   { background: var(--pla-primary-soft);          color: var(--pla-primary); }
+.pla-admin .pla-pill--info      { background: var(--pla-info-soft);             color: var(--color-info-deep); }
+.pla-admin .pla-pill--secondary { background: var(--color-surface-soft);        color: var(--color-text-muted); }
+
+.pla-admin .pla-pill--xl {
+    min-height: 34px;
+    padding: 0.42rem 0.75rem;
+    font-size: var(--font-size-rem-08);
+}
+
+/* ─── Card ──────────────────────────────────────── */
+.pla-admin .pla-card {
+    border: 1px solid var(--pla-border);
+    border-radius: 0.55rem;
+    background: var(--pla-surface);
+    overflow: hidden;
+}
+
+.pla-admin .pla-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 1rem 1.1rem;
+    border-bottom: 1px solid var(--pla-border);
+}
+
+.pla-admin .pla-card__title {
+    margin: 0;
+    font-size: var(--font-size-rem-098);
+    font-weight: var(--font-bold);
+}
+
+.pla-admin .pla-card__subtitle {
+    color: var(--pla-muted);
+    font-size: var(--font-size-rem-08);
+}
+
+.pla-admin .pla-card__body {
+    padding: 1rem 1.1rem;
+}
+
+/* ─── Hero ──────────────────────────────────────── */
+.pla-admin .pla-hero {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(var(--color-primary-rgb), 0.16);
+    border-radius: 0.65rem;
+    padding: 1.15rem;
+    background:
+        linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.13), rgba(var(--color-info-rgb), 0.08) 42%, rgba(var(--color-success-rgb), 0.11)),
+        var(--pla-surface);
+}
+
+.pla-admin .pla-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -42px -58px auto;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(var(--color-primary-rgb), 0.1);
+    pointer-events: none;
+}
+
+.pla-admin .pla-hero__main,
+.pla-admin .pla-hero__aside {
+    position: relative;
+    z-index: 1;
+}
+
+.pla-admin .pla-hero__main {
+    min-width: 0;
+}
+
+.pla-admin .pla-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--color-primary-hover);
+    font-size: var(--font-size-rem-076);
+    font-weight: var(--font-extrabold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pla-admin .pla-hero__title {
+    margin: 0.35rem 0 0;
+    color: var(--pla-text);
+    font-size: var(--font-size-rem-155);
+    font-weight: var(--font-extrabold);
+    line-height: 1.2;
+}
+
+.pla-admin .pla-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.7rem;
+}
+
+.pla-admin .pla-hero__meta span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 0.25rem 0.62rem;
+    border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+    border-radius: 999px;
+    background: rgba(var(--color-white-rgb), 0.72);
+    color: var(--color-text-subtle);
+    font-size: var(--font-size-rem-078);
+    font-weight: var(--font-bold);
+}
+
+.pla-admin .pla-hero__aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.85rem;
+    flex-shrink: 0;
+}
+
+.pla-admin .pla-action-stack {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* ─── Stats strip ───────────────────────────────── */
+.pla-admin .pla-show-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.pla-admin .pla-show-stat {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.15rem 0.65rem;
+    align-items: center;
+    min-height: 96px;
+    border: 1px solid var(--pla-border);
+    border-radius: 0.6rem;
+    padding: 0.9rem;
+    background: var(--pla-surface);
+}
+
+.pla-admin .pla-show-stat__icon {
+    grid-row: span 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 0.55rem;
+}
+
+.pla-admin .pla-show-stat__icon--primary { background: var(--pla-primary-soft); color: var(--pla-primary); }
+.pla-admin .pla-show-stat__icon--info    { background: var(--pla-info-soft);    color: var(--pla-info); }
+.pla-admin .pla-show-stat__icon--success { background: var(--pla-success-soft); color: var(--pla-success); }
+.pla-admin .pla-show-stat__icon--warning { background: var(--pla-warning-soft); color: var(--pla-warning); }
+
+.pla-admin .pla-show-stat__label {
+    color: var(--pla-muted);
+    font-size: var(--font-size-rem-073);
+    font-weight: var(--font-extrabold);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.pla-admin .pla-show-stat__value {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: var(--pla-text);
+    font-size: var(--font-size-rem-096);
+    line-height: 1.25;
+}
+
+/* ─── Detail grid ───────────────────────────────── */
+.pla-admin .pla-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.pla-admin .pla-detail-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.12rem 0.65rem;
+    min-width: 0;
+    border: 1px solid rgba(var(--color-text-rgb), 0.08);
+    border-radius: 0.55rem;
+    padding: 0.85rem;
+    background: var(--pla-surface-alt);
+}
+
+.pla-admin .pla-detail-item__icon {
+    grid-row: span 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 0.45rem;
+    background: var(--color-white);
+    color: var(--pla-primary);
+    box-shadow: inset 0 0 0 1px rgba(var(--color-text-rgb), 0.06);
+}
+
+.pla-admin .pla-detail-item__label {
+    color: var(--pla-muted);
+    font-size: var(--font-size-rem-072);
+    font-weight: var(--font-extrabold);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.pla-admin .pla-detail-item__value {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: var(--pla-text);
+    font-size: var(--font-size-rem-09);
+    line-height: 1.35;
+}
+
+.pla-admin .pla-detail-item__meta {
+    color: var(--pla-muted);
+    font-size: var(--font-size-rem-078);
+    line-height: 1.35;
+}
+
+/* ─── Side panel ────────────────────────────────── */
+.pla-admin .pla-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-width: 0;
+}
+
+.pla-admin .pla-user-profile__avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 0.6rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-info));
+    color: var(--color-white);
+    flex-shrink: 0;
+    font-size: var(--font-size-rem-092);
+    font-weight: var(--font-extrabold);
+    text-transform: uppercase;
+}
+
+.pla-admin .pla-user-profile__content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.pla-admin .pla-user-profile__content strong,
+.pla-admin .pla-user-profile__content span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pla-admin .pla-user-profile__content strong {
+    color: var(--pla-text);
+    font-size: var(--font-size-rem-095);
+}
+
+.pla-admin .pla-user-profile__content span {
+    color: var(--pla-muted);
+    font-size: var(--font-size-rem-08);
+}
+
+.pla-admin .pla-side-list {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.pla-admin .pla-side-list__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border: 1px solid var(--pla-border);
+    border-radius: 0.5rem;
+    padding: 0.62rem 0.7rem;
+    background: var(--pla-surface-alt);
+}
+
+.pla-admin .pla-side-list__row span {
+    color: var(--pla-muted);
+    font-size: var(--font-size-rem-078);
+}
+
+.pla-admin .pla-side-list__row strong {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: var(--pla-text);
+    font-size: var(--font-size-rem-082);
+    text-align: right;
+}
+
+/* ─── Public URL row ────────────────────────────── */
+.pla-admin .pla-public-url {
+    border-color: var(--pla-border);
+    color: var(--color-text-subtle);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-rem-082);
+}
+
+.pla-admin .pla-copy-success {
+    background: var(--pla-success-soft);
+    color: var(--color-success-deep);
+    border-color: var(--pla-success-soft);
+}
+
+/* ─── Responsive ────────────────────────────────── */
+@media (max-width: 992px) {
+    .pla-admin .pla-kpi-grid,
+    .pla-admin .pla-show-stats,
+    .pla-admin .pla-detail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pla-admin .pla-hero {
+        flex-direction: column;
+    }
+
+    .pla-admin .pla-hero__aside {
+        align-items: flex-start;
+    }
+
+    .pla-admin .pla-action-stack {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .pla-admin .pla-kpi-grid,
+    .pla-admin .pla-show-stats,
+    .pla-admin .pla-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pla-admin .pla-admin-header__actions,
+    .pla-admin .pla-admin-header__actions .btn,
+    .pla-admin .pla-filter__actions,
+    .pla-admin .pla-action-stack,
+    .pla-admin .pla-action-stack form,
+    .pla-admin .pla-action-stack .btn {
+        width: 100%;
+    }
+
+    .pla-admin .pla-filter__actions .btn,
+    .pla-admin .pla-action-stack .btn {
+        flex: 1 1 0;
+        justify-content: center;
+    }
+
+    .pla-admin .pla-hero {
+        padding: 1rem;
+    }
+
+    .pla-admin .pla-hero__title {
+        font-size: var(--font-size-rem-125);
+    }
+}

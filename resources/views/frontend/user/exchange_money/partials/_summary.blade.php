@@ -1,0 +1,21 @@
+<div class="col-lg-12 col-xl-5">
+    <div class="single-form-card">
+        <x-user-feature-header
+            :title="__('Summary')"
+            :subtitle="__('Track debited balance, credited amount, and the exchange rate.')"
+            icon="fas fa-chart-column"
+            compact
+        />
+        <div class="card-main">
+            <ul class="summery-list list-unstyled">
+                <li class="d-flex justify-content-between"><span>{{ __('Amount') }}</span><span class="summary-amount"></span></li>
+                <li class="d-flex justify-content-between"><span>{{ __('Fee') }}</span><span class="summary-fee"></span></li>
+                <li class="d-flex justify-content-between"><span>{{ __('Total') }}</span><span class="summary-total"></span></li>
+                <li class="d-flex justify-content-between"><span>{{ __('Conversion Rate') }}</span><span class="default-summary-rate"></span></li>
+                <li class="d-flex justify-content-between"><strong>{{ __('Debited Source Wallet') }}</strong><strong class="summary-debited"></strong></li>
+                <li class="d-flex justify-content-between"><strong>{{ __('Exchange Rate') }}</strong><strong class="exchange-summary-rate"></strong></li>
+                <li class="d-flex justify-content-between"><strong>{{ __('Credited Destination Wallet') }}</strong><strong class="summary-credited"></strong></li>
+            </ul>
+        </div>
+    </div>
+</div>

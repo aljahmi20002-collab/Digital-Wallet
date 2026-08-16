@@ -1,0 +1,1550 @@
+.mra-admin {
+    --mra-text: var(--color-text);
+    --mra-muted: var(--color-text-muted);
+    --mra-border: rgba(var(--color-text-rgb), 0.1);
+    --mra-surface: var(--color-card);
+    --mra-surface-alt: var(--color-surface-alt);
+    --mra-primary: var(--color-primary);
+    --mra-primary-soft: var(--color-primary-soft);
+    --mra-success: var(--color-success);
+    --mra-success-soft: var(--color-success-soft);
+    --mra-warning: var(--color-warning);
+    --mra-warning-soft: var(--color-warning-soft);
+    --mra-danger: var(--color-danger);
+    --mra-danger-soft: var(--color-danger-soft);
+    --mra-info: var(--color-info);
+    --mra-info-soft: var(--color-info-soft);
+    color: var(--mra-text);
+}
+
+.mra-admin .mra-admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.mra-admin .mra-admin-header__title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--mra-text);
+    font-size: var(--font-size-rem-155);
+    font-weight: var(--font-extrabold);
+    line-height: 1.15;
+}
+
+.mra-admin .mra-admin-header__icon {
+    display: inline-flex;
+    color: var(--mra-primary);
+}
+
+.mra-admin .mra-admin-header__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.mra-admin .mra-admin-shell {
+    border-radius: 0.55rem;
+    background: var(--mra-surface);
+}
+
+.mra-admin .mra-tabs {
+    display: grid;
+    gap: 1rem;
+}
+
+.mra-admin .mra-tabbar {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    overflow-x: auto;
+    border: 1px solid var(--mra-border);
+    border-radius: 0.65rem;
+    padding: 0.4rem;
+    background: var(--mra-surface-alt);
+}
+
+.mra-admin .mra-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 40px;
+    padding: 0.45rem 0.78rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--color-text-subtle);
+    font-size: var(--font-size-rem-085);
+    font-weight: var(--font-bold);
+    white-space: nowrap;
+    transition: background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.mra-admin .mra-tab:hover {
+    color: var(--mra-primary);
+    background: rgba(var(--color-primary-rgb), 0.08);
+}
+
+.mra-admin .mra-tab.active {
+    border-color: rgba(var(--color-primary-rgb), 0.14);
+    background: var(--mra-surface);
+    color: var(--mra-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.mra-admin .mra-route-panel {
+    min-width: 0;
+}
+
+.mra-admin .mra-settings-card {
+    max-width: 980px;
+}
+
+.mra-admin .mra-hero {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(var(--color-primary-rgb), 0.16);
+    border-radius: 0.65rem;
+    padding: 1.15rem;
+    background:
+        linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.12), rgba(var(--color-info-rgb), 0.08) 44%, rgba(var(--color-success-rgb), 0.1)),
+        var(--mra-surface);
+}
+
+.mra-admin .mra-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -42px -58px auto;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(var(--color-primary-rgb), 0.1);
+    pointer-events: none;
+}
+
+.mra-admin .mra-hero__main,
+.mra-admin .mra-hero__aside {
+    position: relative;
+    z-index: 1;
+}
+
+.mra-admin .mra-hero__main {
+    min-width: 0;
+}
+
+.mra-admin .mra-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--color-primary-hover);
+    font-size: var(--font-size-rem-076);
+    font-weight: var(--font-extrabold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.mra-admin .mra-hero__title {
+    margin: 0.35rem 0 0;
+    color: var(--mra-text);
+    font-size: var(--font-size-rem-155);
+    font-weight: var(--font-extrabold);
+    line-height: 1.2;
+}
+
+.mra-admin .mra-hero__text {
+    max-width: 720px;
+    margin: 0.45rem 0 0;
+    color: var(--mra-muted);
+    font-size: var(--font-size-rem-088);
+}
+
+.mra-admin .mra-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.75rem;
+}
+
+.mra-admin .mra-hero__meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 28px;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+    border-radius: 999px;
+    background: rgba(var(--color-white-rgb), 0.72);
+    color: var(--color-text-subtle);
+    font-size: var(--font-size-rem-078);
+    font-weight: var(--font-bold);
+}
+
+.mra-admin .mra-hero__meta span i {
+    color: var(--color-primary);
+    font-size: 0.85em;
+}
+
+.mra-admin .mra-hero__aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.85rem;
+    flex-shrink: 0;
+}
+
+.mra-admin .mra-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.7rem;
+}
+
+.mra-admin .mra-kpi {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    min-width: 0;
+    border: 1px solid var(--mra-border);
+    border-radius: 0.55rem;
+    padding: 1rem;
+    background: var(--mra-surface);
+}
+
+.mra-admin .mra-kpi__icon,
+.mra-admin .mra-show-stat__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.mra-admin .mra-kpi__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 0.45rem;
+    background: var(--mra-primary-soft);
+    color: var(--mra-primary);
+}
+
+.mra-admin .mra-kpi__icon--primary,
+.mra-admin .mra-show-stat__icon--primary {
+    background: var(--mra-primary-soft);
+    color: var(--mra-primary);
+}
+
+.mra-admin .mra-kpi__icon--success,
+.mra-admin .mra-show-stat__icon--success {
+    background: var(--mra-success-soft);
+    color: var(--mra-success);
+}
+
+.mra-admin .mra-kpi__icon--warning,
+.mra-admin .mra-show-stat__icon--warning {
+    background: var(--mra-warning-soft);
+    color: var(--mra-warning);
+}
+
+.mra-admin .mra-kpi__icon--danger {
+    background: var(--mra-danger-soft);
+    color: var(--mra-danger);
+}
+
+.mra-admin .mra-kpi__icon--info,
+.mra-admin .mra-show-stat__icon--info {
+    background: var(--mra-info-soft);
+    color: var(--mra-info);
+}
+
+.mra-admin .mra-kpi__label,
+.mra-admin .mra-show-stat__label,
+.mra-admin .mra-detail-item__label {
+    color: var(--mra-muted);
+    font-size: var(--font-size-rem-073);
+    font-weight: var(--font-extrabold);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.mra-admin .mra-kpi__value {
+    color: var(--mra-text);
+    font-size: var(--font-size-rem-115);
+    font-weight: var(--font-bold);
+    line-height: 1.2;
+}
+
+.mra-admin .mra-workspace {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1.22fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.mra-admin .mra-card,
+.mra-admin .mra-filter,
+.mra-admin .mra-table-card {
+    border: 1px solid var(--mra-border);
+    border-radius: 0.55rem;
+    background: var(--mra-surface);
+}
+
+.mra-admin .mra-card {
+    overflow: hidden;
+}
+
+.mra-admin .mra-card__head,
+.mra-admin .mra-table-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 1rem 1.1rem;
+    border-bottom: 1px solid var(--mra-border);
+}
+
+.mra-admin .mra-card__body {
+    padding: 1rem 1.1rem;
+}
+
+.mra-admin .mra-card__eyebrow {
+    display: block;
+    color: var(--mra-primary);
+    font-size: var(--font-size-rem-073);
+    font-weight: var(--font-extrabold);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.mra-admin .mra-card__title {
+    margin: 0;
+    color: var(--mra-text);
+    font-size: var(--font-size-rem-098);
+    font-weight: var(--font-bold);
+}
+
+.mra-admin .mra-filter {
+    padding: 0.85rem 0.95rem;
+}
+
+.mra-admin .mra-filter__row {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.mra-admin .mra-filter__field {
+    flex: 1 1 150px;
+    min-width: 0;
+}
+
+.mra-admin .mra-filter__field--search {
+    flex-basis: 240px;
+}
+
+.mra-admin .mra-filter__actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mra-admin .mra-filter .form-label {
+    font-size: var(--font-size-rem-078);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-soft);
+}
+
+.mra-admin .mra-filter .form-control,
+.mra-admin .mra-filter .form-select {
+    border-color: var(--mra-border);
+    font-size: var(--font-size-rem-088);
+}
+
+.mra-admin .mra-table-card {
+    overflow: hidden;
+}
+
+.mra-admin .mra-table {
+    width: 100%;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.mra-admin .mra-table thead th {
+    padding: 0.85rem 0.9rem;
+    border-bottom: 1px solid var(--mra-border);
+    background: var(--mra-surface-alt);
+    color: var(--mra-muted);
+    font-size: var(--font-size-rem-076);
+    font-weight: var(--font-bold);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.mra-admin .mra-table tbody td {
+    padding: 0.82rem 0.9rem;
+    border-top: 1px solid var(--mra-border);
+    font-size: var(--font-size-rem-089);
+    vertical-align: middle;
+}
+
+.mra-admin .mra-table-card__footer {
+    padding: 0.75rem 0.9rem;
+    border-top: 1px solid var(--mra-border);
+}
+
+.mra-admin .mra-user {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
+}
+
+.mra-admin .mra-user__name {
+    color: var(--mra-text);
+    font-size: var(--font-size-rem-088);
+    font-weight: var(--font-semibold);
+}
+
+.mra-admin .mra-user__email,
+.mra-admin .mra-muted {
+    color: var(--mra-muted);
+    font-size: var(--font-size-rem-078);
+}
+
+.mra-admin .mra-amount {
+    white-space: nowrap;
+}
+
+.mra-admin .mra-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.24rem 0.58rem;
+    border-radius: 999px;
+    font-size: var(--font-size-rem-073);
+    font-weight: var(--font-bold);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.mra-admin .mra-pill--success {
+    background: var(--mra-success-soft);
+    color: var(--color-success-deep);
+}
+
+.mra-admin .mra-pill--warning {
+    background: var(--mra-warning-soft);
+    color: var(--color-warning-deep);
+}
+
+.mra-admin .mra-pill--danger {
+    background: var(--mra-danger-soft);
+    color: var(--color-danger-deep);
+}
+
+.mra-admin .mra-pill--primary {
+    background: var(--mra-primary-soft);
+    color: var(--mra-primary);
+}
+
+.mra-admin .mra-pill--info {
+    background: var(--mra-info-soft);
+    color: var(--color-info-deep);
+}
+
+.mra-admin .mra-pill--secondary {
+    background: var(--color-surface-soft);
+    color: var(--color-text-muted);
+}
+
+.mra-admin .mra-pill--xl {
+    min-height: 34px;
+    padding: 0.42rem 0.75rem;
+    font-size: var(--font-size-rem-08);
+}
+
+.mra-admin .mra-show-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.mra-admin .mra-show-stat {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.15rem 0.65rem;
+    align-items: center;
+    min-height: 96px;
+    border: 1px solid var(--mra-border);
+    border-radius: 0.6rem;
+    padding: 0.9rem;
+    background: var(--mra-surface);
+}
+
+.mra-admin .mra-show-stat__icon {
+    grid-row: span 2;
+    width: 42px;
+    height: 42px;
+    border-radius: 0.55rem;
+}
+
+.mra-admin .mra-show-stat__value {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: var(--mra-text);
+    font-size: var(--font-size-rem-096);
+    line-height: 1.25;
+}
+
+.mra-admin .mra-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.mra-admin .mra-detail-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.12rem 0.65rem;
+    min-width: 0;
+    border: 1px solid rgba(var(--color-text-rgb), 0.08);
+    border-radius: 0.55rem;
+    padding: 0.85rem;
+    background: var(--mra-surface-alt);
+}
+
+.mra-admin .mra-detail-item__icon {
+    grid-row: span 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 0.45rem;
+    background: var(--color-white);
+    color: var(--mra-primary);
+    box-shadow: inset 0 0 0 1px rgba(var(--color-text-rgb), 0.06);
+}
+
+.mra-admin .mra-detail-item__value {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: var(--mra-text);
+    font-size: var(--font-size-rem-09);
+    line-height: 1.35;
+}
+
+.mra-admin .mra-detail-item__meta {
+    color: var(--mra-muted);
+    font-size: var(--font-size-rem-078);
+    line-height: 1.35;
+}
+
+.mra-admin .mra-json {
+    max-height: 360px;
+    overflow: auto;
+    border: 1px solid var(--mra-border);
+    border-radius: 0.55rem;
+    padding: 0.9rem;
+    background: var(--mra-surface-alt);
+    color: var(--color-text-subtle);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-rem-08);
+}
+
+.mra-admin .mra-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-width: 0;
+}
+
+.mra-admin .mra-user-profile__avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 0.6rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-info));
+    color: var(--color-white);
+    flex-shrink: 0;
+    font-size: var(--font-size-rem-092);
+    font-weight: var(--font-extrabold);
+    text-transform: uppercase;
+}
+
+.mra-admin .mra-user-profile__content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.mra-admin .mra-user-profile__content strong,
+.mra-admin .mra-user-profile__content span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mra-admin .mra-user-profile__content strong {
+    color: var(--mra-text);
+    font-size: var(--font-size-rem-095);
+}
+
+.mra-admin .mra-user-profile__content span {
+    color: var(--mra-muted);
+    font-size: var(--font-size-rem-08);
+}
+
+.mra-admin .mra-side-list {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.mra-admin .mra-side-list__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border: 1px solid var(--mra-border);
+    border-radius: 0.5rem;
+    padding: 0.62rem 0.7rem;
+    background: var(--mra-surface-alt);
+}
+
+.mra-admin .mra-side-list__row span {
+    color: var(--mra-muted);
+    font-size: var(--font-size-rem-078);
+}
+
+.mra-admin .mra-side-list__row strong {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: var(--mra-text);
+    font-size: var(--font-size-rem-082);
+    text-align: right;
+}
+
+@media (max-width: 1199.98px) {
+    .mra-admin .mra-workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .mra-admin .mra-kpi-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 991.98px) {
+    .mra-admin .mra-hero {
+        flex-direction: column;
+    }
+
+    .mra-admin .mra-hero__aside {
+        align-items: flex-start;
+    }
+
+    .mra-admin .mra-show-stats,
+    .mra-admin .mra-detail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mra-admin .mra-provider-basic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mra-admin .mra-kpi-grid,
+    .mra-admin .mra-show-stats,
+    .mra-admin .mra-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mra-admin .mra-admin-header__actions,
+    .mra-admin .mra-admin-header__actions .btn,
+    .mra-admin .mra-filter__actions,
+    .mra-admin .mra-filter__actions .btn,
+    .mra-admin .mra-hero__aside,
+    .mra-admin .mra-hero__aside .btn {
+        width: 100%;
+    }
+
+    .mra-admin .mra-filter__actions .btn,
+    .mra-admin .mra-hero__aside .btn {
+        justify-content: center;
+    }
+
+    .mra-admin .mra-hero {
+        padding: 1rem;
+    }
+
+    .mra-admin .mra-hero__title {
+        font-size: var(--font-size-rem-125);
+    }
+
+    .mra-admin .mra-tabbar {
+        align-items: stretch;
+        flex-direction: column;
+        overflow-x: visible;
+    }
+
+    .mra-admin .mra-tab {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+/* ==========================================================================
+   Premium provider grid + card additions (Phase: schema split)
+   ========================================================================== */
+
+.mra-admin .mra-providers-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.mra-admin .mra-providers-empty {
+    grid-column: 1 / -1;
+}
+
+.mra-admin .mra-provider-card {
+    background: var(--mra-surface, #fff);
+    border: 1px solid var(--mra-border, rgba(15, 23, 42, .08));
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, .04);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mra-admin .mra-provider-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6366F1, #8B5CF6);
+    opacity: 0;
+    transition: opacity .18s ease;
+}
+
+.mra-admin .mra-provider-card.is-default::before {
+    opacity: 1;
+}
+
+.mra-admin .mra-provider-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, .08);
+    border-color: rgba(99, 102, 241, .25);
+}
+
+.mra-admin .mra-provider-card.is-disabled {
+    opacity: .85;
+}
+
+.mra-admin .mra-provider-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.mra-admin .mra-provider-card__brand img {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    object-fit: contain;
+    padding: 4px;
+    background: rgba(99, 102, 241, .08);
+}
+
+.mra-admin .mra-provider-card__meta {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.mra-admin .mra-provider-card__title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--mra-text, #111827);
+}
+
+.mra-admin .mra-provider-card__desc {
+    font-size: 12.5px;
+    color: var(--mra-muted, #64748b);
+    margin: 0;
+    line-height: 1.55;
+    min-height: 38px;
+}
+
+.mra-admin .mra-provider-card__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 6px 0 0;
+}
+
+.mra-admin .mra-provider-card__stats > div {
+    background: rgba(99, 102, 241, .04);
+    border: 1px solid rgba(99, 102, 241, .08);
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+.mra-admin .mra-provider-card__stats dt {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--mra-muted, #64748b);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin: 0;
+}
+
+.mra-admin .mra-provider-card__stats dd {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mra-text, #111827);
+    margin: 2px 0 0;
+}
+
+.mra-admin .mra-provider-card__warn {
+    background: #fff7ed;
+    color: #9a3412;
+    border: 1px solid #fed7aa;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.mra-admin .mra-provider-card__actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px dashed var(--mra-border, rgba(15, 23, 42, .08));
+}
+
+.mra-admin .mra-provider-card__actions form {
+    margin: 0;
+}
+
+.mra-admin .mra-pill .mra-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.mra-admin .mra-pill--xs {
+    font-size: 10px;
+    padding: 1px 6px;
+}
+
+.mra-admin .mra-pill--sm {
+    font-size: 11px;
+    padding: 3px 8px;
+    gap: 5px;
+}
+
+/* Form sections */
+
+.mra-admin .mra-form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mra-admin .mra-form-section {
+    background: rgba(99, 102, 241, .025);
+    border: 1px solid rgba(99, 102, 241, .12);
+    border-radius: 12px;
+    padding: 16px 18px;
+}
+
+.mra-admin .mra-form-section__head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(99, 102, 241, .15);
+}
+
+.mra-admin .mra-form-section__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.mra-admin .mra-form-section__head h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--mra-text, #111827);
+    margin: 0;
+}
+
+.mra-admin .mra-form-section__head small {
+    font-size: 11.5px;
+    color: var(--mra-muted, #64748b);
+}
+
+.mra-admin .form-label--sm {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--mra-muted, #64748b);
+    margin-bottom: 4px;
+}
+
+.mra-admin .mra-driver-fields__heading {
+    margin-bottom: 4px;
+}
+
+.mra-admin .mra-provider-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.mra-admin .mra-provider-editor {
+    display: grid;
+    gap: 1rem;
+}
+
+.mra-admin .mra-provider-basic-grid {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.mra-admin .mra-logo-manager {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.mra-admin .mra-logo-manager .avatar-upload {
+    margin: 0;
+}
+
+.mra-admin .mra-logo-manager .avatar-preview {
+    width: 112px;
+    height: 112px;
+    border-radius: 12px;
+}
+
+.mra-admin .mra-logo-manager .avatar-preview > div {
+    border-radius: 12px;
+    background-size: contain;
+    background-color: var(--mra-surface-alt);
+}
+
+.mra-admin .mra-logo-manager .avatar-edit {
+    right: auto;
+    left: 84px;
+}
+
+.mra-admin .mra-default-toggle {
+    min-height: 56px;
+    border: 1px solid rgba(99, 102, 241, .14);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .76);
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.mra-admin .mra-default-toggle__copy {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+}
+
+.mra-admin .mra-default-toggle__copy label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mra-text, #111827);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.mra-admin .mra-default-toggle__copy small {
+    display: block;
+    font-size: 11.5px;
+    color: var(--mra-muted, #64748b);
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
+.mra-admin .mra-default-toggle .feature-mgmt-switch {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    min-height: 1.45rem;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.mra-admin .mra-default-toggle .feature-mgmt-switch .form-check-input {
+    width: 2.6rem;
+    height: 1.45rem;
+    margin: 0;
+    border: 0;
+    background-color: var(--color-palette-cbd5e1);
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.mra-admin .mra-default-toggle .feature-mgmt-switch .form-check-input:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.mra-admin .mra-default-toggle .feature-mgmt-switch .form-check-input:checked {
+    background-color: var(--mra-primary, #6366F1);
+}
+
+.mra-admin .mra-driver-fields[hidden] {
+    display: none !important;
+}
+
+/* Overview grid and activity cards */
+
+.mra-admin .mra-overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 991.98px) {
+    .mra-admin .mra-overview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mra-admin .mra-card--padded {
+    padding: 18px 20px;
+}
+
+.mra-admin .mra-card__body {
+    padding: 14px 18px 18px;
+}
+
+.mra-admin .mra-roster {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mra-admin .mra-roster__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--mra-border, rgba(15, 23, 42, .08));
+    border-radius: 10px;
+    background: var(--mra-surface, #fff);
+    transition: border-color .15s ease;
+}
+
+.mra-admin .mra-roster__item:hover {
+    border-color: rgba(99, 102, 241, .28);
+}
+
+.mra-admin .mra-roster__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    object-fit: contain;
+    padding: 3px;
+    background: rgba(99, 102, 241, .08);
+    flex-shrink: 0;
+}
+
+.mra-admin .mra-roster__body {
+    flex: 1;
+    min-width: 0;
+}
+
+.mra-admin .mra-roster__name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mra-text, #111827);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mra-admin .mra-roster__meta {
+    font-size: 11.5px;
+    color: var(--mra-muted, #64748b);
+}
+
+.mra-admin .mra-activity {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mra-admin .mra-activity__item {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--mra-border, rgba(15, 23, 42, .08));
+    background: var(--mra-surface, #fff);
+}
+
+.mra-admin .mra-activity__phone {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mra-text, #111827);
+}
+
+.mra-admin .mra-activity__meta {
+    font-size: 11.5px;
+    color: var(--mra-muted, #64748b);
+}
+
+.mra-admin .mra-activity__amount {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mra-text, #111827);
+}
+
+.mra-admin .mra-info-banner {
+    background: rgba(56, 189, 248, .08);
+    color: #075985;
+    border: 1px solid rgba(56, 189, 248, .25);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.mra-admin .mra-info-banner i {
+    font-size: 14px;
+}
+
+.mra-admin .mra-info-banner a {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Tab count badge for Providers tab */
+.mra-admin .mra-tab__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    margin-left: 4px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, .12);
+    color: var(--mra-primary, #6366F1);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.mra-admin .mra-tab.active .mra-tab__count {
+    background: var(--mra-primary, #6366F1);
+    color: #fff;
+}
+
+/* Providers tab toolbar */
+.mra-admin .mra-providers-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 6px 4px;
+}
+
+@media (max-width: 575.98px) {
+    .mra-admin .mra-providers-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Clean mobile recharge admin surface */
+.mra-admin .mra-admin-shell {
+    border: 1px solid var(--mra-border);
+    box-shadow: none;
+}
+
+.mra-admin .mra-dashboard-flow {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.mra-admin .mra-tabbar {
+    border-radius: 8px;
+    background: var(--mra-surface);
+}
+
+.mra-admin .mra-tab {
+    min-height: 36px;
+    border-radius: 7px;
+    padding: 0.42rem 0.72rem;
+}
+
+.mra-admin .mra-tab.active {
+    box-shadow: inset 0 0 0 1px rgba(var(--color-primary-rgb), 0.12);
+}
+
+.mra-admin .mra-hero {
+    align-items: center;
+    border-color: var(--mra-border);
+    border-radius: 8px;
+    padding: 1rem;
+    background: var(--mra-surface);
+}
+
+.mra-admin .mra-hero::after {
+    content: none;
+}
+
+.mra-admin .mra-hero__title {
+    margin-top: 0.22rem;
+    font-size: var(--font-size-rem-125);
+}
+
+.mra-admin .mra-hero__text {
+    max-width: 520px;
+    margin-top: 0.3rem;
+}
+
+.mra-admin .mra-hero__aside {
+    justify-content: center;
+}
+
+.mra-admin .mra-kpi-grid {
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 0.65rem;
+}
+
+.mra-admin .mra-kpi {
+    border-radius: 8px;
+    padding: 0.85rem;
+    box-shadow: none;
+}
+
+.mra-admin .mra-kpi__icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 7px;
+}
+
+.mra-admin .mra-history-panel {
+    overflow: hidden;
+    border: 1px solid var(--mra-border);
+    border-radius: 8px;
+    background: var(--mra-surface);
+    box-shadow: none;
+}
+
+.mra-admin .mra-history-panel__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--mra-border);
+}
+
+.mra-admin .mra-history-panel__filters {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--mra-border);
+    background: var(--mra-surface-alt);
+}
+
+.mra-admin .mra-history-panel .table-responsive {
+    margin: 0;
+}
+
+.mra-admin .mra-history-panel .mra-table {
+    margin: 0;
+}
+
+.mra-admin .mra-providers-toolbar {
+    margin-bottom: 0.85rem;
+    padding: 0;
+}
+
+.mra-admin .mra-providers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+}
+
+.mra-admin .mra-provider-card {
+    gap: 12px;
+    border-color: rgba(var(--color-primary-rgb), 0.12);
+    border-radius: 10px;
+    padding: 16px;
+    background:
+        linear-gradient(180deg, rgba(var(--color-white-rgb), 0.98), rgba(var(--color-surface-alt-rgb), 0.58)),
+        var(--mra-surface);
+    box-shadow: 0 16px 34px -30px rgba(var(--color-text-rgb), 0.45);
+}
+
+.mra-admin .mra-provider-card::before {
+    background: var(--mra-primary);
+}
+
+.mra-admin .mra-provider-card.is-active::before {
+    opacity: 1;
+}
+
+.mra-admin .mra-provider-card:hover {
+    transform: none;
+    border-color: rgba(var(--color-primary-rgb), 0.24);
+    box-shadow: 0 18px 38px -30px rgba(var(--color-primary-rgb), 0.42);
+}
+
+.mra-admin .mra-provider-card.is-disabled {
+    opacity: 1;
+    background: var(--mra-surface-alt);
+}
+
+.mra-admin .mra-provider-card__head {
+    align-items: flex-start;
+}
+
+.mra-admin .mra-provider-card__brand img {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(var(--color-primary-rgb), 0.08);
+    box-shadow: inset 0 0 0 1px rgba(var(--color-primary-rgb), 0.08);
+}
+
+.mra-admin .mra-provider-card__title {
+    min-height: 1.3rem;
+    font-size: var(--font-size-rem-096);
+    line-height: 1.32;
+}
+
+.mra-admin .mra-provider-card__stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 0;
+    border-top: 1px solid var(--mra-border);
+    border-bottom: 1px solid var(--mra-border);
+}
+
+.mra-admin .mra-provider-card__stats > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border: 0;
+    border-bottom: 1px solid rgba(var(--color-text-rgb), 0.06);
+    border-radius: 0;
+    padding: 0.55rem 0;
+    background: transparent;
+}
+
+.mra-admin .mra-provider-card__stats > div:last-child {
+    border-bottom: 0;
+}
+
+.mra-admin .mra-provider-card__stats dt {
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.mra-admin .mra-provider-card__stats dd {
+    max-width: 60%;
+    margin: 0;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.mra-admin .mra-provider-card__warn {
+    border-radius: 8px;
+}
+
+.mra-admin .mra-provider-card__actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.mra-admin .mra-provider-card__actions .btn {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 0.35rem;
+    min-height: 34px;
+    font-weight: var(--font-bold);
+    white-space: nowrap;
+}
+
+.mra-admin .mra-provider-card__actions .btn:only-child {
+    grid-column: 1 / -1;
+}
+
+.mra-admin .mra-section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.mra-admin .mra-card,
+.mra-admin .mra-filter,
+.mra-admin .mra-table-card {
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.mra-admin .mra-filter {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.mra-admin .mra-filter__row {
+    display: grid;
+    grid-template-columns: minmax(220px, 1.4fr) minmax(160px, 0.8fr) minmax(160px, 0.8fr) auto;
+    align-items: end;
+}
+
+.mra-admin .mra-filter__field,
+.mra-admin .mra-filter__field--search {
+    flex: none;
+}
+
+.mra-admin .mra-table-card {
+    border-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.mra-admin .mra-table tbody tr:hover {
+    background: var(--mra-surface-alt);
+}
+
+@media (max-width: 991.98px) {
+    .mra-admin .mra-filter__row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mra-admin .mra-filter__actions {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mra-admin .mra-provider-basic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mra-admin .mra-hero__aside {
+        align-items: flex-start;
+    }
+
+    .mra-admin .mra-filter__row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Provider modal polish */
+.mra-admin .mra-provider-basic-grid {
+    grid-template-columns: 172px minmax(0, 1fr);
+    gap: 1.2rem;
+}
+
+.mra-admin .mra-form-section {
+    border-color: rgba(var(--color-primary-rgb), 0.14);
+    border-radius: 10px;
+    background:
+        linear-gradient(180deg, rgba(var(--color-white-rgb), 0.96), rgba(var(--color-surface-alt-rgb), 0.64)),
+        var(--mra-surface);
+}
+
+.mra-admin .mra-form-section__head {
+    border-bottom-color: rgba(var(--color-primary-rgb), 0.12);
+}
+
+.mra-admin .mra-default-toggle {
+    min-height: 38px;
+    margin-top: 1.55rem;
+    border-radius: 8px;
+    padding: 0.42rem 0.72rem;
+}
+
+.mra-admin .mra-default-toggle__copy label {
+    font-size: 12.5px;
+}
+
+.mra-admin .mra-default-toggle__copy small {
+    font-size: 11px;
+}
+
+.mra-admin .input-group-select {
+    flex: 0 0 62px;
+    max-width: 62px;
+    text-align: center;
+}
+
+@media (max-width: 767.98px) {
+    .mra-admin .mra-provider-basic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mra-admin .mra-default-toggle {
+        margin-top: 0;
+    }
+}

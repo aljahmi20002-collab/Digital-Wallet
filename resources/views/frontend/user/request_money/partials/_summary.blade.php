@@ -1,0 +1,28 @@
+<div class="col-lg-12 col-xl-5">
+    <div class="single-form-card">
+        <x-user-feature-header
+            :title="__('Summary')"
+            :subtitle="__('Review the requested amount and both wallet movements before sending.')"
+            icon="fas fa-scale-balanced"
+            compact
+        />
+        <div class="card-main">
+            <ul class="summery-list list-unstyled">
+                <li class="d-flex justify-content-between"><span>{{ __('Requested Amount') }}</span><span
+                            class="summary-amount"></span></li>
+                <li class="d-flex justify-content-between"><span>{{ __('Charge') }}</span><span
+                            class="summary-charge"></span></li>
+                <li class="d-flex justify-content-between"><strong>{{ __('Total') }}</strong><strong
+                            class="summary-total"></strong></li>
+                <li class="d-flex justify-content-between text-primary">
+                    <strong>{{ __('Conversion Rate') }}</strong><strong class="summary-rate"></strong></li>
+                <li class="d-flex justify-content-between">
+                    <strong>{{ __('Your Wallet Will Be Credited') }}</strong><strong
+                            class="recipient-wallet-added"></strong></li>
+                <li class="d-flex justify-content-between">
+                    <strong>{{ __('Payer’s Wallet Will Be Debited') }}</strong><strong
+                            class="my-wallet-decreased"></strong></li>
+            </ul>
+        </div>
+    </div>
+</div>

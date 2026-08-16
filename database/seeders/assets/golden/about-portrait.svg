@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice">
+	<defs>
+		<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color="#1A1A22"/>
+			<stop offset="50%" stop-color="#10101A"/>
+			<stop offset="100%" stop-color="#06060A"/>
+		</linearGradient>
+		<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0%" stop-color="#F5E6A8"/>
+			<stop offset="45%" stop-color="#D4AF37"/>
+			<stop offset="100%" stop-color="#8C6610"/>
+		</linearGradient>
+		<linearGradient id="goldSoft" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color="rgba(245,230,168,0.20)"/>
+			<stop offset="100%" stop-color="rgba(212,175,55,0)"/>
+		</linearGradient>
+		<radialGradient id="halo" cx="50%" cy="38%" r="55%">
+			<stop offset="0%" stop-color="rgba(245,230,168,0.22)"/>
+			<stop offset="100%" stop-color="rgba(212,175,55,0)"/>
+		</radialGradient>
+		<radialGradient id="floor" cx="50%" cy="100%" r="60%">
+			<stop offset="0%" stop-color="rgba(212,175,55,0.10)"/>
+			<stop offset="100%" stop-color="rgba(212,175,55,0)"/>
+		</radialGradient>
+	</defs>
+
+	<!-- Layered backgrounds -->
+	<rect width="600" height="800" fill="url(#bg)"/>
+	<rect width="600" height="800" fill="url(#halo)"/>
+	<rect width="600" height="800" fill="url(#floor)"/>
+
+	<!-- Subtle vertical column lines -->
+	<g opacity=".08" stroke="#D4AF37" stroke-width="1" fill="none">
+		<line x1="120" y1="0" x2="120" y2="800"/>
+		<line x1="240" y1="0" x2="240" y2="800"/>
+		<line x1="360" y1="0" x2="360" y2="800"/>
+		<line x1="480" y1="0" x2="480" y2="800"/>
+	</g>
+
+	<!-- Top-left art-deco rays -->
+	<g opacity=".22" stroke="#D4AF37" stroke-width="1" fill="none">
+		<path d="M0 0 L600 220"/>
+		<path d="M0 0 L600 300"/>
+		<path d="M0 0 L600 380"/>
+		<path d="M0 0 L600 460"/>
+		<path d="M0 0 L240 800"/>
+		<path d="M0 0 L320 800"/>
+		<path d="M0 0 L400 800"/>
+	</g>
+
+	<!-- Hero composition: monogram inside a diamond rim, suspended over a base -->
+	<g transform="translate(300,360)">
+		<!-- Outer diamond plate -->
+		<g transform="rotate(45)">
+			<rect x="-150" y="-150" width="300" height="300" rx="6"
+			      fill="#0E0E16" stroke="url(#gold)" stroke-width="1.2" stroke-opacity=".75"/>
+			<rect x="-150" y="-150" width="300" height="300" rx="6"
+			      fill="url(#goldSoft)" opacity=".55"/>
+		</g>
+
+		<!-- Inner diamond hairline -->
+		<g transform="rotate(45)">
+			<rect x="-128" y="-128" width="256" height="256" rx="4"
+			      fill="none" stroke="url(#gold)" stroke-width="0.8" stroke-opacity=".45"/>
+		</g>
+
+		<!-- Concentric vault rings -->
+		<circle r="118" fill="none" stroke="url(#gold)" stroke-width=".8" stroke-opacity=".4"/>
+		<circle r="100" fill="none" stroke="url(#gold)" stroke-width=".6" stroke-opacity=".3"/>
+		<circle r="82"  fill="none" stroke="url(#gold)" stroke-width=".6" stroke-opacity=".2"/>
+
+		<!-- Centre seal -->
+		<circle r="64" fill="#0A0A0F" stroke="url(#gold)" stroke-width="1.6" stroke-opacity=".9"/>
+		<circle r="58" fill="none"     stroke="url(#gold)" stroke-width=".5" stroke-opacity=".5"/>
+
+		<!-- Monogram -->
+		<text x="0" y="20" text-anchor="middle"
+		      font-family="Cormorant Garamond, Georgia, serif"
+		      font-style="italic" font-weight="600" font-size="62"
+		      fill="url(#gold)" letter-spacing="-1">DK</text>
+
+		<!-- 4 cardinal tick marks -->
+		<g stroke="url(#gold)" stroke-width="1.4" stroke-linecap="round" stroke-opacity=".7">
+			<line x1="0" y1="-118" x2="0" y2="-108"/>
+			<line x1="118" y1="0" x2="108" y2="0"/>
+			<line x1="0" y1="118" x2="0" y2="108"/>
+			<line x1="-118" y1="0" x2="-108" y2="0"/>
+		</g>
+	</g>
+
+	<!-- Caption tag -->
+	<g transform="translate(300,640)">
+		<text x="0" y="0" text-anchor="middle"
+		      font-family="Cinzel, Georgia, serif"
+		      font-size="12" letter-spacing="6" fill="#F5E6A8" opacity=".82">PRIVATE · WEALTH</text>
+		<line x1="-80" y1="14" x2="80" y2="14" stroke="url(#gold)" stroke-width="0.6" stroke-opacity=".55"/>
+		<text x="0" y="36" text-anchor="middle"
+		      font-family="Cinzel, Georgia, serif"
+		      font-size="9" letter-spacing="4" fill="#B8B2A0" opacity=".7">EST · MMXXVI</text>
+	</g>
+
+	<!-- Corner ornaments -->
+	<g stroke="#D4AF37" stroke-width="1.4" fill="none" opacity=".82">
+		<path d="M20 20 L60 20 M20 20 L20 60"/>
+		<path d="M580 20 L540 20 M580 20 L580 60"/>
+		<path d="M20 780 L60 780 M20 780 L20 740"/>
+		<path d="M580 780 L540 780 M580 780 L580 740"/>
+	</g>
+</svg>

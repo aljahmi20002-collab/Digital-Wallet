@@ -1,0 +1,1217 @@
+:root,
+[data-theme="light"] {
+    /* Frontend Font Family */
+    --front-font-primary: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', Roboto, sans-serif;
+    --front-font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+
+    /* Frontend Font Sizes */
+    --front-font-2xs: 10px;
+    --front-font-xs: 12px;
+    --front-font-sm: 13px;
+    --front-font-base: 14px;
+    --front-font-md: 15px;
+    --front-font-lg: 16px;
+    --front-font-xl: 18px;
+    --front-font-2xl: 20px;
+    --front-font-3xl: 24px;
+    --front-font-size-0: 0;
+
+    /* Extended Font Sizes: compatibility scale for existing frontend modules */
+    --front-font-size-rem-058: 0.58rem;
+    --front-font-size-rem-064: 0.64rem;
+    --front-font-size-rem-066: 0.66rem;
+    --front-font-size-rem-067: 0.67rem;
+    --front-font-size-rem-068: 0.68rem;
+    --front-font-size-rem-072: 0.72rem;
+    --front-font-size-rem-073: 0.73rem;
+    --front-font-size-rem-074: 0.74rem;
+    --front-font-size-rem-075: 0.75rem;
+    --front-font-size-rem-076: 0.76rem;
+    --front-font-size-rem-078: 0.78rem;
+    --front-font-size-em-0795: 0.795em;
+    --front-font-size-rem-07: 0.7rem;
+    --front-font-size-rem-082: 0.82rem;
+    --front-font-size-rem-083: 0.83rem;
+    --front-font-size-rem-084: 0.84rem;
+    --front-font-size-em-085: 0.85em;
+    --front-font-size-rem-085: 0.85rem;
+    --front-font-size-rem-086: 0.86rem;
+    --front-font-size-rem-0875: 0.875rem;
+    --front-font-size-rem-088: 0.88rem;
+    --front-font-size-rem-08: 0.8rem;
+    --front-font-size-rem-092: 0.92rem;
+    --front-font-size-rem-09375: 0.9375rem;
+    --front-font-size-rem-094: 0.94rem;
+    --front-font-size-em-095: 0.95em;
+    --front-font-size-rem-095: 0.95rem;
+    --front-font-size-rem-096: 0.96rem;
+    --front-font-size-rem-098: 0.98rem;
+    --front-font-size-rem-09: 0.9rem;
+    --front-font-size-rem-115: 1.15rem;
+    --front-font-size-rem-118: 1.18rem;
+    --front-font-size-rem-11: 1.1rem;
+    --front-font-size-rem-125: 1.25rem;
+    --front-font-size-rem-12: 1.2rem;
+    --front-font-size-rem-13: 1.3rem;
+    --front-font-size-rem-15: 1.5rem;
+    --front-font-size-px-105: 10.5px;
+    --front-font-size-px-108: 10.8px;
+    --front-font-size-px-11: 11px;
+    --front-font-size-px-115: 11.5px;
+    --front-font-size-px-125: 12.5px;
+    --front-font-size-px-135: 13.5px;
+    --front-font-size-px-145: 14.5px;
+    --front-font-size-px-150: 150px;
+    --front-font-size-px-17: 17px;
+    --front-font-size-px-19: 19px;
+    --front-font-size-rem-1: 1rem;
+    --front-font-size-em-25: 2.5em;
+    --front-font-size-px-21: 21px;
+    --front-font-size-px-22: 22px;
+    --front-font-size-px-25: 25px;
+    --front-font-size-px-26: 26px;
+    --front-font-size-px-28: 28px;
+    --front-font-size-px-30: 30px;
+    --front-font-size-px-32: 32px;
+    --front-font-size-px-34: 34px;
+    --front-font-size-px-35: 35px;
+    --front-font-size-px-36: 36px;
+    --front-font-size-px-38: 38px;
+    --front-font-size-px-40: 40px;
+    --front-font-size-px-42: 42px;
+    --front-font-size-px-44: 44px;
+    --front-font-size-px-45: 45px;
+    --front-font-size-px-46: 46px;
+    --front-font-size-px-48: 48px;
+    --front-font-size-rem-4: 4rem;
+    --front-font-size-px-50: 50px;
+    --front-font-size-px-52: 52px;
+    --front-font-size-px-65: 65px;
+    --front-font-size-px-75: 7.5px;
+    --front-font-size-px-7: 7px;
+    --front-font-size-px-85: 8.5px;
+    --front-font-size-px-88: 8.8px;
+    --front-font-size-px-84: 84px;
+    --front-font-size-px-8: 8px;
+    --front-font-size-px-95: 9.5px;
+    --front-font-size-px-9: 9px;
+
+    /* Frontend Font Weights */
+    --front-font-normal: 400;
+    --front-font-medium: 500;
+    --front-font-semibold: 600;
+    --front-font-bold: 700;
+    --front-font-extrabold: 800;
+    --front-font-heavy: 850;
+    --front-font-black: 900;
+
+    /* Frontend Semantic Colors */
+    --front-color-primary: #4663ee;
+    --front-color-primary-rgb: 70, 99, 238;
+    --front-color-primary-hover: #354ccc;
+    --front-color-primary-dark: #354c8c;
+    --front-color-secondary: #22bdff;
+    --front-color-accent: #17a86a;
+    --front-color-success: #16a34a;
+    --front-color-success-rgb: 22, 163, 74;
+    --front-color-warning: #d97706;
+    --front-color-warning-rgb: 217, 119, 6;
+    --front-color-danger: #ef4444;
+    --front-color-danger-rgb: 239, 68, 68;
+
+    /* Agent — premium indigo palette used for the agent module surfaces */
+    --front-color-agent: #4f46e5;
+    --front-color-agent-rgb: 79, 70, 229;
+    --front-color-agent-hover: #4338ca;
+    --front-color-agent-dark: #1e1b4b;
+    --front-color-agent-soft: #eef2ff;
+    --front-color-agent-soft-border: #c7d2fe;
+    --front-color-agent-accent: #f59e0b;
+    --front-color-agent-accent-rgb: 245, 158, 11;
+    --front-gradient-agent: linear-gradient(135deg, #4f46e5 0%, #1e1b4b 100%);
+    --front-gradient-agent-soft: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+    --front-shadow-agent: 0 12px 30px -10px rgba(79, 70, 229, 0.45);
+
+    --front-color-bg: #f3f7fb;
+    --front-color-card: #ffffff;
+    --front-color-surface: #f8faff;
+    --front-color-surface-soft: #f5f7fa;
+    --front-color-heading: #181818;
+    --front-color-text: #374151;
+    --front-color-text-rgb: 55, 65, 81;
+    --front-color-text-soft: #445375;
+    --front-color-muted: #6b7280;
+    --front-color-muted-rgb: 107, 114, 128;
+    --front-color-border: #e3e7ff;
+    --front-color-border-soft: #eef1f5;
+    --front-color-white: #ffffff;
+    --front-color-white-rgb: 255, 255, 255;
+    --front-color-black: #000000;
+    --front-color-black-rgb: 0, 0, 0;
+    --background-color-rgb: var(--front-color-white-rgb);
+    --tag-color: var(--front-palette-f0b90b);
+    --ud-text: var(--front-color-heading);
+
+    /* Extended Colors: compatibility palette for existing frontend modules */
+    --front-palette-00060c: #00060c;
+    --front-palette-002b98: #002b98;
+    --front-palette-0284c7: #0284c7;
+    --front-palette-0369a1: #0369a1;
+    --front-palette-047857: #047857;
+    --front-palette-05202b: #05202b;
+    --front-palette-059669: #059669;
+    --front-palette-064e3b: #064e3b;
+    --front-palette-065f46: #065f46;
+    --front-palette-079455: #079455;
+    --front-palette-0891b2: #0891b2;
+    --front-palette-0a2540: #0a2540;
+    --front-palette-0a4d8c: #0a4d8c;
+    --front-palette-0a53be: #0a53be;
+    --front-palette-0b0f19: #0b0f19;
+    --front-palette-0b1220: #0b1220;
+    --front-palette-0b1437: #0b1437;
+    --front-palette-0b1530: #0b1530;
+    --front-palette-0d1338: #0d1338;
+    --front-palette-0d41a6: #0d41a6;
+    --front-palette-0d47a1: #0d47a1;
+    --front-palette-0d6efd: #0d6efd;
+    --front-palette-0e1330: #0e1330;
+    --front-palette-0e1530: #0e1530;
+    --front-palette-0e2a52: #0e2a52;
+    --front-palette-0e7490: #0e7490;
+    --front-palette-0f172a: #0f172a;
+    --front-palette-0f766e: #0f766e;
+    --front-palette-0f7a3f: #0f7a3f;
+    --front-palette-0f8a5f: #0f8a5f;
+    --front-palette-101828: #101828;
+    --front-palette-10203c: #10203c;
+    --front-palette-10b981: #10b981;
+    --front-palette-111827: #111827;
+    --front-palette-111a4a: #111a4a;
+    --front-palette-111b47: #111b47;
+    --front-palette-11233f: #11233f;
+    --front-palette-121a2f: #121a2f;
+    --front-palette-1255b0: #1255b0;
+    --front-palette-1355c4: #1355c4;
+    --front-palette-14205a: #14205a;
+    --front-palette-151515: #151515;
+    --front-palette-15253e: #15253e;
+    --front-palette-15803d: #15803d;
+    --front-palette-16181c: #16181c;
+    --front-palette-166534: #166534;
+    --front-palette-16a37a: #16a37a;
+    --front-palette-16bbfb: #16bbfb;
+    --front-palette-172033: #172033;
+    --front-palette-175cd3: #175cd3;
+    --front-palette-18185e: #18185e;
+    --front-palette-185ea7: #185ea7;
+    --front-palette-19744b: #19744b;
+    --front-palette-1976d2: #1976d2;
+    --front-palette-1978ba: #1978ba;
+    --front-palette-198754: #198754;
+    --front-palette-1a2240: #1a2240;
+    --front-palette-1a2558: #1a2558;
+    --front-palette-1a5fd1: #1a5fd1;
+    --front-palette-1a6fdb: #1a6fdb;
+    --front-palette-1b1e26: #1b1e26;
+    --front-palette-1b2551: #1b2551;
+    --front-palette-1b2a6e: #1b2a6e;
+    --front-palette-1b3249: #1b3249;
+    --front-palette-1c78e0: #1c78e0;
+    --front-palette-1d3f63: #1d3f63;
+    --front-palette-1d4ed8: #1d4ed8;
+    --front-palette-1dc295: #1dc295;
+    --front-palette-1e266d: #1e266d;
+    --front-palette-1e2749: #1e2749;
+    --front-palette-1e293b: #1e293b;
+    --front-palette-1e2a4a: #1e2a4a;
+    --front-palette-1e2d6b: #1e2d6b;
+    --front-palette-1e3a8a: #1e3a8a;
+    --front-palette-1e40af: #1e40af;
+    --front-palette-1e7f55: #1e7f55;
+    --front-palette-1e8449: #1e8449;
+    --front-palette-1f2937: #1f2937;
+    --front-palette-1f2a44: #1f2a44;
+    --front-palette-1f2d5c: #1f2d5c;
+    --front-palette-1f315f: #1f315f;
+    --front-palette-1f59dc: #1f59dc;
+    --front-palette-1f6a3c: #1f6a3c;
+    --front-palette-1f7a49: #1f7a49;
+    --front-palette-1f8f7a: #1f8f7a;
+    --front-palette-1fbe6b: #1fbe6b;
+    --front-palette-203050: #203050;
+    --front-palette-20315d: #20315d;
+    --front-palette-203354: #203354;
+    --front-palette-2074e8: #2074e8;
+    --front-palette-212529: #212529;
+    --front-palette-21305a: #21305a;
+    --front-palette-21759b: #21759b;
+    --front-palette-218838: #218838;
+    --front-palette-2190e5: #2190e5;
+    --front-palette-22305b: #22305b;
+    --front-palette-22305c: #22305c;
+    --front-palette-223b90: #223b90;
+    --front-palette-22c55e: #22c55e;
+    --front-palette-22c55e0f: #22c55e0f;
+    --front-palette-22c55e21: #22c55e21;
+    --front-palette-23293c: #23293c;
+    --front-palette-23315b: #23315b;
+    --front-palette-23315c: #23315c;
+    --front-palette-23a55a: #23a55a;
+    --front-palette-23b5ff: #23b5ff;
+    --front-palette-243156: #243156;
+    --front-palette-24315c: #24315c;
+    --front-palette-24325b: #24325b;
+    --front-palette-24365b: #24365b;
+    --front-palette-2452d1: #2452d1;
+    --front-palette-252527: #252527;
+    --front-palette-2540b5: #2540b5;
+    --front-palette-2563eb: #2563eb;
+    --front-palette-273256: #273256;
+    --front-palette-27935a: #27935a;
+    --front-palette-28345a: #28345a;
+    --front-palette-2878eb: #2878eb;
+    --front-palette-28a745: #28a745;
+    --front-palette-28a772: #28a772;
+    --front-palette-29406f: #29406f;
+    --front-palette-2a1a5e: #2a1a5e;
+    --front-palette-2a2d33: #2a2d33;
+    --front-palette-2a3552: #2a3552;
+    --front-palette-2a3b6e: #2a3b6e;
+    --front-palette-2b376f: #2b376f;
+    --front-palette-2b478c: #2b478c;
+    --front-palette-2b6cf6: #2b6cf6;
+    --front-palette-2c4cf0: #2c4cf0;
+    --front-palette-2d3658: #2d3658;
+    --front-palette-2d3f76: #2d3f76;
+    --front-palette-2d86c8: #2d86c8;
+    --front-palette-2e7f2e: #2e7f2e;
+    --front-palette-2f396f: #2f396f;
+    --front-palette-2f5dce: #2f5dce;
+    --front-palette-314dde: #314dde;
+    --front-palette-324978: #324978;
+    --front-palette-324db7: #324db7;
+    --front-palette-333: #333;
+    --front-palette-334155: #334155;
+    --front-palette-334a7d: #334a7d;
+    --front-palette-334a86: #334a86;
+    --front-palette-34458d: #34458d;
+    --front-palette-34865b: #34865b;
+    --front-palette-3556a8: #3556a8;
+    --front-palette-3558c8: #3558c8;
+    --front-palette-3647e9: #3647e9;
+    --front-palette-3647e90d: #3647e90d;
+    --front-palette-3647e914: #3647e914;
+    --front-palette-3647e92b: #3647e92b;
+    --front-palette-36cdec: #36cdec;
+    --front-palette-3730a3: #3730a3;
+    --front-palette-3a3f47: #3a3f47;
+    --front-palette-3a4260: #3a4260;
+    --front-palette-3a52c9: #3a52c9;
+    --front-palette-3a8ef5: #3a8ef5;
+    --front-palette-3b4cca: #3b4cca;
+    --front-palette-3b5bff: #3b5bff;
+    --front-palette-3b6fe0: #3b6fe0;
+    --front-palette-3c436a: #3c436a;
+    --front-palette-3ddc84: #3ddc84;
+    --front-palette-3e6ee9: #3e6ee9;
+    --front-palette-3f517e: #3f517e;
+    --front-palette-3f53df: #3f53df;
+    --front-palette-3f7fe8: #3f7fe8;
+    --front-palette-41506f: #41506f;
+    --front-palette-424242: #424242;
+    --front-palette-4261d7: #4261d7;
+    --front-palette-4285f4: #4285f4;
+    --front-palette-4338ca: #4338ca;
+    --front-palette-4363dd: #4363dd;
+    --front-palette-444: #444;
+    --front-palette-4560e8: #4560e8;
+    --front-palette-4564fc: #4564fc;
+    --front-palette-4566e5: #4566e5;
+    --front-palette-475467: #475467;
+    --front-palette-475569: #475569;
+    --front-palette-49546d: #49546d;
+    --front-palette-496189: #496189;
+    --front-palette-4966bd: #4966bd;
+    --front-palette-4a148c: #4a148c;
+    --front-palette-4a5c86: #4a5c86;
+    --front-palette-4a62ea: #4a62ea;
+    --front-palette-4ab66d: #4ab66d;
+    --front-palette-4ade80: #4ade80;
+    --front-palette-4b5563: #4b5563;
+    --front-palette-4b60eb: #4b60eb;
+    --front-palette-4b68ff: #4b68ff;
+    --front-palette-4b6ae8: #4b6ae8;
+    --front-palette-4c2eab: #4c2eab;
+    --front-palette-4c618f: #4c618f;
+    --front-palette-4caf71: #4caf71;
+    --front-palette-4cb56f: #4cb56f;
+    --front-palette-4d67df: #4d67df;
+    --front-palette-4d7bf0: #4d7bf0;
+    --front-palette-4d86ff: #4d86ff;
+    --front-palette-4e72f0: #4e72f0;
+    --front-palette-4e72f5: #4e72f5;
+    --front-palette-4f46e5: #4f46e5;
+    --front-palette-4f536c: #4f536c;
+    --front-palette-4f5d86: #4f5d86;
+    --front-palette-4f67bb: #4f67bb;
+    --front-palette-4f69ea: #4f69ea;
+    --front-palette-4f6bff: #4f6bff;
+    --front-palette-4f79ef: #4f79ef;
+    --front-palette-52525b: #52525b;
+    --front-palette-52607f: #52607f;
+    --front-palette-52627d: #52627d;
+    --front-palette-546277: #546277;
+    --front-palette-54628a: #54628a;
+    --front-palette-5468eb: #5468eb;
+    --front-palette-555: #555;
+    --front-palette-56667f: #56667f;
+    --front-palette-56d383: #56d383;
+    --front-palette-596887: #596887;
+    --front-palette-5a6080: #5a6080;
+    --front-palette-5a6582: #5a6582;
+    --front-palette-5a6785: #5a6785;
+    --front-palette-5b4ca8: #5b4ca8;
+    --front-palette-5b6577: #5b6577;
+    --front-palette-5b6c8f: #5b6c8f;
+    --front-palette-5b8df5: #5b8df5;
+    --front-palette-5d6b9a: #5d6b9a;
+    --front-palette-5d74f2: #5d74f2;
+    --front-palette-5d79ef: #5d79ef;
+    --front-palette-5e5ef6: #5e5ef6;
+    --front-palette-5e6f95: #5e6f95;
+    --front-palette-5e79ef: #5e79ef;
+    --front-palette-5effc4: #5effc4;
+    --front-palette-5f2ff2: #5f2ff2;
+    --front-palette-5f6f91: #5f6f91;
+    --front-palette-5f73ef: #5f73ef;
+    --front-palette-60709a: #60709a;
+    --front-palette-616161: #616161;
+    --front-palette-61719a: #61719a;
+    --front-palette-6366f1: #6366f1;
+    --front-palette-64739c: #64739c;
+    --front-palette-64748b: #64748b;
+    --front-palette-666: #666;
+    --front-palette-667085: #667085;
+    --front-palette-66748f: #66748f;
+    --front-palette-67748f: #67748f;
+    --front-palette-67759d: #67759d;
+    --front-palette-687792: #687792;
+    --front-palette-68779f: #68779f;
+    --front-palette-6980ef: #6980ef;
+    --front-palette-6a7df0: #6a7df0;
+    --front-palette-6a92ff: #6a92ff;
+    --front-palette-6b7295: #6b7295;
+    --front-palette-6b7383: #6b7383;
+    --front-palette-6b769d: #6b769d;
+    --front-palette-6b789f: #6b789f;
+    --front-palette-6b7c9f: #6b7c9f;
+    --front-palette-6c757d: #6c757d;
+    --front-palette-6c767c: #6c767c;
+    --front-palette-6c82f0: #6c82f0;
+    --front-palette-6c8efb: #6c8efb;
+    --front-palette-6dd18f: #6dd18f;
+    --front-palette-6e7a9d: #6e7a9d;
+    --front-palette-6e7ea9: #6e7ea9;
+    --front-palette-6ea3ff: #6ea3ff;
+    --front-palette-6f7aa1: #6f7aa1;
+    --front-palette-6f7ba0: #6f7ba0;
+    --front-palette-6f7d98: #6f7d98;
+    --front-palette-6f8cff: #6f8cff;
+    --front-palette-70809a: #70809a;
+    --front-palette-7080a8: #7080a8;
+    --front-palette-7085ff: #7085ff;
+    --front-palette-71809e: #71809e;
+    --front-palette-7280a7: #7280a7;
+    --front-palette-738199: #738199;
+    --front-palette-748193: #748193;
+    --front-palette-74819a: #74819a;
+    --front-palette-7782a6: #7782a6;
+    --front-palette-78c39d: #78c39d;
+    --front-palette-7986be: #7986be;
+    --front-palette-7a8599: #7a8599;
+    --front-palette-7a859f: #7a859f;
+    --front-palette-7a85a8: #7a85a8;
+    --front-palette-7a85b7: #7a85b7;
+    --front-palette-7a86a8: #7a86a8;
+    --front-palette-7b1fa2: #7b1fa2;
+    --front-palette-7b86a7: #7b86a7;
+    --front-palette-7b879d: #7b879d;
+    --front-palette-7b88a8: #7b88a8;
+    --front-palette-7b8bff: #7b8bff;
+    --front-palette-7c3aed: #7c3aed;
+    --front-palette-7c5cff: #7c5cff;
+    --front-palette-7c87a7: #7c87a7;
+    --front-palette-7c89a4: #7c89a4;
+    --front-palette-7cbc33: #7cbc33;
+    --front-palette-7cf1ac: #7cf1ac;
+    --front-palette-7d8aa5: #7d8aa5;
+    --front-palette-7e22ce: #7e22ce;
+    --front-palette-8693ac: #8693ac;
+    --front-palette-86efac: #86efac;
+    --front-palette-888: #888;
+    --front-palette-8891b0: #8891b0;
+    --front-palette-8892a6: #8892a6;
+    --front-palette-8a5c00: #8a5c00;
+    --front-palette-8a6100: #8a6100;
+    --front-palette-8a91b4: #8a91b4;
+    --front-palette-8a92a8: #8a92a8;
+    --front-palette-8c97b7: #8c97b7;
+    --front-palette-8ca0ff: #8ca0ff;
+    --front-palette-8d6e63: #8d6e63;
+    --front-palette-8f5e00: #8f5e00;
+    --front-palette-8f6300: #8f6300;
+    --front-palette-8fb2ff: #8fb2ff;
+    --front-palette-90caf9: #90caf9;
+    --front-palette-92400e: #92400e;
+    --front-palette-92580c: #92580c;
+    --front-palette-9333ea: #9333ea;
+    --front-palette-946200: #946200;
+    --front-palette-94a3b8: #94a3b8;
+    --front-palette-98a2b3: #98a2b3;
+    --front-palette-98a2b7: #98a2b7;
+    --front-palette-991b1b: #991b1b;
+    --front-palette-999: #999;
+    --front-palette-9a3412: #9a3412;
+    --front-palette-9a6700: #9a6700;
+    --front-palette-9a7413: #9a7413;
+    --front-palette-9aa3b2: #9aa3b2;
+    --front-palette-9b5cea: #9b5cea;
+    --front-palette-9ca3af: #9ca3af;
+    --front-palette-a0aabf: #a0aabf;
+    --front-palette-a16207: #a16207;
+    --front-palette-a66a00: #a66a00;
+    --front-palette-a6b0ff: #a6b0ff;
+    --front-palette-a7f3d0: #a7f3d0;
+    --front-palette-a8324c: #a8324c;
+    --front-palette-af49ff: #af49ff;
+    --front-palette-b0c4e7: #b0c4e7;
+    --front-palette-b42318: #b42318;
+    --front-palette-b45309: #b45309;
+    --front-palette-b54141: #b54141;
+    --front-palette-b54708: #b54708;
+    --front-palette-b5bbbd: #b5bbbd;
+    --front-palette-b5bbd6: #b5bbd6;
+    --front-palette-b7791f: #b7791f;
+    --front-palette-b7912f: #b7912f;
+    --front-palette-b7c7e8: #b7c7e8;
+    --front-palette-b91c1c: #b91c1c;
+    --front-palette-b9bfd0: #b9bfd0;
+    --front-palette-bbb: #bbb;
+    --front-palette-bbbbbb: #bbbbbb;
+    --front-palette-bbdefb: #bbdefb;
+    --front-palette-bbf7d0: #bbf7d0;
+    --front-palette-bdbdbd: #bdbdbd;
+    --front-palette-be123c: #be123c;
+    --front-palette-be185d: #be185d;
+    --front-palette-bfdbfe: #bfdbfe;
+    --front-palette-c2410c: #c2410c;
+    --front-palette-c3d9cc: #c3d9cc;
+    --front-palette-c78900: #c78900;
+    --front-palette-c7cdd8: #c7cdd8;
+    --front-palette-c7d8f8: #c7d8f8;
+    --front-palette-cbd5e1: #cbd5e1;
+    --front-palette-cbd5f5: #cbd5f5;
+    --front-palette-ccc: #ccc;
+    --front-palette-ccd6e6: #ccd6e6;
+    --front-palette-ccead7: #ccead7;
+    --front-palette-ce93d8: #ce93d8;
+    --front-palette-ced4da: #ced4da;
+    --front-palette-cfd4da: #cfd4da;
+    --front-palette-cfd8ec: #cfd8ec;
+    --front-palette-cfd8f6: #cfd8f6;
+    --front-palette-cfe2ff: #cfe2ff;
+    --front-palette-cfe3fb: #cfe3fb;
+    --front-palette-cfe8da: #cfe8da;
+    --front-palette-d16a6a: #d16a6a;
+    --front-palette-d1d5db: #d1d5db;
+    --front-palette-d1d9f7: #d1d9f7;
+    --front-palette-d1daeb: #d1daeb;
+    --front-palette-d1fae5: #d1fae5;
+    --front-palette-d2dcf8: #d2dcf8;
+    --front-palette-d31e30: #d31e30;
+    --front-palette-d3a12d: #d3a12d;
+    --front-palette-d3def8: #d3def8;
+    --front-palette-d4dcff: #d4dcff;
+    --front-palette-d4f8e8: #d4f8e8;
+    --front-palette-d52e46: #d52e46;
+    --front-palette-d5d5d5: #d5d5d5;
+    --front-palette-d6d6d6: #d6d6d6;
+    --front-palette-d6d9e4: #d6d9e4;
+    --front-palette-d6dcff: #d6dcff;
+    --front-palette-d6deed: #d6deed;
+    --front-palette-d7ddef: #d7ddef;
+    --front-palette-d7defe: #d7defe;
+    --front-palette-d7dfef: #d7dfef;
+    --front-palette-d7e3ff: #d7e3ff;
+    --front-palette-d7eeff: #d7eeff;
+    --front-palette-d8ad39: #d8ad39;
+    --front-palette-d8e0f3: #d8e0f3;
+    --front-palette-d92d20: #d92d20;
+    --front-palette-d95656: #d95656;
+    --front-palette-d9d9d9: #d9d9d9;
+    --front-palette-d9dcff: #d9dcff;
+    --front-palette-d9dee7: #d9dee7;
+    --front-palette-d9deee: #d9deee;
+    --front-palette-d9e0f4: #d9e0f4;
+    --front-palette-d9e1e86e: #d9e1e86e;
+    --front-palette-d9e1e88a: #d9e1e88a;
+    --front-palette-d9e1ef: #d9e1ef;
+    --front-palette-d9e1f0: #d9e1f0;
+    --front-palette-d9e2f3: #d9e2f3;
+    --front-palette-d9e3f8: #d9e3f8;
+    --front-palette-db2777: #db2777;
+    --front-palette-dbdbdb: #dbdbdb;
+    --front-palette-dbe2f2: #dbe2f2;
+    --front-palette-dbe2ff: #dbe2ff;
+    --front-palette-dbe3f2: #dbe3f2;
+    --front-palette-dbe3f3: #dbe3f3;
+    --front-palette-dbe4f3: #dbe4f3;
+    --front-palette-dbe7ff: #dbe7ff;
+    --front-palette-dbeafe: #dbeafe;
+    --front-palette-dc2626: #dc2626;
+    --front-palette-dc3545: #dc3545;
+    --front-palette-dc6803: #dc6803;
+    --front-palette-dce5f5: #dce5f5;
+    --front-palette-dce5f7: #dce5f7;
+    --front-palette-dce5fa: #dce5fa;
+    --front-palette-dcfce7: #dcfce7;
+    --front-palette-ddd: #ddd;
+    --front-palette-dde0f5: #dde0f5;
+    --front-palette-dde3f5: #dde3f5;
+    --front-palette-dde4f2: #dde4f2;
+    --front-palette-dde4f4: #dde4f4;
+    --front-palette-de8a0f: #de8a0f;
+    --front-palette-dee2e6: #dee2e6;
+    --front-palette-dfe3ee: #dfe3ee;
+    --front-palette-dfe4f2: #dfe4f2;
+    --front-palette-dfe4f3: #dfe4f3;
+    --front-palette-dfe7f5: #dfe7f5;
+    --front-palette-dfe7f6: #dfe7f6;
+    --front-palette-dfe8ff: #dfe8ff;
+    --front-palette-dff7ea: #dff7ea;
+    --front-palette-e0def8: #e0def8;
+    --front-palette-e0e0e0: #e0e0e0;
+    --front-palette-e0e4fc: #e0e4fc;
+    --front-palette-e0e7ff: #e0e7ff;
+    --front-palette-e11d48: #e11d48;
+    --front-palette-e15063: #e15063;
+    --front-palette-e1bee7: #e1bee7;
+    --front-palette-e1e6f3: #e1e6f3;
+    --front-palette-e1e6f4: #e1e6f4;
+    --front-palette-e1e8fa: #e1e8fa;
+    --front-palette-e1ede6: #e1ede6;
+    --front-palette-e1f7fc: #e1f7fc;
+    --front-palette-e25c7a: #e25c7a;
+    --front-palette-e2e2e2: #e2e2e2;
+    --front-palette-e2e6f4: #e2e6f4;
+    --front-palette-e2e7f4: #e2e7f4;
+    --front-palette-e2e8f0: #e2e8f0;
+    --front-palette-e2eaff: #e2eaff;
+    --front-palette-e3e7ff: #e3e7ff;
+    --front-palette-e3e8ee: #e3e8ee;
+    --front-palette-e3e8f4: #e3e8f4;
+    --front-palette-e3e8fc: #e3e8fc;
+    --front-palette-e3f2fd: #e3f2fd;
+    --front-palette-e4e8f5: #e4e8f5;
+    --front-palette-e4e8ff: #e4e8ff;
+    --front-palette-e4eafb: #e4eafb;
+    --front-palette-e4f3e9: #e4f3e9;
+    --front-palette-e58f8f: #e58f8f;
+    --front-palette-e59b19: #e59b19;
+    --front-palette-e5e5e5: #e5e5e5;
+    --front-palette-e5e6e7: #e5e6e7;
+    --front-palette-e5e7eb: #e5e7eb;
+    --front-palette-e5eaff: #e5eaff;
+    --front-palette-e5ecff: #e5ecff;
+    --front-palette-e6c97a: #e6c97a;
+    --front-palette-e6d4a5: #e6d4a5;
+    --front-palette-e6e8f2: #e6e8f2;
+    --front-palette-e6e9ef: #e6e9ef;
+    --front-palette-e6e9f4: #e6e9f4;
+    --front-palette-e6eaf5: #e6eaf5;
+    --front-palette-e6eafd: #e6eafd;
+    --front-palette-e6ebf7: #e6ebf7;
+    --front-palette-e6ebff: #e6ebff;
+    --front-palette-e6ecff: #e6ecff;
+    --front-palette-e6edff: #e6edff;
+    --front-palette-e6eefb: #e6eefb;
+    --front-palette-e6f7ee: #e6f7ee;
+    --front-palette-e73625: #e73625;
+    --front-palette-e736250d: #e736250d;
+    --front-palette-e736252e: #e736252e;
+    --front-palette-e74c3c: #e74c3c;
+    --front-palette-e7e7e7: #e7e7e7;
+    --front-palette-e7ebf6: #e7ebf6;
+    --front-palette-e7ebff: #e7ebff;
+    --front-palette-e7edf5: #e7edf5;
+    --front-palette-e7edf9: #e7edf9;
+    --front-palette-e7f1ff: #e7f1ff;
+    --front-palette-e7f8f1: #e7f8f1;
+    --front-palette-e8ae19: #e8ae19;
+    --front-palette-e8eaf0: #e8eaf0;
+    --front-palette-e9ecef: #e9ecef;
+    --front-palette-e9ecff: #e9ecff;
+    --front-palette-e9eefb: #e9eefb;
+    --front-palette-e9efff: #e9efff;
+    --front-palette-e9f9ef: #e9f9ef;
+    --front-palette-ea580c: #ea580c;
+    --front-palette-eaecf3: #eaecf3;
+    --front-palette-eaeeff: #eaeeff;
+    --front-palette-eaf0ff: #eaf0ff;
+    --front-palette-eaf5ff: #eaf5ff;
+    --front-palette-ebf3ef: #ebf3ef;
+    --front-palette-eceff1: #eceff1;
+    --front-palette-ecf2ff: #ecf2ff;
+    --front-palette-ecfdf5: #ecfdf5;
+    --front-palette-edf1f7: #edf1f7;
+    --front-palette-edf1fa: #edf1fa;
+    --front-palette-edf1fb: #edf1fb;
+    --front-palette-edf1ff: #edf1ff;
+    --front-palette-edf2f9: #edf2f9;
+    --front-palette-edf2ff: #edf2ff;
+    --front-palette-edf3ff: #edf3ff;
+    --front-palette-edf7ff: #edf7ff;
+    --front-palette-edf8ff: #edf8ff;
+    --front-palette-edf9f1: #edf9f1;
+    --front-palette-edfaf4: #edfaf4;
+    --front-palette-ee4664: #ee4664;
+    --front-palette-eee: #eee;
+    --front-palette-eeeeee: #eeeeee;
+    --front-palette-eef0f7: #eef0f7;
+    --front-palette-eef0f8: #eef0f8;
+    --front-palette-eef1f5: #eef1f5;
+    --front-palette-eef2f7: #eef2f7;
+    --front-palette-eef2f8: #eef2f8;
+    --front-palette-eef2ff: #eef2ff;
+    --front-palette-eef3fe: #eef3fe;
+    --front-palette-eef3ff: #eef3ff;
+    --front-palette-eef4ff: #eef4ff;
+    --front-palette-eef8f1: #eef8f1;
+    --front-palette-eefaf3: #eefaf3;
+    --front-palette-eefbf4: #eefbf4;
+    --front-palette-ef4351: #ef4351;
+    --front-palette-ef5a68: #ef5a68;
+    --front-palette-ef6573: #ef6573;
+    --front-palette-eff0fd: #eff0fd;
+    --front-palette-eff1ff: #eff1ff;
+    --front-palette-eff6ff: #eff6ff;
+    --front-palette-f0b90b: #f0b90b;
+    --front-palette-f0c95d: #f0c95d;
+    --front-palette-f0f2f7: #f0f2f7;
+    --front-palette-f0f3fc: #f0f3fc;
+    --front-palette-f0f4f8: #f0f4f8;
+    --front-palette-f0f4ff: #f0f4ff;
+    --front-palette-f0f6ff: #f0f6ff;
+    --front-palette-f0faf4: #f0faf4;
+    --front-palette-f0fdf4: #f0fdf4;
+    --front-palette-f14d5d: #f14d5d;
+    --front-palette-f1daad: #f1daad;
+    --front-palette-f1ddb2: #f1ddb2;
+    --front-palette-f1dfbd: #f1dfbd;
+    --front-palette-f1f1f1: #f1f1f1;
+    --front-palette-f1f3f5: #f1f3f5;
+    --front-palette-f1f3ff: #f1f3ff;
+    --front-palette-f1f4f9: #f1f4f9;
+    --front-palette-f1f5f9: #f1f5f9;
+    --front-palette-f1f5ff: #f1f5ff;
+    --front-palette-f1fbf5: #f1fbf5;
+    --front-palette-f2dfb7: #f2dfb7;
+    --front-palette-f2eeff: #f2eeff;
+    --front-palette-f2f5ff: #f2f5ff;
+    --front-palette-f2f6ff: #f2f6ff;
+    --front-palette-f2fcf5: #f2fcf5;
+    --front-palette-f39cb1: #f39cb1;
+    --front-palette-f3d9a4: #f3d9a4;
+    --front-palette-f3e5f5: #f3e5f5;
+    --front-palette-f3f5ff: #f3f5ff;
+    --front-palette-f3f6ff: #f3f6ff;
+    --front-palette-f3f7fb: #f3f7fb;
+    --front-palette-f3f7ff: #f3f7ff;
+    --front-palette-f4cfab: #f4cfab;
+    --front-palette-f4f6fc: #f4f6fc;
+    --front-palette-f4f7fc: #f4f7fc;
+    --front-palette-f4f7ff: #f4f7ff;
+    --front-palette-f4f8ff: #f4f8ff;
+    --front-palette-f59e0b: #f59e0b;
+    --front-palette-f5a623: #f5a623;
+    --front-palette-f5f3ff: #f5f3ff;
+    --front-palette-f5f4ff: #f5f4ff;
+    --front-palette-f5f5f5: #f5f5f5;
+    --front-palette-f5f6f6: #f5f6f6;
+    --front-palette-f5f6ff: #f5f6ff;
+    --front-palette-f5f7fa: #f5f7fa;
+    --front-palette-f5f7fb: #f5f7fb;
+    --front-palette-f5f7ff: #f5f7ff;
+    --front-palette-f6f7fd: #f6f7fd;
+    --front-palette-f6f8ff: #f6f8ff;
+    --front-palette-f7f4ff: #f7f4ff;
+    --front-palette-f7f8fe: #f7f8fe;
+    --front-palette-f7f8ff: #f7f8ff;
+    --front-palette-f7f9fb: #f7f9fb;
+    --front-palette-f7f9fc: #f7f9fc;
+    --front-palette-f7f9ff: #f7f9ff;
+    --front-palette-f7fafc: #f7fafc;
+    --front-palette-f7fafd: #f7fafd;
+    --front-palette-f7faff: #f7faff;
+    --front-palette-f87171: #f87171;
+    --front-palette-f8f8f880: #f8f8f880;
+    --front-palette-f8f9fa: #f8f9fa;
+    --front-palette-f8f9ff: #f8f9ff;
+    --front-palette-f8fafc: #f8fafc;
+    --front-palette-f8faff: #f8faff;
+    --front-palette-f8fbff: #f8fbff;
+    --front-palette-f9e0e3: #f9e0e3;
+    --front-palette-f9f9f9: #f9f9f9;
+    --front-palette-f9fafb: #f9fafb;
+    --front-palette-f9fafc: #f9fafc;
+    --front-palette-f9faff: #f9faff;
+    --front-palette-faa603: #faa603;
+    --front-palette-facc15: #facc15;
+    --front-palette-faf3ff: #faf3ff;
+    --front-palette-fafbfd: #fafbfd;
+    --front-palette-fafbff: #fafbff;
+    --front-palette-fafcff: #fafcff;
+    --front-palette-fbbf24: #fbbf24;
+    --front-palette-fbe4ea: #fbe4ea;
+    --front-palette-fbeaec: #fbeaec;
+    --front-palette-fbfcfe: #fbfcfe;
+    --front-palette-fbfcff: #fbfcff;
+    --front-palette-fbfdff: #fbfdff;
+    --front-palette-fcd34d: #fcd34d;
+    --front-palette-fcfdff: #fcfdff;
+    --front-palette-fcfffd: #fcfffd;
+    --front-palette-fde68a: #fde68a;
+    --front-palette-fdecec: #fdecec;
+    --front-palette-fdfbff: #fdfbff;
+    --front-palette-fdfdff: #fdfdff;
+    --front-palette-fdfefe: #fdfefe;
+    --front-palette-fed7aa: #fed7aa;
+    --front-palette-fee2e2: #fee2e2;
+    --front-palette-fef3c7: #fef3c7;
+    --front-palette-fef4e2: #fef4e2;
+    --front-palette-fef5f4: #fef5f4;
+    --front-palette-ff4980: #ff4980;
+    --front-palette-ff8f00: #ff8f00;
+    --front-palette-ffa31a: #ffa31a;
+    --front-palette-ffac00: #ffac00;
+    --front-palette-ffac0b: #ffac0b;
+    --front-palette-ffb3c2: #ffb3c2;
+    --front-palette-ffc107: #ffc107;
+    --front-palette-ffc1070f: #ffc1070f;
+    --front-palette-ffc1071c: #ffc1071c;
+    --front-palette-ffcb6b: #ffcb6b;
+    --front-palette-ffcf42: #ffcf42;
+    --front-palette-ffd489: #ffd489;
+    --front-palette-ffd66b: #ffd66b;
+    --front-palette-ffd9d9: #ffd9d9;
+    --front-palette-ffe099: #ffe099;
+    --front-palette-ffe3e3: #ffe3e3;
+    --front-palette-ffe4e6: #ffe4e6;
+    --front-palette-ffe8ab: #ffe8ab;
+    --front-palette-ffe9eb: #ffe9eb;
+    --front-palette-ffebcc: #ffebcc;
+    --front-palette-ffecec: #ffecec;
+    --front-palette-ffedf2: #ffedf2;
+    --front-palette-fff0f1: #fff0f1;
+    --front-palette-fff1d6: #fff1d6;
+    --front-palette-fff1f1: #fff1f1;
+    --front-palette-fff1f2: #fff1f2;
+    --front-palette-fff3cd: #fff3cd;
+    --front-palette-fff3da: #fff3da;
+    --front-palette-fff3e6: #fff3e6;
+    --front-palette-fff4d9: #fff4d9;
+    --front-palette-fff4df: #fff4df;
+    --front-palette-fff5f5: #fff5f5;
+    --front-palette-fff6e8: #fff6e8;
+    --front-palette-fff7e5: #fff7e5;
+    --front-palette-fff7e8: #fff7e8;
+    --front-palette-fff7e9: #fff7e9;
+    --front-palette-fff7eb: #fff7eb;
+    --front-palette-fff7ed: #fff7ed;
+    --front-palette-fff7f7: #fff7f7;
+    --front-palette-fff8e4: #fff8e4;
+    --front-palette-fff8e5: #fff8e5;
+    --front-palette-fff8eb: #fff8eb;
+    --front-palette-fffaeb: #fffaeb;
+    --front-palette-fffaee: #fffaee;
+    --front-palette-fffaf0: #fffaf0;
+    --front-palette-fffbeb: #fffbeb;
+    --front-palette-fffbf0: #fffbf0;
+    --front-palette-fffdf9: #fffdf9;
+
+    /* Extended Color RGB Channels */
+    --front-rgb-0-123-255: 0, 123, 255;
+    --front-rgb-10-18-50: 10, 18, 50;
+    --front-rgb-100-100-120: 100, 100, 120;
+    --front-rgb-100-130-255: 100, 130, 255;
+    --front-rgb-100-140-255: 100, 140, 255;
+    --front-rgb-11-18-32: 11, 18, 32;
+    --front-rgb-11-20-55: 11, 20, 55;
+    --front-rgb-110-231-183: 110, 231, 183;
+    --front-rgb-112-130-168: 112, 130, 168;
+    --front-rgb-123-137-161: 123, 137, 161;
+    --front-rgb-123-139-255: 123, 139, 255;
+    --front-rgb-123-31-162: 123, 31, 162;
+    --front-rgb-123-92-234: 123, 92, 234;
+    --front-rgb-124-241-172: 124, 241, 172;
+    --front-rgb-124-58-237: 124, 58, 237;
+    --front-rgb-124-92-255: 124, 92, 255;
+    --front-rgb-126-34-206: 126, 34, 206;
+    --front-rgb-13-110-253: 13, 110, 253;
+    --front-rgb-13-148-136: 13, 148, 136;
+    --front-rgb-133-149-184: 133, 149, 184;
+    --front-rgb-136-146-166: 136, 146, 166;
+    --front-rgb-139-205-255: 139, 205, 255;
+    --front-rgb-14-165-233: 14, 165, 233;
+    --front-rgb-147-51-234: 147, 51, 234;
+    --front-rgb-148-163-184: 148, 163, 184;
+    --front-rgb-15-118-110: 15, 118, 110;
+    --front-rgb-15-23-42: 15, 23, 42;
+    --front-rgb-16-185-129: 16, 185, 129;
+    --front-rgb-16-24-40: 16, 24, 40;
+    --front-rgb-168-85-247: 168, 85, 247;
+    --front-rgb-17-24-39: 17, 24, 39;
+    --front-rgb-171-187-255: 171, 187, 255;
+    --front-rgb-175-196-255: 175, 196, 255;
+    --front-rgb-178-196-255: 178, 196, 255;
+    --front-rgb-178-76-76: 178, 76, 76;
+    --front-rgb-18-85-176: 18, 85, 176;
+    --front-rgb-180-160-255: 180, 160, 255;
+    --front-rgb-180-180-180: 180, 180, 180;
+    --front-rgb-180-210-255: 180, 210, 255;
+    --front-rgb-180-83-9: 180, 83, 9;
+    --front-rgb-181-138-21: 181, 138, 21;
+    --front-rgb-190-18-60: 190, 18, 60;
+    --front-rgb-193-206-227: 193, 206, 227;
+    --front-rgb-196-181-253: 196, 181, 253;
+    --front-rgb-199-211-230: 199, 211, 230;
+    --front-rgb-2-132-199: 2, 132, 199;
+    --front-rgb-20-184-166: 20, 184, 166;
+    --front-rgb-20-19-19: 20, 19, 19;
+    --front-rgb-200-210-255: 200, 210, 255;
+    --front-rgb-202-138-4: 202, 138, 4;
+    --front-rgb-203-213-225: 203, 213, 225;
+    --front-rgb-203-214-232: 203, 214, 232;
+    --front-rgb-211-161-45: 211, 161, 45;
+    --front-rgb-211-175-69: 211, 175, 69;
+    --front-rgb-213-86-86: 213, 86, 86;
+    --front-rgb-215-223-238: 215, 223, 238;
+    --front-rgb-215-225-248: 215, 225, 248;
+    --front-rgb-216-224-238: 216, 224, 238;
+    --front-rgb-216-224-239: 216, 224, 239;
+    --front-rgb-217-127-127: 217, 127, 127;
+    --front-rgb-217-226-241: 217, 226, 241;
+    --front-rgb-217-45-32: 217, 45, 32;
+    --front-rgb-219-39-119: 219, 39, 119;
+    --front-rgb-22-163-122: 22, 163, 122;
+    --front-rgb-220-104-3: 220, 104, 3;
+    --front-rgb-220-38-38: 220, 38, 38;
+    --front-rgb-220-53-69: 220, 53, 69;
+    --front-rgb-221-230-243: 221, 230, 243;
+    --front-rgb-223-230-243: 223, 230, 243;
+    --front-rgb-223-236-255: 223, 236, 255;
+    --front-rgb-224-245-229: 224, 245, 229;
+    --front-rgb-225-29-72: 225, 29, 72;
+    --front-rgb-226-232-240: 226, 232, 240;
+    --front-rgb-226-92-122: 226, 92, 122;
+    --front-rgb-229-229-229: 229, 229, 229;
+    --front-rgb-229-235-255: 229, 235, 255;
+    --front-rgb-23-168-106: 23, 168, 106;
+    --front-rgb-230-234-245: 230, 234, 245;
+    --front-rgb-231-238-255: 231, 238, 255;
+    --front-rgb-232-238-255: 232, 238, 255;
+    --front-rgb-234-179-8: 234, 179, 8;
+    --front-rgb-234-88-12: 234, 88, 12;
+    --front-rgb-235-243-255: 235, 243, 255;
+    --front-rgb-239-242-253: 239, 242, 253;
+    --front-rgb-239-243-255: 239, 243, 255;
+    --front-rgb-239-246-255: 239, 246, 255;
+    --front-rgb-239-67-81: 239, 67, 81;
+    --front-rgb-24-34-102: 24, 34, 102;
+    --front-rgb-240-185-11: 240, 185, 11;
+    --front-rgb-242-246-255: 242, 246, 255;
+    --front-rgb-243-159-95: 243, 159, 95;
+    --front-rgb-244-246-255: 244, 246, 255;
+    --front-rgb-244-63-94: 244, 63, 94;
+    --front-rgb-244-68-56: 244, 68, 56;
+    --front-rgb-245-158-11: 245, 158, 11;
+    --front-rgb-245-166-35: 245, 166, 35;
+    --front-rgb-247-250-255: 247, 250, 255;
+    --front-rgb-247-251-255: 247, 251, 255;
+    --front-rgb-248-250-252: 248, 250, 252;
+    --front-rgb-248-250-255: 248, 250, 255;
+    --front-rgb-248-251-255: 248, 251, 255;
+    --front-rgb-249-115-22: 249, 115, 22;
+    --front-rgb-25-118-210: 25, 118, 210;
+    --front-rgb-250-251-255: 250, 251, 255;
+    --front-rgb-250-253-251: 250, 253, 251;
+    --front-rgb-251-146-60: 251, 146, 60;
+    --front-rgb-251-229-233: 251, 229, 233;
+    --front-rgb-251-252-255: 251, 252, 255;
+    --front-rgb-253-230-138: 253, 230, 138;
+    --front-rgb-253-250-251: 253, 250, 251;
+    --front-rgb-254-243-199: 254, 243, 199;
+    --front-rgb-255-172-11: 255, 172, 11;
+    --front-rgb-255-193-7: 255, 193, 7;
+    --front-rgb-26-111-219: 26, 111, 219;
+    --front-rgb-26-95-209: 26, 95, 209;
+    --front-rgb-28-49-99: 28, 49, 99;
+    --front-rgb-3-0-12: 3, 0, 12;
+    --front-rgb-30-41-59: 30, 41, 59;
+    --front-rgb-31-190-107: 31, 190, 107;
+    --front-rgb-31-41-55: 31, 41, 55;
+    --front-rgb-31-58-130: 31, 58, 130;
+    --front-rgb-34-197-94: 34, 197, 94;
+    --front-rgb-37-110-86: 37, 110, 86;
+    --front-rgb-37-99-235: 37, 99, 235;
+    --front-rgb-38-60-99: 38, 60, 99;
+    --front-rgb-39-68-148: 39, 68, 148;
+    --front-rgb-40-167-114: 40, 167, 114;
+    --front-rgb-40-64-135: 40, 64, 135;
+    --front-rgb-42-64-138: 42, 64, 138;
+    --front-rgb-43-108-246: 43, 108, 246;
+    --front-rgb-43-74-174: 43, 74, 174;
+    --front-rgb-44-62-80: 44, 62, 80;
+    --front-rgb-45-189-118: 45, 189, 118;
+    --front-rgb-5-150-105: 5, 150, 105;
+    --front-rgb-52-134-91: 52, 134, 91;
+    --front-rgb-52-71-120: 52, 71, 120;
+    --front-rgb-53-76-140: 53, 76, 140;
+    --front-rgb-54-205-236: 54, 205, 236;
+    --front-rgb-56-75-255: 56, 75, 255;
+    --front-rgb-58-85-154: 58, 85, 154;
+    --front-rgb-59-111-224: 59, 111, 224;
+    --front-rgb-59-130-246: 59, 130, 246;
+    --front-rgb-59-91-255: 59, 91, 255;
+    --front-rgb-63-127-232: 63, 127, 232;
+    --front-rgb-7-148-85: 7, 148, 85;
+    --front-rgb-71-85-105: 71, 85, 105;
+    --front-rgb-75-104-255: 75, 104, 255;
+    --front-rgb-75-96-235: 75, 96, 235;
+    --front-rgb-78-114-240: 78, 114, 240;
+    --front-rgb-79-104-240: 79, 104, 240;
+    --front-rgb-79-105-234: 79, 105, 234;
+    --front-rgb-79-130-255: 79, 130, 255;
+    --front-rgb-79-70-229: 79, 70, 229;
+    --front-rgb-8-12-36: 8, 12, 36;
+    --front-rgb-8-145-178: 8, 145, 178;
+    --front-rgb-80-80-80: 80, 80, 80;
+    --front-rgb-82-82-91: 82, 82, 91;
+    --front-rgb-89-104-135: 89, 104, 135;
+    --front-rgb-91-109-241: 91, 109, 241;
+    --front-rgb-91-76-168: 91, 76, 168;
+    --front-rgb-94-255-196: 94, 255, 196;
+    --front-rgb-96-165-250: 96, 165, 250;
+    --front-rgb-97-97-97: 97, 97, 97;
+    --front-rgb-99-102-241: 99, 102, 241;
+    --front-rgb-99-92-92: 99, 92, 92;
+
+    /* Existing frontend variable aliases */
+    --main-color: var(--front-color-primary);
+    --hover-color: var(--front-color-primary-dark);
+    --heading-color: var(--front-color-heading);
+    --paragraph-color: var(--front-color-text);
+    --divider-color: var(--front-palette-e9ecef);
+    --body-font: var(--front-font-primary);
+    --heading-font: var(--front-font-primary);
+    --body-font-size: var(--front-font-lg);
+    --border-color: var(--front-color-border);
+    --theme: var(--front-color-primary);
+    --theme-hover: var(--front-color-primary-hover);
+    --header: var(--front-color-heading);
+    --text: var(--front-color-text-soft);
+    --body: var(--front-color-white);
+    --white: var(--front-color-white);
+    --black: var(--front-color-black);
+    --bg: var(--front-color-bg);
+
+    /* Bootstrap 5 compatibility */
+    --bs-body-font-family: var(--front-font-primary);
+    --bs-body-font-size: var(--front-font-lg);
+    --bs-body-font-weight: var(--front-font-normal);
+    --bs-body-color: var(--front-color-text);
+    --bs-body-bg: var(--front-color-bg);
+    --bs-primary: var(--front-color-primary);
+    --bs-primary-rgb: var(--front-color-primary-rgb);
+    --bs-secondary: var(--front-color-secondary);
+    --bs-success: var(--front-color-success);
+    --bs-warning: var(--front-color-warning);
+    --bs-danger: var(--front-color-danger);
+    --bs-border-color: var(--front-color-border);
+}
+
+body {
+    font-family: var(--front-font-primary);
+    font-size: var(--front-font-lg);
+    font-weight: var(--front-font-normal);
+    color: var(--front-color-text);
+    background-color: var(--front-color-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: var(--front-font-primary);
+    color: var(--front-color-heading);
+    font-weight: var(--front-font-semibold);
+    letter-spacing: 0;
+}
+
+.card,
+.modal-content,
+.dropdown-menu,
+.offcanvas {
+    color: var(--front-color-text);
+    background-color: var(--front-color-card);
+    border-color: var(--front-color-border);
+}
+
+.form-control,
+.form-select,
+.input-group-text {
+    color: var(--front-color-text);
+    background-color: var(--front-color-card);
+    border-color: var(--front-color-border);
+    font-size: var(--front-font-base);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--front-color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(var(--front-color-primary-rgb), 0.14);
+}
+
+.btn {
+    font-size: var(--front-font-base);
+    font-weight: var(--front-font-medium);
+}
+
+.btn-primary {
+    --bs-btn-color: var(--front-color-white);
+    --bs-btn-bg: var(--front-color-primary);
+    --bs-btn-border-color: var(--front-color-primary);
+    --bs-btn-hover-color: var(--front-color-white);
+    --bs-btn-hover-bg: var(--front-color-primary-hover);
+    --bs-btn-hover-border-color: var(--front-color-primary-hover);
+}
+
+.text-muted {
+    color: var(--front-color-muted) !important;
+}
+
+body.front-scroll-lock {
+    overflow: hidden;
+}
+
+/* Attribute-driven widths for JS-controlled progress bars without inline styles. */
+[data-front-progress-pct="0"] { width: 0%; }
+[data-front-progress-pct="1"] { width: 1%; }
+[data-front-progress-pct="2"] { width: 2%; }
+[data-front-progress-pct="3"] { width: 3%; }
+[data-front-progress-pct="4"] { width: 4%; }
+[data-front-progress-pct="5"] { width: 5%; }
+[data-front-progress-pct="6"] { width: 6%; }
+[data-front-progress-pct="7"] { width: 7%; }
+[data-front-progress-pct="8"] { width: 8%; }
+[data-front-progress-pct="9"] { width: 9%; }
+[data-front-progress-pct="10"] { width: 10%; }
+[data-front-progress-pct="11"] { width: 11%; }
+[data-front-progress-pct="12"] { width: 12%; }
+[data-front-progress-pct="13"] { width: 13%; }
+[data-front-progress-pct="14"] { width: 14%; }
+[data-front-progress-pct="15"] { width: 15%; }
+[data-front-progress-pct="16"] { width: 16%; }
+[data-front-progress-pct="17"] { width: 17%; }
+[data-front-progress-pct="18"] { width: 18%; }
+[data-front-progress-pct="19"] { width: 19%; }
+[data-front-progress-pct="20"] { width: 20%; }
+[data-front-progress-pct="21"] { width: 21%; }
+[data-front-progress-pct="22"] { width: 22%; }
+[data-front-progress-pct="23"] { width: 23%; }
+[data-front-progress-pct="24"] { width: 24%; }
+[data-front-progress-pct="25"] { width: 25%; }
+[data-front-progress-pct="26"] { width: 26%; }
+[data-front-progress-pct="27"] { width: 27%; }
+[data-front-progress-pct="28"] { width: 28%; }
+[data-front-progress-pct="29"] { width: 29%; }
+[data-front-progress-pct="30"] { width: 30%; }
+[data-front-progress-pct="31"] { width: 31%; }
+[data-front-progress-pct="32"] { width: 32%; }
+[data-front-progress-pct="33"] { width: 33%; }
+[data-front-progress-pct="34"] { width: 34%; }
+[data-front-progress-pct="35"] { width: 35%; }
+[data-front-progress-pct="36"] { width: 36%; }
+[data-front-progress-pct="37"] { width: 37%; }
+[data-front-progress-pct="38"] { width: 38%; }
+[data-front-progress-pct="39"] { width: 39%; }
+[data-front-progress-pct="40"] { width: 40%; }
+[data-front-progress-pct="41"] { width: 41%; }
+[data-front-progress-pct="42"] { width: 42%; }
+[data-front-progress-pct="43"] { width: 43%; }
+[data-front-progress-pct="44"] { width: 44%; }
+[data-front-progress-pct="45"] { width: 45%; }
+[data-front-progress-pct="46"] { width: 46%; }
+[data-front-progress-pct="47"] { width: 47%; }
+[data-front-progress-pct="48"] { width: 48%; }
+[data-front-progress-pct="49"] { width: 49%; }
+[data-front-progress-pct="50"] { width: 50%; }
+[data-front-progress-pct="51"] { width: 51%; }
+[data-front-progress-pct="52"] { width: 52%; }
+[data-front-progress-pct="53"] { width: 53%; }
+[data-front-progress-pct="54"] { width: 54%; }
+[data-front-progress-pct="55"] { width: 55%; }
+[data-front-progress-pct="56"] { width: 56%; }
+[data-front-progress-pct="57"] { width: 57%; }
+[data-front-progress-pct="58"] { width: 58%; }
+[data-front-progress-pct="59"] { width: 59%; }
+[data-front-progress-pct="60"] { width: 60%; }
+[data-front-progress-pct="61"] { width: 61%; }
+[data-front-progress-pct="62"] { width: 62%; }
+[data-front-progress-pct="63"] { width: 63%; }
+[data-front-progress-pct="64"] { width: 64%; }
+[data-front-progress-pct="65"] { width: 65%; }
+[data-front-progress-pct="66"] { width: 66%; }
+[data-front-progress-pct="67"] { width: 67%; }
+[data-front-progress-pct="68"] { width: 68%; }
+[data-front-progress-pct="69"] { width: 69%; }
+[data-front-progress-pct="70"] { width: 70%; }
+[data-front-progress-pct="71"] { width: 71%; }
+[data-front-progress-pct="72"] { width: 72%; }
+[data-front-progress-pct="73"] { width: 73%; }
+[data-front-progress-pct="74"] { width: 74%; }
+[data-front-progress-pct="75"] { width: 75%; }
+[data-front-progress-pct="76"] { width: 76%; }
+[data-front-progress-pct="77"] { width: 77%; }
+[data-front-progress-pct="78"] { width: 78%; }
+[data-front-progress-pct="79"] { width: 79%; }
+[data-front-progress-pct="80"] { width: 80%; }
+[data-front-progress-pct="81"] { width: 81%; }
+[data-front-progress-pct="82"] { width: 82%; }
+[data-front-progress-pct="83"] { width: 83%; }
+[data-front-progress-pct="84"] { width: 84%; }
+[data-front-progress-pct="85"] { width: 85%; }
+[data-front-progress-pct="86"] { width: 86%; }
+[data-front-progress-pct="87"] { width: 87%; }
+[data-front-progress-pct="88"] { width: 88%; }
+[data-front-progress-pct="89"] { width: 89%; }
+[data-front-progress-pct="90"] { width: 90%; }
+[data-front-progress-pct="91"] { width: 91%; }
+[data-front-progress-pct="92"] { width: 92%; }
+[data-front-progress-pct="93"] { width: 93%; }
+[data-front-progress-pct="94"] { width: 94%; }
+[data-front-progress-pct="95"] { width: 95%; }
+[data-front-progress-pct="96"] { width: 96%; }
+[data-front-progress-pct="97"] { width: 97%; }
+[data-front-progress-pct="98"] { width: 98%; }
+[data-front-progress-pct="99"] { width: 99%; }
+[data-front-progress-pct="100"] { width: 100%; }

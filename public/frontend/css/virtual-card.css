@@ -1,0 +1,3268 @@
+/* ============================================================
+   DigiKash · Virtual Card UI
+   Provider-agnostic. Adding a new provider does NOT require a
+   single edit in this file — all card visuals are data-driven.
+   ============================================================ */
+
+/*
+ * Virtual-card token scope.
+ *
+ * Bootstrap modals render their markup at <body> level via the .modal
+ * portal, OUTSIDE any `.vc-page` wrapper. Without redefining the tokens
+ * on `.vc-modal` too, the variables would resolve to `unset` inside
+ * modals — which is exactly why the "1" stepper dot looked empty and
+ * the Continue button looked washed-out. Both selectors now share the
+ * exact same token map.
+ */
+.vc-page,
+.vc-modal {
+    --vc-brand: var(--front-palette-3b6fe0);
+    --vc-brand-600: var(--front-palette-2f5dce);
+    --vc-brand-50: var(--front-palette-eef3fe);
+    --vc-ink: var(--front-palette-0b1220);
+    --vc-ink-2: var(--front-palette-1f2937);
+    --vc-muted: var(--front-color-muted);
+    --vc-muted-2: var(--front-palette-9aa3b2);
+    --vc-line: var(--front-palette-e6e9ef);
+    --vc-line-2: var(--front-palette-eef1f5);
+    --vc-bg: var(--front-palette-f5f7fb);
+    --vc-panel: var(--front-color-white);
+    --vc-green: var(--front-palette-10b981);
+    --vc-green-50: var(--front-palette-e7f8f1);
+    --vc-red: var(--front-color-danger);
+    --vc-red-50: var(--front-palette-fdecec);
+    --vc-amber: var(--front-palette-f59e0b);
+    --vc-amber-50: var(--front-palette-fef4e2);
+    --vc-violet: var(--front-palette-7c5cff);
+    --vc-violet-50: var(--front-palette-f2eeff);
+
+    font-family: var(--front-font-primary);
+    color: var(--vc-ink);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* `.single-form-card` (the wrapper layout) ships with `overflow:hidden`, so
+   children that hug the left edge get visually clipped. Give the page a
+   consistent inner gutter that matches `.card-main` (20px). */
+.vc-page { padding: 14px 20px; }
+.vc-page + .vc-page { padding-top: 0; }
+@media (max-width: 575.98px) {
+    .vc-page { padding: 12px 14px; }
+}
+
+.vc-page .mono,
+.vc-modal .mono {
+    font-family: var(--front-font-mono);
+}
+
+/* Stats strip
+   ------------------------------------------------------------
+   Compact card density: tighter padding, smaller icon, lower
+   line-height on the headline number, and reduced vertical
+   gaps. Cards still scan as a hierarchy (label → value → sub)
+   but no longer waste vertical space. */
+.vc-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.vc-stat {
+    background: var(--vc-panel);
+    border: 1px solid var(--vc-line);
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow: 0 1px 2px rgba(var(--front-rgb-16-24-40), .04);
+}
+.vc-stat__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.vc-stat__label {
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    letter-spacing: .6px;
+    color: var(--vc-muted);
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+.vc-stat__value {
+    font-size: var(--front-font-3xl);
+    font-weight: var(--front-font-bold);
+    letter-spacing: -.5px;
+    margin-top: 8px;
+    line-height: 1.1;
+    color: var(--vc-ink);
+}
+.vc-stat__sub {
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    line-height: 1.3;
+}
+.vc-stat__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-size: var(--front-font-xs);
+}
+.vc-stat__icon--brand  { background: var(--vc-brand-50);  color: var(--vc-brand);  }
+.vc-stat__icon--violet { background: var(--vc-violet-50); color: var(--vc-violet); }
+.vc-stat__icon--amber  { background: var(--vc-amber-50);  color: var(--vc-amber);  }
+.vc-stat__icon--green  { background: var(--vc-green-50);  color: var(--vc-green);  }
+.vc-stats--compact {
+    gap: 8px;
+    margin-bottom: 10px;
+}
+.vc-stats--compact .vc-stat {
+    border-radius: 12px;
+    padding: 9px 12px;
+}
+.vc-stats--compact .vc-stat__value {
+    font-size: var(--front-font-xl);
+    margin-top: 4px;
+}
+.vc-stats--compact .vc-stat__sub {
+    margin-top: 1px;
+}
+.vc-stats--compact .vc-stat__icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+}
+
+/* Two-column main */
+.vc-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 18px;
+}
+@media (max-width: 991.98px) {
+    .vc-stats { grid-template-columns: repeat(2, 1fr); }
+    .vc-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 575.98px) {
+    .vc-stats { grid-template-columns: 1fr; }
+}
+
+.vc-panel {
+    background: var(--vc-panel);
+    border: 1px solid var(--vc-line);
+    border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(var(--front-rgb-16-24-40), .04);
+}
+.vc-panel__head {
+    padding: 18px 22px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+.vc-panel__title {
+    font-size: var(--front-font-md);
+    font-weight: var(--front-font-bold);
+    margin: 0;
+    color: var(--vc-ink);
+}
+.vc-panel__subtitle {
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+    margin-top: 2px;
+}
+.vc-panel__body {
+    padding: 14px 22px 22px;
+}
+
+/* Card hero
+   ------------------------------------------------------------
+   The hero lives inside the page's left column (1.35fr of a
+   1.35/1 main grid), which can be quite narrow on laptop widths.
+   Using flex with `flex-wrap: wrap` plus a generous `flex-basis`
+   on the info column means: when there is enough room the card
+   sits beside the info; otherwise the info wraps below the card
+   automatically — no media-query gymnastics needed. */
+.vc-hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+}
+.vc-hero > :first-child {
+    /* The visual card. Capped at 320px so the info column has room to
+       sit beside it on most panel widths — keeps "Available Balance"
+       and the Monthly-spend progress bar visible next to the card
+       instead of wrapping below and leaving dead space.
+       `margin-inline: auto` only kicks in if the info column wraps
+       (very narrow panels), centering the card in that fallback. */
+    flex: 0 0 auto;
+    max-width: 320px;
+    width: 100%;
+    margin-inline: auto;
+}
+.vc-hero__info {
+    /* Holds only the Available Balance + Monthly-spend block now; the
+       CARD NUMBER / EXPIRY field boxes have moved to a separate row
+       below the hero. With less content to fit, this column can sit
+       beside a 320px card on virtually any panel width — basis 160px
+       means total min row width is just 320 + 24 + 160 = 504px. */
+    flex: 1 1 160px;
+    min-width: 0;
+}
+
+/* 3D flip wrapper — perspective container holds the front + back faces */
+.vcard-flip {
+    perspective: 1400px;
+    width: 100%;
+    aspect-ratio: 1.586 / 1;
+    max-width: 420px;
+    cursor: pointer;
+}
+.vcard-flip__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .7s cubic-bezier(.22, .8, .32, 1);
+}
+.vcard-flip.is-flipped .vcard-flip__inner {
+    transform: rotateY(180deg);
+}
+
+/* The virtual card visual itself — themed by data attributes only */
+.vcard {
+    --theme-bg: linear-gradient(135deg, var(--front-palette-1e2a4a) 0%, var(--front-palette-0e1530) 60%, var(--front-palette-2a3b6e) 100%);
+    --theme-accent: linear-gradient(135deg, rgba(var(--front-rgb-59-111-224), .55), rgba(var(--front-rgb-124-92-255), .35));
+
+    width: 100%;
+    aspect-ratio: 1.586 / 1;
+    max-width: 420px;
+    border-radius: 18px;
+    color: var(--front-color-white);
+    background: var(--theme-bg);
+    position: relative;
+    overflow: hidden;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 18px 40px -18px rgba(var(--front-rgb-11-18-32), .6),
+                0 2px 0 rgba(var(--front-color-white-rgb), .06) inset,
+                0 0 0 1px rgba(var(--front-color-white-rgb), .06) inset;
+    user-select: none;
+}
+/* Inside a flip wrapper, both faces become absolutely positioned and
+   share the wrapper's space. backface-visibility hides whichever face
+   is currently rotated away from the viewer. */
+.vcard-flip .vcard {
+    position: absolute;
+    inset: 0;
+    max-width: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.vcard-flip .vcard--back {
+    transform: rotateY(180deg);
+    padding: 0;
+    justify-content: flex-start;
+}
+.vcard__magstripe {
+    height: 38px;
+    background: rgba(var(--front-color-black-rgb), .55);
+    margin-top: 22px;
+}
+.vcard__back-body {
+    padding: 18px 22px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.vcard__back-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.vcard__back-pan {
+    flex: 1;
+    height: 30px;
+    background: rgba(var(--front-color-white-rgb), .85);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: var(--vc-ink, var(--front-palette-0b1220));
+    font-weight: var(--front-font-semibold);
+    font-size: var(--front-font-sm);
+    letter-spacing: 1px;
+}
+.vcard__back-cvv {
+    width: 56px;
+    height: 30px;
+    background: rgba(var(--front-color-white-rgb), .85);
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+    color: var(--vc-ink, var(--front-palette-0b1220));
+    font-weight: var(--front-font-bold);
+    font-size: var(--front-font-sm);
+    letter-spacing: 1px;
+}
+.vcard__back-label {
+    font-size: var(--front-font-size-px-9);
+    letter-spacing: 1.6px;
+    color: rgba(var(--front-color-white-rgb), .55);
+    font-weight: var(--front-font-semibold);
+    text-transform: uppercase;
+}
+.vcard__back-fineprint {
+    font-size: var(--front-font-2xs);
+    color: rgba(var(--front-color-white-rgb), .45);
+    line-height: 1.5;
+    margin-top: 6px;
+}
+.vcard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 80% at 0% 0%, rgba(var(--front-color-white-rgb), .18), transparent 60%);
+    pointer-events: none;
+}
+.vcard::after {
+    content: "";
+    position: absolute;
+    right: -60px;
+    bottom: -60px;
+    width: 240px;
+    height: 240px;
+    border-radius: 999px;
+    background: var(--theme-accent);
+    filter: blur(8px);
+    opacity: .7;
+    pointer-events: none;
+}
+
+.vcard[data-theme="ocean"] {
+    --theme-bg: linear-gradient(135deg, var(--front-palette-0e2a52) 0%, var(--front-palette-0a4d8c) 55%, var(--front-palette-2d86c8) 100%);
+    --theme-accent: linear-gradient(135deg, rgba(var(--front-rgb-139-205-255), .5), rgba(var(--front-rgb-59-111-224), .4));
+}
+.vcard[data-theme="graphite"] {
+    --theme-bg: linear-gradient(135deg, var(--front-palette-2a2d33) 0%, var(--front-palette-16181c) 60%, var(--front-palette-3a3f47) 100%);
+    --theme-accent: linear-gradient(135deg, rgba(var(--front-rgb-180-180-180), .3), rgba(var(--front-rgb-80-80-80), .4));
+}
+.vcard[data-theme="emerald"] {
+    --theme-bg: linear-gradient(135deg, var(--front-palette-064e3b) 0%, var(--front-palette-047857) 60%, var(--front-palette-10b981) 100%);
+    --theme-accent: linear-gradient(135deg, rgba(var(--front-rgb-110-231-183), .5), rgba(var(--front-rgb-16-185-129), .35));
+}
+.vcard[data-theme="violet"] {
+    --theme-bg: linear-gradient(135deg, var(--front-palette-2a1a5e) 0%, var(--front-palette-4c2eab) 55%, var(--front-palette-7c5cff) 100%);
+    --theme-accent: linear-gradient(135deg, rgba(var(--front-rgb-196-181-253), .55), rgba(var(--front-rgb-124-92-255), .35));
+}
+
+.vcard__arcs {
+    position: absolute;
+    inset: 0;
+    opacity: .18;
+    pointer-events: none;
+    z-index: 0;
+}
+.vcard__frozen-pill {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 2;
+    background: rgba(var(--front-color-white-rgb), .14);
+    color: var(--front-color-white);
+    border: 1px solid rgba(var(--front-color-white-rgb), .25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+.vcard__frozen-pill .vc-pill__dot {
+    background: var(--front-color-white);
+    box-shadow: 0 0 0 3px rgba(var(--front-color-white-rgb), .15);
+}
+.vcard__network {
+    display: inline-flex;
+    align-items: center;
+    height: 22px;
+    color: var(--front-color-white);
+    font-weight: var(--front-font-extrabold);
+    font-size: var(--front-font-sm);
+    letter-spacing: .4px;
+    text-transform: uppercase;
+}
+.vcard__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+}
+.vcard__brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: var(--front-font-bold);
+    font-size: var(--front-font-sm);
+    letter-spacing: .2px;
+}
+.vcard__brand-mark {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--front-palette-5b8df5), var(--front-palette-2f5dce));
+    display: grid;
+    place-items: center;
+    box-shadow: 0 1px 0 rgba(var(--front-color-white-rgb), .25) inset;
+}
+.vcard__brand-mark::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    background: var(--front-color-white);
+}
+.vcard__label {
+    font-size: var(--front-font-size-px-9);
+    letter-spacing: 2.4px;
+    color: rgba(var(--front-color-white-rgb), .55);
+    margin-top: 4px;
+    font-weight: var(--front-font-semibold);
+    text-transform: uppercase;
+}
+.vcard__network-logo {
+    height: 22px;
+    width: auto;
+}
+.vcard__chip {
+    width: 36px;
+    height: 28px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, var(--front-palette-e6c97a) 0%, var(--front-palette-b7912f) 100%);
+    position: relative;
+    z-index: 1;
+}
+.vcard__chip::before,
+.vcard__chip::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(var(--front-color-black-rgb), .25);
+    border-radius: 3px;
+    pointer-events: none;
+}
+.vcard__chip::after {
+    inset: 9px;
+    border: none;
+    background:
+        linear-gradient(transparent calc(50% - 1px), rgba(var(--front-color-black-rgb), .25) calc(50% - 1px), rgba(var(--front-color-black-rgb), .25) calc(50% + 1px), transparent calc(50% + 1px)),
+        linear-gradient(90deg, transparent calc(50% - 1px), rgba(var(--front-color-black-rgb), .25) calc(50% - 1px), rgba(var(--front-color-black-rgb), .25) calc(50% + 1px), transparent calc(50% + 1px));
+}
+.vcard__middle {
+    position: relative;
+    z-index: 1;
+}
+.vcard__middle .row-icons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+.vcard__number {
+    font-family: var(--front-font-mono);
+    font-size: var(--front-font-2xl);
+    letter-spacing: 2px;
+    font-weight: var(--front-font-medium);
+    text-shadow: 0 1px 0 rgba(var(--front-color-black-rgb), .2);
+}
+.vcard__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+}
+.vcard__bottom-right { text-align: right; }
+
+/* Stripe test-mode badge — sits in the top-right corner of the card
+   front. The same Stripe `4000 00…` PAN that passes Luhn but gets
+   rejected at real merchants. */
+.vcard__test-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(var(--front-color-white-rgb), .15);
+    color: var(--front-color-white);
+    border: 1px solid rgba(var(--front-color-white-rgb), .35);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    letter-spacing: 1.4px;
+    line-height: 1.4;
+    z-index: 3;
+    pointer-events: auto;
+}
+.vcard__meta-label {
+    font-size: var(--front-font-size-px-8);
+    letter-spacing: 1.6px;
+    color: rgba(var(--front-color-white-rgb), .55);
+    font-weight: var(--front-font-semibold);
+    text-transform: uppercase;
+}
+.vcard__meta-value {
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-semibold);
+    margin-top: 3px;
+    letter-spacing: .5px;
+}
+.vcard--frozen::after {
+    background: rgba(var(--front-rgb-180-210-255), .16);
+    filter: none;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    backdrop-filter: blur(2px);
+}
+
+/* Hero info column */
+.vc-hero__info { min-width: 0; }
+.vc-hero__balance-label {
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-bold);
+    letter-spacing: .8px;
+    color: var(--vc-muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.vc-hero__balance {
+    font-size: var(--front-font-size-px-32);
+    font-weight: var(--front-font-bold);
+    letter-spacing: -.5px;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.vc-hero__progress {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+/* Value sits on its own line above the progress bar — full-width,
+   tabular-nums for clean digit alignment, never truncated. */
+.vc-hero__progress-value {
+    font-size: var(--front-font-sm);
+    font-weight: var(--front-font-semibold);
+    color: var(--vc-ink);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+}
+/* Label sits on its own line below the progress bar — also full-width. */
+.vc-hero__progress-label {
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+    line-height: 1.2;
+}
+/* Legacy row layout — kept so any other place that still uses it
+   (e.g. hero details on the issue modal) doesn't regress. */
+.vc-hero__progress-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--front-font-xs);
+    margin-bottom: 6px;
+    gap: 12px;
+    white-space: nowrap;
+}
+.vc-hero__progress-row > span:last-child {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+.vc-hero__progress-row .muted { color: var(--vc-muted); }
+.vc-progress {
+    height: 8px;
+    background: var(--front-palette-f1f4f9);
+    border-radius: 999px;
+    overflow: hidden;
+}
+.vc-progress__fill {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--vc-brand) 0%, var(--front-palette-7c5cff) 100%);
+    border-radius: 999px;
+    transition: width .3s ease;
+}
+
+.vc-hero__rows {
+    /* Auto-fit lets the two field boxes (CARD NUMBER + EXPIRY · CVV)
+       sit side-by-side when the info column is roomy, and stack
+       vertically when the column is narrower than 2 × 160px + gap.
+       No media query needed — purely content-driven. */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+.vc-hero__field {
+    background: var(--front-palette-f7f9fc);
+    border: 1px solid var(--vc-line-2);
+    border-radius: 10px;
+    padding: 10px 12px;
+    min-width: 0;
+}
+.vc-hero__field-label {
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    letter-spacing: 1.2px;
+    color: var(--vc-muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.vc-hero__field-value {
+    font-family: var(--front-font-mono);
+    font-size: var(--front-font-sm);
+    font-weight: var(--front-font-semibold);
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.vc-hero__field-value > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1 1 auto;
+    min-width: 0;
+    color: var(--vc-ink);
+}
+.vc-link-btn {
+    background: transparent;
+    border: none;
+    color: var(--vc-brand);
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-semibold);
+    font-family: inherit;
+}
+.vc-icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--vc-muted);
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+}
+
+/* Quick actions row */
+.vc-actions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--vc-line);
+}
+.vc-actions__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: var(--front-font-sm);
+    font-weight: var(--front-font-semibold);
+    color: var(--vc-ink);
+    font-family: inherit;
+    transition: background .15s;
+    text-decoration: none;
+}
+.vc-actions__btn + .vc-actions__btn { border-left: 1px solid var(--vc-line); }
+.vc-actions__btn:hover { background: var(--front-palette-fbfcfe); color: var(--vc-ink); }
+.vc-actions__btn[disabled] { opacity: .5; cursor: not-allowed; }
+.vc-actions__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    display: grid;
+    place-items: center;
+    color: var(--vc-brand);
+    background: var(--vc-brand-50);
+}
+.vc-actions__btn[data-tone="violet"] .vc-actions__icon { color: var(--vc-violet); background: var(--vc-violet-50); }
+.vc-actions__btn[data-tone="amber"] .vc-actions__icon { color: var(--vc-amber); background: var(--vc-amber-50); }
+.vc-actions__btn[data-tone="green"] .vc-actions__icon { color: var(--vc-green); background: var(--vc-green-50); }
+.vc-actions__btn[data-tone="red"] .vc-actions__icon { color: var(--vc-red); background: var(--vc-red-50); }
+@media (max-width: 575.98px) {
+    .vc-actions { grid-template-columns: repeat(2, 1fr); }
+    .vc-actions__btn:nth-child(2) { border-left: 1px solid var(--vc-line); }
+    .vc-actions__btn:nth-child(3),
+    .vc-actions__btn:nth-child(4) { border-top: 1px solid var(--vc-line); }
+    .vc-actions__btn:nth-child(3) { border-left: none; }
+}
+
+/* Card switcher
+   ------------------------------------------------------------
+   Each mini card needs to feel like a *card* — proper width,
+   readable balance, recognisable network logo. Auto-fill +
+   minmax(240px, 1fr) gives every card at least 240px of width
+   and packs as many per row as the panel allows. No media query
+   needed — the layout adapts to container width automatically. */
+.vc-switcher {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+}
+@media (max-width: 991.98px) { .vc-switcher { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); } }
+@media (max-width: 575.98px) { .vc-switcher { grid-template-columns: 1fr; } }
+.vc-switcher--scroll {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(240px, calc((100% - 28px) / 3));
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding: 2px 2px 10px;
+    margin: -2px -2px 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(154, 163, 178, .55) transparent;
+}
+.vc-switcher--scroll::-webkit-scrollbar { height: 8px; }
+.vc-switcher--scroll::-webkit-scrollbar-track { background: transparent; }
+.vc-switcher--scroll::-webkit-scrollbar-thumb {
+    background: rgba(154, 163, 178, .45);
+    border-radius: 999px;
+}
+.vc-switcher--scroll > * {
+    min-width: 0;
+    scroll-snap-align: start;
+}
+@media (max-width: 991.98px) {
+    .vc-switcher--scroll { grid-auto-columns: minmax(220px, calc((100% - 14px) / 2)); }
+}
+@media (max-width: 575.98px) {
+    .vc-switcher--scroll { grid-auto-columns: minmax(240px, 86%); }
+}
+
+.vc-mini {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background: transparent;
+    border-radius: 14px;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition: outline-color .15s, transform .15s;
+    text-align: left;
+    font-family: inherit;
+}
+.vc-mini:hover { transform: translateY(-2px); }
+.vc-mini.is-active { outline-color: var(--vc-brand); }
+
+.vc-mini__inner {
+    border-radius: 12px;
+    padding: 14px;
+    color: var(--front-color-white);
+    background: var(--theme-bg);
+    --theme-bg: linear-gradient(135deg, var(--front-palette-1e2a4a) 0%, var(--front-palette-0e1530) 60%, var(--front-palette-2a3b6e) 100%);
+    position: relative;
+    overflow: hidden;
+    /* Match reference HTML — flat 120px height regardless of width.
+       Wider cards stay short rather than growing tall, which keeps the
+       switcher row compact and on a single line. */
+    height: 120px;
+    box-shadow: 0 8px 20px -12px rgba(var(--front-rgb-11-18-32), .5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.vc-mini__inner[data-theme="ocean"] { --theme-bg: linear-gradient(135deg, var(--front-palette-0e2a52), var(--front-palette-2d86c8)); }
+.vc-mini__inner[data-theme="graphite"] { --theme-bg: linear-gradient(135deg, var(--front-palette-2a2d33), var(--front-palette-16181c)); }
+.vc-mini__inner[data-theme="emerald"] { --theme-bg: linear-gradient(135deg, var(--front-palette-064e3b), var(--front-palette-10b981)); }
+.vc-mini__inner[data-theme="violet"] { --theme-bg: linear-gradient(135deg, var(--front-palette-2a1a5e), var(--front-palette-7c5cff)); }
+.vc-mini__inner::after {
+    content: "";
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    width: 110px;
+    height: 110px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(var(--front-color-white-rgb), .25), rgba(var(--front-color-white-rgb), .05));
+    filter: blur(2px);
+}
+.vc-mini__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+.vc-mini__label {
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    letter-spacing: 1.4px;
+    opacity: .8;
+    text-transform: uppercase;
+}
+.vc-mini__bottom {
+    /* Group last4 and the balance row tightly together at the bottom of
+       the card — matches the reference exactly. The line-height is
+       trimmed so the masked PAN sits a hair above the balance, no
+       visual dead-space between them. */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.vc-mini__last4 {
+    font-family: var(--front-font-mono);
+    font-size: var(--front-font-xs);
+    opacity: .85;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+.vc-mini__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.vc-mini__balance {
+    font-size: var(--front-font-lg);
+    font-weight: var(--front-font-bold);
+    line-height: 1.2;
+}
+.vc-mini__exp { font-size: var(--front-font-2xs); opacity: .75; }
+
+.vc-mini--add {
+    border: 1.5px dashed var(--front-palette-c7cdd8);
+    border-radius: 12px;
+    background: var(--front-palette-fbfcfe);
+    color: var(--vc-muted);
+    cursor: pointer;
+    padding: 14px;
+    /* Match .vc-mini__inner so the dashed placeholder is the same
+       height as the real cards in the grid. */
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: inherit;
+}
+.vc-mini--add__plus {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: var(--front-color-white);
+    border: 1px solid var(--vc-line);
+    display: grid;
+    place-items: center;
+    color: var(--vc-brand);
+}
+.vc-mini--add__title {
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-semibold);
+    color: var(--vc-ink-2);
+}
+.vc-mini--add__hint { font-size: var(--front-font-size-px-105); color: var(--vc-muted); }
+
+/* Pills — premium, stable: subtle inset highlight, hairline border,
+   tabular caps. The tone classes set the color tokens; the base rule
+   takes care of geometry, weight, and tracking. */
+.vc-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--front-palette-f1f4f9);
+    color: var(--front-palette-475467);
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(var(--front-rgb-16-24-40), .04);
+    line-height: 1;
+    white-space: nowrap;
+    box-shadow: 0 1px 0 rgba(var(--front-color-white-rgb), .6) inset;
+    transition: transform .15s, box-shadow .15s;
+}
+.vc-pill--green {
+    background: var(--vc-green-50);
+    color: var(--front-palette-0f8a5f);
+    border-color: rgba(16, 185, 129, .18);
+}
+.vc-pill--red {
+    background: var(--vc-red-50);
+    color: var(--front-palette-b42318);
+    border-color: rgba(239, 68, 68, .18);
+}
+.vc-pill--amber {
+    background: var(--vc-amber-50);
+    color: var(--front-palette-92580c);
+    border-color: rgba(245, 158, 11, .18);
+}
+.vc-pill--blue {
+    background: var(--vc-brand-50);
+    color: var(--vc-brand-600);
+    border-color: rgba(var(--front-rgb-59-111-224), .18);
+}
+.vc-pill--neutral {
+    background: var(--front-palette-f1f4f9);
+    color: var(--front-palette-475467);
+    border-color: rgba(var(--front-rgb-16-24-40), .08);
+}
+.vc-pill--soft {
+    padding: 3px 8px;
+    font-size: var(--front-font-size-px-105);
+    letter-spacing: .7px;
+}
+.vc-pill__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: currentColor;
+    box-shadow: 0 0 0 3px rgba(var(--front-color-white-rgb), .55),
+                0 0 0 4px rgba(var(--front-rgb-16-24-40), .04);
+}
+
+/* Recent transactions table */
+.vc-tx {
+    border-top: 1px solid var(--vc-line-2);
+}
+.vc-tx__head,
+.vc-tx__row {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 0.8fr 0.9fr;
+    align-items: center;
+    padding: 12px 22px;
+    font-size: var(--front-font-sm);
+}
+.vc-tx__head {
+    background: var(--front-palette-fbfcfe);
+    border-bottom: 1px solid var(--vc-line-2);
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-bold);
+    letter-spacing: .6px;
+    color: var(--vc-muted);
+    text-transform: uppercase;
+}
+.vc-tx__row + .vc-tx__row { border-top: 1px solid var(--vc-line-2); }
+.vc-tx__merchant {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+.vc-tx__icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: var(--front-palette-f1f4f9);
+    color: var(--vc-ink-2);
+    display: grid;
+    place-items: center;
+    font-weight: var(--front-font-bold);
+    flex-shrink: 0;
+}
+.vc-tx__icon--in { background: var(--vc-green-50); color: var(--vc-green); }
+.vc-tx__icon--out { background: var(--vc-red-50); color: var(--vc-red); }
+.vc-tx__amount {
+    text-align: right;
+    font-weight: var(--front-font-bold);
+    font-family: var(--front-font-mono);
+}
+.vc-tx__amount.is-in { color: var(--vc-green); }
+.vc-tx__amount.is-out { color: var(--vc-ink); }
+.vc-tx__when {
+    color: var(--vc-muted);
+    font-size: var(--front-font-xs);
+}
+.vc-tx__when strong { color: var(--vc-ink-2); font-weight: var(--front-font-medium); display: block; }
+.vc-tx__when-sub { display: block; font-size: var(--front-font-size-px-115); margin-top: 1px; opacity: .8; }
+.vc-tx__title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-weight: var(--front-font-semibold);
+    color: var(--vc-ink);
+}
+.vc-tx__sub {
+    font-size: var(--front-font-size-px-115);
+    color: var(--vc-muted);
+    margin-top: 2px;
+}
+@media (max-width: 575.98px) {
+    .vc-tx__head { display: none; }
+    .vc-tx__row { grid-template-columns: 1.4fr 0.8fr; gap: 8px 0; }
+    .vc-tx__row .vc-tx__when,
+    .vc-tx__row .vc-tx__status { grid-column: 1 / -1; }
+}
+
+/* Toggle */
+.vc-toggle {
+    width: 38px;
+    height: 22px;
+    border-radius: 999px;
+    background: var(--front-palette-d9dee7);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    transition: background .2s;
+    flex-shrink: 0;
+}
+.vc-toggle::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: var(--front-color-white);
+    box-shadow: 0 1px 3px rgba(var(--front-color-black-rgb), .2);
+    transition: left .2s;
+}
+.vc-toggle.is-on { background: var(--vc-brand); }
+.vc-toggle.is-on::after { left: 18px; }
+
+/* Controls panel */
+.vc-control-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--vc-line-2);
+}
+.vc-control-row:last-of-type { border-bottom: none; }
+.vc-control-row--compact {
+    padding: 8px 0;
+    border-bottom: none;
+}
+.vc-control-row__icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: var(--front-palette-f1f4f9);
+    color: var(--vc-muted);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+.vc-control-row.is-on .vc-control-row__icon {
+    background: var(--vc-brand-50);
+    color: var(--vc-brand);
+}
+.vc-control-row__copy { flex: 1; min-width: 0; }
+.vc-control-row__title {
+    font-size: var(--front-font-size-px-135);
+    font-weight: var(--front-font-semibold);
+    color: var(--vc-ink);
+}
+.vc-control-row__sub {
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+    margin-top: 2px;
+}
+
+/* Buttons */
+.vc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    font-weight: var(--front-font-semibold);
+    font-size: var(--front-font-sm);
+    padding: 9px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all .15s;
+    text-decoration: none;
+    line-height: 1;
+}
+.vc-btn--primary {
+    background: var(--vc-brand);
+    color: var(--front-color-white);
+    box-shadow: 0 1px 0 rgba(var(--front-color-white-rgb), .2) inset,
+                0 1px 2px rgba(var(--front-rgb-59-111-224), .4),
+                0 6px 16px -8px rgba(var(--front-rgb-59-111-224), .6);
+}
+.vc-btn--primary:hover { background: var(--vc-brand-600); color: var(--front-color-white); }
+.vc-btn--secondary {
+    background: var(--front-color-white);
+    color: var(--vc-ink);
+    border-color: var(--vc-line);
+    box-shadow: 0 1px 2px rgba(var(--front-rgb-16-24-40), .04);
+}
+.vc-btn--secondary:hover { background: var(--front-palette-fbfcfe); color: var(--vc-ink); }
+.vc-btn--ghost {
+    background: transparent;
+    color: var(--vc-ink-2);
+}
+.vc-btn--danger {
+    background: var(--vc-red-50);
+    color: var(--front-palette-b42318);
+}
+.vc-btn--violet {
+    background: var(--vc-violet);
+    color: var(--front-color-white);
+}
+
+/* Modal cosmetics (Bootstrap modal — light theming overrides) */
+.vc-modal .modal-content {
+    border-radius: 18px;
+    border: 1px solid rgba(var(--front-rgb-15-23-42), .06);
+    overflow: hidden;
+}
+.vc-modal .modal-header {
+    border-bottom: 1px solid var(--vc-line-2);
+    background: linear-gradient(180deg, var(--front-palette-fbfcfe) 0%, var(--front-color-white) 100%);
+    padding: 20px 22px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+.vc-modal__icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    background: var(--vc-brand-50);
+    color: var(--vc-brand);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-size: var(--front-font-xl);
+}
+.vc-modal__icon--violet { background: var(--vc-violet-50); color: var(--vc-violet); }
+.vc-modal__icon--amber { background: var(--vc-amber-50); color: var(--vc-amber); }
+.vc-modal__eyebrow {
+    font-size: var(--front-font-size-px-105);
+    font-weight: var(--front-font-bold);
+    letter-spacing: 1.4px;
+    color: var(--vc-muted);
+    text-transform: uppercase;
+}
+.vc-modal__title {
+    font-size: var(--front-font-size-px-17);
+    font-weight: var(--front-font-bold);
+    margin-top: 3px;
+    letter-spacing: -.3px;
+    color: var(--vc-ink);
+}
+.vc-modal__subtitle {
+    font-size: var(--front-font-size-px-125);
+    color: var(--vc-muted);
+    margin-top: 4px;
+    line-height: 1.45;
+}
+.vc-modal .modal-body {
+    padding: 22px;
+}
+.vc-modal .modal-footer {
+    background: var(--front-palette-fbfcfe);
+    border-top: 1px solid var(--vc-line-2);
+    padding: 14px 22px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Form inputs inside modals */
+.vc-field { margin-bottom: 14px; }
+.vc-field__label {
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-semibold);
+    color: var(--vc-ink-2);
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.vc-field__hint { font-size: var(--front-font-xs); color: var(--vc-muted); font-weight: var(--front-font-medium); }
+.vc-input,
+.vc-select {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid var(--vc-line);
+    border-radius: 10px;
+    font-size: var(--front-font-size-px-135);
+    font-family: inherit;
+    color: var(--vc-ink);
+    background: var(--front-color-white);
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+}
+.vc-input:focus,
+.vc-select:focus {
+    border-color: var(--vc-brand);
+    box-shadow: 0 0 0 3px rgba(var(--front-rgb-59-111-224), .12);
+}
+.vc-input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--vc-line);
+    border-radius: 10px;
+    background: var(--front-color-white);
+    transition: all .15s;
+}
+.vc-input-group:focus-within {
+    border-color: var(--vc-brand);
+    box-shadow: 0 0 0 3px rgba(var(--front-rgb-59-111-224), .12);
+}
+.vc-input-group .vc-input {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+.vc-input-group__prefix,
+.vc-input-group__suffix {
+    padding: 0 12px;
+    color: var(--vc-muted);
+    font-size: var(--front-font-size-px-135);
+    font-weight: var(--front-font-medium);
+}
+.vc-input-group__suffix { font-size: var(--front-font-xs); font-weight: var(--front-font-semibold); }
+
+.vc-summary {
+    padding: 14px;
+    border-radius: 12px;
+    background: var(--front-palette-fbfcfe);
+    border: 1px solid var(--vc-line-2);
+    margin-top: 8px;
+}
+.vc-summary__row {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--front-font-sm);
+    padding: 4px 0;
+}
+.vc-summary__row .label { color: var(--vc-muted); }
+.vc-summary__row .value {
+    font-family: var(--front-font-mono);
+    font-weight: var(--front-font-semibold);
+}
+.vc-summary__divider {
+    height: 1px;
+    background: var(--vc-line-2);
+    margin: 8px 0;
+}
+.vc-summary__total {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--front-font-base);
+}
+.vc-summary__total .label { font-weight: var(--front-font-semibold); }
+.vc-summary__total .value {
+    font-family: var(--front-font-mono);
+    font-weight: var(--front-font-bold);
+    font-size: var(--front-font-lg);
+}
+
+/* Chip group (used in modal forms) */
+.vc-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.vc-chips__item {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--vc-line);
+    background: var(--front-color-white);
+    color: var(--vc-ink-2);
+    font-size: var(--front-font-size-px-125);
+    font-weight: var(--front-font-semibold);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all .15s;
+}
+.vc-chips__item.is-active {
+    border-color: var(--vc-brand);
+    background: var(--vc-brand-50);
+    color: var(--vc-brand-600);
+}
+.vc-chips__item[disabled] { opacity: .5; cursor: not-allowed; }
+
+/* Amount preset chips (small, ghost style) */
+.vc-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+.vc-presets__btn {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--vc-line);
+    background: var(--front-color-white);
+    color: var(--vc-ink-2);
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-semibold);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all .15s;
+}
+.vc-presets__btn:hover {
+    border-color: var(--vc-brand);
+    color: var(--vc-brand);
+}
+
+/* CardOption picker (radio-style, used in topup, freeze, issue modals) */
+.vc-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.vc-option {
+    width: 100%;
+    text-align: left;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1.5px solid var(--vc-line);
+    background: var(--front-color-white);
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: all .15s;
+}
+.vc-option:hover { border-color: var(--vc-muted-2); }
+.vc-option.is-active {
+    border-color: var(--vc-brand);
+    background: var(--vc-brand-50);
+    box-shadow: 0 0 0 3px rgba(var(--front-rgb-59-111-224), .1);
+}
+.vc-option[disabled] {
+    opacity: .55;
+    cursor: not-allowed;
+    background: var(--front-palette-fbfcfe);
+}
+.vc-option__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: var(--front-palette-f1f4f9);
+    color: var(--vc-ink-2);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border: 1px solid transparent;
+}
+.vc-option.is-active .vc-option__icon {
+    background: var(--front-color-white);
+    color: var(--vc-brand);
+    border-color: rgba(var(--front-rgb-59-111-224), .2);
+}
+.vc-option__body { flex: 1; min-width: 0; }
+.vc-option__title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.vc-option__title {
+    font-size: var(--front-font-size-px-135);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-ink);
+}
+.vc-option__sub {
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+    margin-top: 2px;
+    line-height: 1.4;
+}
+.vc-option__badge {
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-green);
+    background: var(--vc-green-50);
+    padding: 2px 6px;
+    border-radius: 4px;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+}
+.vc-option__badge--muted { color: var(--vc-muted); background: var(--front-palette-f1f4f9); }
+.vc-option__radio {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    border: 1.5px solid var(--front-palette-d9dee7);
+    background: var(--front-color-white);
+    display: grid;
+    place-items: center;
+    margin-top: 2px;
+}
+.vc-option.is-active .vc-option__radio {
+    border-color: var(--vc-brand);
+    background: var(--vc-brand);
+}
+.vc-option.is-active .vc-option__radio::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--front-color-white);
+}
+
+/* Stepper (issue card modal)
+   ------------------------------------------------------------
+   Items hug their content; the line between them stretches to
+   fill the remaining space. This keeps every connector centered
+   between adjacent steps regardless of label length. */
+.vc-stepper {
+    display: flex;
+    align-items: center;
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--vc-line-2);
+    gap: 12px;
+    background: var(--front-palette-fbfcfe);
+}
+.vc-stepper__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+}
+.vc-stepper__dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: var(--front-palette-e6e9ef);
+    color: var(--vc-muted);
+    display: grid;
+    place-items: center;
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-bold);
+    flex-shrink: 0;
+    line-height: 1;
+    transition: background .2s, color .2s, box-shadow .2s;
+}
+.vc-stepper__item.is-done .vc-stepper__dot,
+.vc-stepper__item.is-current .vc-stepper__dot {
+    background: var(--vc-brand);
+    color: var(--front-color-white);
+}
+.vc-stepper__label {
+    font-size: var(--front-font-size-px-125);
+    font-weight: var(--front-font-semibold);
+    color: var(--vc-muted);
+    white-space: nowrap;
+    line-height: 1;
+}
+.vc-stepper__item.is-done .vc-stepper__label,
+.vc-stepper__item.is-current .vc-stepper__label {
+    color: var(--vc-ink);
+}
+.vc-stepper__line {
+    flex: 1 1 auto;
+    height: 2px;
+    min-width: 24px;
+    border-radius: 1px;
+    background: var(--front-palette-e6e9ef);
+    transition: background .2s;
+}
+/* Color the connector blue once the step it follows is done. */
+.vc-stepper__item.is-done + .vc-stepper__line {
+    background: var(--vc-brand);
+}
+@media (max-width: 575.98px) {
+    .vc-stepper { gap: 8px; padding: 12px 14px; }
+    .vc-stepper__label { display: none; }
+    .vc-stepper__line { min-width: 12px; }
+}
+
+/* Spend chart panel */
+.vc-spend__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.vc-spend__total {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 6px;
+}
+.vc-spend__total-value {
+    font-size: var(--front-font-size-px-26);
+    font-weight: var(--front-font-bold);
+    letter-spacing: -.5px;
+}
+.vc-spend__trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-semibold);
+}
+.vc-spend__trend.is-up   { color: var(--vc-green); }
+.vc-spend__trend.is-down { color: var(--vc-red); }
+.vc-spend__chart {
+    height: 110px;
+    margin-top: 10px;
+}
+.vc-spend__period {
+    display: inline-flex;
+    background: var(--front-palette-f1f4f9);
+    border-radius: 8px;
+    padding: 3px;
+}
+.vc-spend__period button {
+    padding: 5px 11px;
+    font-size: var(--front-font-size-px-115);
+    font-weight: var(--front-font-semibold);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: transparent;
+    color: var(--vc-muted);
+    font-family: inherit;
+}
+.vc-spend__period button.is-active {
+    background: var(--front-color-white);
+    color: var(--vc-ink);
+    box-shadow: 0 1px 2px rgba(var(--front-rgb-16-24-40), .08);
+}
+
+/* Donut + legend */
+.vc-mix {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.vc-mix__donut {
+    position: relative;
+    flex-shrink: 0;
+    width: 130px;
+    height: 130px;
+}
+.vc-mix__center {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    pointer-events: none;
+}
+.vc-mix__center-label {
+    font-size: var(--front-font-size-px-9);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.vc-mix__center-value {
+    font-size: var(--front-font-lg);
+    font-weight: var(--front-font-bold);
+    margin-top: 2px;
+}
+.vc-mix__legend {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.vc-mix__row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--front-font-size-px-125);
+}
+.vc-mix__swatch {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+.vc-mix__name {
+    flex: 1;
+    color: var(--vc-ink-2);
+    font-weight: var(--front-font-medium);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.vc-mix__pct {
+    color: var(--vc-muted);
+    font-size: var(--front-font-size-px-115);
+}
+.vc-mix__amount {
+    font-family: var(--front-font-mono);
+    font-weight: var(--front-font-semibold);
+    min-width: 56px;
+    text-align: right;
+}
+
+/* ============================================================
+   Cardholder create / edit form
+   ------------------------------------------------------------
+   Sectioned premium layout. Every section reads as: eyebrow
+   icon + title + helper text → grid of fields. Inputs get the
+   same look as the modal inputs so the whole virtual-card flow
+   feels like one product.
+   ============================================================ */
+.vc-form { display: flex; flex-direction: column; gap: 16px; }
+
+/* The personal/business blocks wrap multiple `.vc-form-section`s.
+   Without an explicit gap they collapse against each other because
+   `.vc-form`'s flex gap only spaces its direct children. */
+.vc-form .personal-fields,
+.vc-form .business-fields,
+.vc-form #personal-details-block,
+.vc-form #business-details-block,
+.vc-form #kyc-fields-dynamic {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.vc-form-section {
+    background: var(--vc-panel);
+    border: 1px solid var(--vc-line);
+    border-radius: 14px;
+    padding: 18px 20px 20px;
+    box-shadow: 0 1px 2px rgba(var(--front-rgb-16-24-40), .04);
+}
+.vc-form-section__head {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.vc-form-section__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--vc-brand-50);
+    color: var(--vc-brand);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-size: var(--front-font-sm);
+}
+.vc-form-section__icon--violet { background: var(--vc-violet-50); color: var(--vc-violet); }
+.vc-form-section__icon--amber  { background: var(--vc-amber-50);  color: var(--vc-amber); }
+.vc-form-section__icon--green  { background: var(--vc-green-50);  color: var(--vc-green); }
+.vc-form-section__copy { flex: 1; min-width: 0; }
+.vc-form-section__title {
+    font-size: var(--front-font-md);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-ink);
+    line-height: 1.25;
+}
+.vc-form-section__subtitle {
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+    margin-top: 2px;
+    line-height: 1.45;
+}
+
+/* Bootstrap form-control overlay scoped to .vc-form so existing
+   validation classes still work but the visual matches the rest
+   of the virtual-card surfaces. */
+.vc-form .form-label {
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-semibold);
+    color: var(--vc-ink-2);
+    margin-bottom: 6px;
+    display: block;
+}
+.vc-form .form-control,
+.vc-form .form-select {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid var(--vc-line);
+    border-radius: 10px;
+    font-size: var(--front-font-sm);
+    font-family: inherit;
+    color: var(--vc-ink);
+    background-color: var(--front-color-white);
+    transition: border-color .15s, box-shadow .15s;
+    box-shadow: 0 1px 2px rgba(var(--front-rgb-16-24-40), .03);
+}
+.vc-form textarea.form-control { height: auto; min-height: 90px; padding-top: 10px; padding-bottom: 10px; }
+.vc-form .form-control:focus,
+.vc-form .form-select:focus {
+    border-color: var(--vc-brand);
+    box-shadow: 0 0 0 3px rgba(var(--front-rgb-59-111-224), .12);
+    outline: none;
+}
+.vc-form .form-control::placeholder { color: var(--vc-muted-2); }
+.vc-form .form-select {
+    background-position: right 14px center;
+    background-size: 14px;
+    padding-right: 38px;
+}
+
+/* Action bar — sticky on mobile, inline on desktop */
+.vc-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 6px;
+    padding: 14px 20px;
+    background: var(--front-palette-fbfcfe);
+    border: 1px solid var(--vc-line-2);
+    border-radius: 14px;
+}
+.vc-form-actions__hint {
+    margin-right: auto;
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+    line-height: 1.4;
+}
+
+/* ----------- Mobile / tablet responsive ----------- */
+@media (max-width: 767.98px) {
+    .vc-form-section {
+        padding: 14px 14px 16px;
+        border-radius: 12px;
+    }
+    .vc-form-section__icon { width: 32px; height: 32px; border-radius: 9px; }
+    .vc-form .form-control,
+    .vc-form .form-select { height: 46px; }
+
+    /* Sticky bottom action bar on small screens */
+    .vc-form-actions {
+        position: sticky;
+        bottom: 0;
+        z-index: 5;
+        margin: 8px -14px -14px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        padding: 12px 14px;
+        background: var(--front-color-white);
+        box-shadow: 0 -8px 20px -10px rgba(var(--front-rgb-16-24-40), .12);
+    }
+    .vc-form-actions__hint { display: none; }
+    .vc-form-actions .btn { flex: 1; justify-content: center; }
+}
+@media (max-width: 575.98px) {
+    .vc-form-section__head { gap: 10px; margin-bottom: 12px; }
+    .vc-form-section__title { font-size: var(--front-font-sm); }
+}
+
+/* ============================================================
+   Cardholder LIST page — responsive card grid
+   ============================================================ */
+.vc-ch-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.vc-ch-card {
+    background: var(--vc-panel);
+    border: 1px solid var(--vc-line);
+    border-radius: 14px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 2px rgba(var(--front-rgb-16-24-40), .04);
+    transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+.vc-ch-card:hover {
+    border-color: color-mix(in oklab, var(--vc-brand) 30%, var(--vc-line) 70%);
+    box-shadow: 0 6px 18px -10px rgba(var(--front-rgb-16-24-40), .15);
+}
+.vc-ch-card__head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.vc-ch-card__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-weight: var(--front-font-bold);
+    font-size: var(--front-font-md);
+    color: var(--front-color-white);
+    background: linear-gradient(135deg, var(--vc-brand), color-mix(in oklab, var(--vc-brand) 70%, black 30%));
+}
+.vc-ch-card__avatar--business {
+    background: linear-gradient(135deg, var(--vc-violet), color-mix(in oklab, var(--vc-violet) 70%, black 30%));
+}
+.vc-ch-card__identity { flex: 1; min-width: 0; }
+.vc-ch-card__name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.vc-ch-card__name {
+    font-size: var(--front-font-md);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-ink);
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+}
+.vc-ch-card__sub {
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+.vc-ch-card__sub-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.vc-ch-card__status { flex-shrink: 0; }
+.vc-ch-card__meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--vc-line-2);
+}
+.vc-ch-card__meta-item { min-width: 0; }
+.vc-ch-card__meta-label {
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-muted);
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.vc-ch-card__meta-value {
+    font-size: var(--front-font-sm);
+    font-weight: var(--front-font-semibold);
+    color: var(--vc-ink-2);
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.vc-ch-card__actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--vc-line-2);
+    flex-wrap: wrap;
+}
+.vc-ch-card__actions .vc-btn { flex: 0 0 auto; }
+.vc-pagination { margin-top: 16px; display: flex; justify-content: center; }
+
+@media (max-width: 767.98px) {
+    .vc-ch-card { padding: 14px; }
+    .vc-ch-card__head {
+        flex-wrap: wrap;
+    }
+    .vc-ch-card__status {
+        order: 3;
+        width: 100%;
+        margin-top: 8px;
+    }
+    .vc-ch-card__meta {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .vc-ch-card__actions .vc-btn { flex: 1; justify-content: center; }
+}
+@media (max-width: 575.98px) {
+    .vc-ch-card__meta { grid-template-columns: 1fr; }
+}
+
+.vc-stats--cardholders .vc-stat {
+    box-shadow: none;
+}
+.vc-ch-card--premium {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(280px, .95fr) minmax(360px, 1.45fr) auto;
+    grid-template-areas:
+        "head meta actions";
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--front-color-white), var(--front-palette-fbfcfe));
+    border-color: color-mix(in oklab, var(--vc-brand) 16%, var(--vc-line) 84%);
+    border-radius: 12px;
+    padding: 9px 14px 9px 13px;
+    box-shadow: none;
+}
+.vc-ch-card--premium::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--vc-brand), var(--vc-violet));
+    opacity: .72;
+    pointer-events: none;
+}
+.vc-ch-card--premium:hover {
+    transform: none;
+    box-shadow: none;
+}
+.vc-ch-card--premium .vc-ch-card__head {
+    grid-area: head;
+    gap: 9px;
+    min-width: 0;
+}
+.vc-ch-card--premium .vc-ch-card__avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    font-size: var(--front-font-sm);
+}
+.vc-ch-card--premium .vc-ch-card__name-row {
+    gap: 6px;
+}
+.vc-ch-card--premium .vc-ch-card__name {
+    font-size: var(--front-font-sm);
+    line-height: 1.2;
+}
+.vc-ch-card--premium .vc-ch-card__sub {
+    gap: 6px;
+    margin-top: 1px;
+    font-size: var(--front-font-2xs);
+}
+.vc-ch-card--premium .vc-ch-card__status {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+.vc-ch-card--premium .vc-ch-card__meta {
+    grid-area: meta;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px 10px;
+    margin-top: 0;
+    padding-top: 0;
+    padding-left: 12px;
+    border-top: 0;
+    border-left: 1px solid var(--vc-line-2);
+}
+.vc-ch-card--premium .vc-ch-card__meta-label {
+    letter-spacing: .35px;
+    font-size: var(--front-font-size-px-105);
+}
+.vc-ch-card--premium .vc-ch-card__meta-value {
+    font-size: var(--front-font-xs);
+    margin-top: 0;
+}
+.vc-ch-card--premium .vc-ch-card__actions {
+    grid-area: actions;
+    align-items: center;
+    justify-content: flex-end;
+    align-self: center;
+    gap: 6px;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+    flex-wrap: nowrap;
+}
+.vc-ch-card--premium .vc-ch-card__actions .vc-btn {
+    flex: 0 0 auto;
+    gap: 6px;
+    min-height: 32px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: var(--front-font-xs);
+    white-space: nowrap;
+}
+.vc-ch-card--premium .vc-ch-card__actions .vc-btn--icon {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+.vc-ch-card--premium .vc-ch-card__actions .vc-btn--icon i {
+    margin: 0;
+}
+
+@media (max-width: 991.98px) {
+    .vc-ch-card--premium {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "head actions"
+            "meta meta";
+        align-items: start;
+        row-gap: 8px;
+    }
+    .vc-ch-card--premium .vc-ch-card__meta {
+        padding-top: 8px;
+        padding-left: 0;
+        border-top: 1px solid var(--vc-line-2);
+        border-left: 0;
+    }
+    .vc-ch-card--premium .vc-ch-card__actions {
+        align-self: start;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 767.98px) {
+    .vc-stats--cardholders {
+        gap: 7px;
+    }
+    .vc-stats--cardholders .vc-stat {
+        padding: 8px 10px;
+        border-radius: 11px;
+    }
+    .vc-ch-card--premium {
+        padding: 9px 10px 10px 11px;
+    }
+    .vc-ch-card--premium .vc-ch-card__head {
+        align-items: flex-start;
+    }
+    .vc-ch-card--premium .vc-ch-card__avatar {
+        width: 32px;
+        height: 32px;
+    }
+    .vc-ch-card--premium .vc-ch-card__status {
+        order: 0;
+        width: auto;
+        margin-top: 0;
+    }
+    .vc-ch-card--premium .vc-ch-card__meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .vc-ch-card--premium .vc-ch-card__actions .vc-btn {
+        flex: 0 0 auto;
+        justify-content: center;
+    }
+    .vc-ch-card--premium .vc-ch-card__actions .vc-btn--icon {
+        width: 30px;
+        min-width: 30px;
+        height: 30px;
+    }
+}
+@media (max-width: 575.98px) {
+    .vc-stats--cardholders {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .vc-ch-card--premium .vc-ch-card__head {
+        display: grid;
+        grid-template-columns: 32px minmax(0, 1fr);
+        grid-template-areas:
+            "avatar identity"
+            "avatar status";
+        gap: 2px 8px;
+    }
+    .vc-ch-card--premium .vc-ch-card__avatar {
+        grid-area: avatar;
+    }
+    .vc-ch-card--premium .vc-ch-card__identity {
+        grid-area: identity;
+    }
+    .vc-ch-card--premium .vc-ch-card__status {
+        grid-area: status;
+        margin-left: 0;
+    }
+    .vc-ch-card--premium .vc-ch-card__meta {
+        gap: 7px;
+    }
+    .vc-ch-card--premium .vc-ch-card__meta-item {
+        background: var(--front-color-white);
+        border: 1px solid var(--vc-line-2);
+        border-radius: 9px;
+        padding: 7px 8px;
+    }
+    .vc-ch-card--premium .vc-ch-card__meta-label {
+        font-size: var(--front-font-size-px-105);
+    }
+    .vc-ch-card--premium .vc-ch-card__meta-value {
+        margin-top: 2px;
+    }
+}
+@media (max-width: 420px) {
+    .vc-ch-card--premium .vc-ch-card__meta {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   Cardholder SHOW page — hero + meta key/value
+   ============================================================ */
+.vc-ch-hero { padding-top: 22px; padding-bottom: 22px; }
+.vc-ch-hero__main {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+.vc-ch-hero__avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-weight: var(--front-font-bold);
+    font-size: var(--front-font-2xl);
+    color: var(--front-color-white);
+    background: linear-gradient(135deg, var(--vc-brand), color-mix(in oklab, var(--vc-brand) 70%, black 30%));
+    box-shadow: 0 8px 18px -10px rgba(var(--front-rgb-59-111-224), .5);
+}
+.vc-ch-hero__avatar--business {
+    background: linear-gradient(135deg, var(--vc-violet), color-mix(in oklab, var(--vc-violet) 70%, black 30%));
+    box-shadow: 0 8px 18px -10px rgba(var(--front-rgb-124-92-255), .5);
+}
+.vc-ch-hero__copy { flex: 1; min-width: 0; }
+.vc-ch-hero__name {
+    font-size: var(--front-font-xl);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-ink);
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -.3px;
+}
+.vc-ch-hero__sub {
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+.vc-ch-hero__sub-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.vc-ch-hero__pills {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.vc-ch-hero__quick {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--vc-line-2);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.vc-ch-hero__quick-item { min-width: 0; }
+.vc-ch-hero__quick-label {
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-muted);
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+.vc-ch-hero__quick-value {
+    font-size: var(--front-font-sm);
+    font-weight: var(--front-font-semibold);
+    color: var(--vc-ink-2);
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Key/value grid used by every show-page section */
+.vc-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+}
+.vc-meta__row { min-width: 0; }
+.vc-meta__row--full { grid-column: 1 / -1; }
+.vc-meta__label {
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-muted);
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+.vc-meta__value {
+    font-size: var(--front-font-sm);
+    font-weight: var(--front-font-semibold);
+    color: var(--vc-ink);
+    margin-top: 4px;
+    word-break: break-word;
+}
+.vc-meta__value.mono { font-family: var(--front-font-mono); }
+
+/* UBO read-only rows for the show page */
+.vc-ubo-readonly {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.vc-ubo-readonly__row {
+    background: var(--front-palette-fbfcfe);
+    border: 1px solid var(--vc-line-2);
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+.vc-ubo-readonly__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.vc-ubo-readonly__name {
+    font-size: var(--front-font-sm);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.vc-ubo-readonly__meta {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+}
+.vc-ubo-readonly__meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+@media (max-width: 767.98px) {
+    .vc-ch-hero__quick { grid-template-columns: repeat(2, 1fr); }
+    .vc-meta { grid-template-columns: 1fr; gap: 12px; }
+    .vc-ch-hero__avatar { width: 52px; height: 52px; font-size: var(--front-font-xl); border-radius: 14px; }
+    .vc-ch-hero__name { font-size: var(--front-font-lg); }
+}
+@media (max-width: 575.98px) {
+    .vc-ch-hero__quick { grid-template-columns: 1fr; }
+}
+
+/* Beneficial Owners (UBO) — repeating row group inside business KYB.
+   Each row sits on a soft surface so the user can clearly see "this is
+   one entry" while a delete button hangs at the right. */
+.vc-ubo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+.vc-ubo-row {
+    background: var(--front-palette-fbfcfe);
+    border: 1px solid var(--vc-line-2);
+    border-radius: 12px;
+    padding: 14px;
+    position: relative;
+}
+.vc-ubo-row + .vc-ubo-row { margin-top: 0; }
+.vc-ubo-row__actions {
+    display: flex;
+    align-items: flex-end;
+}
+.vc-ubo-row__actions .btn {
+    margin-top: 4px;
+}
+@media (max-width: 767.98px) {
+    .vc-ubo-row { padding: 12px; }
+    .vc-ubo-row__actions { margin-top: 4px; }
+}
+
+/* Trend pill on stat cards */
+.vc-trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: var(--front-font-size-px-115);
+    font-weight: var(--front-font-semibold);
+    margin-right: 6px;
+}
+.vc-trend.is-up   { color: var(--vc-green); }
+.vc-trend.is-down { color: var(--vc-red); }
+
+
+/* MiniCard preview (modal use) */
+.vc-mini-preview {
+    border-radius: 14px;
+    padding: 16px;
+    color: var(--front-color-white);
+    background: linear-gradient(135deg, var(--front-palette-1e2a4a) 0%, var(--front-palette-0e1530) 60%, var(--front-palette-2a3b6e) 100%);
+    position: relative;
+    overflow: hidden;
+    height: 160px;
+    box-shadow: 0 12px 30px -16px rgba(var(--front-rgb-11-18-32), .6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.vc-mini-preview::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 160px;
+    height: 160px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(var(--front-color-white-rgb), .25), rgba(var(--front-color-white-rgb), .05));
+    filter: blur(2px);
+}
+.vc-mini-preview__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Empty state — anchored inside a soft panel-like surface so the page
+   feels intentional even with zero cards. */
+.vc-empty {
+    text-align: center;
+    padding: 36px 22px;
+    color: var(--vc-muted);
+    background: var(--front-palette-fbfcfe);
+    border: 1px solid var(--vc-line-2);
+    border-radius: 16px;
+    margin-top: 12px;
+}
+.vc-empty__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--vc-brand-50);
+    color: var(--vc-brand);
+    display: grid;
+    place-items: center;
+    margin: 0 auto 14px;
+    font-size: var(--front-font-size-px-22);
+}
+.vc-empty__title { font-size: var(--front-font-lg); font-weight: var(--front-font-bold); color: var(--vc-ink); margin-bottom: 4px; }
+.vc-empty__hint { font-size: var(--front-font-sm); }
+.vc-empty .vc-btn { margin-top: 16px; }
+/* Inside-panel variant: no extra surface (used in donut placeholder) */
+.vc-empty--inline {
+    padding: 18px 0;
+    background: transparent;
+    border: none;
+    margin-top: 0;
+    border-radius: 0;
+}
+.vc-not-found { margin-top: 12px; }
+.vc-not-found--inline { margin-top: 0; }
+
+/* ============================================================
+   Multi-provider visual scaling
+   ------------------------------------------------------------
+   A provider's brand color is genuinely runtime data (admin
+   sets an arbitrary hex), so it is delivered via the
+   `--vc-brand-tint` custom property. The `.has-brand-tint`
+   modifier triggers the per-provider gradient — every other
+   provider keeps the rotating theme wheel above.
+   ============================================================ */
+.vcard.has-brand-tint {
+    --theme-bg: linear-gradient(135deg,
+        color-mix(in oklab, var(--vc-brand-tint) 100%, black 40%) 0%,
+        var(--vc-brand-tint) 100%);
+    --theme-accent: linear-gradient(135deg,
+        color-mix(in oklab, var(--vc-brand-tint) 60%, white 0%),
+        color-mix(in oklab, var(--vc-brand-tint) 40%, black 35%));
+}
+.vc-mini__inner.has-brand-tint {
+    --theme-bg: linear-gradient(135deg,
+        color-mix(in oklab, var(--vc-brand-tint) 100%, black 35%) 0%,
+        var(--vc-brand-tint) 100%);
+}
+
+/* Provider chip on the live card visual */
+.vcard__provider-pill {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: rgba(var(--front-color-white-rgb), .15);
+    color: var(--front-color-white);
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    letter-spacing: .8px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    border: 1px solid rgba(var(--front-color-white-rgb), .2);
+}
+
+/* Mini-card switcher: top-row layout, provider pill, network mark */
+.vc-mini__top-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.vc-mini__provider-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: rgba(var(--front-color-white-rgb), .18);
+    color: var(--front-color-white);
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    letter-spacing: .6px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    border: 1px solid rgba(var(--front-color-white-rgb), .22);
+}
+.vc-mini__network {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.vc-mini__network-mark { display: inline-flex; align-items: center; }
+.vc-mini__network-mark svg { display: block; }
+.vc-mini__network-text {
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    opacity: .85;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+
+/* Recent transactions: provider tag (multi-provider distinguisher) */
+.vc-tx__provider {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: var(--vc-line-2);
+    color: var(--vc-muted);
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-bold);
+    letter-spacing: .4px;
+    text-transform: uppercase;
+}
+
+/* Admin: live preview swatch in the provider edit form */
+.vc-admin-color-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    display: inline-block;
+    border: 1px solid var(--vc-line);
+    background: var(--front-palette-eef1f5);
+}
+
+/* ============================================================
+   Modal hardening
+   ------------------------------------------------------------
+   The frontend layout ships a global `.btn { line-height: 40px;
+   border: 0; ... }` from dashboard-style.css. When a `.vc-btn`
+   button is rendered inside a Bootstrap `.modal-footer`, those
+   defaults can leak in and wash the button out. The rules below
+   re-assert visual ownership inside `.vc-modal`.
+   ============================================================ */
+.vc-modal .vc-btn {
+    line-height: 1;
+    height: auto;
+    min-height: 38px;
+    border-radius: 10px;
+    font-size: var(--front-font-sm);
+    font-family: inherit;
+}
+.vc-modal .vc-btn--primary {
+    background: var(--vc-brand);
+    color: var(--front-color-white);
+    border-color: var(--vc-brand);
+}
+.vc-modal .vc-btn--primary:hover,
+.vc-modal .vc-btn--primary:focus {
+    background: var(--vc-brand-600);
+    color: var(--front-color-white);
+    border-color: var(--vc-brand-600);
+}
+.vc-modal .vc-btn--secondary {
+    background: var(--front-color-white);
+    color: var(--vc-ink);
+    border: 1px solid var(--vc-line);
+}
+.vc-modal .vc-btn--ghost {
+    background: transparent;
+    color: var(--vc-ink-2);
+    border-color: transparent;
+}
+
+/* Network / type chip group — visible even when Bootstrap and
+   the global `button { padding:0; border:none; }` reset fight
+   for the same button element. */
+.vc-modal .vc-chips { gap: 10px; }
+.vc-modal .vc-chips__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 38px;
+    padding: 8px 16px;
+    border: 1px solid var(--vc-line);
+    border-radius: 999px;
+    background: var(--front-color-white);
+    color: var(--vc-ink-2);
+    font-size: var(--front-font-size-px-125);
+    font-weight: var(--front-font-semibold);
+    font-family: inherit;
+    line-height: 1;
+    box-shadow: 0 1px 2px rgba(var(--front-rgb-16-24-40), .04);
+    cursor: pointer;
+    transition: all .15s;
+}
+.vc-modal .vc-chips__item:hover {
+    border-color: var(--vc-muted-2);
+    color: var(--vc-ink);
+}
+.vc-modal .vc-chips__item.is-active {
+    border-color: var(--vc-brand);
+    background: var(--vc-brand-50);
+    color: var(--vc-brand-600);
+    box-shadow: 0 0 0 3px rgba(var(--front-rgb-59-111-224), .12);
+}
+
+/* Stepper "1" dot must always read clearly even on the lightest
+   modal-header gradient. Adds a subtle ring on the current step. */
+.vc-modal .vc-stepper__item.is-current .vc-stepper__dot {
+    box-shadow: 0 0 0 3px rgba(var(--front-rgb-59-111-224), .15);
+}
+
+/* Modal width hardening — the Issue New Card flow uses Step 2's
+   2-column grid which needs a roomier dialog so the live preview
+   doesn't squash on tablets. */
+.vc-modal .modal-dialog.modal-lg { max-width: 720px; }
+@media (max-width: 767.98px) {
+    .vc-modal .modal-dialog.modal-lg { max-width: 96vw; }
+}
+
+/* Issue card modal — internal layout helpers
+   (replace inline styles in _add_card_request_modal.blade.php). */
+.vc-modal__head-text { flex: 1; min-width: 0; }
+.vc-field__help {
+    font-size: var(--front-font-size-px-11);
+    color: var(--vc-muted);
+    margin-top: 6px;
+    line-height: 1.45;
+}
+.vc-field__select-wrap { position: relative; }
+.vc-field__doc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 10px;
+    color: var(--vc-brand);
+    font-weight: var(--front-font-semibold);
+    text-decoration: none;
+}
+.vc-field__doc-link:hover { color: var(--vc-brand-600); text-decoration: underline; }
+.vc-field__select-spinner {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--vc-brand);
+    pointer-events: none;
+}
+.vc-step--hidden { display: none; }
+.vc-issue-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+@media (max-width: 575.98px) {
+    .vc-issue-grid { grid-template-columns: 1fr; }
+}
+.vc-issue-eyebrow {
+    font-size: var(--front-font-size-px-11);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-muted);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+.vc-issue-note {
+    background: var(--front-palette-fbfcfe);
+    border: 1px solid var(--vc-line-2);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: var(--front-font-size-px-115);
+    color: var(--vc-muted);
+    line-height: 1.5;
+    margin-top: 12px;
+}
+.vc-issue-section-title {
+    font-size: var(--front-font-size-px-135);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-ink-2);
+    margin-bottom: 10px;
+}
+.vc-issue-info {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--vc-brand-50);
+    border: 1px solid rgba(var(--front-rgb-59-111-224), .15);
+    font-size: var(--front-font-xs);
+    color: var(--vc-brand-600);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+.vc-issue-info i { margin-top: 2px; }
+.vc-issue-list {
+    margin: 14px 0 0;
+    padding-left: 18px;
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+    line-height: 1.6;
+}
+.vc-issue-list li + li { margin-top: 4px; }
+
+/* Card design picker — color swatches that drive the live preview's
+   `data-theme`. Each swatch mirrors the gradient applied to the
+   `.vc-mini-preview[data-theme="…"]` rules below. */
+.vc-design-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.vc-design-swatch {
+    width: 50px;
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+    border: 2px solid transparent;
+    box-shadow: 0 1px 4px rgba(var(--front-rgb-11-18-32), .15);
+    transition: border-color .15s, box-shadow .15s, transform .15s;
+    background: linear-gradient(135deg, var(--front-palette-1e2a4a), var(--front-palette-0e1530));
+    flex: 0 0 auto;
+}
+.vc-design-swatch:hover { transform: translateY(-1px); }
+.vc-design-swatch.is-active {
+    border-color: var(--vc-brand);
+    box-shadow: 0 0 0 3px rgba(var(--front-rgb-59-111-224), .15);
+}
+.vc-design-swatch[data-theme="midnight"] {
+    background: linear-gradient(135deg, var(--front-palette-1e2a4a), var(--front-palette-0e1530));
+}
+.vc-design-swatch[data-theme="ocean"] {
+    background: linear-gradient(135deg, var(--front-palette-0e2a52), var(--front-palette-2d86c8));
+}
+.vc-design-swatch[data-theme="graphite"] {
+    background: linear-gradient(135deg, var(--front-palette-2a2d33), var(--front-palette-16181c));
+}
+.vc-design-swatch[data-theme="emerald"] {
+    background: linear-gradient(135deg, var(--front-palette-064e3b), var(--front-palette-10b981));
+}
+.vc-design-swatch[data-theme="violet"] {
+    background: linear-gradient(135deg, var(--front-palette-2a1a5e), var(--front-palette-7c5cff));
+}
+
+/* MiniCard preview now responds to data-theme so the design picker
+   can swap its gradient without a re-render. The default (no theme)
+   already renders midnight via the existing rule. */
+.vc-mini-preview[data-theme="ocean"] {
+    background: linear-gradient(135deg, var(--front-palette-0e2a52) 0%, var(--front-palette-0a4d8c) 55%, var(--front-palette-2d86c8) 100%);
+}
+.vc-mini-preview[data-theme="graphite"] {
+    background: linear-gradient(135deg, var(--front-palette-2a2d33) 0%, var(--front-palette-16181c) 60%, var(--front-palette-3a3f47) 100%);
+}
+.vc-mini-preview[data-theme="emerald"] {
+    background: linear-gradient(135deg, var(--front-palette-064e3b) 0%, var(--front-palette-047857) 60%, var(--front-palette-10b981) 100%);
+}
+.vc-mini-preview[data-theme="violet"] {
+    background: linear-gradient(135deg, var(--front-palette-2a1a5e) 0%, var(--front-palette-4c2eab) 55%, var(--front-palette-7c5cff) 100%);
+}
+
+/* Mini-preview header used in Step 2 of issue modal */
+.vc-mini-preview__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.vc-mini-preview__brand-name { font-weight: var(--front-font-bold); font-size: var(--front-font-xs); }
+.vc-mini-preview__sub {
+    font-size: var(--front-font-size-px-9);
+    letter-spacing: 1.6px;
+    opacity: .7;
+    margin-top: 4px;
+    font-weight: var(--front-font-semibold);
+    text-transform: uppercase;
+}
+.vc-mini-preview__pan {
+    font-family: var(--front-font-mono);
+    font-size: var(--front-font-sm);
+    letter-spacing: 1.2px;
+    opacity: .85;
+}
+.vc-mini-preview__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 6px;
+}
+.vc-mini-preview__holder {
+    font-size: var(--front-font-2xs);
+    font-weight: var(--front-font-semibold);
+    opacity: .85;
+    letter-spacing: .4px;
+}
+.vc-mini-preview__exp {
+    font-family: var(--front-font-mono);
+    font-size: var(--front-font-2xs);
+    opacity: .7;
+}
+
+/* Vertical stacking helper for adjacent panels */
+.vc-panel + .vc-panel,
+.vc-panel--stacked { margin-top: 18px; }
+
+/* Action button row inside controls panel (Freeze / Limits side by side) */
+.vc-action-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+.vc-action-row .vc-btn { flex: 1; justify-content: center; }
+
+/* Donut "no spend" placeholder — replaces inline padding override */
+.vc-empty--inline { padding: 18px 0; }
+
+/* Right-aligned table head cell */
+.vc-tx__head .vc-tx__amount-head { text-align: right; }
+
+/* Hero panel head — replaces inline-styled eyebrow / title row */
+.vc-hero__eyebrow {
+    font-size: var(--front-font-size-px-11);
+    font-weight: var(--front-font-bold);
+    letter-spacing: 1.6px;
+    color: var(--vc-muted);
+    text-transform: uppercase;
+}
+.vc-hero__title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+.vc-hero__title { font-size: var(--front-font-xl); }
+
+/* Spend chart subtitle next to the trend % */
+.vc-spend__trend-sub {
+    font-size: var(--front-font-xs);
+    color: var(--vc-muted);
+}
+
+/* Premium request list page */
+.vc-request-page {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 12px;
+}
+.vc-request-stats .vc-stat {
+    background: linear-gradient(180deg, var(--front-color-white), var(--front-palette-fbfcfe));
+    border-color: color-mix(in oklab, var(--vc-brand) 12%, var(--vc-line) 88%);
+    box-shadow: none;
+}
+.vc-stat__value--date {
+    font-size: var(--front-font-lg);
+    letter-spacing: 0;
+}
+.vc-request-panel {
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--front-color-white), var(--front-palette-fbfcfe));
+    border: 1px solid color-mix(in oklab, var(--vc-brand) 16%, var(--vc-line) 84%);
+    border-radius: 14px;
+}
+.vc-request-panel__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--vc-line-2);
+}
+.vc-request-panel__eyebrow {
+    font-size: var(--front-font-size-px-105);
+    font-weight: var(--front-font-bold);
+    letter-spacing: .7px;
+    color: var(--vc-muted);
+    text-transform: uppercase;
+}
+.vc-request-panel__title {
+    margin: 2px 0 0;
+    font-size: var(--front-font-md);
+    font-weight: var(--front-font-bold);
+    color: var(--vc-ink);
+}
+.vc-request-panel__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 28px;
+    padding: 0 10px;
+    border: 1px solid var(--vc-line);
+    border-radius: 999px;
+    background: var(--front-color-white);
+    color: var(--vc-muted);
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-semibold);
+    white-space: nowrap;
+}
+.vc-request-table-wrap {
+    overflow-x: auto;
+}
+.vc-request-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+}
+.vc-request-table th,
+.vc-request-table td {
+    padding: 12px 16px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--vc-line-2);
+}
+.vc-request-table th {
+    background: var(--vc-brand-50);
+    color: var(--vc-ink-2);
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-bold);
+    letter-spacing: .25px;
+}
+.vc-request-table tbody tr {
+    transition: background-color .15s;
+}
+.vc-request-table tbody tr:hover {
+    background: rgba(var(--front-rgb-59-111-224), .035);
+}
+.vc-request-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+.vc-request-id,
+.vc-request-date {
+    color: var(--vc-ink-2);
+    font-size: var(--front-font-sm);
+    font-weight: var(--front-font-semibold);
+}
+.vc-request-id {
+    color: var(--vc-muted);
+    font-family: var(--front-font-mono);
+}
+.vc-request-wallet {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 0 12px;
+    border: 1px solid var(--vc-line);
+    border-radius: 999px;
+    background: var(--front-color-white);
+    color: var(--vc-ink-2);
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-bold);
+}
+.vc-request-note {
+    color: var(--vc-ink-2);
+    font-size: var(--front-font-sm);
+    font-weight: var(--front-font-semibold);
+}
+.vc-request-note--alert {
+    color: var(--front-palette-b42318);
+}
+.vc-request-empty {
+    color: var(--vc-muted);
+    font-size: var(--front-font-sm);
+}
+.vc-request-card-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 28px;
+    padding: 0 11px;
+    border-radius: 999px;
+    background: var(--vc-green-50);
+    color: var(--front-palette-0f8a5f);
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-bold);
+}
+.vc-request-card-expiry {
+    margin-top: 4px;
+    color: var(--vc-muted);
+    font-size: var(--front-font-2xs);
+}
+.vc-request-table__empty-row:hover {
+    background: transparent;
+}
+.vc-request-table__empty-row td {
+    padding: 16px;
+}
+
+@media (max-width: 767.98px) {
+    .vc-request-page {
+        gap: 10px;
+        padding: 10px 12px;
+    }
+    .vc-request-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+    .vc-request-stats .vc-stat {
+        padding: 9px 10px;
+        border-radius: 12px;
+    }
+    .vc-request-panel {
+        border-radius: 14px;
+        background: transparent;
+        border: 0;
+    }
+    .vc-request-panel__head {
+        padding: 0 0 10px;
+        border-bottom: 0;
+    }
+    .vc-request-panel__count {
+        min-height: 26px;
+        padding: 0 9px;
+        font-size: var(--front-font-size-px-105);
+    }
+    .vc-request-table-wrap {
+        overflow: visible;
+    }
+    .vc-request-table,
+    .vc-request-table thead,
+    .vc-request-table tbody,
+    .vc-request-table tr,
+    .vc-request-table td {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+    .vc-request-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+    }
+    .vc-request-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .vc-request-table tbody tr {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+        padding: 10px;
+        border: 1px solid color-mix(in oklab, var(--vc-brand) 16%, var(--vc-line) 84%);
+        border-radius: 14px;
+        background: linear-gradient(180deg, var(--front-color-white), var(--front-palette-fbfcfe));
+    }
+    .vc-request-table tbody tr.vc-request-table__empty-row {
+        display: block;
+        padding: 0;
+        border: 0;
+        background: transparent;
+    }
+    .vc-request-table th,
+    .vc-request-table td {
+        padding: 0;
+        border-bottom: 0;
+    }
+    .vc-request-table td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 3px;
+        color: var(--vc-muted);
+        font-size: var(--front-font-size-px-105);
+        font-weight: var(--front-font-bold);
+        letter-spacing: .35px;
+        text-transform: uppercase;
+    }
+    .vc-request-table__empty-row td::before {
+        display: none;
+    }
+    .vc-request-table td:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .vc-request-table td:nth-child(3) {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+    }
+    .vc-request-table td:nth-child(1)::before,
+    .vc-request-table td:nth-child(3)::before {
+        display: none;
+    }
+    .vc-request-table td:nth-child(2),
+    .vc-request-table td:nth-child(4),
+    .vc-request-table td:nth-child(5),
+    .vc-request-table td:nth-child(6) {
+        background: var(--front-color-white);
+        border: 1px solid var(--vc-line-2);
+        border-radius: 10px;
+        padding: 8px;
+    }
+    .vc-request-id {
+        display: inline-flex;
+        align-items: center;
+        min-height: 26px;
+    }
+    .vc-request-wallet,
+    .vc-request-card-chip {
+        min-height: 25px;
+        padding: 0 9px;
+    }
+    .vc-request-table .vc-pill {
+        min-height: 26px;
+        padding: 4px 9px;
+        font-size: var(--front-font-size-px-105);
+    }
+}
+@media (max-width: 420px) {
+    .vc-request-stats,
+    .vc-request-table tbody tr {
+        grid-template-columns: 1fr;
+    }
+    .vc-request-table td:nth-child(1),
+    .vc-request-table td:nth-child(3) {
+        grid-column: 1;
+        justify-self: stretch;
+    }
+    .vc-request-table td:nth-child(3) {
+        grid-row: 2;
+    }
+    .vc-request-table td:nth-child(3)::before {
+        display: block;
+    }
+}
+
+/* Compact cardholder details page */
+.vc-ch-show {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+}
+.vc-ch-show > .vc-form-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--front-color-white), var(--front-palette-fbfcfe));
+    border-color: color-mix(in oklab, var(--vc-brand) 16%, var(--vc-line) 84%);
+    border-radius: 12px;
+    padding: 13px 18px;
+    box-shadow: none;
+}
+.vc-ch-show > .vc-form-section::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--vc-brand), var(--vc-violet));
+    opacity: .46;
+    pointer-events: none;
+}
+.vc-ch-show .vc-form-section__head {
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.vc-ch-show .vc-form-section__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+}
+.vc-ch-show .vc-form-section__title {
+    font-size: var(--front-font-sm);
+}
+.vc-ch-show .vc-form-section__subtitle {
+    font-size: var(--front-font-size-px-115);
+    line-height: 1.35;
+    margin-top: 1px;
+}
+.vc-ch-show .vc-ch-hero {
+    display: grid;
+    grid-template-columns: minmax(270px, .9fr) minmax(360px, 1.1fr);
+    align-items: center;
+    gap: 14px;
+    padding: 13px 18px;
+}
+.vc-ch-show .vc-ch-hero__main {
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+.vc-ch-show .vc-ch-hero__avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    font-size: var(--front-font-xl);
+    box-shadow: none;
+}
+.vc-ch-show .vc-ch-hero__name {
+    font-size: var(--front-font-lg);
+    letter-spacing: -.2px;
+}
+.vc-ch-show .vc-ch-hero__sub {
+    gap: 8px;
+    margin-top: 4px;
+    line-height: 1.25;
+}
+.vc-ch-show .vc-ch-hero__pills {
+    gap: 6px;
+    margin-top: 7px;
+}
+.vc-ch-show .vc-ch-hero__quick {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 14px;
+    margin-top: 0;
+    padding-top: 0;
+    padding-left: 14px;
+    border-top: 0;
+    border-left: 1px solid var(--vc-line-2);
+}
+.vc-ch-show .vc-ch-hero__quick-label,
+.vc-ch-show .vc-meta__label {
+    font-size: var(--front-font-size-px-105);
+    letter-spacing: .45px;
+}
+.vc-ch-show .vc-ch-hero__quick-value {
+    font-size: var(--front-font-xs);
+    margin-top: 2px;
+}
+.vc-ch-show .vc-meta {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px 16px;
+}
+.vc-ch-show .vc-meta__value {
+    font-size: var(--front-font-xs);
+    line-height: 1.35;
+    margin-top: 2px;
+}
+.vc-ch-show .vc-pill {
+    padding: 4px 9px;
+    font-size: var(--front-font-size-px-105);
+}
+.vc-ch-show .vc-ubo-readonly {
+    gap: 8px;
+}
+.vc-ch-show .vc-ubo-readonly__row {
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow: none;
+}
+
+@media (max-width: 1199.98px) {
+    .vc-ch-show .vc-meta {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+@media (max-width: 991.98px) {
+    .vc-ch-show .vc-ch-hero {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .vc-ch-show .vc-ch-hero__quick {
+        padding-top: 10px;
+        padding-left: 0;
+        border-top: 1px solid var(--vc-line-2);
+        border-left: 0;
+    }
+    .vc-ch-show .vc-meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 767.98px) {
+    .vc-ch-show {
+        gap: 8px;
+    }
+    .vc-ch-show > .vc-form-section {
+        padding: 12px 14px;
+    }
+    .vc-ch-show .vc-ch-hero__quick {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 575.98px) {
+    .vc-ch-show > .vc-form-section {
+        border-radius: 14px;
+        padding: 12px;
+    }
+    .vc-ch-show > .vc-form-section::before {
+        inset: 0 0 auto;
+        width: 100%;
+        height: 3px;
+    }
+    .vc-ch-show .vc-form-section__head {
+        gap: 9px;
+        margin-bottom: 10px;
+    }
+    .vc-ch-show .vc-form-section__icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 9px;
+    }
+    .vc-ch-show .vc-ch-hero__main {
+        align-items: center;
+        gap: 10px;
+    }
+    .vc-ch-show .vc-ch-hero__avatar {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+    }
+    .vc-ch-show .vc-ch-hero__quick {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        padding-top: 8px;
+    }
+    .vc-ch-show .vc-ch-hero__quick-item,
+    .vc-ch-show .vc-meta__row {
+        background: var(--front-color-white);
+        border: 1px solid var(--vc-line-2);
+        border-radius: 10px;
+        padding: 8px 9px;
+    }
+    .vc-ch-show .vc-ch-hero__quick-item:last-child,
+    .vc-ch-show .vc-meta__row--full {
+        grid-column: 1 / -1;
+    }
+    .vc-ch-show .vc-meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+}
+@media (max-width: 420px) {
+    .vc-ch-show .vc-ch-hero__quick,
+    .vc-ch-show .vc-meta {
+        grid-template-columns: 1fr;
+    }
+}

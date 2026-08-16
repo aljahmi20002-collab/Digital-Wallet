@@ -1,0 +1,1085 @@
+/*
+ * Custom Landing admin console. Scoped to .cla-admin and powered by the
+ * backend design tokens from _variables.css so the module follows the current
+ * light/dark theme without leaking styles into other screens.
+ */
+
+.cla-admin {
+    --cla-text: var(--color-text);
+    --cla-muted: var(--color-text-muted);
+    --cla-soft: var(--color-text-faint);
+    --cla-border: rgba(var(--color-secondary-rgb), 0.2);
+    --cla-border-strong: rgba(var(--color-secondary-rgb), 0.32);
+    --cla-surface: var(--color-card);
+    --cla-surface-alt: var(--color-surface-alt);
+    --cla-primary: var(--color-primary);
+    --cla-primary-soft: var(--color-primary-soft);
+    --cla-success: var(--color-success);
+    --cla-success-soft: var(--color-success-soft);
+    --cla-warning: var(--color-warning);
+    --cla-warning-soft: var(--color-warning-soft);
+    --cla-danger: var(--color-danger);
+    --cla-danger-soft: var(--color-danger-soft);
+    --cla-info: var(--color-info);
+    --cla-info-soft: var(--color-info-soft);
+    --cla-radius: var(--radius-md);
+    color: var(--cla-text);
+}
+
+.cla-admin .cla-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cla-admin .cla-header__main {
+    min-width: 0;
+}
+
+.cla-admin .cla-header__title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0 0 0.25rem;
+    color: var(--cla-text);
+    font-size: var(--font-size-rem-155);
+    font-weight: var(--font-extrabold);
+    line-height: 1.15;
+}
+
+.cla-admin .cla-header__icon {
+    display: inline-flex;
+    color: var(--cla-primary);
+}
+
+.cla-admin .cla-header__subtitle {
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-0875);
+}
+
+.cla-admin .cla-header__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.cla-admin .cla-shell {
+    padding: 1rem;
+    border: 1px solid var(--cla-border);
+    border-radius: 0.75rem;
+    background: var(--cla-surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.cla-admin .cla-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 2.35rem;
+    border-radius: 0.5rem;
+    font-weight: var(--font-bold);
+}
+
+.cla-admin .cla-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    padding: 0;
+    border-radius: 0.5rem;
+}
+
+.cla-admin .cla-btn svg,
+.cla-admin .cla-icon-btn svg {
+    flex: 0 0 auto;
+}
+
+.cla-admin .cla-metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.cla-admin .cla-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--cla-border);
+    border-radius: var(--cla-radius);
+    background: linear-gradient(180deg, var(--cla-surface), var(--cla-surface-alt));
+}
+
+.cla-admin .cla-metric__label {
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-074);
+    font-weight: var(--font-extrabold);
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.cla-admin .cla-metric__value {
+    color: var(--cla-text);
+    font-size: var(--font-size-rem-125);
+    line-height: 1.1;
+}
+
+.cla-admin .cla-metric--success {
+    border-color: rgba(var(--color-success-rgb), 0.28);
+    background: var(--cla-success-soft);
+}
+
+.cla-admin .cla-metric--info {
+    border-color: rgba(var(--color-info-rgb), 0.28);
+    background: var(--cla-info-soft);
+}
+
+.cla-admin .cla-metric--warning {
+    border-color: rgba(var(--color-warning-rgb), 0.3);
+    background: var(--cla-warning-soft);
+}
+
+.cla-admin .cla-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.cla-admin .cla-search {
+    position: relative;
+    flex: 1 1 280px;
+    min-width: 0;
+}
+
+.cla-admin .cla-search__icon {
+    position: absolute;
+    inset-inline-start: 0.9rem;
+    top: 50%;
+    display: inline-flex;
+    color: var(--cla-muted);
+    transform: translateY(-50%);
+}
+
+.cla-admin .cla-search__icon svg {
+    display: block;
+}
+
+.cla-admin .cla-search .form-control {
+    min-height: 2.45rem;
+    padding-inline-start: 2.45rem;
+    border-radius: 0.55rem;
+}
+
+.cla-admin .cla-status-filter {
+    flex: 0 0 180px;
+    min-height: 2.45rem;
+    border-radius: 0.55rem;
+}
+
+.cla-admin .cla-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--cla-border);
+    border-radius: var(--cla-radius);
+}
+
+.cla-admin .cla-table {
+    vertical-align: middle;
+}
+
+.cla-admin .cla-table thead th {
+    border-bottom: 1px solid var(--cla-border);
+    background: var(--cla-surface-alt);
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-074);
+    font-weight: var(--font-extrabold);
+    letter-spacing: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.cla-admin .cla-table tbody td {
+    border-color: var(--cla-border);
+}
+
+.cla-admin .cla-landing-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 260px;
+}
+
+.cla-admin .cla-landing-cell__mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    flex: 0 0 2.4rem;
+    border-radius: 0.55rem;
+    background: var(--cla-primary-soft);
+    color: var(--cla-primary);
+    font-weight: var(--font-extrabold);
+}
+
+.cla-admin .cla-landing-cell__content,
+.cla-admin .cla-meta-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.cla-admin .cla-landing-cell__name,
+.cla-admin .cla-meta-stack strong {
+    color: var(--cla-text);
+    font-weight: var(--font-bold);
+}
+
+.cla-admin .cla-landing-cell__folder,
+.cla-admin .cla-meta-stack span {
+    overflow: hidden;
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-077);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cla-admin .cla-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.65rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--cla-border);
+    border-radius: 999px;
+    background: var(--cla-surface-alt);
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-07);
+    font-weight: var(--font-extrabold);
+    letter-spacing: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.cla-admin .cla-pill--success {
+    border-color: rgba(var(--color-success-rgb), 0.3);
+    background: var(--cla-success-soft);
+    color: var(--cla-success);
+}
+
+.cla-admin .cla-pill--danger {
+    border-color: rgba(var(--color-danger-rgb), 0.3);
+    background: var(--cla-danger-soft);
+    color: var(--cla-danger);
+}
+
+.cla-admin .cla-pill--muted {
+    color: var(--cla-muted);
+}
+
+.cla-admin .cla-action-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    flex-wrap: nowrap;
+}
+
+.cla-admin .cla-action-list form {
+    display: inline-flex;
+}
+
+.cla-admin .cla-empty {
+    display: grid;
+    place-items: center;
+    gap: 0.4rem;
+    padding: 2rem 1rem;
+    color: var(--cla-muted);
+    text-align: center;
+}
+
+.cla-admin .cla-empty strong {
+    color: var(--cla-text);
+    font-size: var(--font-size-rem-098);
+}
+
+.cla-admin .cla-empty__icon,
+.cla-admin .cla-empty__fa {
+    width: 2rem;
+    height: 2rem;
+    color: var(--cla-primary);
+    font-size: var(--font-size-rem-15);
+}
+
+.cla-admin .cla-pagination {
+    margin-top: 1rem;
+}
+
+.cla-admin .cla-form-grid,
+.cla-admin .cla-preview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+    gap: 1rem;
+    align-items: start;
+}
+
+.cla-admin .cla-form-main,
+.cla-admin .cla-guidance,
+.cla-admin .cla-preview-side {
+    min-width: 0;
+}
+
+.cla-admin .cla-form-main {
+    display: grid;
+    gap: 1rem;
+}
+
+.cla-admin .cla-field {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.cla-admin .cla-dropzone {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    min-height: 8rem;
+    padding: 1rem;
+    border: 1px dashed var(--cla-border-strong);
+    border-radius: var(--cla-radius);
+    background: var(--cla-surface-alt);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.cla-admin .cla-dropzone:hover,
+.cla-admin .cla-dropzone.is-dragging {
+    border-color: var(--cla-primary);
+    background: var(--cla-primary-soft);
+    transform: translateY(-1px);
+}
+
+.cla-admin .cla-dropzone input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.cla-admin .cla-dropzone__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    flex: 0 0 3rem;
+    border-radius: 0.5rem;
+    background: var(--cla-primary-soft);
+    color: var(--cla-primary);
+    font-size: var(--font-size-rem-15);
+}
+
+.cla-admin .cla-dropzone strong,
+.cla-admin .cla-dropzone span {
+    display: block;
+}
+
+.cla-admin .cla-dropzone span {
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-0825);
+}
+
+.cla-admin .cla-guidance {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.cla-admin .cla-guidance__section {
+    display: grid;
+    gap: 0.65rem;
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid var(--cla-border);
+    border-radius: var(--cla-radius);
+    background: var(--cla-surface-alt);
+}
+
+.cla-admin .cla-guidance__eyebrow {
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-074);
+    font-weight: var(--font-extrabold);
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.cla-admin .cla-code-block {
+    margin: 0;
+    padding: 0.85rem;
+    border-radius: 0.55rem;
+    background: rgba(var(--color-text-rgb), 0.92);
+    color: var(--color-white);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-rem-08125);
+    line-height: 1.45;
+    white-space: pre-wrap;
+}
+
+.cla-admin .cla-token-list {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.cla-admin .cla-token-list span {
+    padding: 0.25rem 0.55rem;
+    border: 1px solid var(--cla-border);
+    border-radius: 999px;
+    background: var(--cla-surface);
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-074);
+    font-weight: var(--font-bold);
+}
+
+.cla-admin .cla-copy-line {
+    overflow: hidden;
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--cla-border);
+    border-radius: 0.55rem;
+    background: var(--cla-surface);
+    color: var(--cla-text);
+    text-align: start;
+}
+
+.cla-admin .cla-copy-line code {
+    display: block;
+    overflow: hidden;
+    color: inherit;
+    font-size: var(--font-size-rem-076);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cla-admin .cla-copy-line.is-copied {
+    border-color: rgba(var(--color-success-rgb), 0.35);
+    background: var(--cla-success-soft);
+}
+
+.cla-admin .cla-submit-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding-top: 0.25rem;
+}
+
+.cla-admin .cla-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    cursor: pointer;
+}
+
+.cla-admin .cla-switch input {
+    position: absolute;
+    opacity: 0;
+}
+
+.cla-admin .cla-switch__track {
+    position: relative;
+    width: 3.1rem;
+    height: 1.7rem;
+    flex: 0 0 3.1rem;
+    border-radius: 999px;
+    background: var(--cla-border-strong);
+    transition: background 0.2s ease;
+}
+
+.cla-admin .cla-switch__track::after {
+    position: absolute;
+    top: 0.22rem;
+    inset-inline-start: 0.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 999px;
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    content: "";
+    transition: transform 0.2s ease;
+}
+
+.cla-admin .cla-switch input:checked + .cla-switch__track {
+    background: var(--cla-success);
+}
+
+.cla-admin .cla-switch input:checked + .cla-switch__track::after {
+    transform: translateX(1.35rem);
+}
+
+.cla-admin .cla-switch__text {
+    color: var(--cla-text);
+    font-weight: var(--font-bold);
+}
+
+.cla-admin .cla-detail-list {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.cla-admin .cla-detail-list div {
+    display: grid;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.cla-admin .cla-detail-list span {
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-074);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+}
+
+.cla-admin .cla-detail-list strong {
+    overflow-wrap: anywhere;
+    color: var(--cla-text);
+}
+
+.cla-admin .cla-side-actions {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.cla-admin .cla-editor-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.cla-admin .cla-editor-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding: 0.85rem;
+    border: 1px solid var(--cla-border);
+    border-radius: var(--cla-radius);
+    background: var(--cla-surface-alt);
+}
+
+.cla-admin .cla-editor-toolbar__meta,
+.cla-admin .cla-editor-toolbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.cla-admin .cla-editor-toolbar__meta > span:not(.cla-pill) {
+    overflow: hidden;
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-08125);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cla-admin .cla-editor-wrap {
+    overflow: hidden;
+    border: 1px solid var(--cla-border);
+    border-radius: var(--cla-radius);
+}
+
+.cla-admin .CodeMirror {
+    min-height: 30rem;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-rem-0825);
+}
+
+.cla-admin .cla-preview-main {
+    overflow: hidden;
+    min-height: 36rem;
+    border: 1px solid var(--cla-border);
+    border-radius: var(--cla-radius);
+    background: var(--cla-surface-alt);
+}
+
+.cla-admin .cla-preview-frame {
+    display: block;
+    width: 100%;
+    height: 36rem;
+    border: 0;
+    background: var(--color-white);
+}
+
+.cla-admin .cla-empty--preview {
+    min-height: 36rem;
+}
+
+.cla-admin .cla-guide-hero {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+    gap: 0.85rem;
+    align-items: stretch;
+    margin-bottom: 0.85rem;
+    padding: 1rem;
+    border: 1px solid rgba(var(--color-secondary-rgb), 0.1);
+    border-radius: 0.5rem;
+    background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.045), var(--cla-surface) 48%, var(--cla-surface-alt));
+    box-shadow: 0 0.65rem 1.35rem rgba(var(--color-text-rgb), 0.035);
+}
+
+.cla-admin .cla-guide-hero__content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.cla-admin .cla-guide-eyebrow {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 0.4rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+    border-radius: 999px;
+    background: rgba(var(--color-primary-rgb), 0.075);
+    color: var(--cla-primary);
+    font-size: var(--font-size-rem-07);
+    font-weight: var(--font-extrabold);
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.cla-admin .cla-guide-hero h2,
+.cla-admin .cla-guide-section h3,
+.cla-admin .cla-guide-card h3 {
+    margin: 0;
+    color: var(--cla-text);
+    line-height: 1.2;
+}
+
+.cla-admin .cla-guide-hero h2 {
+    max-width: 760px;
+    font-size: var(--font-size-rem-155);
+    font-weight: var(--font-extrabold);
+}
+
+.cla-admin .cla-guide-hero p,
+.cla-admin .cla-guide-step p,
+.cla-admin .cla-guide-card p,
+.cla-admin .cla-guide-card li {
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-085);
+    line-height: 1.55;
+}
+
+.cla-admin .cla-guide-hero p {
+    max-width: 760px;
+    margin: 0.55rem 0 0;
+}
+
+.cla-admin .cla-guide-hero__panel {
+    position: relative;
+    display: grid;
+    gap: 0.5rem;
+    align-content: center;
+    min-width: 0;
+}
+
+.cla-admin .cla-guide-signal {
+    position: relative;
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.65rem 0.7rem;
+    border: 1px solid rgba(var(--color-secondary-rgb), 0.1);
+    border-radius: 0.5rem;
+    background: var(--cla-surface);
+    box-shadow: 0 0.5rem 1.1rem rgba(var(--color-text-rgb), 0.025);
+}
+
+.cla-admin .cla-guide-signal strong {
+    color: var(--cla-text);
+    font-size: var(--font-size-rem-085);
+}
+
+.cla-admin .cla-guide-signal span {
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-08125);
+}
+
+.cla-admin .cla-guide-signal--success {
+    border-color: rgba(var(--color-success-rgb), 0.14);
+    background: rgba(var(--color-success-rgb), 0.07);
+}
+
+.cla-admin .cla-guide-signal--info {
+    border-color: rgba(var(--color-info-rgb), 0.14);
+    background: rgba(var(--color-info-rgb), 0.07);
+}
+
+.cla-admin .cla-guide-signal--warning {
+    border-color: rgba(var(--color-warning-rgb), 0.16);
+    background: rgba(var(--color-warning-rgb), 0.08);
+}
+
+.cla-admin .cla-guide-section {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 0.85rem;
+}
+
+.cla-admin .cla-guide-section__head {
+    display: grid;
+    gap: 0.2rem;
+}
+
+.cla-admin .cla-guide-section h3,
+.cla-admin .cla-guide-card h3 {
+    font-size: var(--font-size-rem-115);
+    font-weight: var(--font-extrabold);
+}
+
+.cla-admin .cla-guide-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 0.6rem;
+}
+
+.cla-admin .cla-guide-step,
+.cla-admin .cla-guide-card {
+    position: relative;
+    display: grid;
+    gap: 0.5rem;
+    min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid rgba(var(--color-secondary-rgb), 0.1);
+    border-radius: 0.5rem;
+    background: linear-gradient(180deg, var(--cla-surface), var(--cla-surface-alt));
+    box-shadow: 0 0.5rem 1.1rem rgba(var(--color-text-rgb), 0.025);
+}
+
+.cla-admin .cla-guide-step {
+    align-content: start;
+}
+
+.cla-admin .cla-guide-step__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.65rem;
+    height: 1.65rem;
+    border-radius: 999px;
+    background: rgba(var(--color-primary-rgb), 0.1);
+    color: var(--cla-primary);
+    font-size: var(--font-size-rem-076);
+    font-weight: var(--font-extrabold);
+}
+
+.cla-admin .cla-guide-step h4 {
+    margin: 0;
+    color: var(--cla-text);
+    font-size: var(--font-size-rem-09);
+    font-weight: var(--font-extrabold);
+}
+
+.cla-admin .cla-guide-step p,
+.cla-admin .cla-guide-card p {
+    margin: 0;
+}
+
+.cla-admin .cla-guide-code {
+    overflow: auto;
+    margin: 0;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    background: rgba(var(--color-text-rgb), 0.92);
+    color: var(--color-white);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-rem-076);
+    line-height: 1.5;
+    white-space: pre;
+}
+
+.cla-admin .cla-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+    margin-top: 0.85rem;
+}
+
+.cla-admin .cla-guide-reference {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+    gap: 0.65rem;
+}
+
+.cla-admin .cla-guide-patterns {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.cla-admin .cla-guide-panel {
+    display: grid;
+    gap: 0.65rem;
+    min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid rgba(var(--color-secondary-rgb), 0.1);
+    border-radius: 0.5rem;
+    background: linear-gradient(180deg, var(--cla-surface), var(--cla-surface-alt));
+    box-shadow: 0 0.5rem 1.1rem rgba(var(--color-text-rgb), 0.025);
+}
+
+.cla-admin .cla-guide-panel__head {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    min-width: 0;
+}
+
+.cla-admin .cla-guide-panel__head > div {
+    min-width: 0;
+}
+
+.cla-admin .cla-guide-panel h3 {
+    margin: 0;
+    color: var(--cla-text);
+    font-size: var(--font-size-rem-115);
+    font-weight: var(--font-extrabold);
+    line-height: 1.2;
+}
+
+.cla-admin .cla-guide-panel p {
+    margin: 0.2rem 0 0;
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-085);
+    line-height: 1.55;
+}
+
+.cla-admin .cla-guide-note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid rgba(var(--color-info-rgb), 0.14);
+    border-radius: 0.5rem;
+    background: rgba(var(--color-info-rgb), 0.06);
+}
+
+.cla-admin .cla-guide-note strong {
+    color: var(--cla-text);
+    font-size: var(--font-size-rem-08125);
+}
+
+.cla-admin .cla-guide-note span {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.cla-admin .cla-guide-table-wrap {
+    overflow: auto;
+    border: 1px solid rgba(var(--color-secondary-rgb), 0.1);
+    border-radius: 0.5rem;
+    background: var(--cla-surface);
+}
+
+.cla-admin .cla-guide-table {
+    width: 100%;
+    min-width: 560px;
+    margin: 0;
+    border-collapse: collapse;
+}
+
+.cla-admin .cla-guide-table th,
+.cla-admin .cla-guide-table td {
+    padding: 0.55rem 0.65rem;
+    border-bottom: 1px solid rgba(var(--color-secondary-rgb), 0.09);
+    color: var(--cla-muted);
+    font-size: var(--font-size-rem-08125);
+    line-height: 1.45;
+    vertical-align: top;
+}
+
+.cla-admin .cla-guide-table th {
+    background: var(--cla-surface-alt);
+    color: var(--cla-text);
+    font-size: var(--font-size-rem-074);
+    font-weight: var(--font-extrabold);
+    letter-spacing: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.cla-admin .cla-guide-table tr:last-child td {
+    border-bottom: 0;
+}
+
+.cla-admin .cla-guide-table code,
+.cla-admin .cla-guide-note code,
+.cla-admin .cla-guide-card code {
+    display: inline-flex;
+    max-width: 100%;
+    padding: 0.14rem 0.35rem;
+    border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+    border-radius: 0.35rem;
+    background: rgba(var(--color-primary-rgb), 0.07);
+    color: var(--cla-primary);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-rem-074);
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.cla-admin .cla-guide-table__muted {
+    color: var(--cla-soft);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-rem-077);
+}
+
+.cla-admin .cla-guide-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    flex: 0 0 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0.5rem;
+    background: rgba(var(--color-primary-rgb), 0.095);
+    color: var(--cla-primary);
+    font-size: var(--font-size-rem-1125);
+    line-height: 1;
+}
+
+.cla-admin .cla-guide-card__icon svg {
+    display: block;
+    width: 1.05rem;
+    height: 1.05rem;
+    margin: 0 !important;
+}
+
+.cla-admin .cla-guide-card ul {
+    display: grid;
+    gap: 0.3rem;
+    margin: 0;
+    padding-inline-start: 1rem;
+}
+
+.cla-admin .cla-guide-checklist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+}
+
+.cla-admin .cla-guide-checklist label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45rem;
+    min-width: 0;
+    padding: 0.65rem 0.7rem;
+    border: 1px solid rgba(var(--color-secondary-rgb), 0.1);
+    border-radius: 0.5rem;
+    background: var(--cla-surface);
+    color: var(--cla-text);
+    font-weight: var(--font-bold);
+    line-height: 1.45;
+    box-shadow: 0 0.5rem 1.1rem rgba(var(--color-text-rgb), 0.025);
+}
+
+.cla-admin .cla-check-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    flex: 0 0 0.55rem;
+    margin-top: 0.25rem;
+    border-radius: 999px;
+    background: var(--cla-success);
+    box-shadow: 0 0 0 0.18rem var(--cla-success-soft);
+}
+
+.cla-admin .is-hidden {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .cla-admin .cla-metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cla-admin .cla-form-grid,
+    .cla-admin .cla-preview-grid,
+    .cla-admin .cla-guide-hero,
+    .cla-admin .cla-guide-grid,
+    .cla-admin .cla-guide-reference,
+    .cla-admin .cla-guide-patterns {
+        grid-template-columns: 1fr;
+    }
+
+    .cla-admin .cla-guide-steps,
+    .cla-admin .cla-guide-checklist {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767.98px) {
+    .cla-admin .cla-shell {
+        padding: 0.75rem;
+    }
+
+    .cla-admin .cla-metric-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cla-admin .cla-toolbar {
+        align-items: stretch;
+    }
+
+    .cla-admin .cla-status-filter,
+    .cla-admin .cla-search {
+        flex-basis: 100%;
+    }
+
+    .cla-admin .cla-dropzone {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .cla-admin .cla-action-list {
+        justify-content: flex-start;
+    }
+
+    .cla-admin .cla-preview-frame,
+    .cla-admin .cla-preview-main,
+    .cla-admin .cla-empty--preview {
+        min-height: 28rem;
+        height: 28rem;
+    }
+
+    .cla-admin .cla-guide-hero {
+        padding: 0.85rem;
+    }
+
+    .cla-admin .cla-guide-hero h2 {
+        font-size: var(--font-size-rem-115);
+    }
+
+    .cla-admin .cla-guide-steps,
+    .cla-admin .cla-guide-checklist {
+        grid-template-columns: 1fr;
+    }
+}

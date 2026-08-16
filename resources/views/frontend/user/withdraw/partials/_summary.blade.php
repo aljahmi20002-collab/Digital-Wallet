@@ -1,0 +1,42 @@
+<div class="col-lg-12 col-xl-5">
+    <div class="single-form-card">
+        <x-user-feature-header
+            :title="__('Summary')"
+            :subtitle="__('Review timing, charges, and received amount before submitting.')"
+            icon="fas fa-receipt"
+            compact
+        />
+        <div class="card-main">
+            <ul class="summery-list list-unstyled">
+                <li class="d-flex justify-content-between">
+                    <span>{{ __('Processing Time') }}</span>
+                    <span class="processing-time"></span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <span>{{ __('Amount') }}</span>
+                    <span class="summary-amount"></span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <span>{{ __('Charge') }}</span>
+                    <span class="summary-charge"></span>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <strong>{{ __('Total') }}</strong>
+                    <strong class="summary-total"></strong>
+                </li>
+                <li class="d-flex justify-content-between text-primary">
+                    <strong>{{ __('Conversion Rate') }}</strong>
+                    <strong class="conversion-rate"></strong>
+                </li>
+                <li class="d-flex justify-content-between text-success">
+                    <strong>{{ __('Received Withdraw amount') }}</strong>
+                    <strong class="received-withdraw-amount"></strong>
+                </li>
+                <li class="d-flex justify-content-between">
+                    <strong>{{ __('My Wallet Decreased') }}</strong>
+                    <strong class="my-wallet-decreased"></strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

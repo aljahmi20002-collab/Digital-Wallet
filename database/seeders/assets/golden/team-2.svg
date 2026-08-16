@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" preserveAspectRatio="xMidYMid slice">
+	<defs>
+		<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color="#16161E"/>
+			<stop offset="100%" stop-color="#06060A"/>
+		</linearGradient>
+		<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0%" stop-color="#F5E6A8"/>
+			<stop offset="50%" stop-color="#D4AF37"/>
+			<stop offset="100%" stop-color="#B8860B"/>
+		</linearGradient>
+		<radialGradient id="halo" cx="50%" cy="30%" r="55%">
+			<stop offset="0%" stop-color="rgba(232,180,160,0.22)"/>
+			<stop offset="100%" stop-color="rgba(212,175,55,0)"/>
+		</radialGradient>
+	</defs>
+	<rect width="600" height="750" fill="url(#bg)"/>
+	<rect width="600" height="750" fill="url(#halo)"/>
+
+	<!-- Concentric arcs decoration -->
+	<g opacity=".18" stroke="#D4AF37" stroke-width="1" fill="none">
+		<circle cx="500" cy="80" r="120"/>
+		<circle cx="500" cy="80" r="180"/>
+		<circle cx="500" cy="80" r="240"/>
+	</g>
+
+	<!-- Portrait silhouette -->
+	<g transform="translate(300,400)">
+		<ellipse cx="0" cy="220" rx="210" ry="115" fill="#0A0A0F" opacity=".85"/>
+		<circle cx="0" cy="10" r="115" fill="#1c1c26"/>
+		<circle cx="0" cy="10" r="119" stroke="url(#gold)" stroke-width="2" fill="none" opacity=".55"/>
+		<!-- monogram -->
+		<text x="0" y="28" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif"
+		      font-style="italic" font-weight="600" font-size="56" fill="url(#gold)">SH</text>
+	</g>
+
+	<!-- Corner ornaments -->
+	<g stroke="#D4AF37" stroke-width="1.2" fill="none" opacity=".7">
+		<path d="M20 20 L52 20 M20 20 L20 52"/>
+		<path d="M580 20 L548 20 M580 20 L580 52"/>
+		<path d="M20 730 L52 730 M20 730 L20 698"/>
+		<path d="M580 730 L548 730 M580 730 L580 698"/>
+	</g>
+</svg>

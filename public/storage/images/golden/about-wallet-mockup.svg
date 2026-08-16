@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice">
+	<defs>
+		<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color="#16161E"/>
+			<stop offset="55%" stop-color="#0E0E16"/>
+			<stop offset="100%" stop-color="#06060A"/>
+		</linearGradient>
+		<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0%" stop-color="#F5E6A8"/>
+			<stop offset="45%" stop-color="#D4AF37"/>
+			<stop offset="100%" stop-color="#8C6610"/>
+		</linearGradient>
+		<linearGradient id="phoneBg" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color="#1F1F2A"/>
+			<stop offset="100%" stop-color="#0B0B12"/>
+		</linearGradient>
+		<linearGradient id="cardBg" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0%" stop-color="#23232E"/>
+			<stop offset="100%" stop-color="#0E0E16"/>
+		</linearGradient>
+		<radialGradient id="halo" cx="50%" cy="38%" r="55%">
+			<stop offset="0%" stop-color="rgba(245,230,168,0.18)"/>
+			<stop offset="100%" stop-color="rgba(212,175,55,0)"/>
+		</radialGradient>
+	</defs>
+
+	<!-- Background washes -->
+	<rect width="600" height="800" fill="url(#bg)"/>
+	<rect width="600" height="800" fill="url(#halo)"/>
+
+	<!-- Art-deco rays top-left -->
+	<g opacity=".15" stroke="#D4AF37" stroke-width="1" fill="none">
+		<path d="M0 0 L600 220"/>
+		<path d="M0 0 L600 320"/>
+		<path d="M0 0 L600 420"/>
+		<path d="M0 0 L260 800"/>
+		<path d="M0 0 L360 800"/>
+	</g>
+
+	<!-- Phone body -->
+	<g transform="translate(120,90)">
+		<!-- Phone outer frame -->
+		<rect x="0" y="0" width="360" height="620" rx="46" fill="url(#phoneBg)"
+		      stroke="url(#gold)" stroke-width="1.2" stroke-opacity=".85"/>
+		<rect x="6" y="6" width="348" height="608" rx="40" fill="none"
+		      stroke="url(#gold)" stroke-width="0.6" stroke-opacity=".35"/>
+
+		<!-- Screen background -->
+		<rect x="14" y="14" width="332" height="592" rx="34" fill="#0A0A0F"/>
+
+		<!-- Notch -->
+		<rect x="138" y="22" width="84" height="20" rx="10" fill="#000"/>
+
+		<!-- Status bar -->
+		<text x="40" y="60" font-family="Cinzel, Georgia, serif" font-size="9"
+		      letter-spacing="2" fill="#B8B2A0">9:41</text>
+		<g transform="translate(296,52)" fill="#D4AF37" opacity=".75">
+			<circle cx="0" cy="6" r="2"/>
+			<circle cx="6" cy="6" r="2"/>
+			<circle cx="12" cy="6" r="2"/>
+			<circle cx="18" cy="6" r="2"/>
+		</g>
+
+		<!-- Hello row -->
+		<text x="40" y="100" font-family="Cinzel, Georgia, serif" font-size="9"
+		      letter-spacing="2" fill="#6B665A">GOOD EVENING</text>
+		<text x="40" y="130" font-family="Cormorant Garamond, Georgia, serif"
+		      font-style="italic" font-weight="500" font-size="22" fill="#F4EDD8">Mr. Whitlock</text>
+
+		<!-- Main card -->
+		<g transform="translate(40,160)">
+			<rect width="280" height="170" rx="14" fill="url(#cardBg)"
+			      stroke="url(#gold)" stroke-width="1" stroke-opacity=".55"/>
+			<rect x="3" y="3" width="274" height="164" rx="11" fill="none"
+			      stroke="url(#gold)" stroke-width=".5" stroke-opacity=".25"/>
+
+			<!-- Subtle radial gold shimmer -->
+			<circle cx="240" cy="20" r="60" fill="url(#halo)" opacity=".4"/>
+
+			<!-- Card brand label -->
+			<text x="20" y="32" font-family="Cinzel, Georgia, serif" font-size="9"
+			      letter-spacing="3" fill="#F5E6A8" opacity=".95">DIGIKASH</text>
+			<text x="20" y="46" font-family="Cinzel, Georgia, serif" font-size="7"
+			      letter-spacing="2" fill="#B8B2A0">PRIVATE · BLACK</text>
+
+			<!-- DK monogram -->
+			<text x="258" y="46" text-anchor="end" font-family="Cormorant Garamond, Georgia, serif"
+			      font-style="italic" font-weight="600" font-size="30" fill="url(#gold)">DK</text>
+
+			<!-- Balance -->
+			<text x="20" y="86" font-family="Cinzel, Georgia, serif" font-size="8"
+			      letter-spacing="2.5" fill="#6B665A">TOTAL HOLDINGS</text>
+			<text x="20" y="118" font-family="Cormorant Garamond, Georgia, serif"
+			      font-weight="600" font-size="28" fill="#F5E6A8">$ 248,310.<tspan font-size="18" opacity=".7">06</tspan></text>
+
+			<!-- Chip + masked number -->
+			<rect x="20" y="130" width="32" height="22" rx="3" fill="url(#gold)" opacity=".95"/>
+			<line x1="22" y1="138" x2="50" y2="138" stroke="#0A0A0F" stroke-width="0.8" opacity=".3"/>
+			<line x1="22" y1="146" x2="50" y2="146" stroke="#0A0A0F" stroke-width="0.8" opacity=".3"/>
+
+			<g transform="translate(64,148)" fill="#F5E6A8" font-family="Cormorant Garamond, Georgia, serif" font-size="11" letter-spacing="2">
+				<text>4519 •••• •••• 2208</text>
+			</g>
+		</g>
+
+		<!-- Action chips row -->
+		<g transform="translate(40,355)">
+			<g>
+				<circle cx="16" cy="16" r="16" fill="rgba(212,175,55,.12)" stroke="url(#gold)" stroke-width=".8" stroke-opacity=".5"/>
+				<path d="M16 10 L16 22 M11 15 L16 10 L21 15" stroke="url(#gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+				<text x="16" y="48" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-size="7" letter-spacing="2" fill="#B8B2A0">SEND</text>
+			</g>
+			<g transform="translate(72,0)">
+				<circle cx="16" cy="16" r="16" fill="rgba(212,175,55,.12)" stroke="url(#gold)" stroke-width=".8" stroke-opacity=".5"/>
+				<path d="M16 10 L16 22 M11 17 L16 22 L21 17" stroke="url(#gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+				<text x="16" y="48" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-size="7" letter-spacing="2" fill="#B8B2A0">HOLD</text>
+			</g>
+			<g transform="translate(144,0)">
+				<circle cx="16" cy="16" r="16" fill="rgba(212,175,55,.12)" stroke="url(#gold)" stroke-width=".8" stroke-opacity=".5"/>
+				<circle cx="16" cy="16" r="5" fill="url(#gold)" opacity=".85"/>
+				<text x="16" y="48" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-size="7" letter-spacing="2" fill="#B8B2A0">EARN</text>
+			</g>
+			<g transform="translate(216,0)">
+				<circle cx="16" cy="16" r="16" fill="rgba(212,175,55,.12)" stroke="url(#gold)" stroke-width=".8" stroke-opacity=".5"/>
+				<g fill="url(#gold)">
+					<circle cx="11" cy="16" r="1.6"/>
+					<circle cx="16" cy="16" r="1.6"/>
+					<circle cx="21" cy="16" r="1.6"/>
+				</g>
+				<text x="16" y="48" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-size="7" letter-spacing="2" fill="#B8B2A0">MORE</text>
+			</g>
+		</g>
+
+		<!-- Portfolio rows -->
+		<g transform="translate(40,430)">
+			<line x1="0" y1="0" x2="280" y2="0" stroke="rgba(212,175,55,.18)" stroke-width="0.6"/>
+			<g transform="translate(0,18)">
+				<text x="0" y="0" font-family="Manrope, Helvetica, Arial, sans-serif" font-size="10" fill="#F4EDD8">Yield · Sovereign</text>
+				<text x="0" y="14" font-family="Cinzel, Georgia, serif" font-size="7" letter-spacing="1.5" fill="#6B665A">+ 12.50% APY</text>
+				<text x="280" y="6" text-anchor="end" font-family="Cormorant Garamond, Georgia, serif" font-size="14" fill="#F5E6A8">$94,200</text>
+			</g>
+			<line x1="0" y1="44" x2="280" y2="44" stroke="rgba(212,175,55,.18)" stroke-width="0.6"/>
+			<g transform="translate(0,62)">
+				<text x="0" y="0" font-family="Manrope, Helvetica, Arial, sans-serif" font-size="10" fill="#F4EDD8">Gold Allocation</text>
+				<text x="0" y="14" font-family="Cinzel, Georgia, serif" font-size="7" letter-spacing="1.5" fill="#6B665A">+ 2.1% MTD</text>
+				<text x="280" y="6" text-anchor="end" font-family="Cormorant Garamond, Georgia, serif" font-size="14" fill="#F5E6A8">$54,180</text>
+			</g>
+			<line x1="0" y1="88" x2="280" y2="88" stroke="rgba(212,175,55,.18)" stroke-width="0.6"/>
+			<g transform="translate(0,106)">
+				<text x="0" y="0" font-family="Manrope, Helvetica, Arial, sans-serif" font-size="10" fill="#F4EDD8">Cash · USD</text>
+				<text x="0" y="14" font-family="Cinzel, Georgia, serif" font-size="7" letter-spacing="1.5" fill="#6B665A">Liquid</text>
+				<text x="280" y="6" text-anchor="end" font-family="Cormorant Garamond, Georgia, serif" font-size="14" fill="#F5E6A8">$28,400</text>
+			</g>
+			<line x1="0" y1="132" x2="280" y2="132" stroke="rgba(212,175,55,.18)" stroke-width="0.6"/>
+		</g>
+
+		<!-- Bottom indicator -->
+		<rect x="148" y="600" width="64" height="3" rx="1.5" fill="#D4AF37" opacity=".4"/>
+	</g>
+
+	<!-- Floating tag: secured balance -->
+	<g transform="translate(70,470)">
+		<rect x="0" y="0" width="170" height="50" rx="6" fill="rgba(28,28,38,.92)"
+		      stroke="url(#gold)" stroke-width="1" stroke-opacity=".55"/>
+		<circle cx="20" cy="25" r="9" fill="rgba(212,175,55,.18)" stroke="url(#gold)" stroke-width="0.8" stroke-opacity=".7"/>
+		<path d="M20 21 L20 28 M17 24 L23 24" stroke="url(#gold)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+		<text x="38" y="22" font-family="Cinzel, Georgia, serif" font-size="6" letter-spacing="1.5" fill="#6B665A">SECURED BALANCE</text>
+		<text x="38" y="36" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="12" fill="#F5E6A8">$ 248,310.06</text>
+	</g>
+
+	<!-- Floating tag: annual yield -->
+	<g transform="translate(370,170)">
+		<rect x="0" y="0" width="170" height="50" rx="6" fill="rgba(28,28,38,.92)"
+		      stroke="url(#gold)" stroke-width="1" stroke-opacity=".55"/>
+		<circle cx="20" cy="25" r="9" fill="rgba(212,175,55,.18)" stroke="url(#gold)" stroke-width="0.8" stroke-opacity=".7"/>
+		<path d="M14 28 L20 22 L24 26 L30 20" stroke="url(#gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+		<text x="38" y="22" font-family="Cinzel, Georgia, serif" font-size="6" letter-spacing="1.5" fill="#6B665A">ANNUAL YIELD</text>
+		<text x="38" y="36" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="12" fill="#F5E6A8">12.50%</text>
+	</g>
+
+	<!-- Corner ornaments -->
+	<g stroke="#D4AF37" stroke-width="1.4" fill="none" opacity=".82">
+		<path d="M20 20 L60 20 M20 20 L20 60"/>
+		<path d="M580 20 L540 20 M580 20 L580 60"/>
+		<path d="M20 780 L60 780 M20 780 L20 740"/>
+		<path d="M580 780 L540 780 M580 780 L580 740"/>
+	</g>
+</svg>

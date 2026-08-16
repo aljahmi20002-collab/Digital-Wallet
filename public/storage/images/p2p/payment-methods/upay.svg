@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Upay">
+  <rect width="128" height="128" rx="28" fill="#00a651"/>
+  <path d="M34 36h18v34c0 10 5 15 12 15s12-5 12-15V36h18v35c0 22-12 34-30 34S34 93 34 71V36Z" fill="#fff"/>
+  <circle cx="94" cy="34" r="10" fill="#ffd54f"/>
+</svg>

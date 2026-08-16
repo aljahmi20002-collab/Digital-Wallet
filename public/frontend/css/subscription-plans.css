@@ -1,0 +1,726 @@
+/* ═══════════════════════════════════════════════════════════════
+   DigiKash — Subscription Plans  (premium compact, v3)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Plan-switch prorated note */
+.sp-card__switch-note {
+    margin-top: 8px;
+    text-align: center;
+    font-size: var(--front-font-size-px-115);
+    font-weight: var(--front-font-semibold);
+    color: var(--front-palette-15803d);
+    background: var(--front-palette-ecfdf5);
+    border: 1px solid var(--front-palette-bbf7d0);
+    border-radius: 8px;
+    padding: 5px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1.3;
+    width: 100%;
+    justify-content: center;
+}
+.sp-card__switch-note i { font-size: var(--front-font-2xs); opacity: .8; }
+
+/* ── Design tokens ────────────────────────────────────────────── */
+:root {
+    /* Brand */
+    --sp-blue:          var(--front-palette-1a6fdb);
+    --sp-blue-dark:     var(--front-palette-1255b0);
+    --sp-blue-light:    var(--front-palette-eff6ff);
+    --sp-blue-mid:      var(--front-palette-dbeafe);
+    --sp-blue-border:   rgba(var(--front-rgb-26-111-219), .18);
+
+    /* Text */
+    --sp-text-primary:  var(--front-palette-0f172a);
+    --sp-text-body:     var(--front-palette-334155);
+    --sp-text-muted:    var(--front-palette-64748b);
+    --sp-text-faint:    var(--front-palette-94a3b8);
+
+    /* Surface */
+    --sp-surface:       var(--front-color-white);
+    --sp-border:        var(--front-palette-e2e8f0);
+    --sp-border-hover:  var(--front-palette-c7d8f8);
+
+    /* Semantic */
+    --sp-green:         var(--front-palette-059669);
+    --sp-green-light:   var(--front-palette-d1fae5);
+    --sp-green-border:  var(--front-palette-a7f3d0);
+    --sp-amber:         var(--front-color-warning);
+    --sp-amber-light:   var(--front-palette-fef3c7);
+
+    /* Shadows */
+    --sp-shadow-xs:     0 1px 3px rgba(var(--front-color-black-rgb), .06);
+    --sp-shadow-sm:     0 2px 8px rgba(var(--front-color-black-rgb), .07), 0 1px 3px rgba(var(--front-color-black-rgb), .04);
+    --sp-shadow-md:     0 6px 20px rgba(var(--front-rgb-26-111-219), .13), 0 2px 6px rgba(var(--front-color-black-rgb), .05);
+    --sp-shadow-lg:     0 12px 36px rgba(var(--front-rgb-26-111-219), .2),  0 4px 10px rgba(var(--front-color-black-rgb), .06);
+    --sp-shadow-feat:   0 8px 32px rgba(var(--front-rgb-18-85-176), .35),   0 2px 8px  rgba(var(--front-color-black-rgb), .15);
+}
+
+/* ── Entrance animation ───────────────────────────────────────── */
+@keyframes sp-fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Billing cycle toggle ─────────────────────────────────────── */
+.sp-toggle-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.sp-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: var(--sp-surface);
+    border: 1px solid var(--sp-border);
+    border-radius: 50px;
+    padding: 4px;
+    gap: 2px;
+    box-shadow: var(--sp-shadow-xs);
+}
+
+.sp-toggle__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 18px;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    color: var(--sp-text-muted);
+    font-family: inherit;
+    font-size: var(--front-font-size-px-125);
+    font-weight: var(--front-font-semibold);
+    cursor: pointer;
+    white-space: nowrap;
+    line-height: 1;
+    transition: background .15s, color .15s, box-shadow .15s;
+}
+
+.sp-toggle__btn:hover {
+    color: var(--sp-text-primary);
+}
+
+.sp-toggle__btn.active {
+    background: var(--sp-blue);
+    color: var(--front-color-white);
+    box-shadow: 0 2px 10px rgba(var(--front-rgb-26-111-219), .32);
+}
+
+.sp-toggle__save {
+    display: inline-block;
+    font-size: var(--front-font-size-px-95);
+    font-weight: var(--front-font-extrabold);
+    padding: 2px 7px;
+    border-radius: 99px;
+    letter-spacing: .03em;
+    background: rgba(var(--front-rgb-5-150-105), .12);
+    color: var(--sp-green);
+}
+
+.sp-toggle__btn.active .sp-toggle__save {
+    background: rgba(var(--front-color-white-rgb), .22);
+    color: var(--front-color-white);
+}
+
+/* ── Billing hint ─────────────────────────────────────────────── */
+.sp-billing-hint {
+    text-align: center;
+    font-size: var(--front-font-size-px-115);
+    font-weight: var(--front-font-medium);
+    color: var(--sp-text-muted);
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.sp-billing-hint i {
+    font-size: var(--front-font-2xs);
+    color: var(--sp-amber);
+}
+
+/* ── Plans grid ───────────────────────────────────────────────── */
+.sp-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 991px) {
+    .sp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .sp-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Card wrapper — holds animation; badge is a sibling of <article> ── */
+.sp-card-wrap {
+    position: relative;
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Badge (positioned above the card top edge) ── */
+.sp-card__badge-wrap {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    z-index: 2;
+}
+
+.sp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 11px;
+    border-radius: 99px;
+    font-size: var(--front-font-size-px-95);
+    font-weight: var(--front-font-extrabold);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.sp-badge--current {
+    background: var(--sp-green-light);
+    color: var(--sp-green);
+    border: 1px solid var(--sp-green-border);
+}
+
+.sp-badge--featured {
+    background: var(--sp-blue);
+    color: var(--front-color-white);
+    box-shadow: 0 2px 8px rgba(var(--front-rgb-26-111-219), .35);
+}
+
+.sp-badge--free {
+    background: var(--sp-blue-light);
+    color: var(--sp-blue);
+    border: 1px solid var(--sp-blue-border);
+}
+
+.sp-badge--pro {
+    background: rgba(var(--front-rgb-91-76-168), .09);
+    color: var(--front-palette-5b4ca8);
+    border: 1px solid rgba(var(--front-rgb-91-76-168), .18);
+}
+
+/* ── Card ─────────────────────────────────────────────────────── */
+.sp-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: var(--sp-surface);
+    border: 1.5px solid var(--sp-border);
+    border-radius: 18px;
+    box-shadow: var(--sp-shadow-sm);
+    overflow: visible;
+    transition: transform .22s cubic-bezier(.34, 1.2, .64, 1),
+                box-shadow .22s ease,
+                border-color .18s ease;
+}
+
+/* Subtle top accent line on default cards */
+.sp-card:not(.sp-card--featured)::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 2px;
+    border-radius: 18px 18px 0 0;
+    background: linear-gradient(90deg, transparent 5%, var(--sp-blue-mid) 45%, transparent 95%);
+    opacity: .6;
+    transition: opacity .22s;
+}
+
+.sp-card:not(.sp-card--featured):hover::before {
+    opacity: 1;
+}
+
+.sp-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--sp-border-hover);
+    box-shadow: var(--sp-shadow-md);
+}
+
+/* Current plan */
+.sp-card--current {
+    border: 2px solid var(--sp-blue);
+    box-shadow: 0 0 0 4px rgba(var(--front-rgb-26-111-219), .07), var(--sp-shadow-md);
+    transform: translateY(-4px);
+}
+
+.sp-card--current:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 0 0 4px rgba(var(--front-rgb-26-111-219), .1), var(--sp-shadow-lg);
+}
+
+/* Featured (blue gradient) */
+.sp-card--featured {
+    background: linear-gradient(155deg, var(--front-palette-2074e8) 0%, var(--front-palette-1355c4) 55%, var(--front-palette-0d41a6) 100%);
+    border: none;
+    box-shadow: var(--sp-shadow-feat);
+    transform: translateY(-6px);
+}
+
+.sp-card--featured:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 48px rgba(var(--front-rgb-18-85-176), .45), 0 4px 12px rgba(var(--front-color-black-rgb), .14);
+}
+
+/* Decorative orbs on featured card */
+.sp-card--featured::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(var(--front-color-white-rgb), .06);
+    pointer-events: none;
+}
+
+.sp-card--featured::after {
+    content: '';
+    position: absolute;
+    bottom: -24px;
+    left: -16px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(var(--front-color-white-rgb), .04);
+    pointer-events: none;
+}
+
+/* ── Plan identity (top section) ──────────────────────────────── */
+.sp-card__top {
+    padding: 18px 18px 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.sp-card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin-bottom: 14px;
+}
+
+/* Plan icon */
+.sp-card__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--front-font-lg);
+    background: var(--sp-blue-light);
+    color: var(--sp-blue);
+    border: 1px solid var(--sp-blue-border);
+}
+
+.sp-card--featured .sp-card__icon {
+    background: rgba(var(--front-color-white-rgb), .14);
+    color: var(--front-color-white);
+    border-color: rgba(var(--front-color-white-rgb), .18);
+}
+
+/* Plan name & description */
+.sp-card__identity {
+    min-width: 0;
+    padding-top: 1px;
+}
+
+.sp-card__name {
+    font-size: var(--front-font-md);
+    font-weight: var(--front-font-extrabold);
+    color: var(--sp-text-primary);
+    letter-spacing: -.02em;
+    line-height: 1.2;
+    margin-bottom: 3px;
+}
+
+.sp-card--featured .sp-card__name {
+    color: var(--front-color-white);
+}
+
+.sp-card__tagline {
+    font-size: var(--front-font-size-px-115);
+    font-weight: var(--front-font-normal);
+    color: var(--sp-text-muted);
+    line-height: 1.45;
+}
+
+.sp-card--featured .sp-card__tagline {
+    color: rgba(var(--front-color-white-rgb), .62);
+}
+
+/* ── Pricing block ────────────────────────────────────────────── */
+.sp-card__price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    margin-bottom: 4px;
+}
+
+.sp-card__currency {
+    font-size: var(--front-font-md);
+    font-weight: var(--front-font-bold);
+    color: var(--sp-text-muted);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.sp-card--featured .sp-card__currency {
+    color: rgba(var(--front-color-white-rgb), .65);
+}
+
+.sp-card__amount {
+    font-size: var(--front-font-size-px-38);
+    font-weight: var(--front-font-black);
+    letter-spacing: -.045em;
+    line-height: 1;
+    color: var(--sp-text-primary);
+    transition: color .18s;
+}
+
+.sp-card--featured .sp-card__amount {
+    color: var(--front-color-white);
+}
+
+.sp-card__amount--free {
+    font-size: var(--front-font-size-px-30);
+    color: var(--sp-blue);
+}
+
+.sp-card--featured .sp-card__amount--free {
+    color: var(--front-color-white);
+}
+
+.sp-card__period {
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-medium);
+    color: var(--sp-text-faint);
+    margin-bottom: 5px;
+    margin-left: 1px;
+}
+
+.sp-card--featured .sp-card__period {
+    color: rgba(var(--front-color-white-rgb), .48);
+}
+
+/* Billing note (discount / billing frequency text) */
+.sp-card__billing-note {
+    min-height: 16px;
+    margin-bottom: 10px;
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-semibold);
+    color: var(--sp-green);
+    opacity: 0;
+    transition: opacity .2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sp-card__billing-note.is-visible {
+    opacity: 1;
+}
+
+.sp-card--featured .sp-card__billing-note {
+    color: rgba(var(--front-color-white-rgb), .72);
+}
+
+/* ── Meta pills (trial / grace) ───────────────────────────────── */
+.sp-card__meta-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+/* ── Pill atoms ───────────────────────────────────────────────── */
+.sp-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--front-font-size-px-105);
+    font-weight: var(--front-font-bold);
+    padding: 3px 9px;
+    border-radius: 6px;
+    white-space: nowrap;
+    line-height: 1.4;
+}
+
+.sp-pill--trial {
+    background: var(--sp-amber-light);
+    color: var(--sp-amber);
+}
+
+.sp-pill--trial i {
+    font-size: var(--front-font-size-px-9);
+}
+
+.sp-pill--grace {
+    background: var(--front-palette-f1f5f9);
+    color: var(--front-palette-475569);
+}
+
+.sp-card--featured .sp-pill--trial {
+    background: rgba(var(--front-color-white-rgb), .18);
+    color: rgba(var(--front-color-white-rgb), .9);
+}
+
+.sp-card--featured .sp-pill--grace {
+    background: rgba(var(--front-color-white-rgb), .12);
+    color: rgba(var(--front-color-white-rgb), .75);
+}
+
+/* Feature value pill */
+.sp-pill--value {
+    background: var(--sp-blue-light);
+    color: var(--sp-blue);
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: var(--front-font-2xs);
+}
+
+.sp-pill--value-inv {
+    background: rgba(var(--front-color-white-rgb), .16);
+    color: rgba(var(--front-color-white-rgb), .9);
+}
+
+/* ── Divider ──────────────────────────────────────────────────── */
+.sp-card__divider {
+    height: 1px;
+    background: var(--sp-border);
+    margin: 0 18px;
+    flex-shrink: 0;
+}
+
+.sp-card--featured .sp-card__divider {
+    background: rgba(var(--front-color-white-rgb), .12);
+}
+
+/* ── Feature list ─────────────────────────────────────────────── */
+.sp-card__body {
+    padding: 12px 18px 6px;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.sp-card__feat-heading {
+    font-size: var(--front-font-size-px-95);
+    font-weight: var(--front-font-extrabold);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--sp-text-faint);
+    margin: 0 0 9px;
+}
+
+.sp-card--featured .sp-card__feat-heading {
+    color: rgba(var(--front-color-white-rgb), .38);
+}
+
+.sp-card__feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sp-card__feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--front-font-xs);
+    font-weight: var(--front-font-medium);
+    color: var(--sp-text-body);
+    line-height: 1.35;
+}
+
+.sp-card--featured .sp-card__feature-item {
+    color: rgba(var(--front-color-white-rgb), .78);
+}
+
+.sp-card__feat-check {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--front-font-size-px-7);
+    background: var(--sp-green-light);
+    color: var(--sp-green);
+}
+
+.sp-card--featured .sp-card__feat-check {
+    background: rgba(var(--front-color-white-rgb), .18);
+    color: var(--front-color-white);
+}
+
+.sp-card__feat-label {
+    flex: 1;
+}
+
+/* ── CTA button ───────────────────────────────────────────────── */
+.sp-card__cta {
+    padding: 12px 18px 18px;
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+}
+
+.sp-card__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 11px;
+    font-family: inherit;
+    font-size: var(--front-font-sm);
+    font-weight: var(--front-font-bold);
+    line-height: 1.3;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: all .18s;
+}
+
+/* Default (non-featured) plan button */
+.sp-card__btn--default {
+    background: var(--sp-blue-light);
+    color: var(--sp-blue);
+    border: 1.5px solid var(--sp-blue-border);
+}
+
+.sp-card__btn--default:hover {
+    background: var(--sp-blue);
+    color: var(--front-color-white);
+    border-color: var(--sp-blue);
+    box-shadow: var(--sp-shadow-md);
+    text-decoration: none;
+}
+
+/* Featured plan button */
+.sp-card__btn--featured {
+    background: var(--front-color-white);
+    color: var(--sp-blue-dark);
+    font-weight: var(--front-font-extrabold);
+    box-shadow: 0 2px 8px rgba(var(--front-color-black-rgb), .1);
+}
+
+.sp-card__btn--featured:hover {
+    background: var(--front-palette-f0f6ff);
+    box-shadow: 0 4px 14px rgba(var(--front-color-black-rgb), .12);
+    text-decoration: none;
+    color: var(--sp-blue-dark);
+}
+
+/* Active (current plan) */
+.sp-card__btn--active {
+    background: var(--sp-green-light);
+    color: var(--sp-green);
+    border: 1.5px solid var(--sp-green-border);
+    cursor: default;
+}
+
+.sp-card__btn--active:hover {
+    background: var(--sp-green-light);
+    color: var(--sp-green);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.sp-card--featured .sp-card__btn--active {
+    background: rgba(var(--front-color-white-rgb), .14);
+    color: rgba(var(--front-color-white-rgb), .88);
+    border: 1.5px solid rgba(var(--front-color-white-rgb), .22);
+}
+
+/* Locked (already subscribed to another plan) */
+.sp-card__btn--locked {
+    background: var(--front-palette-f1f5f9);
+    color: var(--sp-text-faint);
+    border: 1.5px solid var(--sp-border);
+    cursor: not-allowed;
+    opacity: .6;
+}
+
+/* ── Footer trust note ────────────────────────────────────────── */
+.sp-footer-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 22px 0 4px;
+    font-size: var(--front-font-size-px-115);
+    font-weight: var(--front-font-medium);
+    color: var(--sp-text-faint);
+    text-align: center;
+    line-height: 1.6;
+}
+
+.sp-footer-note i {
+    font-size: var(--front-font-2xs);
+    color: var(--sp-blue-border);
+}
+
+/* ── Empty state ──────────────────────────────────────────────── */
+.sp-empty {
+    text-align: center;
+    padding: 56px 0 40px;
+    color: var(--sp-text-faint);
+}
+
+/* ── Responsive tweaks ────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .sp-toggle__btn {
+        padding: 7px 13px;
+        font-size: var(--front-font-xs);
+    }
+
+    .sp-card__amount {
+        font-size: var(--front-font-size-px-32);
+    }
+
+    .sp-card--featured {
+        transform: none;
+    }
+
+    .sp-card--current {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .sp-toggle__btn {
+        padding: 6px 10px;
+        font-size: var(--front-font-size-px-115);
+    }
+
+    .sp-card__amount {
+        font-size: var(--front-font-size-px-28);
+    }
+
+    .sp-card__amount--free {
+        font-size: var(--front-font-3xl);
+    }
+}

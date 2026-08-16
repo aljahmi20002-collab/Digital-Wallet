@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="UPI Transfer">
+  <rect width="128" height="128" rx="28" fill="#eef4ff"/>
+  <path d="M30 38h19v30c0 8 4 13 11 13s11-5 11-13V38h12v30c0 17-10 28-23 28S30 85 30 68V38Z" fill="#1e3a8a"/>
+  <path d="M88 37 66 64h15l-11 27 28-33H83l5-21Z" fill="#f97316"/>
+  <path d="M91 38h7l-2 10h-7Z" fill="#22c55e"/>
+</svg>

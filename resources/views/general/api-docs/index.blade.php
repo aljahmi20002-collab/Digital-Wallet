@@ -1,0 +1,16 @@
+@extends('general.api-docs.layout')
+@section('content')
+@include('general.api-docs.sections.overview')
+@include('general.api-docs.sections.authentication')
+@include('general.api-docs.sections.quickstart')
+@include('general.api-docs.sections.merchant-config')
+@include('general.api-docs.sections.currencies-gateways')
+@include('general.api-docs.sections.endpoints')
+@include('general.api-docs.sections.webhooks')
+@include('general.api-docs.sections.examples')
+@include('general.api-docs.sections.woocommerce')
+@include('general.api-docs.sections.sandbox-guide')
+@include('general.api-docs.sections.testing')
+@include('general.api-docs.sections.support')
+
+@endsection

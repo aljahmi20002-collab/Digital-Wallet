@@ -1,0 +1,832 @@
+/* ===========================================================
+   DigiKash Gift Card — design tokens & components
+   Imported from the Claude Design handoff bundle.
+   =========================================================== */
+:root {
+  --dk-primary: #2563EB;
+  --dk-primary-600: #1D4ED8;
+  --dk-primary-50: #EFF6FF;
+  --dk-primary-100: #DBEAFE;
+  --dk-accent: #3B82F6;
+  --dk-accent-2: #60A5FA;
+
+  --dk-success: #16A34A;
+  --dk-success-50: #DCFCE7;
+  --dk-warning: #F59E0B;
+  --dk-warning-50: #FEF3C7;
+  --dk-danger: #DC2626;
+  --dk-danger-50: #FEE2E2;
+  --dk-info: #0EA5E9;
+  --dk-info-50: #E0F2FE;
+
+  --dk-app-bg: #F4F6FB;
+  --dk-card: #FFFFFF;
+  --dk-card-line: #E6EAF3;
+  --dk-card-line-soft: #EEF1F7;
+  --dk-ink: #0F172A;
+  --dk-ink-2: #1E293B;
+  --dk-mute: #64748B;
+  --dk-mute-2: #94A3B8;
+  --dk-bg-soft: #F8FAFC;
+
+  --dk-shadow-sm: 0 1px 2px rgba(15, 23, 42, .04), 0 1px 1px rgba(15, 23, 42, .03);
+  --dk-shadow-md: 0 6px 16px rgba(15, 23, 42, .06), 0 2px 4px rgba(15, 23, 42, .04);
+  --dk-shadow-lg: 0 20px 40px rgba(15, 23, 42, .08), 0 6px 12px rgba(15, 23, 42, .04);
+}
+
+/* Layout ------------------------------------------------- */
+/*
+ * Hard reset for typography inside .gc-page: the global
+ * dashboard-style.css sets `h1 { font-size: 84px }`. If we don't
+ * override here with higher specificity (and !important on h1
+ * because the global rule has no class), the hero "Send the perfect
+ * gift, instantly" balloons to 84px and pushes the layout sideways.
+ */
+.gc-page { font-family: 'Plus Jakarta Sans', 'Manrope', system-ui, sans-serif; color: var(--dk-ink); }
+.gc-page,
+.gc-page *,
+.gc-page *::before,
+.gc-page *::after { box-sizing: border-box; }
+.gc-page h1, .gc-page h2, .gc-page h3, .gc-page h4 { line-height: 1.15; }
+.gc-page .gc-breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--dk-mute); margin-bottom: 4px; }
+.gc-page .gc-breadcrumb a { color: var(--dk-mute); text-decoration: none; }
+.gc-page .gc-breadcrumb .sep { color: var(--dk-mute-2); }
+.gc-page .gc-breadcrumb .cur { color: var(--dk-ink); font-weight: 600; }
+.gc-page .gc-page-title { font-size: 24px !important; line-height: 1.15 !important; font-weight: 800; letter-spacing: -.02em; margin: 6px 0 0; color: var(--dk-ink); }
+.gc-page .gc-page-sub { font-size: 13px; color: var(--dk-mute); margin-top: 4px; }
+
+/* Hero banner ------------------------------------------- */
+.gc-hero {
+  position: relative; border-radius: 24px; overflow: hidden;
+  padding: 28px 32px; color: #fff;
+  background: linear-gradient(120deg, #0F1B3F 0%, #1E3A8A 50%, #3B82F6 100%);
+  display: flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 188px;
+}
+.gc-hero .gc-hero-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 10px;
+  background: rgba(251, 191, 36, .16); border: 1px solid rgba(251, 191, 36, .40);
+  color: #FCD34D; border-radius: 999px;
+  font-size: 10.5px; font-weight: 800; letter-spacing: .10em; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.gc-hero h1 { font-size: 30px !important; line-height: 1.05 !important; font-weight: 800; letter-spacing: -.025em; margin: 0; color: #fff; }
+.gc-hero h1 em { font-style: normal; background: linear-gradient(90deg, #FDE68A, #FBBF24); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.gc-hero p { font-size: 13.5px; color: #B8C4E8; margin: 8px 0 16px; max-width: 380px; line-height: 1.55; }
+.gc-hero .gc-hero-stack { display: flex; align-items: center; gap: -34px; }
+.gc-hero .gc-hero-stack > * + * { margin-left: -34px; }
+.gc-hero .gc-hero-visual {
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    flex: 0 0 auto;
+    max-width: 480px;
+    pointer-events: none;
+}
+
+/* Stat cards ------------------------------------------- */
+.gc-stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.gc-stat-card {
+  background: #fff; border: 1px solid var(--dk-card-line); border-radius: 16px;
+  padding: 18px 20px; display: flex; align-items: center; gap: 14px;
+}
+.gc-stat-card .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; flex: none; }
+.gc-stat-card .lbl { font-size: 12px; color: var(--dk-mute); font-weight: 600; }
+.gc-stat-card .val { font-size: 22px; font-weight: 800; letter-spacing: -.02em; line-height: 1.15; color: var(--dk-ink); margin-top: 2px; }
+.gc-stat-card .pct { font-size: 11.5px; font-weight: 700; color: var(--dk-success); margin-top: 2px; }
+
+/* Tabs ------------------------------------------------ */
+.gc-tabs { display: inline-flex; gap: 4px; padding: 4px; background: #fff; border: 1px solid var(--dk-card-line); border-radius: 12px; }
+.gc-tabs .tab {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 14px; border-radius: 8px;
+  font-size: 13px; font-weight: 600;
+  color: var(--dk-mute); cursor: pointer;
+  background: none; border: 0;
+}
+.gc-tabs .tab .count { font-size: 10.5px; padding: 2px 7px; border-radius: 999px; background: #F1F5F9; color: #475569; font-weight: 700; }
+.gc-tabs .tab.is-active { background: var(--dk-primary-50); color: var(--dk-primary-600); }
+.gc-tabs .tab.is-active .count { background: #fff; color: var(--dk-primary-600); }
+
+/* Row card -------------------------------------------- */
+.gc-list { display: flex; flex-direction: column; gap: 10px; }
+.gc-row {
+  display: grid; grid-template-columns: 116px 1fr auto auto; gap: 18px; align-items: center;
+  background: #fff; border: 1px solid var(--dk-card-line); border-radius: 16px;
+  padding: 14px;
+}
+.gc-row .gc-row-thumb { width: 102px; height: 64px; display: grid; place-items: center; }
+.gc-row .gc-row-name { font-weight: 700; font-size: 14px; color: var(--dk-ink); }
+.gc-row .gc-row-meta { font-size: 12px; color: var(--dk-mute); margin-top: 3px; }
+.gc-row .gc-row-code {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 11.5px; font-weight: 700;
+  padding: 3px 7px; background: #F1F5F9; color: #475569;
+  border-radius: 6px; letter-spacing: .08em;
+}
+.gc-row .gc-row-amount { font-size: 20px; font-weight: 800; letter-spacing: -.01em; color: var(--dk-ink); text-align: right; }
+
+/* Badges ---------------------------------------------- */
+.gc-badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; line-height: 1.4; letter-spacing: .01em; }
+.gc-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.gc-badge.success { background: var(--dk-success-50); color: #166534; }
+.gc-badge.warning { background: var(--dk-warning-50); color: #92400E; }
+.gc-badge.danger { background: var(--dk-danger-50); color: #991B1B; }
+.gc-badge.info { background: var(--dk-info-50); color: #0369A1; }
+.gc-badge.muted { background: #F1F5F9; color: #475569; }
+
+/* Buttons specific ----------------------------------- */
+.gc-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border-radius: 10px; font-weight: 700;
+  font-size: 13px; border: 1px solid transparent; cursor: pointer;
+  line-height: 1; white-space: nowrap; text-decoration: none;
+}
+.gc-btn.primary { background: linear-gradient(135deg, var(--dk-accent), var(--dk-primary-600)); color: #fff; border-color: transparent; }
+.gc-btn.light-success { background: var(--dk-success-50); color: #166534; border-color: #BBF7D0; }
+.gc-btn.light { background: #fff; color: var(--dk-ink); border-color: var(--dk-card-line); }
+.gc-btn.ghost { background: transparent; color: var(--dk-mute); }
+.gc-btn.sm { padding: 7px 11px; font-size: 12px; border-radius: 8px; }
+.gc-btn.lg { padding: 14px 22px; font-size: 14px; border-radius: 12px; }
+.gc-btn.block { width: 100%; justify-content: center; }
+
+/*
+ * Older duplicate rules for .gc-stepper, .gc-chip, and .gc-template-card
+ * lived here. They've moved to the "Create wizard" section at the bottom
+ * of this file (single source of truth) so the create page no longer has
+ * competing shadow declarations.
+ */
+
+/* Summary list --------------------------------------- */
+.gc-summary { display: flex; flex-direction: column; }
+.gc-summary .row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--dk-card-line); font-size: 13px; color: var(--dk-ink-2); }
+.gc-summary .row:last-child { border-bottom: 0; }
+.gc-summary .row .l { color: var(--dk-mute); font-weight: 500; }
+.gc-summary .row .r { font-weight: 700; }
+.gc-summary .row.total { padding-top: 16px; border-top: 1px solid var(--dk-card-line); border-bottom: 0; }
+.gc-summary .row.total .l { color: var(--dk-ink); font-weight: 700; }
+.gc-summary .row.total .r { font-size: 18px; font-weight: 800; letter-spacing: -.01em; }
+
+/* Public recipient page ------------------------------ */
+.gc-public {
+  min-height: 100vh;
+  background: radial-gradient(120% 80% at 20% 0%, #3B82F6 0%, transparent 55%),
+              radial-gradient(80% 80% at 100% 100%, #8B5CF6 0%, transparent 55%),
+              linear-gradient(135deg, #0F172A 0%, #1E3A8A 60%, #4C1D95 100%);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #fff;
+  position: relative;
+  padding: 20px 24px 48px;
+}
+.gc-public .gc-public-header {
+  position: relative; z-index: 2;
+  display: flex; justify-content: flex-start; align-items: center;
+  max-width: 1080px; margin: 0 auto 14px;
+}
+/* Brand area in the preview header — typographic wordmark only.
+   Logo images were replaced with the configured site title text so
+   the brand reads cleanly on the dark page regardless of which
+   logo file the admin uploaded. */
+.gc-public .gc-public__brand {
+  display: inline-flex; align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+.gc-public .gc-brand-name {
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -.02em;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(15, 23, 42, .30);
+}
+.gc-public .gc-content { position: relative; z-index: 2; max-width: 560px; margin: 0 auto; text-align: center; }
+.gc-public h1 { font-size: 36px; font-weight: 800; letter-spacing: -.025em; margin: 10px 0 6px; line-height: 1.05; }
+.gc-public .gc-public-sub { font-size: 15px; color: #B8C4E8; margin: 0 0 18px; line-height: 1.55; }
+.gc-public .gc-message-box {
+  background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 18px; padding: 20px 22px; text-align: left;
+  backdrop-filter: blur(10px);
+  /* Constrain to the gift card's own width (420px) so the entire
+     recipient column reads as one balanced vertical stack — card,
+     message, code, CTAs all share the same left/right edges. */
+  max-width: 420px;
+  margin: -10px auto 18px;
+  box-sizing: border-box;
+}
+.gc-public .gc-message-eyebrow { font-size: 11px; font-weight: 700; color: #FCD34D; letter-spacing: .10em; text-transform: uppercase; margin-bottom: 8px; }
+.gc-public .gc-message-text { font-size: 15.5px; line-height: 1.6; color: #fff; margin: 0; font-style: italic; }
+.gc-public .gc-code-box {
+  background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 14px; padding: 14px;
+  /* Aligns to the 420px card column. */
+  max-width: 420px;
+  margin: 0 auto 18px;
+  box-sizing: border-box;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.gc-public .gc-cta-redeem {
+  /* Width matches the gift card (420px) so the CTA reads as the
+     card's own action button — same left/right edges. width:100%
+     within the capped max-width keeps the button fluid on phones. */
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #FBBF24, #F59E0B);
+  color: #1A1206; font-weight: 800; font-size: 15px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4);
+  border: 0;
+  padding: 14px 22px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.gc-public .gc-cta-redeem:hover {
+  color: #1A1206;
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 8px 22px rgba(251, 191, 36, .20);
+}
+
+/* Secondary CTA (Sign-up / Back) — slimmer than the notice card it
+   sits under: same horizontal padding + border-radius so the column
+   alignment is preserved, but lower vertical padding so the button
+   reads as a clickable action, not another card. width:100% is
+   matched on both .gc-public__notice and this rule, both have no
+   horizontal margin, so they render at identical outer width. */
+.gc-public .gc-cta-secondary {
+  display: flex;
+  align-items: center; justify-content: center; gap: 8px;
+  /* Same 420px column as the redeem CTA above so the two buttons
+     stack as a unified pair. */
+  width: 100%;
+  max-width: 420px;
+  margin: 12px auto 0;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 14px;
+  color: #E2E8F0;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background-color .18s ease, border-color .18s ease;
+}
+.gc-public .gc-cta-secondary:hover {
+  background: rgba(255, 255, 255, .10);
+  border-color: rgba(255, 255, 255, .22);
+  color: #fff;
+}
+.gc-public .gc-cta-secondary strong { color: #FCD34D; font-weight: 700; }
+
+/* Page-level confetti — positioned absolutely behind all content.
+   Each piece's animation-duration / -delay is set inline. */
+.gc-public .gc-public__confetti {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.gc-public .gc-public__confetti span {
+  position: absolute;
+  animation-name: gc-confetti-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* "Just for you" pill above the headline. */
+.gc-public .gc-public-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px;
+  background: rgba(251, 191, 36, .16);
+  border: 1px solid rgba(251, 191, 36, .40);
+  color: #FCD34D;
+  border-radius: 999px;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: .10em; text-transform: uppercase;
+}
+
+/* Sender chip — small avatar + "From" label sits just above the card. */
+.gc-public .gc-public__sender {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 14px 8px 8px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 999px;
+  margin: 6px 0 14px;
+  backdrop-filter: blur(8px);
+}
+.gc-public .gc-public__sender-avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: linear-gradient(135deg, #fbbf24, #f97316);
+  color: #fff; font-weight: 800; font-size: 12px;
+  display: grid; place-items: center;
+}
+.gc-public .gc-public__sender-meta { text-align: left; line-height: 1.2; }
+.gc-public .gc-public__sender-label { font-size: 11px; color: #B8C4E8; }
+.gc-public .gc-public__sender-name { font-size: 13px; font-weight: 700; }
+
+/* Card wrapper — eases the card up on page load to match the target. */
+.gc-public .gc-public__card-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 20px;
+  animation: gc-card-rise .9s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+/* Code-box meta column + copy button. */
+.gc-public .gc-code-box__meta { text-align: left; min-width: 0; }
+.gc-public .gc-code-box__label {
+  font-size: 11px; color: #B8C4E8;
+  text-transform: uppercase; letter-spacing: .08em; font-weight: 700;
+}
+.gc-public .gc-code-box__code {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 18px; font-weight: 800; letter-spacing: .16em;
+  margin-top: 3px;
+}
+.gc-public .gc-code-box__copy {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255, 255, 255, .10);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .20);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700; font-size: 13px;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.gc-public .gc-code-box__copy:hover {
+  background: rgba(255, 255, 255, .16);
+  border-color: rgba(255, 255, 255, .30);
+}
+.gc-public .gc-code-box__copy.is-copied {
+  background: rgba(74, 222, 128, .16);
+  border-color: rgba(74, 222, 128, .40);
+  color: #BBF7D0;
+}
+
+/* Informational notice (already-redeemed / own-card). Matches
+   the secondary CTA's outer geometry (width 100%, no horizontal
+   margin, box-sizing border-box) so the stack reads as a unified
+   column with consistent edges on the left and right. */
+.gc-public .gc-public__notice {
+  /* Matches the 420px card column for consistent stack edges. */
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 14px;
+  padding: 18px;
+  color: #fff;
+  text-align: left;
+  display: flex; align-items: flex-start; gap: 12px;
+  box-sizing: border-box;
+}
+.gc-public .gc-public__notice i { font-size: 18px; margin-top: 2px; flex-shrink: 0; }
+.gc-public .gc-public__notice-title { font-weight: 700; margin-bottom: 2px; }
+.gc-public .gc-public__notice-sub { font-size: 13px; color: #B8C4E8; }
+
+/* Footer row: expires · terms · report · secured. */
+.gc-public .gc-public__footer {
+  margin-top: 28px;
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 10px 14px;
+  font-size: 11.5px; color: #7A87B8;
+}
+.gc-public .gc-public__footer a {
+  color: #B8C4E8; text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .15s ease, color .15s ease;
+}
+.gc-public .gc-public__footer a:hover { color: #fff; border-bottom-color: rgba(255, 255, 255, .35); }
+.gc-public .gc-public__footer-sep { color: #475569; }
+
+@media (max-width: 560px) {
+  .gc-public { padding: 16px 16px 32px; }
+  .gc-public h1 { font-size: 28px; }
+  .gc-public .gc-public-header { margin-bottom: 10px; }
+}
+
+@keyframes gc-confetti-fall {
+  0% { transform: translateY(-30px) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(120vh) rotate(720deg); opacity: 0.7; }
+}
+@keyframes gc-card-rise {
+  0% { transform: translateY(60px) scale(0.92); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.gc-money { font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+
+@media (max-width: 1199.98px) {
+  /* The visual stack of gift-card thumbs in the hero spans ~480px.
+     On the col-xl-9 column at lg/md viewports there is not enough
+     horizontal room for it without bleeding outside the wallet
+     layout, so we hide it and let the headline + CTAs span full
+     hero width. */
+  .gc-hero .gc-hero-visual { display: none !important; }
+  .gc-hero { min-height: 168px; }
+}
+
+@media (max-width: 880px) {
+  .gc-hero { flex-direction: column; align-items: flex-start; min-height: 0; padding: 24px; }
+  .gc-hero h1 { font-size: 26px !important; }
+  .gc-stat-grid { grid-template-columns: 1fr; }
+  .gc-row { grid-template-columns: 90px 1fr; row-gap: 10px; }
+  .gc-row .gc-row-amount, .gc-row .gc-row-actions { grid-column: 2; text-align: left; }
+  .gc-template-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* =============================================================
+   Gift Card · Create wizard
+   ============================================================= */
+
+.gc-create { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: var(--dk-ink); }
+.gc-create * { box-sizing: border-box; }
+
+/*
+ * Hero strip replaced by the shared <x-user-feature-header> component
+ * (rendered inside .single-form-card). Hero-specific rules removed —
+ * the shared component owns its own visuals via main.css. Anything that
+ * still depends on .gc-create__hero / __hero-* classes is dead code.
+ */
+
+/* Stepper card ------------------------------------------------ */
+.gc-create__stepper-card {
+  background: #fff;
+  border: 1px solid var(--dk-card-line);
+  border-radius: 18px;
+  padding: 16px 20px;
+  margin-top: 14px;
+}
+.gc-stepper { display: flex; align-items: center; gap: 0; }
+.gc-stepper .step {
+  display: flex; align-items: center; gap: 10px;
+  background: none; border: 0; padding: 0;
+  flex: 0 0 auto; min-width: 0;
+  cursor: pointer; text-align: left;
+}
+.gc-stepper .step .n {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: #fff; color: var(--dk-mute);
+  font-weight: 800; font-size: 13px;
+  display: grid; place-items: center;
+  border: 1.5px solid var(--dk-card-line);
+  flex: none;
+  position: relative;
+  transition: background .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.gc-stepper .step .n-check { display: none; font-size: 12px; }
+.gc-stepper .step .lbl { font-size: 12px; color: var(--dk-mute); font-weight: 600; line-height: 1.2; }
+.gc-stepper .step .lbl b { display: block; font-size: 12.5px; color: var(--dk-ink-2); font-weight: 700; margin-bottom: 1px; }
+.gc-stepper .bar { flex: 1; height: 2px; background: var(--dk-card-line); margin: 0 14px; border-radius: 2px; min-width: 24px; }
+.gc-stepper .step.current .n {
+  background: linear-gradient(135deg, var(--dk-accent), var(--dk-primary-600));
+  color: #fff; border-color: transparent;
+}
+.gc-stepper .step.current .lbl b { color: var(--dk-primary-600); }
+.gc-stepper .step.done .n {
+  background: var(--dk-success-50); color: var(--dk-success); border-color: #BBF7D0;
+}
+.gc-stepper .step.done .n .n-num { display: none; }
+.gc-stepper .step.done .n .n-check { display: inline; }
+.gc-stepper .bar.done { background: linear-gradient(90deg, #BBF7D0, var(--dk-success)); }
+
+/* Step panels ------------------------------------------------- */
+.gc-step-panel { display: none; animation: gc-fade .25s ease both; }
+.gc-step-panel.is-active { display: block; }
+@keyframes gc-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.gc-step-panel__head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 12px; margin-bottom: 14px;
+}
+.gc-step-panel__title { font-size: 17px; font-weight: 800; margin: 0; color: var(--dk-ink); }
+.gc-step-panel__sub { font-size: 12.5px; color: var(--dk-mute); margin: 3px 0 0; }
+.gc-step-panel__meta { font-size: 12px; color: var(--dk-mute); }
+
+/* Field labels and hints -------------------------------------- */
+.gc-field-label {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  font-size: 12.5px; font-weight: 700; color: var(--dk-ink-2);
+  margin-bottom: 6px; letter-spacing: -.003em;
+}
+.gc-field-label__opt { font-weight: 500; color: var(--dk-mute); font-size: 11.5px; }
+.gc-field-hint { font-size: 11.5px; color: var(--dk-mute); margin-top: 6px; }
+
+/* Chips ------------------------------------------------------- */
+.gc-chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.gc-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px;
+  font-size: 12.5px; font-weight: 600;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--dk-card-line);
+  color: var(--dk-ink-2);
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.gc-chip:hover { border-color: #BFDBFE; }
+.gc-chip.is-active {
+  background: var(--dk-primary-50);
+  border-color: #BFDBFE;
+  color: var(--dk-primary-600);
+}
+
+/*
+ * Template gallery — fixed to a 2-row viewport so the panel doesn't
+ * push the step navigation off-screen when there are many designs.
+ * Beyond row 2, the user scrolls vertically inside this container.
+ *
+ * Sizing math: card art = 136px + meta row ≈ 50px + padding/border
+ * ≈ 200px per card row. Two rows + gap + small breathing room ≈ 440px.
+ * The custom scrollbar styling matches the rest of the dashboard.
+ */
+.gc-template-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  max-height: 440px;
+  overflow-y: auto;
+  padding-right: 4px;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 transparent;
+}
+.gc-template-grid::-webkit-scrollbar { width: 8px; }
+.gc-template-grid::-webkit-scrollbar-track { background: transparent; }
+.gc-template-grid::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 8px;
+}
+.gc-template-grid::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+.gc-template-card {
+  background: none; border: 0; padding: 0;
+  cursor: pointer; text-align: left;
+  width: 100%; min-width: 0;
+}
+.gc-template-card .inner {
+  background: #fff;
+  border: 2px solid var(--dk-card-line);
+  border-radius: 18px;
+  padding: 10px;
+  transition: border-color .18s ease;
+}
+.gc-template-card:hover .inner {
+  border-color: #BFDBFE;
+}
+.gc-template-card.is-selected .inner {
+  border-color: var(--dk-accent);
+}
+/*
+ * Template thumbnail art slot. The inner .gc-card uses absolute pixel
+ * sizing for its internal motif / text / footer — we MUST NOT force
+ * width:100% on it (that breaks the inline pixel layout inside).
+ * Instead, give the slot enough breathing room and let .gc-card sit
+ * at its declared 216px. Container shrinks gracefully via the grid.
+ */
+.gc-template-card__art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 136px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.gc-template-card__art .gc-card {
+  flex: none;
+  max-width: 100%;
+}
+.gc-template-card__meta {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 4px 2px;
+}
+.gc-template-card__meta .name { font-size: 12.5px; font-weight: 700; color: var(--dk-ink); }
+.gc-template-card__meta .cat  { font-size: 11px; color: var(--dk-mute); margin-top: 1px; }
+.gc-template-card__meta .tick {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #F1F5F9; color: transparent;
+  display: grid; place-items: center;
+  transition: background .18s ease, color .18s ease, box-shadow .18s ease;
+}
+.gc-template-card.is-selected .tick {
+  background: var(--dk-accent); color: #fff;
+}
+
+/* Wallet selector --------------------------------------------- */
+.gc-wallet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.gc-wallet-card {
+  display: block; width: 100%;
+  background: #fff;
+  border: 1.5px solid var(--dk-card-line);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+.gc-wallet-card:hover { border-color: #93C5FD; }
+.gc-wallet-card.is-selected {
+  background: var(--dk-primary-50);
+  border-color: var(--dk-accent);
+}
+.gc-wallet-card__head { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.gc-wallet-card__name { font-size: 13px; font-weight: 700; color: var(--dk-ink); }
+.gc-wallet-card__tick {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #F1F5F9; color: transparent;
+  display: grid; place-items: center; font-size: 10px;
+  transition: background .15s ease, color .15s ease;
+}
+.gc-wallet-card.is-selected .gc-wallet-card__tick { background: var(--dk-accent); color: #fff; }
+.gc-wallet-card__lbl { font-size: 11.5px; color: var(--dk-mute); margin-top: 3px; }
+.gc-wallet-card__bal { font-size: 17px; font-weight: 800; color: var(--dk-ink); margin-top: 2px; }
+
+/* Big amount input -------------------------------------------- */
+.gc-amount-input { position: relative; }
+.gc-amount-input__symbol {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  font-size: 22px; font-weight: 800; color: var(--dk-mute); pointer-events: none;
+}
+.gc-amount-input__currency {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  font-size: 12px; font-weight: 700; color: var(--dk-mute); pointer-events: none;
+}
+.gc-amount-input input {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  padding: 16px 50px 16px 34px !important;
+  letter-spacing: -.02em;
+}
+
+/* Recipient mode toggle --------------------------------------- */
+.gc-mode-toggle {
+  display: inline-flex; padding: 4px;
+  background: #F1F5F9; border-radius: 10px;
+  margin-bottom: 14px;
+}
+.gc-mode-toggle button {
+  padding: 8px 14px;
+  border: 0; border-radius: 7px;
+  background: transparent;
+  color: var(--dk-mute);
+  font-size: 12.5px; font-weight: 700; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+.gc-mode-toggle button.is-active {
+  background: #fff;
+  color: var(--dk-ink);
+}
+
+/* Review cards ------------------------------------------------ */
+.gc-review-card {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--dk-card-line);
+  border-radius: 12px;
+}
+.gc-review-card .ic {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--dk-primary-50); color: var(--dk-primary-600);
+  display: grid; place-items: center; flex: none;
+}
+.gc-review-card .lbl { font-size: 11px; color: var(--dk-mute); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.gc-review-card .val { font-size: 14px; font-weight: 700; color: var(--dk-ink); margin-top: 1px; }
+.gc-review-card .meta { font-size: 11.5px; color: var(--dk-mute); margin-top: 1px; }
+.gc-review-message {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: #FAFBFE;
+  border: 1px solid var(--dk-card-line);
+  border-radius: 12px;
+}
+.gc-review-message__body { font-size: 13px; color: var(--dk-ink-2); font-style: italic; line-height: 1.55; margin-top: 4px; }
+.gc-terms-card {
+  display: flex; gap: 12px; align-items: flex-start;
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: var(--dk-primary-50);
+  border: 1px solid #BFDBFE;
+  border-radius: 12px;
+  color: var(--dk-primary-600);
+}
+.gc-terms-card > i { font-size: 18px; margin-top: 1px; }
+.gc-terms-card__title { font-size: 13px; font-weight: 700; }
+.gc-terms-card__sub { font-size: 11.5px; color: var(--dk-mute); margin-top: 2px; }
+
+/* Step nav ---------------------------------------------------- */
+.gc-step-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--dk-card-line);
+}
+.gc-step-nav__indicator { font-size: 12px; color: var(--dk-mute); font-weight: 600; }
+/*
+ * Compact step-nav buttons. The dashboard's global .btn rule on the
+ * frontend layout adds extra vertical padding (theme buttons are tall
+ * by default), which made these nav buttons feel oversized for what's
+ * basically secondary navigation. Override to a tight, balanced size
+ * that aligns with the step indicator text height.
+ */
+.gc-step-nav .btn {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  border-radius: 8px;
+  min-height: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.gc-step-nav .btn i { font-size: 12px; }
+
+/* Live preview sidebar --------------------------------------- */
+.gc-sticky-side { position: sticky; top: 20px; }
+.gc-side-eyebrow {
+  font-size: 11px; font-weight: 700; color: var(--dk-mute);
+  letter-spacing: .10em; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.gc-side-title { font-size: 14px; font-weight: 800; color: var(--dk-ink); margin-bottom: 8px; }
+/*
+ * Live preview area in the sidebar. The JS layer reads this element's
+ * actual width on every render and renders the gift card at that
+ * exact size (capped at 320px), so the card always fits inside the
+ * sidebar regardless of viewport. We give it a tiny horizontal pad
+ * so the card's soft drop-shadow doesn't get clipped against the
+ * parent card-main edge.
+ */
+.gc-live-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 4px;
+  min-height: 180px;
+  overflow: hidden;
+}
+.gc-live-preview .gc-card {
+  flex: none;
+  max-width: 100%;
+}
+.gc-msg-bubble {
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: #FAFBFE;
+  border: 1px solid var(--dk-card-line);
+  border-radius: 12px;
+  font-size: 13px; color: var(--dk-ink-2); line-height: 1.5;
+  font-style: italic;
+}
+.gc-secure-hint {
+  display: flex; align-items: center; gap: 6px;
+  justify-content: center;
+  margin-top: 12px;
+  font-size: 11px; color: var(--dk-mute);
+}
+
+/* Summery list (intentional misspelling matches voucher partial) */
+.summery-list { margin: 0; }
+.summery-list li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--dk-card-line);
+  font-size: 13px;
+  color: var(--dk-ink-2);
+}
+.summery-list li:last-child { border-bottom: 0; }
+.summery-list .summary-total {
+  padding-top: 14px;
+  border-top: 1px solid var(--dk-card-line);
+  border-bottom: 0 !important;
+}
+.summery-list .summary-total strong:last-child { font-size: 18px; font-weight: 800; letter-spacing: -.01em; }
+
+/* Responsive -------------------------------------------------- */
+@media (max-width: 991px) {
+  .gc-sticky-side { position: static; }
+}
+@media (max-width: 880px) {
+  .gc-template-grid {
+    grid-template-columns: 1fr 1fr;
+    max-height: 520px; /* taller on mobile — 2 cols means rows are taller */
+  }
+  .gc-stepper .step .lbl { display: none; }
+  .gc-stepper .bar { margin: 0 8px; }
+}
+@media (max-width: 540px) {
+  .gc-template-grid { grid-template-columns: 1fr; max-height: 480px; }
+}

@@ -1,0 +1,569 @@
+:root,
+[data-coreui-theme="light"] {
+    /* Font Family */
+    --font-primary: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+
+    /* Font Sizes */
+    --font-2xs: 10px;
+    --font-xs: 12px;
+    --font-sm: 13px;
+    --font-base: 14px;
+    --font-md: 15px;
+    --font-lg: 16px;
+    --font-xl: 18px;
+    --font-2xl: 20px;
+    --font-3xl: 24px;
+    /* Extended Font Sizes: compatibility scale for existing admin modules */
+    --font-size-rem-044: 0.44rem;
+    --font-size-rem-046: 0.46rem;
+    --font-size-rem-047: 0.47rem;
+    --font-size-rem-048: 0.48rem;
+    --font-size-rem-04: 0.4rem;
+    --font-size-rem-052: 0.52rem;
+    --font-size-rem-054: 0.54rem;
+    --font-size-rem-055: 0.55rem;
+    --font-size-rem-056: 0.56rem;
+    --font-size-rem-058: 0.58rem;
+    --font-size-rem-05: 0.5rem;
+    --font-size-rem-0625: 0.625rem;
+    --font-size-rem-062: 0.62rem;
+    --font-size-rem-064: 0.64rem;
+    --font-size-rem-065625: 0.65625rem;
+    --font-size-rem-065: 0.65rem;
+    --font-size-rem-066: 0.66rem;
+    --font-size-rem-06875: 0.6875rem;
+    --font-size-rem-068: 0.68rem;
+    --font-size-rem-06: 0.6rem;
+    --font-size-rem-072: 0.72rem;
+    --font-size-rem-073: 0.73rem;
+    --font-size-rem-074: 0.74rem;
+    --font-size-rem-075: 0.75rem;
+    --font-size-rem-076: 0.76rem;
+    --font-size-rem-0775: 0.775rem;
+    --font-size-rem-077: 0.77rem;
+    --font-size-rem-078: 0.78rem;
+    --font-size-rem-079: 0.79rem;
+    --font-size-rem-07: 0.7rem;
+    --font-size-rem-08125: 0.8125rem;
+    --font-size-rem-0825: 0.825rem;
+    --font-size-rem-082: 0.82rem;
+    --font-size-rem-0845: 0.845rem;
+    --font-size-rem-084: 0.84rem;
+    --font-size-rem-085: 0.85rem;
+    --font-size-rem-086: 0.86rem;
+    --font-size-rem-0875: 0.875rem;
+    --font-size-rem-088: 0.88rem;
+    --font-size-rem-089: 0.89rem;
+    --font-size-rem-08: 0.8rem;
+    --font-size-rem-092: 0.92rem;
+    --font-size-rem-093: 0.93rem;
+    --font-size-rem-094: 0.94rem;
+    --font-size-em-095: 0.95em;
+    --font-size-rem-095: 0.95rem;
+    --font-size-rem-096: 0.96rem;
+    --font-size-em-097: 0.97em;
+    --font-size-rem-098: 0.98rem;
+    --font-size-rem-099: 0.99rem;
+    --font-size-rem-09: 0.9rem;
+    --font-size-rem-102: 1.02rem;
+    --font-size-rem-105: 1.05rem;
+    --font-size-rem-108: 1.08rem;
+    --font-size-rem-1125: 1.125rem;
+    --font-size-rem-112: 1.12rem;
+    --font-size-rem-115: 1.15rem;
+    --font-size-rem-118: 1.18rem;
+    --font-size-em-11: 1.1em;
+    --font-size-rem-11: 1.1rem;
+    --font-size-rem-125: 1.25rem;
+    --font-size-rem-128: 1.28rem;
+    --font-size-rem-12: 1.2rem;
+    --font-size-rem-132: 1.32rem;
+    --font-size-rem-135: 1.35rem;
+    --font-size-rem-136: 1.36rem;
+    --font-size-rem-138: 1.38rem;
+    --font-size-rem-13: 1.3rem;
+    --font-size-rem-144: 1.44rem;
+    --font-size-rem-145: 1.45rem;
+    --font-size-rem-14: 1.4rem;
+    --font-size-rem-155: 1.55rem;
+    --font-size-rem-15: 1.5rem;
+    --font-size-rem-16: 1.6rem;
+    --font-size-rem-178: 1.78rem;
+    --font-size-rem-185: 1.85rem;
+    --font-size-rem-19: 1.9rem;
+    --font-size-px-105: 10.5px;
+    --font-size-px-11: 11px;
+    --font-size-px-17: 17px;
+    --font-size-rem-1: 1rem;
+    --font-size-px-22: 22px;
+    --font-size-px-23: 23px;
+    --font-size-px-25: 25px;
+    --font-size-px-26: 26px;
+    --font-size-px-28: 28px;
+    --font-size-px-36: 36px;
+    --font-size-px-40: 40px;
+
+
+    /* Font Weights */
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-heavy: 750;
+    --font-extrabold: 800;
+    --font-black: 900;
+
+    /* Colors */
+    --color-primary: #4f46e5;
+    --color-primary-rgb: 79, 70, 229;
+    --color-primary-hover: #4338ca;
+    --color-primary-deep: #3730a3;
+    --color-primary-soft: rgba(var(--color-primary-rgb), 0.1);
+    --color-primary-subtle: #eef2ff;
+
+    --color-secondary: #6b7280;
+    --color-secondary-rgb: 107, 114, 128;
+    --color-secondary-soft: rgba(var(--color-secondary-rgb), 0.12);
+
+    --color-accent: #22c55e;
+    --color-accent-rgb: 34, 197, 94;
+    --color-accent-soft: rgba(var(--color-accent-rgb), 0.12);
+
+    --color-success: var(--color-accent);
+    --color-success-rgb: var(--color-accent-rgb);
+    --color-success-strong: #16a34a;
+    --color-success-deep: #047857;
+    --color-success-soft: var(--color-accent-soft);
+
+    --color-warning: #f59e0b;
+    --color-warning-rgb: 245, 158, 11;
+    --color-warning-strong: #d97706;
+    --color-warning-deep: #b45309;
+    --color-warning-soft: rgba(var(--color-warning-rgb), 0.14);
+
+    --color-danger: #ef4444;
+    --color-danger-rgb: 239, 68, 68;
+    --color-danger-strong: #dc2626;
+    --color-danger-deep: #b91c1c;
+    --color-danger-soft: rgba(var(--color-danger-rgb), 0.12);
+
+    --color-info: #0ea5e9;
+    --color-info-rgb: 14, 165, 233;
+    --color-info-strong: #0284c7;
+    --color-info-deep: #0369a1;
+    --color-info-soft: rgba(var(--color-info-rgb), 0.12);
+
+    --color-bg: #f9fafb;
+    --color-card: #ffffff;
+    --color-surface-alt: #f8fafc;
+    --color-surface-alt-rgb: 248, 250, 252;
+    --color-surface-soft: #f1f5f9;
+    --color-surface-soft-rgb: 241, 245, 249;
+    --color-white: #ffffff;
+    --color-white-rgb: 255, 255, 255;
+    /* Extended Colors: compatibility palette for existing admin modules */
+    --color-black: #000000;
+    --color-black-rgb: 0, 0, 0;
+    --color-palette-020617: #020617;
+    --color-palette-06b6d4: #06b6d4;
+    --color-palette-082f49: #082f49;
+    --color-palette-0891b2: #0891b2;
+    --color-palette-0b5e59: #0b5e59;
+    --color-palette-0d6efd: #0d6efd;
+    --color-palette-0e7490: #0e7490;
+    --color-palette-0f766e: #0f766e;
+    --color-palette-13213f: #13213f;
+    --color-palette-155e75: #155e75;
+    --color-palette-15803d: #15803d;
+    --color-palette-166534: #166534;
+    --color-palette-172554: #172554;
+    --color-palette-173572: #173572;
+    --color-palette-198754: #198754;
+    --color-palette-1a1a1a: #1a1a1a;
+    --color-palette-1c2230: #1c2230;
+    --color-palette-1d6ce0: #1d6ce0;
+    --color-palette-1e3a8a: #1e3a8a;
+    --color-palette-1e40af: #1e40af;
+    --color-palette-1f2430: #1f2430;
+    --color-palette-1f4fd1: #1f4fd1;
+    --color-palette-202634: #202634;
+    --color-palette-212529: #212529;
+    --color-palette-223454: #223454;
+    --color-palette-2491ff: #2491ff;
+    --color-palette-2a3c60: #2a3c60;
+    --color-palette-2c376c: #2c376c;
+    --color-palette-2d3a5c: #2d3a5c;
+    --color-palette-2e2f63: #2e2f63;
+    --color-palette-2f7d67: #2f7d67;
+    --color-palette-31708f: #31708f;
+    --color-palette-333: #333;
+    --color-palette-3b82f6: #3b82f6;
+    --color-palette-3d9a7f: #3d9a7f;
+    --color-palette-469a4a: #469a4a;
+    --color-palette-469a56: #469a56;
+    --color-palette-499e57: #499e57;
+    --color-palette-4b4d7a: #4b4d7a;
+    --color-palette-4b5563: #4b5563;
+    --color-palette-4c64f3: #4c64f3;
+    --color-palette-4c82ff80: #4c82ff80;
+    --color-palette-4f5f78: #4f5f78;
+    --color-palette-4f73e3: #4f73e3;
+    --color-palette-5668c8: #5668c8;
+    --color-palette-575fa0: #575fa0;
+    --color-palette-5b3fd9: #5b3fd9;
+    --color-palette-5b6f9e: #5b6f9e;
+    --color-palette-5c6b8a: #5c6b8a;
+    --color-palette-5eead4: #5eead4;
+    --color-palette-6366b2: #6366b2;
+    --color-palette-66748b: #66748b;
+    --color-palette-669bff: #669bff;
+    --color-palette-66da85: #66da85;
+    --color-palette-66e47d: #66e47d;
+    --color-palette-6c757d: #6c757d;
+    --color-palette-6d77e9: #6d77e9;
+    --color-palette-6ee7b7: #6ee7b7;
+    --color-palette-75e08a: #75e08a;
+    --color-palette-777: #777;
+    --color-palette-7c87b9: #7c87b9;
+    --color-palette-7f82a5: #7f82a5;
+    --color-palette-7f86e6: #7f86e6;
+    --color-palette-818cf8: #818cf8;
+    --color-palette-86efac: #86efac;
+    --color-palette-8f88e0: #8f88e0;
+    --color-palette-92400e: #92400e;
+    --color-palette-991b1b: #991b1b;
+    --color-palette-999: #999;
+    --color-palette-9f66c7: #9f66c7;
+    --color-palette-a16207: #a16207;
+    --color-palette-a3e635: #a3e635;
+    --color-palette-a78bfa: #a78bfa;
+    --color-palette-adb5bd: #adb5bd;
+    --color-palette-b1bad6: #b1bad6;
+    --color-palette-b8e2f2: #b8e2f2;
+    --color-palette-bdbdbd: #bdbdbd;
+    --color-palette-bf405f: #bf405f;
+    --color-palette-bfdbfe: #bfdbfe;
+    --color-palette-c04040: #c04040;
+    --color-palette-c29a3d: #c29a3d;
+    --color-palette-c792e5: #c792e5;
+    --color-palette-c7c7c7: #c7c7c7;
+    --color-palette-c7d2fe: #c7d2fe;
+    --color-palette-c8d0e7: #c8d0e7;
+    --color-palette-cbd5e1: #cbd5e1;
+    --color-palette-ccc: #ccc;
+    --color-palette-cccccc: #cccccc;
+    --color-palette-cdeee0: #cdeee0;
+    --color-palette-d14a3a: #d14a3a;
+    --color-palette-d1804d: #d1804d;
+    --color-palette-d1fae5: #d1fae5;
+    --color-palette-d6b04d: #d6b04d;
+    --color-palette-dce5f4: #dce5f4;
+    --color-palette-ddd: #ddd;
+    --color-palette-dee2e6: #dee2e6;
+    --color-palette-e0e7ff: #e0e7ff;
+    --color-palette-e1e5eb: #e1e5eb;
+    --color-palette-e3e8f0: #e3e8f0;
+    --color-palette-e4f2ff: #e4f2ff;
+    --color-palette-e6e0ff: #e6e0ff;
+    --color-palette-e7e1ff: #e7e1ff;
+    --color-palette-e7f8f1: #e7f8f1;
+    --color-palette-e8f0ff: #e8f0ff;
+    --color-palette-e8f1ff: #e8f1ff;
+    --color-palette-e8f8f1: #e8f8f1;
+    --color-palette-e9e4ff: #e9e4ff;
+    --color-palette-e9f7fe: #e9f7fe;
+    --color-palette-eaeaea: #eaeaea;
+    --color-palette-eaf3ff: #eaf3ff;
+    --color-palette-ece6ff: #ece6ff;
+    --color-palette-ecfdf5: #ecfdf5;
+    --color-palette-edf2ff: #edf2ff;
+    --color-palette-eef2ff: #eef2ff;
+    --color-palette-eef3fe: #eef3fe;
+    --color-palette-eef3ff: #eef3ff;
+    --color-palette-eff6ff: #eff6ff;
+    --color-palette-f0ecff: #f0ecff;
+    --color-palette-f0f0f0: #f0f0f0;
+    --color-palette-f2eeff: #f2eeff;
+    --color-palette-f2efff: #f2efff;
+    --color-palette-f3f4f6: #f3f4f6;
+    --color-palette-f5f7fa: #f5f7fa;
+    --color-palette-f6f3ff: #f6f3ff;
+    --color-palette-f6f8ff: #f6f8ff;
+    --color-palette-f7f5ff: #f7f5ff;
+    --color-palette-f8f9fa: #f8f9fa;
+    --color-palette-f8f9fc: #f8f9fc;
+    --color-palette-f8fafd: #f8fafd;
+    --color-palette-f9fafb: #f9fafb;
+    --color-palette-fafbfc: #fafbfc;
+    --color-palette-fafbff: #fafbff;
+    --color-palette-fb7185: #fb7185;
+    --color-palette-fb923c: #fb923c;
+    --color-palette-fbfdff: #fbfdff;
+    --color-palette-fcd34d: #fcd34d;
+    --color-palette-fcfbff: #fcfbff;
+    --color-palette-fcfcfc: #fcfcfc;
+    --color-palette-fcfcfd: #fcfcfd;
+    --color-palette-fde8e8: #fde8e8;
+    --color-palette-fdecec: #fdecec;
+    --color-palette-fecaca: #fecaca;
+    --color-palette-fef2f2: #fef2f2;
+    --color-palette-fefeff: #fefeff;
+    --color-palette-ff5555: #ff5555;
+    --color-palette-ff6666: #ff6666;
+    --color-palette-ff6685: #ff6685;
+    --color-palette-ff6b4a: #ff6b4a;
+    --color-palette-ff6b88: #ff6b88;
+    --color-palette-ff7855: #ff7855;
+    --color-palette-ffb266: #ffb266;
+    --color-palette-ffd455: #ffd455;
+    --color-palette-ffde66: #ffde66;
+    --color-palette-ffe4ea: #ffe4ea;
+    --color-palette-fff1f2: #fff1f2;
+    --color-palette-fff2df: #fff2df;
+    --color-palette-fff7ed: #fff7ed;
+    --color-palette-fff7f7: #fff7f7;
+    --color-palette-fffbeb: #fffbeb;
+
+    /* Extended Color RGB Channels */
+    --color-rgb-108-58-24: 108, 58, 24;
+    --color-rgb-118-44-74: 118, 44, 74;
+    --color-rgb-122-40-72: 122, 40, 72;
+    --color-rgb-124-58-237: 124, 58, 237;
+    --color-rgb-129-140-248: 129, 140, 248;
+    --color-rgb-131-74-35: 131, 74, 35;
+    --color-rgb-134-239-172: 134, 239, 172;
+    --color-rgb-147-197-253: 147, 197, 253;
+    --color-rgb-15-118-110: 15, 118, 110;
+    --color-rgb-180-83-9: 180, 83, 9;
+    --color-rgb-191-219-254: 191, 219, 254;
+    --color-rgb-192-230-255: 192, 230, 255;
+    --color-rgb-2-6-23: 2, 6, 23;
+    --color-rgb-20-184-166: 20, 184, 166;
+    --color-rgb-203-213-225: 203, 213, 225;
+    --color-rgb-22-163-74: 22, 163, 74;
+    --color-rgb-225-29-72: 225, 29, 72;
+    --color-rgb-226-232-240: 226, 232, 240;
+    --color-rgb-239-246-255: 239, 246, 255;
+    --color-rgb-241-245-249: 241, 245, 249;
+    --color-rgb-244-63-94: 244, 63, 94;
+    --color-rgb-248-113-113: 248, 113, 113;
+    --color-rgb-248-250-252: 248, 250, 252;
+    --color-rgb-249-115-22: 249, 115, 22;
+    --color-rgb-250-204-21: 250, 204, 21;
+    --color-rgb-251-113-133: 251, 113, 133;
+    --color-rgb-251-146-60: 251, 146, 60;
+    --color-rgb-251-191-36: 251, 191, 36;
+    --color-rgb-253-116-146: 253, 116, 146;
+    --color-rgb-255-107-136: 255, 107, 136;
+    --color-rgb-255-99-132: 255, 99, 132;
+    --color-rgb-30-49-82: 30, 49, 82;
+    --color-rgb-31-61-109: 31, 61, 109;
+    --color-rgb-34-52-83: 34, 52, 83;
+    --color-rgb-41-76-130: 41, 76, 130;
+    --color-rgb-56-189-248: 56, 189, 248;
+    --color-rgb-59-130-246: 59, 130, 246;
+    --color-rgb-60-72-88: 60, 72, 88;
+    --color-rgb-70-61-137: 70, 61, 137;
+    --color-rgb-71-85-105: 71, 85, 105;
+    --color-rgb-73-73-73: 73, 73, 73;
+    --color-rgb-91-31-57: 91, 31, 57;
+    --color-rgb-94-234-212: 94, 234, 212;
+    --color-rgb-97-30-57: 97, 30, 57;
+    --color-rgb-98-99-214: 98, 99, 214;
+    --color-rgb-99-102-241: 99, 102, 241;
+
+
+    --color-text: #111827;
+    --color-text-rgb: 17, 24, 39;
+    --color-text-soft: #334155;
+    --color-text-soft-rgb: 51, 65, 85;
+    --color-text-subtle: #475569;
+    --color-text-subtle-rgb: 71, 85, 105;
+    --color-text-muted: #6b7280;
+    --color-text-muted-rgb: 107, 114, 128;
+    --color-text-faint: #94a3b8;
+    --color-text-faint-rgb: 148, 163, 184;
+    --color-text-inverse: #ffffff;
+
+    --color-border: #e5e7eb;
+    --color-border-soft: #eef2f7;
+    --color-border-strong: #d1d5db;
+
+    --radius-sm: 0.35rem;
+    --radius-md: 0.45rem;
+    --radius-lg: 0.55rem;
+    --radius-xl: 0.75rem;
+
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 8px 18px rgba(15, 23, 42, 0.05);
+    --shadow-lg: 0 18px 44px rgba(15, 23, 42, 0.12);
+
+    /* CoreUI and Bootstrap 5 compatibility */
+    --cui-font-sans-serif: var(--font-primary);
+    --cui-font-monospace: var(--font-mono);
+    --cui-body-font-family: var(--font-primary);
+    --cui-body-font-size: var(--font-base);
+    --cui-body-font-weight: var(--font-normal);
+    --cui-body-color: var(--color-text);
+    --cui-body-color-rgb: var(--color-text-rgb);
+    --cui-body-bg: var(--color-bg);
+    --cui-body-bg-rgb: 249, 250, 251;
+    --cui-emphasis-color: var(--color-text);
+    --cui-emphasis-color-rgb: var(--color-text-rgb);
+    --cui-secondary-color: var(--color-text-muted);
+    --cui-secondary-color-rgb: var(--color-secondary-rgb);
+    --cui-secondary-bg: var(--color-surface-alt);
+    --cui-secondary-bg-rgb: 248, 250, 252;
+    --cui-tertiary-bg: var(--color-surface-soft);
+    --cui-tertiary-bg-rgb: 241, 245, 249;
+    --cui-heading-color: var(--color-text);
+    --cui-link-color: var(--color-primary);
+    --cui-link-color-rgb: var(--color-primary-rgb);
+    --cui-link-hover-color: var(--color-primary-hover);
+    --cui-link-hover-color-rgb: 67, 56, 202;
+    --cui-border-color: var(--color-border);
+    --cui-border-color-translucent: rgba(17, 24, 39, 0.08);
+
+    --cui-primary: var(--color-primary);
+    --cui-primary-rgb: var(--color-primary-rgb);
+    --cui-primary-text-emphasis: var(--color-primary-deep);
+    --cui-primary-bg-subtle: var(--color-primary-subtle);
+    --cui-primary-border-subtle: rgba(var(--color-primary-rgb), 0.24);
+
+    --cui-secondary: var(--color-secondary);
+    --cui-secondary-rgb: var(--color-secondary-rgb);
+    --cui-success: var(--color-success);
+    --cui-success-rgb: var(--color-success-rgb);
+    --cui-warning: var(--color-warning);
+    --cui-warning-rgb: var(--color-warning-rgb);
+    --cui-danger: var(--color-danger);
+    --cui-danger-rgb: var(--color-danger-rgb);
+    --cui-info: var(--color-info);
+    --cui-info-rgb: var(--color-info-rgb);
+    --cui-light: var(--color-surface-alt);
+    --cui-light-rgb: 248, 250, 252;
+    --cui-dark: var(--color-text);
+    --cui-dark-rgb: var(--color-text-rgb);
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-base);
+    font-weight: var(--font-normal);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-weight: var(--font-semibold);
+    letter-spacing: 0;
+}
+
+.card,
+.modal-content,
+.dropdown-menu,
+.offcanvas {
+    color: var(--color-text);
+    background-color: var(--color-card);
+    border-color: var(--color-border);
+}
+
+.card-title,
+.modal-title {
+    color: var(--color-text);
+    font-size: var(--font-lg);
+    font-weight: var(--font-semibold);
+}
+
+.table {
+    --cui-table-color: var(--color-text);
+    --cui-table-bg: var(--color-card);
+    --cui-table-border-color: var(--color-border);
+    --cui-table-striped-bg: var(--color-surface-alt);
+    color: var(--color-text);
+    font-size: var(--font-base);
+}
+
+.table thead th {
+    color: var(--color-text-muted);
+    font-size: var(--font-xs);
+    font-weight: var(--font-semibold);
+}
+
+.form-label,
+.col-form-label {
+    color: var(--color-text-soft);
+    font-size: var(--font-sm);
+    font-weight: var(--font-medium);
+}
+
+.form-control,
+.form-select,
+.input-group-text {
+    color: var(--color-text);
+    background-color: var(--color-card);
+    border-color: var(--color-border);
+    font-size: var(--font-base);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(var(--color-primary-rgb), 0.14);
+}
+
+.btn {
+    font-size: var(--font-base);
+    font-weight: var(--font-medium);
+}
+
+.btn-primary {
+    --cui-btn-color: var(--color-text-inverse);
+    --cui-btn-bg: var(--color-primary);
+    --cui-btn-border-color: var(--color-primary);
+    --cui-btn-hover-color: var(--color-text-inverse);
+    --cui-btn-hover-bg: var(--color-primary-hover);
+    --cui-btn-hover-border-color: var(--color-primary-hover);
+    --cui-btn-active-color: var(--color-text-inverse);
+    --cui-btn-active-bg: var(--color-primary-deep);
+    --cui-btn-active-border-color: var(--color-primary-deep);
+}
+
+.btn-secondary {
+    --cui-btn-color: var(--color-text-inverse);
+    --cui-btn-bg: var(--color-secondary);
+    --cui-btn-border-color: var(--color-secondary);
+}
+
+.badge {
+    font-weight: var(--font-medium);
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+.admin-menu-search-results .menu-search-item {
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.admin-menu-search-results .menu-search-item:hover,
+.admin-menu-search-results .menu-search-item.is-selected {
+    color: var(--color-text);
+    background-color: var(--color-primary-soft);
+}

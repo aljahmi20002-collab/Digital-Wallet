@@ -1,0 +1,9 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="plansBg" x1="14" y1="12" x2="84" y2="84" gradientUnits="userSpaceOnUse"><stop stop-color="#F59E0B"/><stop offset="1" stop-color="#0EA5E9"/></linearGradient></defs>
+<rect x="8" y="8" width="80" height="80" rx="24" fill="url(#plansBg)"/>
+<rect x="8.5" y="8.5" width="79" height="79" rx="23.5" stroke="#FFFFFF" stroke-opacity=".24"/>
+<rect x="25" y="29" width="20" height="36" rx="10" fill="#F8FAFC" fill-opacity=".78"/>
+<rect x="38" y="24" width="20" height="46" rx="10" fill="#F8FAFC"/>
+<rect x="51" y="35" width="20" height="25" rx="10" fill="#F8FAFC" fill-opacity=".78"/>
+<path d="M48 18L49.9 22.1L54 24L49.9 25.9L48 30L46.1 25.9L42 24L46.1 22.1L48 18Z" fill="#0F172A"/>
+</svg>

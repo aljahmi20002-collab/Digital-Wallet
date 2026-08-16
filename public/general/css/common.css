@@ -1,0 +1,449 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+.daterangepicker td.active,
+.daterangepicker td.active:hover,
+.daterangepicker .ranges li.active {
+    background-color: #4663EE !important;
+    color: #fff !important;
+}
+
+.daterangepicker .ranges li:hover {
+    background-color: rgba(13, 110, 253, 0.1); /* Optional hover effect */
+    color: #4663EE;
+}
+/*---------------------------------------
+    ## Transaction or other info  summery color
+---------------------------------------*/
+
+.deposit, .card-topup, .add-balance, .receive-money , .success-svg, .refund {
+    background: linear-gradient(135deg, #DFF6DD, #A8E6A2);
+    color: #2E7D32;
+}
+
+.p2p-escrow {
+    background: linear-gradient(135deg, #E3F2FD, #A9D1F6);
+    color: #1565C0;
+}
+
+.p2p-release {
+    background: linear-gradient(135deg, #DFF6DD, #A8E6A2);
+    color: #2E7D32;
+}
+
+.p2p-refund , .p2p-promotion {
+    background: linear-gradient(135deg, #FFF3E0, #FFD899);
+    color: #FFA000;
+}
+
+.add-balance  {
+    background: linear-gradient(135deg, #E6F4D8, #BDE3A6);
+    color: #558B2F;
+}
+
+.receive-payment , .active-svg {
+    background: linear-gradient(135deg, #E2F3E1, #B7E3B5);
+    color: #388E3C;
+}
+
+/* Money Transfer */
+.send-money, .request-money, .subtract-balance {
+    background: linear-gradient(135deg, #FFE8D5, #FFC09F);
+    color: #E65100;
+}
+
+.request-money {
+    background: linear-gradient(135deg, #FFD6D6, #FFA5A5);
+    color: #D32F2F;
+}
+
+.subtract-balance , .danger-svg {
+    background: linear-gradient(135deg, #FFD9D9, #FFB3B3);
+    color: #D84315;
+}
+
+/* Payments */
+.payment, .exchange-money  {
+    background: linear-gradient(135deg, #E3F2FD, #A9D1F6);
+    color: #1565C0;
+}
+
+.payment , .info-svg {
+    background: linear-gradient(135deg, #DDE3FC, #A8B3F0);
+    color: #3949AB;
+}
+
+/* Rewards & Referrals */
+.referral-reward, .reward {
+    background: linear-gradient(135deg, #FFF3E0, #FFD899);
+    color: #FFA000;
+}
+
+.reward {
+    background: linear-gradient(135deg, #FFF8E1, #FFE6A0);
+    color: #FF8F00;
+}
+
+/* Withdrawals */
+.withdraw, .card-withdraw {
+    background: linear-gradient(135deg, #FCE4EC, #F8A8C0);
+    color: #C2185B;
+}
+
+/* Miscellaneous */
+.tickets {
+    background: linear-gradient(135deg, #E3E3E3, #CFCFCF);
+    color: #444;
+}
+
+.referrals , .total {
+    background: linear-gradient(135deg, #E1E8F5, #B3C2E1);
+    color: #1E3A8A;
+}
+
+.merchant {
+    background: linear-gradient(135deg, #ECEEF5, #B6BCE0);
+    color: #1A237E;
+}
+
+.merchant-pending {
+    background: linear-gradient(135deg, #FAE3E3, #F2A5A5);
+    color: #B71C1C;
+}
+.voucher {
+    background: linear-gradient(135deg, #F5F5DC 0%, #E6D3A3 100%);
+    color: #8D6E63;
+}
+
+
+
+/* ---------------------------------------
+   Global Logo Constraints (prevent layout breaks)
+   Applies to all header/logo placements across site & dashboard
+--------------------------------------- */
+/* Images: keep aspect ratio, never exceed container, cap height */
+.logo img,
+.header-logo img,
+.header-logo-2 img,
+.header-main .logo img,
+.logo-area img,
+.navbar-area .logo-area img,
+.mobile-navbar-area .logo-area img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    max-height: 42px; /* default cap for general headers */
+    object-fit: contain;
+}
+
+/* Dashboard specific caps (slightly smaller) */
+.navbar-area .logo-area img {
+    max-height: 34px;
+}
+
+/* Mobile specific caps */
+@media (max-width: 991.98px) {
+    .navbar-area .logo-area img,
+    .mobile-navbar-area .logo-area img {
+        max-height: 28px;
+    }
+}
+
+/* Prevent container stretching and align image nicely */
+.logo a,
+.header-logo,
+.header-logo-2,
+.logo-area a {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Safety: avoid overflow from unusually sized uploads */
+.logo,
+.logo-area {
+    overflow: hidden;
+}
+
+/* ---------------------------------------
+   Premium NotifyEvs Skins
+   Same notifyEvs() script and Simple Notify DOM; different admin/user skins.
+--------------------------------------- */
+body.backend-admin-layout .notifications-container,
+body.dashboard-user-layout .notifications-container,
+body.frontend-auth-layout .notifications-container {
+    max-width: min(378px, calc(100vw - 24px));
+}
+
+body.backend-admin-layout .notify,
+body.dashboard-user-layout .notify,
+body.frontend-auth-layout .notify {
+    --notify-skin-accent: #4f46e5;
+    --notify-skin-accent-rgb: 79, 70, 229;
+    --notify-skin-surface: #ffffff;
+    --notify-skin-ink: #111827;
+    --notify-skin-muted: #667085;
+    --notify-skin-line: rgba(15, 23, 42, 0.08);
+    --notify-skin-shadow: 0 10px 24px -22px rgba(15, 23, 42, 0.34), 0 1px 2px rgba(15, 23, 42, 0.04);
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 70px;
+    padding: 12px 42px 12px 14px;
+    border: 1px solid var(--notify-skin-line);
+    border-radius: 15px;
+    color: var(--notify-skin-accent);
+    font-family: var(--front-font-primary, var(--font-primary, Inter, system-ui, sans-serif));
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.96) 100%),
+        radial-gradient(circle at 14% 20%, rgba(var(--notify-skin-accent-rgb), 0.12), transparent 35%);
+    box-shadow: var(--notify-skin-shadow);
+    backdrop-filter: saturate(145%) blur(6px);
+    -webkit-backdrop-filter: saturate(145%) blur(6px);
+}
+
+body.backend-admin-layout .notify--success,
+body.dashboard-user-layout .notify--success,
+body.frontend-auth-layout .notify--success {
+    --notify-skin-accent: #16a37a;
+    --notify-skin-accent-rgb: 22, 163, 122;
+}
+
+body.backend-admin-layout .notify--error,
+body.dashboard-user-layout .notify--error,
+body.frontend-auth-layout .notify--error {
+    --notify-skin-accent: #ef4351;
+    --notify-skin-accent-rgb: 239, 67, 81;
+}
+
+body.backend-admin-layout .notify--warning,
+body.dashboard-user-layout .notify--warning,
+body.frontend-auth-layout .notify--warning {
+    --notify-skin-accent: #f2994a;
+    --notify-skin-accent-rgb: 242, 153, 74;
+}
+
+body.backend-admin-layout .notify--info,
+body.dashboard-user-layout .notify--info,
+body.frontend-auth-layout .notify--info {
+    --notify-skin-accent: #2563eb;
+    --notify-skin-accent-rgb: 37, 99, 235;
+}
+
+body.backend-admin-layout .notify {
+    border-radius: 12px;
+}
+
+body.dashboard-user-layout .notify,
+body.frontend-auth-layout .notify {
+    border-radius: 16px;
+}
+
+body.backend-admin-layout .notify::after,
+body.dashboard-user-layout .notify::after,
+body.frontend-auth-layout .notify::after {
+    position: absolute;
+    inset: 1px;
+    z-index: -1;
+    border-radius: inherit;
+    background:
+        linear-gradient(135deg, rgba(var(--notify-skin-accent-rgb), 0.09), transparent 45%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.68), transparent 62%);
+    content: "";
+}
+
+body.backend-admin-layout .notify-content,
+body.dashboard-user-layout .notify-content,
+body.frontend-auth-layout .notify-content {
+    min-width: 0;
+    flex: 1 1 auto;
+    padding-top: 1px;
+}
+
+body.backend-admin-layout .notify__icon,
+body.dashboard-user-layout .notify__icon,
+body.frontend-auth-layout .notify__icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+    background:
+        linear-gradient(135deg, rgba(var(--notify-skin-accent-rgb), 0.14), rgba(var(--notify-skin-accent-rgb), 0.07)),
+        rgba(255, 255, 255, 0.86);
+    color: var(--notify-skin-accent);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.78);
+}
+
+body.backend-admin-layout .notify__icon {
+    border-radius: 11px;
+}
+
+body.dashboard-user-layout .notify__icon,
+body.frontend-auth-layout .notify__icon {
+    border-radius: 50%;
+}
+
+body.backend-admin-layout .notify__icon svg,
+body.dashboard-user-layout .notify__icon svg,
+body.frontend-auth-layout .notify__icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+body.backend-admin-layout .notify__title,
+body.dashboard-user-layout .notify__title,
+body.frontend-auth-layout .notify__title {
+    padding-right: 0;
+    color: var(--notify-skin-ink);
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.2;
+}
+
+body.backend-admin-layout .notify__text,
+body.dashboard-user-layout .notify__text,
+body.frontend-auth-layout .notify__text {
+    max-width: 275px;
+    margin-top: 3px;
+    color: var(--notify-skin-muted);
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+body.backend-admin-layout .notify__close,
+body.dashboard-user-layout .notify__close,
+body.frontend-auth-layout .notify__close {
+    top: 10px;
+    right: 10px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.04);
+    color: #667085;
+    transition: background-color 0.16s ease, color 0.16s ease;
+}
+
+body.backend-admin-layout .notify__close:hover,
+body.dashboard-user-layout .notify__close:hover,
+body.frontend-auth-layout .notify__close:hover {
+    background: rgba(var(--notify-skin-accent-rgb), 0.08);
+    color: var(--notify-skin-accent);
+}
+
+body.backend-admin-layout .notify.notify-autoclose,
+body.dashboard-user-layout .notify.notify-autoclose,
+body.frontend-auth-layout .notify.notify-autoclose {
+    --progress-height: 3px;
+}
+
+body.backend-admin-layout .notify.notify-autoclose::before,
+body.dashboard-user-layout .notify.notify-autoclose::before,
+body.frontend-auth-layout .notify.notify-autoclose::before {
+    right: 16px;
+    bottom: 7px;
+    left: 62px;
+    width: auto;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(var(--notify-skin-accent-rgb), 0.56), rgba(var(--notify-skin-accent-rgb), 0.16));
+    opacity: 0.55;
+}
+
+@media (max-width: 575.98px) {
+    body.backend-admin-layout .notifications-container,
+    body.dashboard-user-layout .notifications-container,
+    body.frontend-auth-layout .notifications-container {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        top: calc(8px + env(safe-area-inset-top, 0px));
+        z-index: 2147483000;
+        display: block;
+        width: auto;
+        max-height: calc(100dvh - 16px);
+        max-width: none;
+        overflow: visible;
+        pointer-events: none;
+        transform: none;
+        visibility: visible;
+    }
+
+    body.backend-admin-layout .notify,
+    body.dashboard-user-layout .notify,
+    body.frontend-auth-layout .notify {
+        left: auto !important;
+        right: 0 !important;
+        min-height: 64px;
+        max-width: 100%;
+        padding: 11px 39px 11px 12px;
+        border: 1px solid var(--notify-skin-line);
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.96) 100%),
+            radial-gradient(circle at 13% 18%, rgba(var(--notify-skin-accent-rgb), 0.11), transparent 34%);
+        box-shadow: var(--notify-skin-shadow);
+        backdrop-filter: saturate(145%) blur(6px);
+        -webkit-backdrop-filter: saturate(145%) blur(6px);
+    }
+
+    body.backend-admin-layout .notify-is-top .notify,
+    body.dashboard-user-layout .notify-is-top .notify,
+    body.frontend-auth-layout .notify-is-top .notify {
+        margin-top: 8px;
+    }
+
+    body.backend-admin-layout .notify-content,
+    body.dashboard-user-layout .notify-content,
+    body.frontend-auth-layout .notify-content {
+        min-width: 0;
+        padding-top: 0;
+    }
+
+    body.backend-admin-layout .notify__icon,
+    body.dashboard-user-layout .notify__icon,
+    body.frontend-auth-layout .notify__icon {
+        width: 34px;
+        height: 34px;
+        margin-right: 10px;
+    }
+
+    body.backend-admin-layout .notify__icon svg,
+    body.dashboard-user-layout .notify__icon svg,
+    body.frontend-auth-layout .notify__icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    body.backend-admin-layout .notify__title,
+    body.dashboard-user-layout .notify__title,
+    body.frontend-auth-layout .notify__title {
+        font-size: 0.84rem;
+        line-height: 1.18;
+    }
+
+    body.backend-admin-layout .notify__text,
+    body.dashboard-user-layout .notify__text,
+    body.frontend-auth-layout .notify__text {
+        max-width: calc(100vw - 116px);
+        margin-top: 3px;
+        font-size: 0.74rem;
+        line-height: 1.32;
+    }
+
+    body.backend-admin-layout .notify__close,
+    body.dashboard-user-layout .notify__close,
+    body.frontend-auth-layout .notify__close {
+        top: 9px;
+        right: 9px;
+        width: 25px;
+        height: 25px;
+    }
+
+    body.backend-admin-layout .notify.notify-autoclose::before,
+    body.dashboard-user-layout .notify.notify-autoclose::before,
+    body.frontend-auth-layout .notify.notify-autoclose::before {
+        left: 56px;
+        right: 12px;
+        bottom: 6px;
+    }
+}

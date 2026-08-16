@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="url(#sb-bg)"/>
+  <path d="M22 18h20l-7 12v8l-6 4v-12L22 18Z" fill="#fff" opacity=".95"/>
+  <circle cx="42" cy="20" r="3" fill="#fff" opacity=".7"/>
+  <circle cx="46" cy="28" r="2" fill="#fff" opacity=".55"/>
+  <circle cx="40" cy="34" r="1.5" fill="#fff" opacity=".4"/>
+  <text x="32" y="52" text-anchor="middle" font-family="ui-sans-serif,system-ui" font-size="8" font-weight="700" fill="#fff" opacity=".9">SANDBOX</text>
+  <defs>
+    <linearGradient id="sb-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10B981"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+</svg>
