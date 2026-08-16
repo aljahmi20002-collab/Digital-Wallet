@@ -5,7 +5,7 @@
 
     $vendorName  = (string) config('app.demo_vendor_name', 'Coevs');
     $vendorUrl   = (string) config('app.demo_vendor_url', '');
-    $productName = (string) config('app.demo_product_name', 'DigiKash');
+    $productName = (string) config('app.demo_product_name', 'DigitalWallet');
     $salesUrl    = (string) config('app.demo_sales_url', '');
     $disclosureUrl = url('/demo-disclosure');
 
@@ -271,7 +271,7 @@
 
         nodes.forEach(function (node) {
             var variant   = node.classList.contains('demo-vendor-attribution--admin') ? 'admin' : 'public';
-            var storageKey = 'digikash:demo-vendor-attribution-dismissed:' + variant;
+            var storageKey = 'digitalwallet:demo-vendor-attribution-dismissed:' + variant;
 
             try {
                 if (window.localStorage && window.localStorage.getItem(storageKey) === '1') {

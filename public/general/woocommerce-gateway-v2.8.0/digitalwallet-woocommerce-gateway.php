@@ -23,14 +23,14 @@ function dkwc_gateway_init(): void
         return;
     }
 
-    require_once DKWC_PLUGIN_PATH.'includes/class-wc-gateway-digikash.php';
+    require_once DKWC_PLUGIN_PATH.'includes/class-wc-gateway-digitalwallet.php';
 
     add_filter('woocommerce_payment_gateways', 'dkwc_register_gateway');
 }
 
 function dkwc_register_gateway(array $gateways): array
 {
-    $gateways[] = 'WC_Gateway_DigiKash';
+    $gateways[] = 'WC_Gateway_DigitalWallet';
 
     return $gateways;
 }
@@ -43,11 +43,11 @@ function dkwc_register_blocks_support(): void
         return;
     }
 
-    require_once DKWC_PLUGIN_PATH.'includes/class-wc-gateway-digikash.php';
-    require_once DKWC_PLUGIN_PATH.'includes/class-wc-gateway-digikash-blocks.php';
+    require_once DKWC_PLUGIN_PATH.'includes/class-wc-gateway-digitalwallet.php';
+    require_once DKWC_PLUGIN_PATH.'includes/class-wc-gateway-digitalwallet-blocks.php';
 
     add_action('woocommerce_blocks_payment_method_type_registration', function ($payment_method_registry): void {
-        $payment_method_registry->register(new WC_Gateway_DigiKash_Blocks);
+        $payment_method_registry->register(new WC_Gateway_DigitalWallet_Blocks);
     });
 }
 
@@ -55,7 +55,7 @@ add_filter('plugin_action_links_'.plugin_basename(__FILE__), 'dkwc_action_links'
 
 function dkwc_action_links(array $links): array
 {
-    $settingsLink = '<a href="'.esc_url(admin_url('admin.php?page=wc-settings&tab=checkout&section=digikash')).'">'.esc_html__('Settings', 'woocommerce').'</a>';
+    $settingsLink = '<a href="'.esc_url(admin_url('admin.php?page=wc-settings&tab=checkout&section=digitalwallet')).'">'.esc_html__('Settings', 'woocommerce').'</a>';
     array_unshift($links, $settingsLink);
 
     return $links;

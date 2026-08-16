@@ -25,7 +25,7 @@
 		['icon' => 'fa-solid fa-key',           'label' => '256-bit Encrypted'],
 	];
 
-	$vaultBrand    = $data['vault_brand']    ?? 'DIGIKASH';
+	$vaultBrand    = $data['vault_brand']    ?? 'DIGITALWALLET';
 	$vaultTier     = $data['vault_tier']     ?? 'PRIVATE · BLACK';
 	$vaultMonogram = $data['vault_monogram'] ?? 'DK';
 	$vaultNumber   = $data['vault_number']   ?? '4519 •••• •••• 2208';

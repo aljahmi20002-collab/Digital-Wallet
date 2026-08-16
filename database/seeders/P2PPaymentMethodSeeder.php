@@ -186,7 +186,7 @@ class P2PPaymentMethodSeeder extends Seeder
                 'logo'         => $this->logoPath('payoneer.svg'),
                 'sort_order'   => 120,
                 'status'       => true,
-                'instructions' => 'We transfer only to verified Payoneer accounts. Make sure the registered name matches your DigiKash profile.',
+                'instructions' => 'We transfer only to verified Payoneer accounts. Make sure the registered name matches your DigitalWallet profile.',
                 'fields'       => [
                     $this->field('account_holder_name', 'Account Holder Name', sortOrder: 1),
                     $this->field('payoneer_customer_id', 'Payoneer Customer ID', sortOrder: 2),

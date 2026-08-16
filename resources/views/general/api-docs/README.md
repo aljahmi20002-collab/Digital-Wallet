@@ -1,7 +1,7 @@
-# DigiKash API Documentation
+# DigitalWallet API Documentation
 
 ## 📋 Overview
-Professional, enterprise-grade API documentation template for DigiKash payment gateway system.
+Professional, enterprise-grade API documentation template for DigitalWallet payment gateway system.
 
 ## 🏗️ Architecture
 
@@ -161,5 +161,5 @@ php artisan view:cache
 
 ---
 
-**Built with ❤️ for DigiKash**  
+**Built with ❤️ for DigitalWallet**  
 Professional Payment Gateway Documentation System

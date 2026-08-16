@@ -5,7 +5,7 @@ const { getSetting } = window.wc.wcSettings;
 const { decodeEntities } = window.wp.htmlEntities;
 const { createElement, Fragment } = window.wp.element;
 
-const settings = getSetting("digikash_data", {});
+const settings = getSetting("digitalwallet_data", {});
 const label = decodeEntities(settings.title || "Secure Payment");
 const brandName = settings.brand_name || label;
 const checkoutHeading = settings.checkout_heading || "Hosted payment page";
@@ -178,7 +178,7 @@ const Label = ({ components }) => {
 };
 
 registerPaymentMethod({
-    name: "digikash",
+    name: "digitalwallet",
     label: createElement(Label),
     content: createElement(Content),
     edit: createElement(Content),

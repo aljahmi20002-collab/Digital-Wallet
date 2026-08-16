@@ -97,7 +97,7 @@ class StripePaymentGateway implements PaymentGatewayInterface
         $payload = [
             'amount'      => $this->amountToSubunit((float) $amount, $currency),
             'currency'    => $currency,
-            'description' => 'DigiKash withdrawal '.$trxId,
+            'description' => 'DigitalWallet withdrawal '.$trxId,
             'metadata'    => [
                 'trx_id' => $trxId,
                 'source' => 'wallet-withdraw',

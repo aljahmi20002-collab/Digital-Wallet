@@ -18,7 +18,7 @@
 <script>
     (function () {
         try {
-            if (window.localStorage && window.localStorage.getItem('digikash:notice-dismissed:scheduler-and-queue-setup') === '1') {
+            if (window.localStorage && window.localStorage.getItem('digitalwallet:notice-dismissed:scheduler-and-queue-setup') === '1') {
                 document.documentElement.classList.add('sq-notice-dismissed');
             }
         } catch (e) {
@@ -547,7 +547,7 @@
              *      stops the partial from ever being emitted server-side
              *      once layer 2 succeeded.
              */
-            var STORAGE_KEY = 'digikash:notice-dismissed:scheduler-and-queue-setup';
+            var STORAGE_KEY = 'digitalwallet:notice-dismissed:scheduler-and-queue-setup';
 
             var notice = document.querySelector('[data-sq-notice]');
             if (! notice) {

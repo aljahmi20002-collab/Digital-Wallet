@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
-    <title id="title">DigiKash</title>
-    <desc id="desc">DigiKash blue wallet mark</desc>
+    <title id="title">DigitalWallet</title>
+    <desc id="desc">DigitalWallet blue wallet mark</desc>
     <defs>
         <linearGradient id="mark-bg" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#56a9ff"/>

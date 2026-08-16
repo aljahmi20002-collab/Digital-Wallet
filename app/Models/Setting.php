@@ -13,7 +13,7 @@ class Setting extends Model
 {
     protected $guarded = [];
 
-    private const BRAND_ASSET_DEFAULT = 'general/static/logo/digikash-mark.svg';
+    private const BRAND_ASSET_DEFAULT = 'general/static/logo/digitalwallet-mark.svg';
 
     private const BRAND_ASSET_KEYS = [
         'logo',

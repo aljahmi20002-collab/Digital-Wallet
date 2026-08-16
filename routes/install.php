@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('install')->as('install.')->controller(InstallerController::class)->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::post('/license-test', 'testLicense')->name('license.test');
     Route::post('/database-test', 'testDatabase')->name('database.test');
     Route::post('/', 'store')->name('store');
 });

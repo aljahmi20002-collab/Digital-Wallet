@@ -73,7 +73,7 @@
                         <i class="fa-solid fa-circle-info" style="color:var(--vc-amber);font-size:18px;"></i>
                         <div style="font-size:12.5px;color:var(--vc-ink-2);line-height:1.5;">
                             <strong>{{ __('Provider note:') }}</strong>
-                            <span data-vc-freeze-soft-text>{{ __('This provider does not expose a freeze API. The card will be marked frozen in DigiKash; gateway-level transactions may still succeed.') }}</span>
+                            <span data-vc-freeze-soft-text>{{ __('This provider does not expose a freeze API. The card will be marked frozen in DigitalWallet; gateway-level transactions may still succeed.') }}</span>
                         </div>
                     </div>
                 </div>

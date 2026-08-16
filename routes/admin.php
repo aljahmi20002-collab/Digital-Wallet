@@ -42,7 +42,6 @@ use App\Http\Controllers\Backend\PageController;
 use App\Http\Controllers\Backend\PaymentGatewayController;
 use App\Http\Controllers\Backend\PaymentLinkController;
 use App\Http\Controllers\Backend\PluginController;
-use App\Http\Controllers\Backend\ProjectUpdaterController;
 use App\Http\Controllers\Backend\QueueManagementController;
 use App\Http\Controllers\Backend\ReferralController;
 use App\Http\Controllers\Backend\RoleController;
@@ -546,14 +545,6 @@ Route::prefix($adminPrefix)->as('admin.')->group(function () {
         Route::get('/optimize', 'optimize')->name('optimize');
         Route::get('/clear-cache', 'clearCache')->name('clear-cache');
 
-    });
-
-    Route::prefix('app/updater')->as('app.updater.')->controller(ProjectUpdaterController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::post('activate', 'activate')->name('activate');
-        Route::post('check', 'check')->name('check');
-        Route::post('backup/download', 'backupDownload')->name('backup.download');
-        Route::post('install/{update}', 'install')->name('install');
     });
 
 });

@@ -603,14 +603,14 @@ if (! function_exists('demoProtectedEmails')) {
     {
         return [
             // Customers
-            'ayesha.rahman@digikash.test',
-            'imran.hossain@digikash.test',
+            'ayesha.rahman@digitalwallet.test',
+            'imran.hossain@digitalwallet.test',
             // Merchants
-            'nusrat.farhana@digikash.test',
-            'tanvir.ahmed@digikash.test',
+            'nusrat.farhana@digitalwallet.test',
+            'tanvir.ahmed@digitalwallet.test',
             // Agents
-            'farid.uddin@digikash.test',
-            'sabila.akter@digikash.test',
+            'farid.uddin@digitalwallet.test',
+            'sabila.akter@digitalwallet.test',
         ];
     }
 }

@@ -8,7 +8,7 @@ _Started 2026-05-19 12:07 UTC_
 
 <system-info comment="Only acknowledge these if relevant">
 Project title is now "etc"
-User is viewing file: DigiKash Gift Cards.html
+User is viewing file: DigitalWallet Gift Cards.html
 Current date is now May 19, 2026
 </system-info>
 

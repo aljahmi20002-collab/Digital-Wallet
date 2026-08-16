@@ -105,7 +105,7 @@ class PaystackPaymentGateway implements PaymentGatewayInterface
             'bank_code'      => $bankCode,
             'currency'       => $currency,
             'metadata'       => [
-                'digikash_trx_id' => $trxId,
+                'digitalwallet_trx_id' => $trxId,
             ],
         ]);
 
@@ -126,7 +126,7 @@ class PaystackPaymentGateway implements PaymentGatewayInterface
             'amount'    => $this->amountToSubunit((float) $amount),
             'recipient' => $recipientCode,
             'reference' => $reference,
-            'reason'    => 'DigiKash withdrawal '.$trxId,
+            'reason'    => 'DigitalWallet withdrawal '.$trxId,
             'currency'  => $currency,
         ]);
 

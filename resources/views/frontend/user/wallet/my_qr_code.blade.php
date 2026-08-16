@@ -6,7 +6,7 @@
             <div class="card single-form-card wallet-qr-page">
                 <x-user-feature-header
                     :title="__('My QR Code')"
-                    :subtitle="__('Share your receive QR or scan another DigiKash QR to pay and send.')"
+                    :subtitle="__('Share your receive QR or scan another DigitalWallet QR to pay and send.')"
                     icon="fas fa-qrcode"
                 >
                     <button type="button" class="btn btn-light-primary btn-sm d-flex align-items-center" data-dk-qr-scanner-open>
@@ -35,8 +35,8 @@
                             @foreach($wallets as $wallet)
                                 @php
                                     $receiveMoneyUrl = $wallet->receiveMoneyUrl();
-                                    $shareTitle = __('DigiKash :currency Receive QR', ['currency' => $wallet->currency->code]);
-                                    $shareText = __('Use this DigiKash QR link to send money to my :currency wallet.', ['currency' => $wallet->currency->code]);
+                                    $shareTitle = __('DigitalWallet :currency Receive QR', ['currency' => $wallet->currency->code]);
+                                    $shareText = __('Use this DigitalWallet QR link to send money to my :currency wallet.', ['currency' => $wallet->currency->code]);
                                 @endphp
 
                                 <article class="wallet-qr-card" data-wallet-qr-card>
@@ -121,7 +121,7 @@
                                             <button type="button"
                                                     class="wallet-qr-card__btn wallet-qr-card__btn--ghost"
                                                     data-wallet-qr-download
-                                                    data-wallet-qr-filename="digikash-{{ strtolower($wallet->currency->code) }}-wallet-qr.svg"
+                                                    data-wallet-qr-filename="digitalwallet-{{ strtolower($wallet->currency->code) }}-wallet-qr.svg"
                                                     data-wallet-qr-success-label="{{ __('Saved') }}"
                                                     data-toast-message="{{ __('QR code downloaded') }}">
                                                 <i class="fas fa-download"></i>

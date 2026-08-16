@@ -7,7 +7,6 @@ use App\Exceptions\NotifyErrorException;
 use App\Models\Admin;
 use App\Models\Currency;
 use App\Models\Language;
-use App\Models\ProjectLicense;
 use App\Models\Setting;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Facades\Artisan;
@@ -27,8 +26,6 @@ class InstallationManager
     public const DEFAULT_ADMIN_PREFIX = 'admin';
 
     public const DEFAULT_CURRENCY_CODE = 'USD';
-
-    public function __construct(private readonly EnvatoLicenseVerifier $envatoLicenseVerifier) {}
 
     /**
      * Curated list of fiat currencies offered during installation. Keys are
@@ -180,7 +177,7 @@ class InstallationManager
             'ok'      => $readyForImport,
             'status'  => $readyForImport ? 'success' : 'warning',
             'message' => $readyForImport
-                ? __('Database connection is ready. The installer can import DB/digikash.sql.')
+                ? __('Database connection is ready. The installer can import DB/digitalwallet.sql.')
                 : __('Database connection works, but this database already has :count tables. Use a new empty database before importing.', ['count' => $tableCount]),
             'checks' => [
                 [
@@ -205,27 +202,6 @@ class InstallationManager
     }
 
     /**
-     * @param  array<string, mixed>                                                                                                                                 $data
-     * @return array{ok: bool, status: string, message: string, checks: list<array{label: string, status: string, detail: string}>, license?: array<string, mixed>}
-     */
-    public function verifyEnvatoLicense(array $data): array
-    {
-        if (! (bool) config('installer.envato.required', true)) {
-            return [
-                'ok'      => true,
-                'status'  => 'success',
-                'message' => __('Envato license verification is disabled.'),
-                'checks'  => [],
-            ];
-        }
-
-        return $this->envatoLicenseVerifier->verify(
-            (string) ($data['envato_purchase_code'] ?? ''),
-            (string) ($data['app_url'] ?? '')
-        );
-    }
-
-    /**
      * @param  array<string, mixed>                          $data
      * @return array{admin_url: string, admin_email: string}
      */
@@ -239,19 +215,13 @@ class InstallationManager
             throw new NotifyErrorException(__('Resolve the server requirement checks before installing.'));
         }
 
-        $license = $this->verifyEnvatoLicense($data);
-
-        if (! $license['ok']) {
-            throw new NotifyErrorException($license['message']);
-        }
-
         $this->runStage(__('Clearing application caches'), fn () => Artisan::call('optimize:clear'));
 
         if ($this->usesSqlDumpImport((string) $data['db_connection'])) {
             $this->runStage(__('Preparing MySQL database'), fn () => $this->prepareMysqlDatabase($data));
             $this->runStage(__('Writing .env file'), fn () => $this->writeEnvironment($data));
 
-            $dumpImported = (bool) $this->runStage(__('Importing DB/digikash.sql'), fn () => $this->importSqlDump());
+            $dumpImported = (bool) $this->runStage(__('Importing DB/digitalwallet.sql'), fn () => $this->importSqlDump());
 
             // The bundled SQL dump is a point-in-time snapshot. Any migration
             // added to the codebase after that snapshot (e.g. wallet_earn_plans)
@@ -282,10 +252,9 @@ class InstallationManager
             (string) $data['app_name'],
             (string) ($data['admin_prefix'] ?? self::DEFAULT_ADMIN_PREFIX),
         ));
-        $this->runStage(__('Saving project license'), fn () => $this->storeProjectLicense($license, (string) $data['envato_purchase_code']));
 
         $admin = $this->runStage(__('Creating super admin account'), fn () => $this->createAdmin($data));
-        $this->runStage(__('Writing installer lock file'), fn () => $this->markInstalled($data, $admin, $license));
+        $this->runStage(__('Writing installer lock file'), fn () => $this->markInstalled($data, $admin));
 
         // Create the public/storage symlink so logos, KYC docs and any
         // other uploaded media in storage/app/public become reachable via
@@ -431,7 +400,7 @@ class InstallationManager
             }
         }
 
-        $probe = rtrim($directory, '/\\').DIRECTORY_SEPARATOR.'.digikash-probe-'.bin2hex(random_bytes(4));
+        $probe = rtrim($directory, '/\\').DIRECTORY_SEPARATOR.'.digitalwallet-probe-'.bin2hex(random_bytes(4));
 
         try {
             File::put($probe, 'probe');
@@ -592,7 +561,7 @@ class InstallationManager
      */
     private function importSqlDump(): bool
     {
-        $dumpPath = (string) config('installer.database_dump', base_path('DB/digikash.sql'));
+        $dumpPath = (string) config('installer.database_dump', base_path('DB/digitalwallet.sql'));
 
         if (! File::exists($dumpPath) || ! File::isReadable($dumpPath)) {
             Log::warning('Installer SQL dump missing or unreadable; falling back to migrations: '.$dumpPath);
@@ -627,7 +596,7 @@ class InstallationManager
                 //
             }
 
-            throw new NotifyErrorException(__('Database import failed from DB/digikash.sql: :message', ['message' => $e->getMessage()]));
+            throw new NotifyErrorException(__('Database import failed from DB/digitalwallet.sql: :message', ['message' => $e->getMessage()]));
         }
 
         return true;
@@ -782,18 +751,10 @@ class InstallationManager
             'DB_DATABASE'                    => $database,
             'DB_USERNAME'                    => (string) ($data['db_username'] ?? ''),
             'DB_PASSWORD'                    => (string) ($data['db_password'] ?? ''),
-            'PROJECT_UPDATER_SERVER_URL'     => (string) config('project_updater.server_url', 'https://updates.coevs.com'),
-            'PROJECT_UPDATER_ENVATO_ITEM_ID' => (string) config('project_updater.item_id', '58275561'),
-            'PROJECT_UPDATER_PRODUCT_SLUG'   => (string) config('project_updater.product_slug', 'digikash'),
-            'PROJECT_UPDATER_CHANNEL'        => (string) config('project_updater.channel', 'stable'),
             'SESSION_DRIVER'                 => 'file',
         ];
 
         Config::set('app.key', $appKey);
-        Config::set('project_updater.server_url', $values['PROJECT_UPDATER_SERVER_URL']);
-        Config::set('project_updater.item_id', $values['PROJECT_UPDATER_ENVATO_ITEM_ID']);
-        Config::set('project_updater.product_slug', $values['PROJECT_UPDATER_PRODUCT_SLUG']);
-        Config::set('project_updater.channel', $values['PROJECT_UPDATER_CHANNEL']);
         app()->forgetInstance('encrypter');
 
         $envPath = base_path('.env');
@@ -1027,47 +988,11 @@ class InstallationManager
     /**
      * @param array<string, mixed> $data
      */
-    private function storeProjectLicense(array $licenseVerification, string $purchaseCode): void
-    {
-        if (! Schema::hasTable('project_licenses')) {
-            throw new NotifyErrorException(__('License was verified, but the project license table is missing after database setup.'));
-        }
-
-        $license = $licenseVerification['license'] ?? [];
-
-        if (! is_array($license) || blank($license['license_token'] ?? null)) {
-            throw new NotifyErrorException(__('License was verified, but the update server did not return a license token.'));
-        }
-
-        ProjectLicense::query()->updateOrCreate(
-            [
-                'product_slug' => (string) config('project_updater.product_slug', 'digikash'),
-                'domain'       => (string) ($license['domain'] ?? request()->getHost()),
-            ],
-            [
-                'item_id'         => (string) ($license['item_id'] ?? config('project_updater.item_id', '58275561')),
-                'purchase_code'   => $purchaseCode,
-                'license_token'   => (string) $license['license_token'],
-                'buyer_username'  => $license['buyer_username'] ?? null,
-                'status'          => (string) ($license['status'] ?? 'active'),
-                'support_until'   => $license['supported_until'] ?? null,
-                'activated_at'    => now(),
-                'last_checked_at' => now(),
-                'metadata'        => $license['metadata'] ?? $license,
-            ]
-        );
-    }
-
-    /**
-     * @param array<string, mixed> $data
-     */
-    private function markInstalled(array $data, Admin $admin, array $licenseVerification): void
+    private function markInstalled(array $data, Admin $admin): void
     {
         $lockPath = $this->lockPath();
 
         File::ensureDirectoryExists(dirname($lockPath));
-
-        $license = $licenseVerification['license'] ?? [];
 
         $payload = json_encode([
             'installed_at'   => now()->toIso8601String(),
@@ -1075,13 +1000,6 @@ class InstallationManager
             'app_url'        => (string) $data['app_url'],
             'admin_email'    => $admin->email,
             'db_connection'  => (string) $data['db_connection'],
-            'envato_license' => [
-                'item_id'        => is_array($license) ? ($license['item_id'] ?? null) : null,
-                'buyer_username' => is_array($license) ? ($license['buyer_username'] ?? null) : null,
-                'domain'         => is_array($license) ? ($license['domain'] ?? null) : null,
-                'status'         => is_array($license) ? ($license['status'] ?? null) : null,
-                'verified_at'    => now()->toIso8601String(),
-            ],
         ], JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR);
 
         $bytesWritten = File::put($lockPath, $payload);

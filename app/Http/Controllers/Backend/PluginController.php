@@ -191,7 +191,7 @@ class PluginController extends BaseController
             ->timeout(15)
             ->post('https://www.google.com/recaptcha/api/siteverify', [
                 'secret'   => (string) ($credentials['recaptcha_secret'] ?? ''),
-                'response' => 'digikash-credential-check',
+                'response' => 'digitalwallet-credential-check',
             ]);
 
         $errors = $response->json('error-codes', []);

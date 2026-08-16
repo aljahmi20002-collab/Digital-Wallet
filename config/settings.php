@@ -115,7 +115,7 @@ return [
                 'key'   => 'logo',
                 'label' => 'Logo',
                 'rules' => 'mimes:jpeg,jpg,png,svg|max:1000',
-                'value' => 'general/static/logo/digikash-mark.svg',
+                'value' => 'general/static/logo/digitalwallet-mark.svg',
                 'class' => 'col-md-4',
             ],
             [
@@ -124,7 +124,7 @@ return [
                 'key'   => 'light_logo',
                 'label' => 'Light Logo',
                 'rules' => 'mimes:jpeg,jpg,png,svg|max:1000',
-                'value' => 'general/static/logo/digikash-mark.svg',
+                'value' => 'general/static/logo/digitalwallet-mark.svg',
                 'class' => 'col-md-4',
             ],
             [
@@ -133,7 +133,7 @@ return [
                 'key'   => 'small_logo',
                 'label' => 'Small Logo',
                 'rules' => 'mimes:jpeg,jpg,png,svg|max:1000',
-                'value' => 'general/static/logo/digikash-mark.svg',
+                'value' => 'general/static/logo/digitalwallet-mark.svg',
                 'class' => 'col-md-4',
             ],
             [
@@ -142,7 +142,7 @@ return [
                 'key'   => 'site_favicon',
                 'label' => 'Site Favicon',
                 'rules' => 'mimes:jpeg,jpg,png,ico,svg|max:1000',
-                'value' => 'general/static/logo/digikash-mark.svg',
+                'value' => 'general/static/logo/digitalwallet-mark.svg',
                 'class' => 'col-md-4',
             ],
             [

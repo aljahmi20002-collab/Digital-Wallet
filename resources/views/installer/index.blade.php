@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ __('Install Digikash') }}</title>
-    <link rel="icon" href="{{ asset('general/static/logo/digikash-mark.svg') }}">
+    <title>{{ __('Install DigitalWallet') }}</title>
+    <link rel="icon" href="{{ asset('general/static/logo/digitalwallet-mark.svg') }}">
     <style>
         :root {
             --ink: #14213d;
@@ -1063,10 +1063,10 @@
             gap: 14px;
         }
 
-        /* ── Status bar (license / database / admin) ──────────────────── */
+        /* ── Status bar (database / admin) ────────────────────────────── */
         .rv__status {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 10px;
         }
 
@@ -1824,18 +1824,18 @@
                         <path d="M20 17h5v4h-5a2 2 0 0 1 0-4Z" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </span>
-                <span>Digikash</span>
+                <span>DigitalWallet</span>
             </div>
 
             <div class="aside-copy">
                 <h1>{{ __('Installation Wizard') }}</h1>
-                <p>{{ __('Follow each step, test database access, import DB/digikash.sql, and create the first super admin account.') }}</p>
+                <p>{{ __('Follow each step, test database access, import DB/digitalwallet.sql, and create the first super admin account.') }}</p>
             </div>
 
             <div class="progress-shell" aria-label="{{ __('Installation progress') }}">
                 <div class="progress-meta">
-                    <span data-progress-label>{{ __('Step 1 of 6') }}</span>
-                    <span data-progress-percent>17%</span>
+                    <span data-progress-label>{{ __('Step 1 of 5') }}</span>
+                    <span data-progress-percent>20%</span>
                 </div>
                 <div class="progress-track">
                     <div class="progress-fill" data-progress-fill></div>
@@ -1864,8 +1864,8 @@
                         <button class="step-button" type="button" data-step-trigger="2" disabled>
                             <span class="step-number">3</span>
                             <span class="step-label">
-                                <strong>{{ __('Envato License') }}</strong>
-                                <span>{{ __('Required purchase verification') }}</span>
+                                <strong>{{ __('Database') }}</strong>
+                                <span>{{ __('Connection test and permissions') }}</span>
                             </span>
                         </button>
                     </li>
@@ -1873,23 +1873,14 @@
                         <button class="step-button" type="button" data-step-trigger="3" disabled>
                             <span class="step-number">4</span>
                             <span class="step-label">
-                                <strong>{{ __('Database') }}</strong>
-                                <span>{{ __('Connection test and permissions') }}</span>
-                            </span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="step-button" type="button" data-step-trigger="4" disabled>
-                            <span class="step-number">5</span>
-                            <span class="step-label">
                                 <strong>{{ __('Super Admin') }}</strong>
                                 <span>{{ __('First admin login') }}</span>
                             </span>
                         </button>
                     </li>
                     <li>
-                        <button class="step-button" type="button" data-step-trigger="5" disabled>
-                            <span class="step-number">6</span>
+                        <button class="step-button" type="button" data-step-trigger="4" disabled>
+                            <span class="step-number">5</span>
                             <span class="step-label">
                                 <strong>{{ __('Review') }}</strong>
                                 <span>{{ __('Install and lock setup') }}</span>
@@ -1906,14 +1897,6 @@
                 </div>
 
                 <div class="insight-card">
-                    <span class="mini-icon">LC</span>
-                    <span>
-                        <strong>{{ __('License Gate') }}</strong>
-                        <span>{{ __('Blocks install until Envato purchase is verified.') }}</span>
-                    </span>
-                </div>
-
-                <div class="insight-card">
                     <span class="mini-icon">DB</span>
                     <span>
                         <strong>{{ __('Auto Database') }}</strong>
@@ -1925,7 +1908,7 @@
                     <span class="mini-icon">SQL</span>
                     <span>
                         <strong>{{ __('Script Import') }}</strong>
-                        <span>{{ __('Imports DB/digikash.sql after connection checks pass.') }}</span>
+                        <span>{{ __('Imports DB/digitalwallet.sql after connection checks pass.') }}</span>
                     </span>
                 </div>
 
@@ -1943,8 +1926,8 @@
             <div class="installer-wrap">
                 <div class="topbar">
                     <div>
-                        <h2>{{ __('Install Digikash') }}</h2>
-                        <p>{{ __('Complete the checks in order. Envato license verification is required before database setup and final installation.') }}</p>
+                        <h2>{{ __('Install DigitalWallet') }}</h2>
+                        <p>{{ __('Complete the checks in order. Database access is verified before data import and final installation.') }}</p>
                     </div>
                     <span>{{ __('Laravel :version', ['version' => app()->version()]) }}</span>
                 </div>
@@ -2129,55 +2112,10 @@
                         <section class="step-panel" data-step-panel="2">
                             <div class="section-head">
                                 <div class="section-title">
-                                    <span class="section-icon">LC</span>
-                                    <div>
-                                        <h3>{{ __('Envato License') }}</h3>
-                                        <p>{{ __('Verify the Envato purchase code before database setup. Installation cannot continue without a valid license.') }}</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="notice">
-                                <span class="button-icon">INFO</span>
-                                <span>{{ __('Use the purchase code from Envato Downloads > License certificate & purchase code. Verification runs through the official Coevs update server; no author Envato token is stored on this website.') }}</span>
-                            </div>
-
-                            <div class="fields">
-                                <div class="field is-wide">
-                                    <label for="envato_purchase_code">{{ __('Envato Purchase Code') }}</label>
-                                    <input id="envato_purchase_code" name="envato_purchase_code" value="{{ old('envato_purchase_code') }}" required maxlength="80" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" data-envato-purchase-code>
-                                    @error('envato_purchase_code') <span class="error">{{ $message }}</span> @enderror
-                                </div>
-                            </div>
-
-                            <div class="db-actions" data-license-actions>
-                                <p data-license-status-text>{{ __('Envato license has not been verified yet. Verify it before continuing.') }}</p>
-                                <button class="button is-accent" type="button" data-test-license>
-                                    <span class="button-icon">OK</span>
-                                    <span>{{ __('Verify Envato License') }}</span>
-                                </button>
-                            </div>
-
-                            <div class="db-result" data-license-result></div>
-
-                            <div class="guide">
-                                <p class="guide-title">{{ __('License Verification Guide') }}</p>
-                                <ul>
-                                    <li>{{ __('The installer sends the purchase code, domain, product slug, and item ID to the Coevs update server for verification.') }}</li>
-                                    <li>{{ __('Default server: https://updates.coevs.com. Product: digikash. Envato item ID: 58275561.') }}</li>
-                                    <li>{{ __('If verification fails, confirm the hosting server allows outgoing HTTPS requests to the update server.') }}</li>
-                                    <li>{{ __('After installation, the returned license token is saved securely for future project updates.') }}</li>
-                                </ul>
-                            </div>
-                        </section>
-
-                        <section class="step-panel" data-step-panel="3">
-                            <div class="section-head">
-                                <div class="section-title">
                                     <span class="section-icon">DB</span>
                                     <div>
                                         <h3>{{ __('Database Connection') }}</h3>
-                                        <p>{{ __('Test credentials first. Installation imports DB/digikash.sql only after the database is empty and reachable.') }}</p>
+                                        <p>{{ __('Test credentials first. Installation imports DB/digitalwallet.sql only after the database is empty and reachable.') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -2250,7 +2188,7 @@
                             </div>
                         </section>
 
-                        <section class="step-panel" data-step-panel="4">
+                        <section class="step-panel" data-step-panel="3">
                             <div class="section-head">
                                 <div class="section-title">
                                     <span class="section-icon">AD</span>
@@ -2340,7 +2278,7 @@
                             </div>
                         </section>
 
-                        <section class="step-panel review-preview rv" data-step-panel="5">
+                        <section class="step-panel review-preview rv" data-step-panel="4">
                             <div class="section-head">
                                 <div class="section-title">
                                     <span class="section-icon">RV</span>
@@ -2351,20 +2289,8 @@
                                 </div>
                             </div>
 
-                            {{-- Status banner — license / DB / admin readiness at a glance --}}
+                            {{-- Status banner — DB / admin readiness at a glance --}}
                             <div class="rv__status">
-                                <div class="rv__stat is-pending" data-rv-stat="license">
-                                    <span class="rv__stat-icon" aria-hidden="true">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                            <path d="m9 12 2 2 4-4"/>
-                                        </svg>
-                                    </span>
-                                    <div class="rv__stat-text">
-                                        <span class="rv__stat-label">{{ __('Envato License') }}</span>
-                                        <span class="rv__stat-value" data-review-license-test>{{ __('Not verified') }}</span>
-                                    </div>
-                                </div>
                                 <div class="rv__stat is-pending" data-rv-stat="database">
                                     <span class="rv__stat-icon" aria-hidden="true">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -2409,11 +2335,10 @@
                                     </div>
                                 </div>
                                 <ol class="rv__plan-steps">
-                                    <li><span class="rv__plan-num">1</span>{{ __('Re-verify the Envato purchase code with the update server.') }}</li>
-                                    <li><span class="rv__plan-num">2</span>{{ __('Write your DB credentials to') }} <code>.env</code>.</li>
-                                    <li><span class="rv__plan-num">3</span>{{ __('Import the bundled') }} <code>DB/digikash.sql</code> {{ __('schema + reference data.') }}</li>
-                                    <li><span class="rv__plan-num">4</span>{{ __('Create the super admin account and assign full permissions.') }}</li>
-                                    <li><span class="rv__plan-num">5</span>{{ __('Clear caches, link storage, and seal the installer.') }}</li>
+                                    <li><span class="rv__plan-num">1</span>{{ __('Write your DB credentials to') }} <code>.env</code>.</li>
+                                    <li><span class="rv__plan-num">2</span>{{ __('Import the bundled') }} <code>DB/digitalwallet.sql</code> {{ __('schema + reference data.') }}</li>
+                                    <li><span class="rv__plan-num">3</span>{{ __('Create the super admin account and assign full permissions.') }}</li>
+                                    <li><span class="rv__plan-num">4</span>{{ __('Clear caches, link storage, and seal the installer.') }}</li>
                                 </ol>
                             </div>
 
@@ -2531,7 +2456,7 @@
                                     <dl class="rv__card-list">
                                         <div class="rv__row">
                                             <dt>{{ __('Source') }}</dt>
-                                            <dd><code>DB/digikash.sql</code></dd>
+                                            <dd><code>DB/digitalwallet.sql</code></dd>
                                         </div>
                                         <div class="rv__row">
                                             <dt>{{ __('Contents') }}</dt>
@@ -2561,8 +2486,8 @@
                             <div class="install-progress__head">
                                 <span class="install-progress__icon">SET</span>
                                 <div>
-                                    <h3>{{ __('Installing Digikash') }}</h3>
-                                    <p>{{ __('Please keep this page open. The installer is verifying the license, preparing the database, importing the bundled SQL file, and creating the admin account.') }}</p>
+                                    <h3>{{ __('Installing DigitalWallet') }}</h3>
+                                    <p>{{ __('Please keep this page open. The installer is preparing the database, importing the bundled SQL file, and creating the admin account.') }}</p>
                                 </div>
                             </div>
 
@@ -2578,40 +2503,33 @@
                                 <li class="install-progress__step is-active" data-install-progress-step>
                                     <span class="install-progress__badge">01</span>
                                     <span>
-                                        <strong>{{ __('Verifying License') }}</strong>
-                                        <span>{{ __('Confirming the Envato purchase code before installing files and data.') }}</span>
-                                    </span>
-                                </li>
-                                <li class="install-progress__step" data-install-progress-step>
-                                    <span class="install-progress__badge">02</span>
-                                    <span>
                                         <strong>{{ __('Writing Environment') }}</strong>
                                         <span>{{ __('Saving app and database values to the environment file.') }}</span>
                                     </span>
                                 </li>
                                 <li class="install-progress__step" data-install-progress-step>
-                                    <span class="install-progress__badge">03</span>
+                                    <span class="install-progress__badge">02</span>
                                     <span>
                                         <strong>{{ __('Preparing Database') }}</strong>
                                         <span>{{ __('Creating the database when permission is available and checking empty tables.') }}</span>
                                     </span>
                                 </li>
                                 <li class="install-progress__step" data-install-progress-step>
-                                    <span class="install-progress__badge">04</span>
+                                    <span class="install-progress__badge">03</span>
                                     <span>
                                         <strong>{{ __('Importing SQL') }}</strong>
-                                        <span>{{ __('Loading DB/digikash.sql into the selected database.') }}</span>
+                                        <span>{{ __('Loading DB/digitalwallet.sql into the selected database.') }}</span>
                                     </span>
                                 </li>
                                 <li class="install-progress__step" data-install-progress-step>
-                                    <span class="install-progress__badge">05</span>
+                                    <span class="install-progress__badge">04</span>
                                     <span>
                                         <strong>{{ __('Creating Super Admin') }}</strong>
                                         <span>{{ __('Creating the first admin account and default settings.') }}</span>
                                     </span>
                                 </li>
                                 <li class="install-progress__step" data-install-progress-step>
-                                    <span class="install-progress__badge">06</span>
+                                    <span class="install-progress__badge">05</span>
                                     <span>
                                         <strong>{{ __('Finishing Setup') }}</strong>
                                         <span>{{ __('Clearing cache, locking installer access, and redirecting to login.') }}</span>
@@ -2672,11 +2590,6 @@
             const installProgressLabel = document.querySelector('[data-install-progress-label]');
             const installProgressPercent = document.querySelector('[data-install-progress-percent]');
             const installProgressSteps = Array.from(document.querySelectorAll('[data-install-progress-step]'));
-            const envatoPurchaseCode = document.querySelector('[data-envato-purchase-code]');
-            const testLicenseButton = document.querySelector('[data-test-license]');
-            const licenseActions = document.querySelector('[data-license-actions]');
-            const licenseResult = document.querySelector('[data-license-result]');
-            const licenseStatusText = document.querySelector('[data-license-status-text]');
             const connection = document.querySelector('[data-db-connection]');
             const mysqlFields = Array.from(document.querySelectorAll('[data-mysql-field]'));
             const database = document.querySelector('[data-db-database]');
@@ -2688,7 +2601,6 @@
             const reviewSources = Array.from(document.querySelectorAll('[data-review-source]'));
             const reviewMysqlRows = Array.from(document.querySelectorAll('[data-review-mysql]'));
             const reviewDbTest = document.querySelector('[data-review-db-test]');
-            const reviewLicenseTest = document.querySelector('[data-review-license-test]');
             const adminPrefixField = document.querySelector('[data-admin-prefix]');
             const adminUrlBase = document.querySelector('[data-admin-url-base]');
             const adminUrlPreview = document.querySelector('[data-admin-url-preview]');
@@ -2699,39 +2611,24 @@
 
             let currentStep = 0;
             let maxUnlockedStep = canInstall ? 1 : 0;
-            let licenseReady = false;
-            let licenseMessage = @json(__('Not verified'));
             let databaseReady = false;
             let databaseMessage = @json(__('Not tested'));
             let installProgressValue = 8;
             const defaultAdminPrefix = @json($defaults['admin_prefix']);
             const nextLabels = [
                 @json(__('Continue to Application')),
-                @json(__('Continue to License Verification')),
                 @json(__('Continue to Database')),
                 @json(__('Continue to Admin Account')),
                 @json(__('Review Installation')),
                 @json(__('Start Installation')),
             ];
             const installStageLabels = [
-                @json(__('Verifying Envato license')),
                 @json(__('Writing environment file')),
                 @json(__('Preparing database')),
                 @json(__('Importing SQL file')),
                 @json(__('Creating super admin')),
                 @json(__('Finalizing setup')),
             ];
-
-            function setLicenseUntested() {
-                licenseReady = false;
-                licenseMessage = @json(__('Not verified'));
-                licenseStatusText.textContent = @json(__('Envato license has not been verified yet. Verify it before continuing.'));
-                licenseActions.className = 'db-actions';
-                licenseResult.className = 'db-result';
-                licenseResult.innerHTML = '';
-                updateReview();
-                updateControls();
-            }
 
             function setDatabaseUntested() {
                 databaseReady = false;
@@ -2788,14 +2685,7 @@
                     return false;
                 }
 
-                if (currentStep === 2 && ! licenseReady) {
-                    licenseStatusText.textContent = @json(__('Please verify a valid Envato purchase code before continuing.'));
-                    testLicenseButton.focus();
-
-                    return false;
-                }
-
-                if (currentStep === 3 && ! databaseReady) {
+                if (currentStep === 2 && ! databaseReady) {
                     dbStatusText.textContent = @json(__('Please run a successful database test before continuing.'));
                     testDbButton.focus();
 
@@ -2833,8 +2723,7 @@
                 nextButton.hidden = currentStep === panels.length - 1;
                 installButton.hidden = currentStep !== panels.length - 1;
                 nextButton.disabled = ! canInstall
-                    || (currentStep === 2 && ! licenseReady)
-                    || (currentStep === 3 && ! databaseReady);
+                    || (currentStep === 2 && ! databaseReady);
                 installButton.disabled = ! canInstall;
                 nextLabel.textContent = nextLabels[currentStep] || @json(__('Continue'));
             }
@@ -2849,16 +2738,11 @@
                 });
 
                 reviewDbTest.textContent = databaseMessage;
-                reviewLicenseTest.textContent = licenseMessage;
                 updateAdminUrlPreview();
                 updateCurrencyReview();
 
                 // Toggle the green "is-ok" tint on the top-of-review status
-                // pills the moment license / DB tests pass.
-                const licenseStat = document.querySelector('[data-rv-stat="license"]');
-                if (licenseStat) {
-                    licenseStat.classList.toggle('is-ok', licenseReady === true);
-                }
+                // pills the moment the DB test passes.
                 const dbStat = document.querySelector('[data-rv-stat="database"]');
                 if (dbStat) {
                     dbStat.classList.toggle('is-ok', databaseReady === true);
@@ -2958,81 +2842,6 @@
                 return '!';
             }
 
-            function renderLicenseResult(payload) {
-                const status = payload.status || (payload.ok ? 'success' : 'error');
-                let checks = Array.isArray(payload.checks) ? payload.checks : [];
-                const guidance = Array.isArray(payload.guidance) ? payload.guidance : [];
-
-                if (checks.length === 0 && payload.errors && typeof payload.errors === 'object') {
-                    checks = Object.entries(payload.errors).map(([field, messages]) => ({
-                        label: field.replaceAll('_', ' '),
-                        status: 'error',
-                        detail: Array.isArray(messages) ? messages.join(' ') : String(messages)
-                    }));
-                }
-
-                licenseResult.className = `db-result is-visible is-${status}`;
-                licenseActions.className = status === 'success' ? 'db-actions is-success' : (status === 'error' ? 'db-actions is-error' : 'db-actions');
-                licenseResult.innerHTML = '';
-
-                const title = document.createElement('p');
-                title.className = 'result-title';
-                title.textContent = payload.message || @json(__('Envato license test completed.'));
-                licenseResult.appendChild(title);
-
-                checks.forEach((check) => {
-                    const row = document.createElement('div');
-                    row.className = 'result-row';
-
-                    const icon = document.createElement('span');
-                    icon.className = `result-icon is-${check.status || status}`;
-                    icon.textContent = iconForStatus(check.status || status);
-
-                    const copy = document.createElement('span');
-                    const label = document.createElement('span');
-                    label.className = 'result-label';
-                    label.textContent = check.label || '-';
-
-                    const detail = document.createElement('span');
-                    detail.className = 'result-detail';
-                    detail.textContent = check.detail || '';
-
-                    copy.appendChild(label);
-                    copy.appendChild(detail);
-                    row.appendChild(icon);
-                    row.appendChild(copy);
-                    licenseResult.appendChild(row);
-                });
-
-                if (guidance.length > 0) {
-                    const guide = document.createElement('div');
-                    guide.className = 'guide';
-
-                    const guideTitle = document.createElement('p');
-                    guideTitle.className = 'guide-title';
-                    guideTitle.textContent = @json(__('How to fix it'));
-
-                    const list = document.createElement('ul');
-                    guidance.forEach((item) => {
-                        const entry = document.createElement('li');
-                        entry.textContent = item;
-                        list.appendChild(entry);
-                    });
-
-                    guide.appendChild(guideTitle);
-                    guide.appendChild(list);
-                    licenseResult.appendChild(guide);
-                }
-
-                licenseReady = payload.ok === true;
-                licenseMessage = payload.message || @json(__('License test completed'));
-                licenseStatusText.textContent = licenseReady
-                    ? @json(__('Envato license verified. You can continue.'))
-                    : @json(__('Envato license needs attention before continuing.'));
-                updateReview();
-                updateControls();
-            }
-
             function renderDatabaseResult(payload) {
                 const status = payload.status || (payload.ok ? 'success' : 'error');
                 let checks = Array.isArray(payload.checks) ? payload.checks : [];
@@ -3108,42 +2917,6 @@
                 updateControls();
             }
 
-            async function testLicense() {
-                if (! validateCurrentFields()) {
-                    return;
-                }
-
-                testLicenseButton.disabled = true;
-                licenseActions.className = 'db-actions';
-                testLicenseButton.innerHTML = `<span class="spinner"></span><span>${@json(__('Verifying...'))}</span>`;
-                licenseStatusText.textContent = @json(__('Checking Envato purchase code...'));
-
-                try {
-                    const response = await fetch(@json(route('install.license.test')), {
-                        method: 'POST',
-                        headers: {
-                            'Accept': 'application/json',
-                            'X-CSRF-TOKEN': csrfToken,
-                            'X-Requested-With': 'XMLHttpRequest'
-                        },
-                        body: new FormData(form)
-                    });
-
-                    const payload = await response.json();
-                    renderLicenseResult(payload);
-                } catch (error) {
-                    renderLicenseResult({
-                        ok: false,
-                        status: 'error',
-                        message: @json(__('Envato license request failed. Check the web server and try again.')),
-                        checks: []
-                    });
-                } finally {
-                    testLicenseButton.disabled = false;
-                    testLicenseButton.innerHTML = `<span class="button-icon">OK</span><span>${@json(__('Verify Envato License'))}</span>`;
-                }
-            }
-
             async function testDatabase() {
                 if (! validateCurrentFields()) {
                     return;
@@ -3201,9 +2974,6 @@
                 });
             });
 
-            envatoPurchaseCode.addEventListener('input', setLicenseUntested);
-            envatoPurchaseCode.addEventListener('change', setLicenseUntested);
-
             dbWatchFields.forEach((field) => {
                 field.addEventListener('input', setDatabaseUntested);
                 field.addEventListener('change', () => {
@@ -3217,7 +2987,6 @@
                 field.addEventListener('change', updateReview);
             });
 
-            testLicenseButton.addEventListener('click', testLicense);
             testDbButton.addEventListener('click', testDatabase);
 
             form.addEventListener('submit', () => {

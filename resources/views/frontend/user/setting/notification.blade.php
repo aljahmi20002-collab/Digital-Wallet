@@ -311,21 +311,21 @@
             };
 
             const previewSelected = function () {
-                if (!window.DigiKashNotificationTune) {
+                if (!window.DigitalWalletNotificationTune) {
                     return;
                 }
 
                 if ($select.val() === '{{ NotificationTuneLibrary::CUSTOM_KEY }}') {
-                    window.DigiKashNotificationTune.preview(buildCustomTune());
+                    window.DigitalWalletNotificationTune.preview(buildCustomTune());
 
                     return;
                 }
 
                 const tune = $select.val() === 'default'
-                    ? window.DigiKashNotificationTune.getDefaultTune()
-                    : window.DigiKashNotificationTune.getTune($select.val());
+                    ? window.DigitalWalletNotificationTune.getDefaultTune()
+                    : window.DigitalWalletNotificationTune.getTune($select.val());
 
-                window.DigiKashNotificationTune.preview(tune);
+                window.DigitalWalletNotificationTune.preview(tune);
             };
 
             $select.on('change', toggleCustomPanel);

@@ -1,4 +1,4 @@
-<!-- DigiKash Cookie Consent Popup -->
+<!-- DigitalWallet Cookie Consent Popup -->
 <div id="cookieConsent" class="cookie-consent shadow-lg rounded-4 p-4">
 	<div class="d-flex align-items-start mb-3">
 		<div class="cookie-icon me-2 mt-1">

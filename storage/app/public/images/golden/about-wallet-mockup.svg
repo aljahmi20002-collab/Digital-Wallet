@@ -80,7 +80,7 @@
 
 			<!-- Card brand label -->
 			<text x="20" y="32" font-family="Cinzel, Georgia, serif" font-size="9"
-			      letter-spacing="3" fill="#F5E6A8" opacity=".95">DIGIKASH</text>
+			      letter-spacing="3" fill="#F5E6A8" opacity=".95">DIGITALWALLET</text>
 			<text x="20" y="46" font-family="Cinzel, Georgia, serif" font-size="7"
 			      letter-spacing="2" fill="#B8B2A0">PRIVATE · BLACK</text>
 

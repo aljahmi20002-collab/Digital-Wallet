@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'DigitalWallet'),
 
     /*
     |--------------------------------------------------------------------------
@@ -140,7 +140,7 @@ return [
         'store'  => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'version' => (require __DIR__.'/project_updater.php')['version'],
+    'version' => '2.0',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,7 +177,7 @@ return [
 
     'demo_vendor_name'  => env('APP_DEMO_VENDOR_NAME', 'Coevs'),
     'demo_vendor_url'   => env('APP_DEMO_VENDOR_URL', 'https://coevs.com'),
-    'demo_product_name' => env('APP_DEMO_PRODUCT_NAME', 'DigiKash'),
-    'demo_sales_url'    => env('APP_DEMO_SALES_URL', 'https://codecanyon.net/item/digikash/58275561'),
+    'demo_product_name' => env('APP_DEMO_PRODUCT_NAME', 'DigitalWallet'),
+    'demo_sales_url'    => env('APP_DEMO_SALES_URL', 'https://codecanyon.net/item/digitalwallet/58275561'),
 
 ];

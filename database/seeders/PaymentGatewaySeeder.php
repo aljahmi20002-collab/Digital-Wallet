@@ -24,7 +24,7 @@ class PaymentGatewaySeeder extends Seeder
                 ]),
                 'credentials' => json_encode([
                     'api_key'    => 'pvk_sandbox_teb330|01K120C7BN2TXPT6D1BYQFEZ24',
-                    'api_secret' => 'digikash',
+                    'api_secret' => 'digitalwallet',
                     'sandbox'    => true,
                 ]),
                 'withdraw_field' => null,

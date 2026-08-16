@@ -297,7 +297,7 @@ const body = JSON.stringify(payload);
 const timestamp = Math.floor(Date.now() / 1000).toString();
 const path = '/api/v1/initiate-payment';
 const signature = crypto
-  .createHmac('sha256', process.env.DIGIKASH_API_SECRET)
+  .createHmac('sha256', process.env.DIGITALWALLET_API_SECRET)
   .update(`${timestamp}.POST.${path}.${body}`)
   .digest('hex');
 
@@ -307,8 +307,8 @@ const response = await fetch('{{ request()->getSchemeAndHttpHost() }}/api/v1/ini
     'Content-Type': 'application/json',
     'Accept': 'application/json',
     'X-Environment': 'sandbox',
-    'X-Merchant-Key': process.env.DIGIKASH_MERCHANT_KEY,
-    'X-API-Key': process.env.DIGIKASH_API_KEY,
+    'X-Merchant-Key': process.env.DIGITALWALLET_MERCHANT_KEY,
+    'X-API-Key': process.env.DIGITALWALLET_API_KEY,
     'X-Timestamp': timestamp,
     'X-Signature': `sha256=${signature}`
   },

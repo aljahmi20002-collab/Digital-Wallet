@@ -120,7 +120,7 @@
                 <path d="M4 7h12a4 4 0 0 1 0 8H4V7z" fill="{{ $t['ink'] }}"/>
             </svg>
         </div>
-        DigiKash
+        DigitalWallet
     </div>
 
     {{-- Ribbon --}}

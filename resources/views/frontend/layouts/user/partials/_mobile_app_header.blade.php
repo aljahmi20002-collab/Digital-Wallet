@@ -148,7 +148,7 @@
          data-ready-label="{{ __('Point your camera at a payment link, wallet, or agent QR code.') }}"
          data-detected-label="{{ __('QR code detected. Opening...') }}"
          data-unsupported-label="{{ __('Camera is open, but automatic QR reading is not supported on this browser. Paste the QR link below.') }}"
-         data-invalid-label="{{ __('This QR code is not a valid DigiKash payment, wallet, or agent QR.') }}"
+         data-invalid-label="{{ __('This QR code is not a valid DigitalWallet payment, wallet, or agent QR.') }}"
          data-camera-error-label="{{ __('Camera access is blocked or unavailable. Paste the QR link below.') }}"
          data-camera-permission-label="{{ __('Camera permission is required to scan QR codes. Tap Allow Camera and approve access.') }}"
          data-camera-denied-label="{{ __('Camera permission is blocked. Enable camera access from browser site settings, then tap Allow Camera.') }}"
@@ -162,7 +162,7 @@
     <div class="dk-qr-scanner__head">
         <div>
             <h3 class="dk-qr-scanner__title" id="dkQrScannerTitle">{{ __('Scan QR') }}</h3>
-            <p class="dk-qr-scanner__subtitle">{{ __('Open payment checkout, send money, or agent cash-out from any DigiKash QR code.') }}</p>
+            <p class="dk-qr-scanner__subtitle">{{ __('Open payment checkout, send money, or agent cash-out from any DigitalWallet QR code.') }}</p>
         </div>
         <button type="button"
                 class="dk-icon-btn dk-qr-scanner__close"

@@ -1,5 +1,5 @@
 /**
- * DigiKash Virtual Card · Provider handler registry
+ * DigitalWallet Virtual Card · Provider handler registry
  *
  * Each provider's frontend file calls window.VCProviderRegistry.register(code, handler)
  * to opt itself in. The main page asks the registry to render card details for the

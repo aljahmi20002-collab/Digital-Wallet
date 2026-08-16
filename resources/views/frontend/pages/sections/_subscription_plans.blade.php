@@ -28,7 +28,7 @@
 
     $lpEyebrow = !empty($data['subheading'][$locale]) ? $data['subheading'][$locale] : __('Simple, transparent pricing');
     $lpHeading = !empty($data['heading'][$locale])    ? $data['heading'][$locale]    : __('Pick the plan that powers your wallet');
-    $lpDesc    = !empty($data['description'][$locale]) ? $data['description'][$locale] : __('All plans include a DigiKash wallet. Upgrade anytime — no hidden fees, no lock-in.');
+    $lpDesc    = !empty($data['description'][$locale]) ? $data['description'][$locale] : __('All plans include a DigitalWallet wallet. Upgrade anytime — no hidden fees, no lock-in.');
 
     $allPrices             = $lpPlans->flatMap->prices;
     $maxHalfYearlyDiscount = $allPrices->where('billing_cycle', BillingCycle::HalfYearly)->max('discount');

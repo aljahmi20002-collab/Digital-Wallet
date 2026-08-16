@@ -1,5 +1,5 @@
 @php
-	$gdkSiteName     = setting('site_title', 'DigiKash');
+	$gdkSiteName     = setting('site_title', 'DigitalWallet');
 	$gdkFooters      = $footers ?? collect();
 	$gdkSocials      = $socials ?? collect();
 	$gdkSupportEmail = setting('support_email');

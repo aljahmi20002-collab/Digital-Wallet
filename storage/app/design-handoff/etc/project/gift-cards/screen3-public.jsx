@@ -129,7 +129,7 @@ const Screen3Public = () => {
           {sender.split(' ')[0]} sent you a gift
         </h1>
         <p style={{ fontSize: 15, color: '#B8C4E8', margin: '0 0 32px', lineHeight: 1.55 }}>
-          Open your gift card and add it to your DigiKash wallet in seconds.
+          Open your gift card and add it to your DigitalWallet wallet in seconds.
         </p>
 
         {/* Envelope + card */}
@@ -242,7 +242,7 @@ const Screen3Public = () => {
           <Icon name="wallet" size={17}/> Redeem {formatMoney(amount)} to my wallet
         </button>
         <button className="btn btn-light" style={{ width: '100%', justifyContent: 'center', marginTop: 10, background: 'rgba(255,255,255,.06)', border: '1px solid rgba(255,255,255,.16)', color: '#fff', boxShadow: 'none' }}>
-          New to DigiKash? <span style={{ color: '#FCD34D', fontWeight: 700, marginLeft: 4 }}>Sign up to redeem →</span>
+          New to DigitalWallet? <span style={{ color: '#FCD34D', fontWeight: 700, marginLeft: 4 }}>Sign up to redeem →</span>
         </button>
 
         {/* Footer */}
@@ -253,7 +253,7 @@ const Screen3Public = () => {
           <span>·</span>
           <a href="#" style={{ color: '#B8C4E8' }}>Report this gift</a>
           <span>·</span>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><Icon name="shield" size={12}/> Secured by DigiKash escrow</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><Icon name="shield" size={12}/> Secured by DigitalWallet escrow</span>
         </div>
       </div>
     </div>

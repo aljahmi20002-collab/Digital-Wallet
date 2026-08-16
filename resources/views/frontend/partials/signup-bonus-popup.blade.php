@@ -121,7 +121,7 @@
             </div>
 
             <h2 id="signupBonusTitle" class="signup-bonus-title">
-                {{ __('Welcome to') }} <span class="signup-bonus-brand">DigiKash</span>,<br/>
+                {{ __('Welcome to') }} <span class="signup-bonus-brand">DigitalWallet</span>,<br/>
                 {{ $name }}!
             </h2>
 
@@ -132,7 +132,7 @@
             </div>
 
             <p class="signup-bonus-subtitle">
-                {{ __('Your welcome bonus has been added to your wallet. Spend it anywhere on DigiKash.') }}
+                {{ __('Your welcome bonus has been added to your wallet. Spend it anywhere on DigitalWallet.') }}
             </p>
 
             <div class="signup-bonus-actions">

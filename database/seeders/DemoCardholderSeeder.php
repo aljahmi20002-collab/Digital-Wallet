@@ -35,12 +35,12 @@ class DemoCardholderSeeder extends Seeder
         // Personal cardholder profiles — keyed by demo user email so the
         // pairing with `DemoAccountSeeder` stays explicit.
         $personalProfiles = [
-            'ayesha.rahman@digikash.test' => [
+            'ayesha.rahman@digitalwallet.test' => [
                 'title'              => 'Ms',
                 'first_name'         => 'Ayesha',
                 'middle_name'        => null,
                 'last_name'          => 'Rahman',
-                'email'              => 'ayesha.rahman.card@digikash.test',
+                'email'              => 'ayesha.rahman.card@digitalwallet.test',
                 'mobile'             => '5550100101',
                 'phone_country_code' => '+1',
                 'gender'             => Gender::Female->value,
@@ -66,19 +66,19 @@ class DemoCardholderSeeder extends Seeder
                 'tax_country' => 'US',
 
                 'occupation'      => 'Product Designer',
-                'employer'        => 'DigiKash Sandbox Co.',
+                'employer'        => 'DigitalWallet Sandbox Co.',
                 'annual_income'   => 95000.00,
                 'source_of_funds' => 'salary',
 
                 'pep_flag'       => false,
                 'sanctions_flag' => false,
             ],
-            'imran.hossain@digikash.test' => [
+            'imran.hossain@digitalwallet.test' => [
                 'title'              => 'Mr',
                 'first_name'         => 'Imran',
                 'middle_name'        => null,
                 'last_name'          => 'Hossain',
-                'email'              => 'imran.hossain.card@digikash.test',
+                'email'              => 'imran.hossain.card@digitalwallet.test',
                 'mobile'             => '5550100200',
                 'phone_country_code' => '+1',
                 'gender'             => Gender::Male->value,
@@ -104,19 +104,19 @@ class DemoCardholderSeeder extends Seeder
                 'tax_country' => 'US',
 
                 'occupation'      => 'Operations Manager',
-                'employer'        => 'DigiKash Sandbox Co.',
+                'employer'        => 'DigitalWallet Sandbox Co.',
                 'annual_income'   => 110000.00,
                 'source_of_funds' => 'salary',
 
                 'pep_flag'       => false,
                 'sanctions_flag' => false,
             ],
-            'nusrat.farhana@digikash.test' => [
+            'nusrat.farhana@digitalwallet.test' => [
                 'title'              => 'Ms',
                 'first_name'         => 'Nusrat',
                 'middle_name'        => null,
                 'last_name'          => 'Farhana',
-                'email'              => 'nusrat.farhana.card@digikash.test',
+                'email'              => 'nusrat.farhana.card@digitalwallet.test',
                 'mobile'             => '5550100301',
                 'phone_country_code' => '+1',
                 'gender'             => Gender::Female->value,
@@ -149,12 +149,12 @@ class DemoCardholderSeeder extends Seeder
                 'pep_flag'       => false,
                 'sanctions_flag' => false,
             ],
-            'tanvir.ahmed@digikash.test' => [
+            'tanvir.ahmed@digitalwallet.test' => [
                 'title'              => 'Mr',
                 'first_name'         => 'Tanvir',
                 'middle_name'        => null,
                 'last_name'          => 'Ahmed',
-                'email'              => 'tanvir.ahmed.card@digikash.test',
+                'email'              => 'tanvir.ahmed.card@digitalwallet.test',
                 'mobile'             => '5550100302',
                 'phone_country_code' => '+1',
                 'gender'             => Gender::Male->value,
@@ -193,7 +193,7 @@ class DemoCardholderSeeder extends Seeder
         // KYB flow has something realistic to chew on. Both companies are
         // Delaware/Texas incorporated for maximum provider compatibility.
         $businessProfiles = [
-            'nusrat.farhana@digikash.test' => [
+            'nusrat.farhana@digitalwallet.test' => [
                 'business' => [
                     'business_name'         => 'Nusrat Mart LLC',
                     'trading_name'          => 'Nusrat Mart',
@@ -204,8 +204,8 @@ class DemoCardholderSeeder extends Seeder
                     'incorporation_country' => 'US',
                     'industry'              => 'Retail',
                     'mcc_code'              => '5411',
-                    'website_url'           => 'https://nusrat-mart.digikash.test',
-                    'contact_email'         => 'payments@nusrat-mart.digikash.test',
+                    'website_url'           => 'https://nusrat-mart.digitalwallet.test',
+                    'contact_email'         => 'payments@nusrat-mart.digitalwallet.test',
                     'contact_phone'         => '5550100301',
                     'phone_country_code'    => '+1',
                     'address_line1'         => '811 Main Street',
@@ -246,7 +246,7 @@ class DemoCardholderSeeder extends Seeder
                     'status'     => CardholderStatus::APPROVED->value,
                 ],
             ],
-            'tanvir.ahmed@digikash.test' => [
+            'tanvir.ahmed@digitalwallet.test' => [
                 'business' => [
                     'business_name'         => 'Tanvir Tech Care LLC',
                     'trading_name'          => 'Tanvir Tech Care',
@@ -257,8 +257,8 @@ class DemoCardholderSeeder extends Seeder
                     'incorporation_country' => 'US',
                     'industry'              => 'Electronics / Repair',
                     'mcc_code'              => '5732',
-                    'website_url'           => 'https://tanvir-tech-care.digikash.test',
-                    'contact_email'         => 'billing@tanvir-tech-care.digikash.test',
+                    'website_url'           => 'https://tanvir-tech-care.digitalwallet.test',
+                    'contact_email'         => 'billing@tanvir-tech-care.digitalwallet.test',
                     'contact_phone'         => '5550100302',
                     'phone_country_code'    => '+1',
                     'address_line1'         => '1200 Brickell Avenue',

@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------
 
-Template Name: Digikash & Deshboard Laravel Script
+Template Name: DigitalWallet & Deshboard Laravel Script
 Author:  Coevs
 Author URI: https://codecanyon.net/user/coevs
 Version: 1.0.0
-Description: Digikash & Deshboard Laravel Script
+Description: DigitalWallet & Deshboard Laravel Script
 
 -------------------------------------------------------------------
 CSS TABLE OF CONTENTS
@@ -193,7 +193,7 @@ CSS TABLE OF CONTENTS
 
 
     // Key for localStorage
-    var consentKey = 'digikash_cookie_consent_v1';
+    var consentKey = 'digitalwallet_cookie_consent_v1';
 
     function showConsent() {
         $('#cookieConsent').fadeIn(250); // nice fade in

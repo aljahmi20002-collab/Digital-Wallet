@@ -7,7 +7,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-class WC_Gateway_DigiKash extends WC_Payment_Gateway
+class WC_Gateway_DigitalWallet extends WC_Payment_Gateway
 {
     protected string $api_base_url = '';
 
@@ -19,7 +19,7 @@ class WC_Gateway_DigiKash extends WC_Payment_Gateway
 
     public function __construct()
     {
-        $this->id                 = 'digikash';
+        $this->id                 = 'digitalwallet';
         $this->icon               = '';
         $this->has_fields         = true;
         $this->method_title       = __('Hosted Checkout Gateway', 'woocommerce');

@@ -1,5 +1,5 @@
 /* =============================================================
- | DigiKash — Mobile Dashboard JS controller
+ | DigitalWallet — Mobile Dashboard JS controller
  | Active only on viewports < 992px (matchMedia guard).
  | Handles: sticky-header scroll state, scroll-aware tab bar,
  | balance hide, sheets
@@ -263,7 +263,7 @@
         var link = document.createElement("a");
 
         link.href = url;
-        link.download = button.getAttribute("data-wallet-qr-filename") || "digikash-wallet-qr.svg";
+        link.download = button.getAttribute("data-wallet-qr-filename") || "digitalwallet-wallet-qr.svg";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -593,7 +593,7 @@
         function openPayment(value) {
             var url = paymentQrUrl(value);
             if (!url) {
-                setStatus(message("invalid", "This QR code is not a valid DigiKash payment, wallet, or agent QR."));
+                setStatus(message("invalid", "This QR code is not a valid DigitalWallet payment, wallet, or agent QR."));
                 return false;
             }
 

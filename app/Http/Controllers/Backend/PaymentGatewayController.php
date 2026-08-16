@@ -456,9 +456,9 @@ class PaymentGatewayController extends BaseController
             'payment_methods' => $credentials['payment_methods'],
             'items'           => [
                 [
-                    'name'        => 'DigiKash Credential Health Check',
+                    'name'        => 'DigitalWallet Credential Health Check',
                     'amount'      => $amount,
-                    'description' => 'DigiKash credential validation',
+                    'description' => 'DigitalWallet credential validation',
                     'quantity'    => 1,
                 ],
             ],
@@ -466,7 +466,7 @@ class PaymentGatewayController extends BaseController
                 'apartment'       => 'NA',
                 'email'           => 'credential-check@example.com',
                 'floor'           => 'NA',
-                'first_name'      => 'DigiKash',
+                'first_name'      => 'DigitalWallet',
                 'street'          => 'NA',
                 'building'        => 'NA',
                 'phone_number'    => '+966500000000',

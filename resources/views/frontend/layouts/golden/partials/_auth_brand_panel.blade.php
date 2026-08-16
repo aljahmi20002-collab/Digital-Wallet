@@ -66,7 +66,7 @@
 					<div class="vault__rim"></div>
 					<div class="vault__shine"></div>
 					<div class="vault__head">
-						<div class="vault__brand">DIGIKASH<small>{{ __('PRIVATE · BLACK') }}</small></div>
+						<div class="vault__brand">DIGITALWALLET<small>{{ __('PRIVATE · BLACK') }}</small></div>
 						<div class="vault__monogram">DK</div>
 					</div>
 					<div class="vault__chip"><span></span></div>

@@ -9,13 +9,13 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-final class WC_Gateway_DigiKash_Blocks extends AbstractPaymentMethodType
+final class WC_Gateway_DigitalWallet_Blocks extends AbstractPaymentMethodType
 {
-    protected $name = 'digikash';
+    protected $name = 'digitalwallet';
 
     public function initialize(): void
     {
-        $this->settings = get_option('woocommerce_digikash_settings', []);
+        $this->settings = get_option('woocommerce_digitalwallet_settings', []);
     }
 
     public function is_active(): bool
@@ -53,7 +53,7 @@ final class WC_Gateway_DigiKash_Blocks extends AbstractPaymentMethodType
 
     public function get_payment_method_data(): array
     {
-        $gateway = new WC_Gateway_DigiKash;
+        $gateway = new WC_Gateway_DigitalWallet;
 
         return $gateway->get_blocks_payment_method_data();
     }

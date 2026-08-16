@@ -5,7 +5,7 @@
 <x-mail::message>
 # 🎁 {{ __('You have a gift card!') }}
 
-{{ __(':sender has sent you a DigiKash gift card.', ['sender' => $giftCard->sender_name]) }}
+{{ __(':sender has sent you a DigitalWallet gift card.', ['sender' => $giftCard->sender_name]) }}
 
 <x-mail::panel>
 **{{ __('Gift Card Value') }}:** {{ $amountText }}

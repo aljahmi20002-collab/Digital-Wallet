@@ -18,7 +18,7 @@ _[tool: list_files]_
 
 _[tool: copy_starter_component]_
 
-Looking at the design, I can see it's a CodeCanyon/marketplace banner for "DigiKash" payment system. I'll create a more polished, professional version AND the required 590×300 inline preview. Let me set this up properly.
+Looking at the design, I can see it's a CodeCanyon/marketplace banner for "DigitalWallet" payment system. I'll create a more polished, professional version AND the required 590×300 inline preview. Let me set this up properly.
 
 _[tool: update_todos]_
 
@@ -75,7 +75,7 @@ _[tool: str_replace_edit]_
 I can see issues — let me fix them:
 1. "BIG UPDATE" wrapping to just "BIG" — need nowrap
 2. "WALLET·PAYMENT·QR" tagline stacking vertically — need nowrap
-3. Logo "DigiKash" reads as "DigiKasl" — letter-spacing too tight
+3. Logo "DigitalWallet" reads as "DigiKasl" — letter-spacing too tight
 
 _[tool: save_screenshot]_
 
@@ -207,7 +207,7 @@ _[tool: fork_verifier_agent]_
 
 Done! Here's what I built:
 
-**📦 Required deliverable:** `DigiKash-inline-preview-590x300.jpg` — ready to download above.
+**📦 Required deliverable:** `DigitalWallet-inline-preview-590x300.jpg` — ready to download above.
 
 **Refinements made vs. original banner:**
 - Cleaner logo lockup with refined wallet+card mark and crisper gradient

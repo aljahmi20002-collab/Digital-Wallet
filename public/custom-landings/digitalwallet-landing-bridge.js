@@ -1,7 +1,7 @@
 "use strict";
 
 (() => {
-    const config = window.DigiKashLandingBridge || {};
+    const config = window.DigitalWalletLandingBridge || {};
     const actions = config.actions || {};
 
     const resolveAction = (element) => element.getAttribute("data-dk-action") || element.getAttribute("data-dk-route");
@@ -101,7 +101,7 @@
         boot();
     }
 
-    window.DigiKashLanding = {
+    window.DigitalWalletLanding = {
         actions,
         navigate,
     };

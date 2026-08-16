@@ -8,12 +8,12 @@ _Started 2026-05-19 01:44 UTC_
 
 <system-info comment="Only acknowledge these if relevant">
 Project title is now "etc"
-User is viewing file: DigiKash Preview Banner.html
+User is viewing file: DigitalWallet Preview Banner.html
 Current date is now May 19, 2026
 </system-info>
 
 <pasted_text name="Pasted text (109 lines)">
-Design a "Gift Card" feature for a Laravel fintech web application called Digikash.
+Design a "Gift Card" feature for a Laravel fintech web application called DigitalWallet.
 The stack uses Blade templates + Tailwind CSS 3 + Alpine.js. The existing UI style 
 uses a custom design system with Bootstrap-like utility classes (col-lg-*, btn, 
 form-control, single-form-card, summery-list, etc.) layered over Tailwind. 
@@ -52,9 +52,9 @@ personalization, and emotional appeal.
   * Quick amount buttons: $25, $50, $100, $200, Custom
   * Min/max limit hint below
 - Step 3: RECIPIENT DETAILS
-  * Toggle: "Send to existing Digikash user" / "Send to anyone via email"
+  * Toggle: "Send to existing DigitalWallet user" / "Send to anyone via email"
   * Recipient name input
-  * Recipient email (with autocomplete if Digikash user)
+  * Recipient email (with autocomplete if DigitalWallet user)
   * Custom message textarea (200 char limit, with counter)
   * Sender name (auto-filled, editable)
   * Optional: Schedule delivery (date/time picker)
@@ -156,7 +156,7 @@ _[tool: read_file]_
 
 _[tool: update_todos]_
 
-I have great context — DigiKash's blue/navy fintech palette is already established in the banner work, and your brief is extremely detailed. I'll dive in and build all 5 screens as a single design canvas (rather than five loose files) so you can compare them side-by-side and zoom into any one. I'll also add a "Gift Card Templates" section showing the reusable card component in 6 design variants.
+I have great context — DigitalWallet's blue/navy fintech palette is already established in the banner work, and your brief is extremely detailed. I'll dive in and build all 5 screens as a single design canvas (rather than five loose files) so you can compare them side-by-side and zoom into any one. I'll also add a "Gift Card Templates" section showing the reusable card component in 6 design variants.
 
 _[tool: copy_starter_component]_
 
@@ -213,7 +213,7 @@ Five screens are ready on a single design canvas — open any artboard fullscree
 - **`<GiftCardDesign>`** — reusable visual component, 6 templates: Birthday, Holiday, Thank You, Anniversary, Congratulations, Premium
 
 **Following your brief**
-- DigiKash blue/navy primary, success-green/warning-amber/danger-red state colors, Plus Jakarta Sans
+- DigitalWallet blue/navy primary, success-green/warning-amber/danger-red state colors, Plus Jakarta Sans
 - Class names match your existing backend: `single-form-card`, `summery-list` (with the intentional misspelling), `btn-base`, `btn-light-success`, `form-control`, `form-label`, `chip`, `card-main`, `badge-*`, `stat-card`, `tabs`, `tbl`, `stepper`
 - Tokens in `gift-cards/tokens.css` are CSS variables so they map cleanly to your Tailwind theme
 

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Exceptions\NotifyErrorException;
 use App\Http\Requests\InstallApplicationRequest;
 use App\Http\Requests\TestInstallDatabaseConnectionRequest;
-use App\Http\Requests\TestInstallEnvatoLicenseRequest;
 use App\Support\InstallationManager;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -24,12 +23,12 @@ class InstallerController extends Controller
         $defaultConnection = (string) config('database.default', 'mysql');
         $defaultDatabase   = $defaultConnection === 'sqlite'
             ? (string) config('database.connections.sqlite.database', 'database/database.sqlite')
-            : (string) config("database.connections.{$defaultConnection}.database", 'digikash');
+            : (string) config("database.connections.{$defaultConnection}.database", 'digitalwallet');
 
         return view('installer.index', [
             'status'   => $this->installer->status(),
             'defaults' => [
-                'app_name'              => config('app.name', 'Digikash'),
+                'app_name'              => config('app.name', 'DigitalWallet'),
                 'app_url'               => config('app.url', 'http://localhost'),
                 'admin_prefix'          => InstallationManager::DEFAULT_ADMIN_PREFIX,
                 'default_currency_code' => InstallationManager::DEFAULT_CURRENCY_CODE,
@@ -66,35 +65,6 @@ class InstallerController extends Controller
         }
     }
 
-    public function testLicense(TestInstallEnvatoLicenseRequest $request): JsonResponse
-    {
-        if ($this->installer->isInstalled()) {
-            return response()->json([
-                'ok'       => false,
-                'status'   => 'error',
-                'message'  => __('The application is already installed.'),
-                'guidance' => $this->licenseGuidance(),
-            ], 409);
-        }
-
-        try {
-            $payload = $this->installer->verifyEnvatoLicense($request->validated());
-
-            if (! $payload['ok']) {
-                $payload['guidance'] = $this->licenseGuidance();
-            }
-
-            return response()->json($payload, $payload['ok'] ? 200 : 422);
-        } catch (NotifyErrorException $e) {
-            return response()->json([
-                'ok'       => false,
-                'status'   => 'error',
-                'message'  => $e->getMessage(),
-                'guidance' => $this->licenseGuidance(),
-            ], 422);
-        }
-    }
-
     public function store(InstallApplicationRequest $request): RedirectResponse
     {
         try {
@@ -111,7 +81,6 @@ class InstallerController extends Controller
                     'admin_password',
                     'admin_password_confirmation',
                     'db_password',
-                    'envato_purchase_code',
                 ]))
                 ->with('install_error', [
                     'message'  => $e->getMessage(),
@@ -131,19 +100,6 @@ class InstallerController extends Controller
             __('Give the database user CREATE, ALTER, INDEX, INSERT, UPDATE, DELETE, and SELECT permissions.'),
             __('On cPanel, open MySQL Databases, add the user to the database, then choose All Privileges.'),
             __('On VPS/Linux, grant privileges from MySQL/MariaDB and restart the web server if PHP extensions were changed.'),
-        ];
-    }
-
-    /**
-     * @return list<string>
-     */
-    private function licenseGuidance(): array
-    {
-        return [
-            __('Copy the purchase code from Envato Downloads > License certificate & purchase code.'),
-            __('The installer verifies the code through the Coevs update server, so author Envato tokens are never stored on the client website.'),
-            __('Confirm PROJECT_UPDATER_SERVER_URL points to the official update server and outgoing HTTPS requests are allowed.'),
-            __('The purchase code must match the configured Digikash Envato item.'),
         ];
     }
 }

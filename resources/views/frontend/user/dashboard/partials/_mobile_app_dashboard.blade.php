@@ -243,7 +243,7 @@
 @endphp
 
 {{-- ==========================================================
- | DigiKash Mobile App Dashboard
+ | DigitalWallet Mobile App Dashboard
  | Visible only at < 992px (Bootstrap d-lg-none).
  ========================================================== --}}
 <div class="d-lg-none dk-mobile-dashboard">

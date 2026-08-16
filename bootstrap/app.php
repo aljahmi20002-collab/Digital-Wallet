@@ -13,7 +13,7 @@
 | env defaults (APP_NAME=laravel) → session cookie name is computed as
 | `laravel_session` → AppServiceProvider then creates .env →
 | second request reads the real APP_NAME → cookie name flips to
-| `digikash_..._session` → browser's old `laravel_session` cookie is
+| `digitalwallet_..._session` → browser's old `laravel_session` cookie is
 | invisible → session is lost → fresh CSRF token → "CSRF token mismatch".
 */
 if (! file_exists(__DIR__.'/../.env') && file_exists(__DIR__.'/../.env.example')) {

@@ -7,9 +7,9 @@ use JsonException;
 
 class CustomLandingHtmlCompiler
 {
-    private const BRIDGE_START = '<!-- DIGIKASH_LANDING_BRIDGE_START -->';
+    private const BRIDGE_START = '<!-- DIGITALWALLET_LANDING_BRIDGE_START -->';
 
-    private const BRIDGE_END = '<!-- DIGIKASH_LANDING_BRIDGE_END -->';
+    private const BRIDGE_END = '<!-- DIGITALWALLET_LANDING_BRIDGE_END -->';
 
     /**
      * @return array<string, array{label: string, route: string, fallback: string, method?: string}>
@@ -103,7 +103,7 @@ class CustomLandingHtmlCompiler
     public function placeholders(string $folder): array
     {
         $placeholders = [
-            'app_name' => config('app.name', 'DigiKash'),
+            'app_name' => config('app.name', 'DigitalWallet'),
             'folder'   => $folder,
         ];
 
@@ -164,7 +164,7 @@ class CustomLandingHtmlCompiler
     private function bridgeMarkup(string $folder): string
     {
         $config = [
-            'appName' => config('app.name', 'DigiKash'),
+            'appName' => config('app.name', 'DigitalWallet'),
             'folder'  => $folder,
             'actions' => $this->resolvedActions(),
         ];
@@ -172,8 +172,8 @@ class CustomLandingHtmlCompiler
         $json = json_encode($config, JSON_THROW_ON_ERROR | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
         return self::BRIDGE_START."\n"
-            .'<script data-dk-landing-bridge>window.DigiKashLandingBridge = '.$json.';</script>'."\n"
-            .'<script defer src="/custom-landings/digikash-landing-bridge.js"></script>'."\n"
+            .'<script data-dk-landing-bridge>window.DigitalWalletLandingBridge = '.$json.';</script>'."\n"
+            .'<script defer src="/custom-landings/digitalwallet-landing-bridge.js"></script>'."\n"
             .self::BRIDGE_END;
     }
 

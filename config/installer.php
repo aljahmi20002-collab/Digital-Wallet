@@ -22,11 +22,7 @@ use Database\Seeders\WithdrawScheduleSeeder;
 return [
     'lock_file' => storage_path('app/installed'),
 
-    'database_dump' => base_path('DB/digikash.sql'),
-
-    'envato' => [
-        'required' => true,
-    ],
+    'database_dump' => base_path('DB/digitalwallet.sql'),
 
     'required_extensions' => [
         'BCMath'    => 'bcmath',

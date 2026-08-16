@@ -1,5 +1,5 @@
 /* =============================================================
- | DigiKash PWA registration
+ | DigitalWallet PWA registration
  | Registers the service worker and exposes a small install API.
  ============================================================= */
 (function () {
@@ -354,7 +354,7 @@
         window.setTimeout(showFallbackInstallPrompt, FALLBACK_PROMPT_DELAY_MS);
 
         if (isInsecureContext && window.console && window.console.warn) {
-            window.console.warn("[DigiKash PWA] Install prompt requires HTTPS.");
+            window.console.warn("[DigitalWallet PWA] Install prompt requires HTTPS.");
         }
 
         if (!canUseServiceWorker) {
@@ -394,7 +394,7 @@
             })
             .catch(function (error) {
                 if (window.console && window.console.warn) {
-                    window.console.warn("[DigiKash PWA] Service worker registration failed:", error);
+                    window.console.warn("[DigitalWallet PWA] Service worker registration failed:", error);
                 }
             });
     });

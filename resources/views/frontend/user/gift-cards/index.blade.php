@@ -79,7 +79,7 @@
                     <i class="fa-solid fa-sparkles"></i> {{ __('New · Gift Cards') }}
                 </div>
                 <h1>{{ __('Send the perfect gift,') }} <br><em>{{ __('instantly') }}</em></h1>
-                <p>{{ __('Designed templates, personal messages, scheduled delivery. Funded straight from your DigiKash wallet.') }}</p>
+                <p>{{ __('Designed templates, personal messages, scheduled delivery. Funded straight from your DigitalWallet wallet.') }}</p>
             </div>
             <div class="gc-hero-visual d-none d-xl-flex">
                 <div style="transform: rotate(-7deg) translateX(34px); filter: drop-shadow(0 20px 30px rgba(0,0,0,.35));">

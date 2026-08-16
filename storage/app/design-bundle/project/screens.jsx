@@ -89,7 +89,7 @@ const DashboardScreen = () => {
         <div style={{ display: "flex", alignItems: "center", gap: 11, padding: "0 6px 6px" }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#3b82f6,#8b5cf6)", display: "grid", placeItems: "center", color: "#fff", fontWeight: 800, fontSize: 16 }}>D</div>
           <div>
-            <div style={{ fontSize: 17, fontWeight: 800, letterSpacing: "-0.01em" }}>DigiKash</div>
+            <div style={{ fontSize: 17, fontWeight: 800, letterSpacing: "-0.01em" }}>DigitalWallet</div>
             <div style={{ fontSize: 9, color: "#94a3b8", letterSpacing: "0.14em", fontWeight: 600 }}>WALLET · WALLET</div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-const CACHE_PREFIX = "digikash-pwa";
+const CACHE_PREFIX = "digitalwallet-pwa";
 const CACHE_VERSION = @json($cacheVersion);
 const STATIC_CACHE = `${CACHE_PREFIX}-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-${CACHE_VERSION}`;

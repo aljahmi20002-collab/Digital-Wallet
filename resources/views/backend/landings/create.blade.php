@@ -2,7 +2,7 @@
 
 @section('title', __('Upload Custom Landing Page'))
 @section('sub_title', __('Upload Custom Landing Page'))
-@section('sub_subtitle', __('Validate a ZIP package, publish it, and connect it to DigiKash action links.'))
+@section('sub_subtitle', __('Validate a ZIP package, publish it, and connect it to DigitalWallet action links.'))
 @section('sub_icon', 'upload')
 
 @section('sub_action')

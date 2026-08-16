@@ -53,7 +53,7 @@ const HeroBanner = () => (
         <em style={{ fontStyle: 'normal', background: 'linear-gradient(90deg,#FDE68A,#FBBF24)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>instantly</em>
       </h1>
       <p style={{ fontSize: 13.5, color: '#B8C4E8', margin: '8px 0 16px', maxWidth: 380 }}>
-        Designed templates, personal messages, scheduled delivery. Funded straight from your DigiKash wallet.
+        Designed templates, personal messages, scheduled delivery. Funded straight from your DigitalWallet wallet.
       </p>
       <div style={{ display: 'flex', gap: 10 }}>
         <button className="btn btn-base">

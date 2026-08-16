@@ -171,11 +171,11 @@ class PwaController extends Controller
     public function appName(): string
     {
         $custom    = trim((string) setting('pwa_app_name'));
-        $siteTitle = trim((string) setting('site_title', config('app.name', 'DigiKash')));
+        $siteTitle = trim((string) setting('site_title', config('app.name', 'DigitalWallet')));
 
         $name = $custom !== '' ? $custom : $siteTitle;
 
-        return $name !== '' ? $name : 'DigiKash';
+        return $name !== '' ? $name : 'DigitalWallet';
     }
 
     public function shortName(): string
@@ -392,7 +392,7 @@ self.addEventListener("activate", function (event) {
     event.waitUntil((async function () {
         const keys = await caches.keys();
         await Promise.all(keys
-            .filter(function (key) { return key.indexOf("digikash-pwa") === 0; })
+            .filter(function (key) { return key.indexOf("digitalwallet-pwa") === 0; })
             .map(function (key) { return caches.delete(key); }));
         if (self.registration && self.registration.unregister) {
             await self.registration.unregister();

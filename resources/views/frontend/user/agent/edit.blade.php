@@ -76,7 +76,7 @@
                                         <div class="single-input-inner style-border">
                                             <label for="agent_name" class="form-label">{{ __('Agent Display Name') }}</label>
                                             <input type="text" class="form-control" id="agent_name" name="agent_name"
-                                                   value="{{ old('agent_name', $agent->agent_name) }}" required placeholder="{{ __('DigiKash Uttara Counter') }}">
+                                                   value="{{ old('agent_name', $agent->agent_name) }}" required placeholder="{{ __('DigitalWallet Uttara Counter') }}">
                                         </div>
                                     </div>
 

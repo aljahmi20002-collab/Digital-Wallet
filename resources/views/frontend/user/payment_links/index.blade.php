@@ -211,7 +211,7 @@
                                                     {!! $paymentLink->qrCodeSvg(232) !!}
                                                 </div>
                                                 <p class="payment-link-qr-modal__hint">
-                                                    {{ __('Scan with a phone camera or DigiKash scanner to open checkout.') }}
+                                                    {{ __('Scan with a phone camera or DigitalWallet scanner to open checkout.') }}
                                                 </p>
                                             </div>
                                             <div class="input-group input-group-sm payment-link-url-group mx-auto"

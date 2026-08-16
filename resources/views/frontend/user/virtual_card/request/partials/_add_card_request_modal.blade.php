@@ -141,7 +141,7 @@
                                         <div class="vc-mini-preview__inner">
                                             <div class="vc-mini-preview__head">
                                                 <div>
-                                                    <div class="vc-mini-preview__brand-name">Digikash</div>
+                                                    <div class="vc-mini-preview__brand-name">DigitalWallet</div>
                                                     <div class="vc-mini-preview__sub">
                                                         VIRTUAL · <span data-vc-preview-network>VISA</span>
                                                     </div>

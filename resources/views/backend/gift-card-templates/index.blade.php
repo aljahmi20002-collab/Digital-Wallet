@@ -1505,7 +1505,7 @@
                 /*
                  * Visual definitions for each preset. Mirrors the x-gift-card-design
                  * Blade component so the live modal preview renders identically to
-                 * what end users see (rich motif, ribbon, DigiKash brand mark).
+                 * what end users see (rich motif, ribbon, DigitalWallet brand mark).
                  */
                 const PRESET_DEFS = {
                     birthday:    { bg: 'linear-gradient(135deg, #FB7185 0%, #F472B6 45%, #C026D3 100%)', ink: '#FFFFFF', chip: 'rgba(255,255,255,.22)', motif: 'confetti', ribbon: 'Happy Birthday' },
@@ -1864,7 +1864,7 @@
                                         <path d="M4 7h12a4 4 0 0 1 0 8H4V7z" fill="${ink}"/>
                                     </svg>
                                 </div>
-                                DigiKash
+                                DigitalWallet
                             </div>
                             <div style="position:absolute; top:${(w*0.05).toFixed(1)}px; right:${(w*0.05).toFixed(1)}px; background:${chipBg}; border:1px solid ${chipBorder}; padding:${(w*0.014).toFixed(1)}px ${(w*0.028).toFixed(1)}px; border-radius:999px; font-size:${(w*0.028).toFixed(1)}px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;">
                                 ${escapeHtml(ribbon)}
@@ -1880,7 +1880,7 @@
                                 </div>
                                 <div style="min-width:0; flex:1; text-align:right;">
                                     <div style="font-size:${(w*0.028).toFixed(1)}px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; opacity:.72;">{{ __('FROM') }}</div>
-                                    <div style="font-size:${(w*0.045).toFixed(1)}px; font-weight:700; margin-top:${(w*0.005).toFixed(1)}px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">DigiKash</div>
+                                    <div style="font-size:${(w*0.045).toFixed(1)}px; font-weight:700; margin-top:${(w*0.005).toFixed(1)}px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">DigitalWallet</div>
                                 </div>
                             </div>
                         </div>

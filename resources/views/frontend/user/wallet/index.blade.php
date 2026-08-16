@@ -193,8 +193,8 @@
                                                         class="btn btn-sm btn-primary wallet-receive-qr-modal__primary"
                                                         data-wallet-qr-share
                                                         data-wallet-qr-link="{{ $receiveMoneyUrl }}"
-                                                        data-wallet-qr-title="{{ __('DigiKash :currency Receive QR', ['currency' => $wallet->currency->code]) }}"
-                                                        data-wallet-qr-text="{{ __('Use this DigiKash QR link to send money to my :currency wallet.', ['currency' => $wallet->currency->code]) }}"
+                                                        data-wallet-qr-title="{{ __('DigitalWallet :currency Receive QR', ['currency' => $wallet->currency->code]) }}"
+                                                        data-wallet-qr-text="{{ __('Use this DigitalWallet QR link to send money to my :currency wallet.', ['currency' => $wallet->currency->code]) }}"
                                                         data-toast-message="{{ __('Receive link ready to share') }}">
                                                     <i class="fas fa-share-alt me-1"></i>{{ __('Share QR') }}
                                                 </button>

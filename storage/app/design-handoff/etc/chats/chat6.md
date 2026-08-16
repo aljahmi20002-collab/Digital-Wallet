@@ -719,8 +719,8 @@ Stop the generation. Three corrections before continuing:
    is provided by `backend.p2p.layout` which the page extends.
 
 2. BRAND NAME IS WRONG
-   The project is "Digikash" — not "Settlefi". Change the sidebar 
-   brand to "Digikash" or just say "Brand" placeholder. The brand 
+   The project is "DigitalWallet" — not "Settlefi". Change the sidebar 
+   brand to "DigitalWallet" or just say "Brand" placeholder. The brand 
    name is irrelevant since it's not in the deliverable anyway.
 
 3. DO NOT INVENT TABS THAT DON'T EXIST
@@ -762,7 +762,7 @@ _[tool: done]_
 Done. Corrections applied:
 
 1. **Sidebar collapsed to the real 6 items** — P2P Dashboard, Settings, Payment Methods, Traders, Disputes, Promotions. No more "Activity" / "Audit logs" / "Promotion plans" / fake groups.
-2. **Brand renamed to Digikash** (placeholder — won't ship to Blade anyway).
+2. **Brand renamed to DigitalWallet** (placeholder — won't ship to Blade anyway).
 3. **Dashboard tab strip removed.** Title is now "P2P Dashboard". Content is exactly: market status card → 4 KPI cards → 14-day chart. The Activity feed and Top-methods cards are gone from this page (component code still in the file, just unused — easy to delete or re-use if you want them elsewhere).
 4. **Noted for Blade delivery:** when I produce the `.blade.php` files, each will contain only `@section('p2p_title')`, `@section('p2p_action')`, `@section('p2p_content')`, `@push('styles')`, `@push('scripts')` — zero sidebar/breadcrumb/layout markup. The shell in the mockup is purely a viewing aid.
 

@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="merchant-demo-request">
                                     <span><i class="fa-solid fa-link"></i> {{ __('Checkout preview') }}</span>
-                                    <strong>{{ __('DigiKash Mart') }}</strong>
+                                    <strong>{{ __('DigitalWallet Mart') }}</strong>
                                     <small>{{ __('USD, EUR, BDT - https://shop.example.com - 2.5% merchant fee') }}</small>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                         <div class="mb-2 single-input-inner style-border">
                                             <label for="business_name" class="form-label">{{ __('Business Name') }}</label>
                                             <input type="text" class="form-control" id="business_name" name="business_name"
-                                                   value="{{ old('business_name') }}" required placeholder="{{ __('DigiKash Mart') }}">
+                                                   value="{{ old('business_name') }}" required placeholder="{{ __('DigitalWallet Mart') }}">
                                         </div>
                                     </div>
 

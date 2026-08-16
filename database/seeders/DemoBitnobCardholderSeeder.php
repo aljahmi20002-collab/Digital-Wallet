@@ -25,8 +25,8 @@ use Illuminate\Database\Seeder;
  * `DemoCardholderSeeder` — those stay in place for Stripe Issuing test
  * mode. Each demo user ends up with both:
  *
- *   user_id=N + email=name.card@digikash.test  (US, for Stripe)
- *   user_id=N + email=name.mg@digikash.test    (MG, for Bitnob)
+ *   user_id=N + email=name.card@digitalwallet.test  (US, for Stripe)
+ *   user_id=N + email=name.mg@digitalwallet.test    (MG, for Bitnob)
  *
  * The lookup key on `Cardholders::updateOrCreate` is the trio
  * (user_id, email, card_type), so the two rows never collide.
@@ -55,18 +55,18 @@ class DemoBitnobCardholderSeeder extends Seeder
         // can both fetch them AND classify them as valid KYC content.
         // `picsum.photos` is the de-facto Lorem-Ipsum-for-images service —
         // it always returns real JPGs and the seeded URLs are stable.
-        $demoUserPhoto  = 'https://picsum.photos/seed/digikash-face/640/640.jpg';
-        $demoIdImage    = 'https://picsum.photos/seed/digikash-idcard/1024/640.jpg';
+        $demoUserPhoto  = 'https://picsum.photos/seed/digitalwallet-face/640/640.jpg';
+        $demoIdImage    = 'https://picsum.photos/seed/digitalwallet-idcard/1024/640.jpg';
         $demoIdDocument = $demoIdImage;
 
         $bitnobProfiles = [
             // Demo customer Ayesha → Antananarivo resident, CIN holder.
-            'ayesha.rahman@digikash.test' => [
+            'ayesha.rahman@digitalwallet.test' => [
                 'title'              => 'Ms',
                 'first_name'         => 'Ayesha',
                 'middle_name'        => null,
                 'last_name'          => 'Rahman',
-                'email'              => 'ayesha.rahman.mg@digikash.test',
+                'email'              => 'ayesha.rahman.mg@digitalwallet.test',
                 'mobile'             => '321234567',
                 'phone_country_code' => '+261',
                 'gender'             => Gender::Female->value,
@@ -92,7 +92,7 @@ class DemoBitnobCardholderSeeder extends Seeder
                 'tax_country' => 'MG',
 
                 'occupation'      => 'Product Designer',
-                'employer'        => 'DigiKash Sandbox Co.',
+                'employer'        => 'DigitalWallet Sandbox Co.',
                 'annual_income'   => 95000.00,
                 'source_of_funds' => 'salary',
 
@@ -109,12 +109,12 @@ class DemoBitnobCardholderSeeder extends Seeder
             ],
 
             // Demo customer Imran → Toamasina resident, Passport holder.
-            'imran.hossain@digikash.test' => [
+            'imran.hossain@digitalwallet.test' => [
                 'title'              => 'Mr',
                 'first_name'         => 'Imran',
                 'middle_name'        => null,
                 'last_name'          => 'Hossain',
-                'email'              => 'imran.hossain.mg@digikash.test',
+                'email'              => 'imran.hossain.mg@digitalwallet.test',
                 'mobile'             => '331234568',
                 'phone_country_code' => '+261',
                 'gender'             => Gender::Male->value,
@@ -140,7 +140,7 @@ class DemoBitnobCardholderSeeder extends Seeder
                 'tax_country' => 'MG',
 
                 'occupation'      => 'Operations Manager',
-                'employer'        => 'DigiKash Sandbox Co.',
+                'employer'        => 'DigitalWallet Sandbox Co.',
                 'annual_income'   => 110000.00,
                 'source_of_funds' => 'salary',
 
@@ -157,12 +157,12 @@ class DemoBitnobCardholderSeeder extends Seeder
             ],
 
             // Demo merchant Nusrat → Mahajanga, Driver's License.
-            'nusrat.farhana@digikash.test' => [
+            'nusrat.farhana@digitalwallet.test' => [
                 'title'              => 'Ms',
                 'first_name'         => 'Nusrat',
                 'middle_name'        => null,
                 'last_name'          => 'Farhana',
-                'email'              => 'nusrat.farhana.mg@digikash.test',
+                'email'              => 'nusrat.farhana.mg@digitalwallet.test',
                 'mobile'             => '341234569',
                 'phone_country_code' => '+261',
                 'gender'             => Gender::Female->value,
@@ -205,12 +205,12 @@ class DemoBitnobCardholderSeeder extends Seeder
             ],
 
             // Demo merchant Tanvir → Fianarantsoa, CIN holder.
-            'tanvir.ahmed@digikash.test' => [
+            'tanvir.ahmed@digitalwallet.test' => [
                 'title'              => 'Mr',
                 'first_name'         => 'Tanvir',
                 'middle_name'        => null,
                 'last_name'          => 'Ahmed',
-                'email'              => 'tanvir.ahmed.mg@digikash.test',
+                'email'              => 'tanvir.ahmed.mg@digitalwallet.test',
                 'mobile'             => '381234570',
                 'phone_country_code' => '+261',
                 'gender'             => Gender::Male->value,

@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="agent-demo-request">
                                     <span><i class="fa-solid fa-location-dot"></i> {{ __('Demo request') }}</span>
-                                    <strong>{{ __('DigiKash Uttara Counter') }}</strong>
+                                    <strong>{{ __('DigitalWallet Uttara Counter') }}</strong>
                                     <small>{{ __('USD, EUR, SAR - Uttara Sector 7 - 9 AM to 8 PM') }}</small>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                         <div class="mb-2 single-input-inner style-border">
                                             <label for="agent_name" class="form-label">{{ __('Agent Display Name') }}</label>
                                             <input type="text" class="form-control" id="agent_name" name="agent_name"
-                                                   value="{{ old('agent_name') }}" required placeholder="{{ __('DigiKash Uttara Counter') }}">
+                                                   value="{{ old('agent_name') }}" required placeholder="{{ __('DigitalWallet Uttara Counter') }}">
                                         </div>
                                     </div>
 

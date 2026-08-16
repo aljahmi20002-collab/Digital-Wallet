@@ -24,7 +24,7 @@ use Illuminate\Support\Collection;
  * Production safety:
  *   - When `config('app.demo')` is false, every accessor short-circuits
  *     and returns an empty Collection.
- *   - Only accounts whose email matches the published `@digikash.test`
+ *   - Only accounts whose email matches the published `@digitalwallet.test`
  *     fixture domain are surfaced — any real user that happens to share
  *     a username or role is filtered out.
  *   - The password constant is hard-coded to the seeder fixture; live
@@ -42,7 +42,7 @@ final class DemoCredentialsRepository
      * refuses to surface anything outside this fixture domain so a
      * production user with a similar role never leaks here.
      */
-    private const FIXTURE_DOMAIN = '@digikash.test';
+    private const FIXTURE_DOMAIN = '@digitalwallet.test';
 
     /**
      * Per-portal copy for the credentials card (kept here so the Blade

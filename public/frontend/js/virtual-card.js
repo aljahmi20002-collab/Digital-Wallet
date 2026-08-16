@@ -1,5 +1,5 @@
 /**
- * DigiKash · Virtual Cards page (provider-agnostic)
+ * DigitalWallet · Virtual Cards page (provider-agnostic)
  *
  * Uses data-* attributes on each .vc-mini button as the source of truth for
  * a card's provider, capabilities, controls and limits — no JS knows about
@@ -134,7 +134,7 @@
                     '<div>' +
                         '<div class="vcard__brand">' +
                             '<span class="vcard__brand-mark"></span>' +
-                            '<span>Digikash</span>' +
+                            '<span>DigitalWallet</span>' +
                             providerPill +
                         '</div>' +
                         '<div class="vcard__label">VIRTUAL · ' + escapeHtml(d.label || '') + '</div>' +
@@ -172,7 +172,7 @@
                         '<div class="vcard__back-cvv mono" data-vc-back-cvv>' + escapeHtml(d.cvv || '•••') + '</div>' +
                     '</div>' +
                     '<div class="vcard__back-label">CVV · CARD VERIFICATION VALUE</div>' +
-                    '<div class="vcard__back-fineprint">For authorized use only. Issued by Digikash Wallet Solution. Visit digikash.io/support for assistance.</div>' +
+                    '<div class="vcard__back-fineprint">For authorized use only. Issued by DigitalWallet Wallet Solution. Visit digitalwallet.io/support for assistance.</div>' +
                 '</div>' +
             '</div>';
 
@@ -420,7 +420,7 @@
      *  ----------------------------------------------------------------
      *  navigator.clipboard.writeText only works on HTTPS / localhost.
      *  We try it first, then fall back to a hidden textarea + execCommand
-     *  so the button works on plain http://digikash.test too. Either way
+     *  so the button works on plain http://digitalwallet.test too. Either way
      *  the user gets a visible toast confirming the copy.
      * ------------------------------------------------------------------ */
     function copyTextToClipboard(text) {

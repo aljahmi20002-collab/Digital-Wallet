@@ -200,7 +200,7 @@ const Step3Recipient = ({ recipient, setRecipient, schedule, setSchedule }) => (
         boxShadow: recipient.mode === 'user' ? 'var(--dk-shadow-sm)' : 'none',
         display: 'inline-flex', alignItems: 'center', gap: 6,
       }}>
-        <Icon name="user" size={13}/> Existing Digikash user
+        <Icon name="user" size={13}/> Existing DigitalWallet user
       </button>
       <button onClick={() => setRecipient({ ...recipient, mode: 'email' })} style={{
         padding: '8px 14px', borderRadius: 7, border: 0, fontSize: 12.5, fontWeight: 700, cursor: 'pointer',
@@ -234,7 +234,7 @@ const Step3Recipient = ({ recipient, setRecipient, schedule, setSchedule }) => (
           ) : null}
         </div>
         {recipient.mode === 'user' ? (
-          <div className="form-hint">Found in Digikash · @tahsin_a</div>
+          <div className="form-hint">Found in DigitalWallet · @tahsin_a</div>
         ) : null}
       </div>
     </div>

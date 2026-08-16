@@ -162,7 +162,7 @@
             }
         };
 
-        window.DigiKashNotificationTune = {
+        window.DigitalWalletNotificationTune = {
             play: play,
             preview: function (payload) {
                 play(payload, true);

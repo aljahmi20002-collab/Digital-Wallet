@@ -93,12 +93,12 @@ class DemoAccountSeeder extends Seeder
     {
         return [
             [
-                'legacy_emails' => ['demo.user1@digikash.test'],
+                'legacy_emails' => ['demo.user1@digitalwallet.test'],
                 'profile' => $this->profile([
                     'first_name' => 'Ayesha',
                     'last_name' => 'Rahman',
                     'username' => 'demo_customer_ayesha',
-                    'email' => 'ayesha.rahman@digikash.test',
+                    'email' => 'ayesha.rahman@digitalwallet.test',
                     'phone' => '+8801711000101',
                     'country' => 'BD',
                     'state' => 'Dhaka',
@@ -119,12 +119,12 @@ class DemoAccountSeeder extends Seeder
                 'kyc_notes' => 'Demo customer KYC approved for everyday wallet testing.',
             ],
             [
-                'legacy_emails' => ['demo.user2@digikash.test'],
+                'legacy_emails' => ['demo.user2@digitalwallet.test'],
                 'profile' => $this->profile([
                     'first_name' => 'Imran',
                     'last_name' => 'Hossain',
                     'username' => 'demo_customer_imran',
-                    'email' => 'imran.hossain@digikash.test',
+                    'email' => 'imran.hossain@digitalwallet.test',
                     'phone' => '+8801811000202',
                     'country' => 'BD',
                     'state' => 'Chattogram',
@@ -351,14 +351,14 @@ class DemoAccountSeeder extends Seeder
     {
         return [
             [
-                'legacy_emails' => ['demo.merchant1@digikash.test'],
+                'legacy_emails' => ['demo.merchant1@digitalwallet.test'],
                 'profile' => $this->profile([
                     'first_name' => 'Nusrat',
                     'last_name' => 'Farhana',
                     'business_name' => 'Nusrat Mart',
                     'business_address' => 'Level 3, Police Plaza Concord, Gulshan 1',
                     'username' => 'demo_merchant_nusrat_mart',
-                    'email' => 'nusrat.farhana@digikash.test',
+                    'email' => 'nusrat.farhana@digitalwallet.test',
                     'phone' => '+8801911000303',
                     'country' => 'BD',
                     'state' => 'Dhaka',
@@ -369,13 +369,13 @@ class DemoAccountSeeder extends Seeder
                 ]),
                 'merchant' => [
                     'business_name' => 'Nusrat Mart',
-                    'site_url' => 'https://nusrat-mart.digikash.test',
-                    'business_email' => 'payments@nusrat-mart.digikash.test',
+                    'site_url' => 'https://nusrat-mart.digitalwallet.test',
+                    'business_email' => 'payments@nusrat-mart.digitalwallet.test',
                     'business_description' => 'Neighborhood grocery and essentials shop for checkout, webhook, and settlement demos.',
                     'currency_id' => $defaultCurrency->id,
                     'fee' => 1.25,
                     'status' => MerchantStatus::APPROVED,
-                    'webhook_url' => 'https://nusrat-mart.digikash.test/webhooks/digikash',
+                    'webhook_url' => 'https://nusrat-mart.digitalwallet.test/webhooks/digitalwallet',
                 ],
                 'wallets' => [
                     $defaultCurrency->code => 126500.00,
@@ -389,14 +389,14 @@ class DemoAccountSeeder extends Seeder
                 'kyc_notes' => 'Demo merchant KYB approved for live merchant dashboard testing.',
             ],
             [
-                'legacy_emails' => ['demo.merchant2@digikash.test'],
+                'legacy_emails' => ['demo.merchant2@digitalwallet.test'],
                 'profile' => $this->profile([
                     'first_name' => 'Tanvir',
                     'last_name' => 'Ahmed',
                     'business_name' => 'Tanvir Tech Care',
                     'business_address' => 'Shop 18, Eastern Plaza, Hatirpool',
                     'username' => 'demo_merchant_tanvir_tech',
-                    'email' => 'tanvir.ahmed@digikash.test',
+                    'email' => 'tanvir.ahmed@digitalwallet.test',
                     'phone' => '+8801611000404',
                     'country' => 'BD',
                     'state' => 'Dhaka',
@@ -407,13 +407,13 @@ class DemoAccountSeeder extends Seeder
                 ]),
                 'merchant' => [
                     'business_name' => 'Tanvir Tech Care',
-                    'site_url' => 'https://tanvir-tech-care.digikash.test',
-                    'business_email' => 'billing@tanvir-tech-care.digikash.test',
+                    'site_url' => 'https://tanvir-tech-care.digitalwallet.test',
+                    'business_email' => 'billing@tanvir-tech-care.digitalwallet.test',
                     'business_description' => 'Mobile accessories and repair shop used for pending merchant review demos.',
                     'currency_id' => $defaultCurrency->id,
                     'fee' => 1.75,
                     'status' => MerchantStatus::PENDING,
-                    'webhook_url' => 'https://tanvir-tech-care.digikash.test/webhooks/digikash',
+                    'webhook_url' => 'https://tanvir-tech-care.digitalwallet.test/webhooks/digitalwallet',
                 ],
                 'wallets' => [
                     $defaultCurrency->code => 48750.00,
@@ -440,7 +440,7 @@ class DemoAccountSeeder extends Seeder
                     'first_name' => 'Farid',
                     'last_name' => 'Uddin',
                     'username' => 'demo_agent_farid_uttara',
-                    'email' => 'farid.uddin@digikash.test',
+                    'email' => 'farid.uddin@digitalwallet.test',
                     'phone' => '+8801511000505',
                     'country' => 'BD',
                     'state' => 'Dhaka',
@@ -475,7 +475,7 @@ class DemoAccountSeeder extends Seeder
                     'first_name' => 'Sabila',
                     'last_name' => 'Akter',
                     'username' => 'demo_agent_sabila_sylhet',
-                    'email' => 'sabila.akter@digikash.test',
+                    'email' => 'sabila.akter@digitalwallet.test',
                     'phone' => '+8801311000606',
                     'country' => 'BD',
                     'state' => 'Sylhet',

@@ -18,7 +18,7 @@
 @section('sub_content')
     @php
         $variableRows = [
-            ['name' => '{app_name}', 'description' => 'Configured application name.', 'example' => 'DigiKash'],
+            ['name' => '{app_name}', 'description' => 'Configured application name.', 'example' => 'DigitalWallet'],
             ['name' => '{folder}', 'description' => 'Published landing folder name.', 'example' => 'virtual-card-landing-123'],
             ['name' => '{home_url}', 'description' => 'Public homepage URL.', 'example' => '/'],
             ['name' => '{user_login_url}', 'description' => 'User login page URL.', 'example' => '/login'],
@@ -53,7 +53,7 @@
     <section class="cla-guide-hero">
         <div class="cla-guide-hero__content">
             <span class="cla-guide-eyebrow">@lang('International Guide')</span>
-            <h2>@lang('Build campaign landings that connect directly to DigiKash product flows.')</h2>
+            <h2>@lang('Build campaign landings that connect directly to DigitalWallet product flows.')</h2>
             <p>
                 @lang('Use variables for stable URLs, action names for smart buttons, and the upload validator to publish a secure static landing as the public homepage.')
             </p>

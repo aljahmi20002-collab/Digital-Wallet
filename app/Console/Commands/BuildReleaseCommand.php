@@ -41,7 +41,7 @@ class BuildReleaseCommand extends Command
 {
     protected $signature = 'release:build
         {version=1.0.0 : Version label appended to the zip filename}
-        {--name=digikash : Base name for the release zip}
+        {--name=digitalwallet : Base name for the release zip}
         {--dry-run : Show what would be included without writing a zip}
         {--keep-existing : Do not overwrite an existing zip with the same name}
         {--skip-prep : Skip composer install --no-dev / optimize:clear / unlink storage}
@@ -93,11 +93,11 @@ class BuildReleaseCommand extends Command
         $skipPrep    = (bool) $this->option('skip-prep');
         $skipRestore = (bool) $this->option('skip-restore');
         $outputDir   = (string) config('release.output_dir', $this->projectRoot.'/releases');
-        $sqlInZip    = (string) config('release.sql_dump_path', 'DB/digikash.sql');
+        $sqlInZip    = (string) config('release.sql_dump_path', 'DB/digitalwallet.sql');
         $zipName     = sprintf('%s-v%s.zip', $name, $version);
         $zipPath     = rtrim($outputDir, '/\\').DIRECTORY_SEPARATOR.$zipName;
 
-        $this->components->info('Digikash release builder');
+        $this->components->info('DigitalWallet release builder');
         $this->table(['Setting', 'Value'], [
             ['Version',  $version],
             ['Output',   $isDryRun ? '(dry-run)' : $zipPath],
@@ -319,7 +319,7 @@ class BuildReleaseCommand extends Command
 
         $strip = array_flip($stripSet);
 
-        $sql = "-- Digikash release SQL dump\n";
+        $sql = "-- DigitalWallet release SQL dump\n";
         $sql .= '-- Generated: '.now()->toIso8601String()."\n";
         $sql .= '-- Tables: total='.count($tables).', data-stripped='.count($strip);
         $sql .= ' (auto-detected='.$this->stripStats['detected'].', manual-only='.$this->stripStats['manual_only'].")\n";

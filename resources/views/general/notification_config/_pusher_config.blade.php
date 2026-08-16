@@ -72,8 +72,8 @@
                     ? $('#append-new-admin-notification')
                     : $('.append-new-notification');
 
-                if (window.DigiKashNotificationTune) {
-                    window.DigiKashNotificationTune.play(data);
+                if (window.DigitalWalletNotificationTune) {
+                    window.DigitalWalletNotificationTune.play(data);
                 }
                 
 

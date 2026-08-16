@@ -200,7 +200,7 @@ const GiftCardDesign = ({
     >
       <Motif kind={t.motif} />
 
-      {/* DigiKash mark */}
+      {/* DigitalWallet mark */}
       <div style={{
         position: 'absolute', top: width*0.045, left: width*0.045,
         display: 'flex', alignItems: 'center', gap: width*0.018,
@@ -218,7 +218,7 @@ const GiftCardDesign = ({
             <path d="M4 7h12a4 4 0 0 1 0 8H4V7z" fill={t.ink} stroke="none"/>
           </svg>
         </div>
-        DigiKash
+        DigitalWallet
       </div>
 
       {/* Ribbon */}

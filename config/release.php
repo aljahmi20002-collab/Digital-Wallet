@@ -105,8 +105,6 @@ return [
         'storage/app/installed',
         'storage/app/laravel-brain',
         'storage/app/purifier',
-        'storage/app/project-updater-test',
-        'storage/app/updates',
         // Genuinely temporary upload folders (cleared on every run anyway).
         'storage/app/public/images/temp',
         // Locally-generated PDF receipts used during template development.
@@ -296,8 +294,6 @@ return [
         'jobs',
         'job_batches',
         'background_task_logs',
-        'project_licenses',
-        'project_updates',
     ],
 
     /*
@@ -313,11 +309,11 @@ return [
     | Path INSIDE the zip where the clean SQL dump is written
     |----------------------------------------------------------------------
     |
-    | Matches the existing DB/digikash.sql layout that the installer
+    | Matches the existing DB/digitalwallet.sql layout that the installer
     | already imports from.
     */
 
-    'sql_dump_path' => 'DB/digikash.sql',
+    'sql_dump_path' => 'DB/digitalwallet.sql',
 
     /*
     |----------------------------------------------------------------------

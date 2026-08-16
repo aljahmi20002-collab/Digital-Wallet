@@ -27,7 +27,7 @@ function AdminShell({ activeId, children, viewport = 'desktop' }) {
           <div className="adm__brand">
             <div className="adm__brand-mark"><i className="fa-solid fa-bolt" /></div>
             <div>
-              <div className="adm__brand-name">Digikash</div>
+              <div className="adm__brand-name">DigitalWallet</div>
               <div className="adm__brand-sub">P2P · Admin</div>
             </div>
           </div>

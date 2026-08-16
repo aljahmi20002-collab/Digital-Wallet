@@ -14,7 +14,7 @@
         $(document)
             .off('click.notificationTuneSettingsPreview', '[data-notification-tune-settings-preview]')
             .on('click.notificationTuneSettingsPreview', '[data-notification-tune-settings-preview]', function () {
-                const tunePlayer = window.DigiKashNotificationTune;
+                const tunePlayer = window.DigitalWalletNotificationTune;
                 const selectedTune = $('#notification_tune_default').val();
 
                 if (!tunePlayer || !selectedTune) {

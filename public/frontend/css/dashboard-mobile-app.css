@@ -1,5 +1,5 @@
 /* =========================================================
- | DigiKash — Mobile Dashboard "Tide" App Shell
+ | DigitalWallet — Mobile Dashboard "Tide" App Shell
  | Active only at viewports < 992px (Bootstrap `lg`).
  | Strategy: HIDE dev's existing mobile UI on small screens
  | and render the new dk-* design in its place. Desktop

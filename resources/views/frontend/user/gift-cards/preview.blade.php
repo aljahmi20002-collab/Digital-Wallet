@@ -69,7 +69,7 @@
         </div>
 
         <h1>{{ __(':sender sent you a gift', ['sender' => $firstName]) }}</h1>
-        <p class="gc-public-sub">{{ __('Open your gift card and add it to your DigiKash wallet in seconds.') }}</p>
+        <p class="gc-public-sub">{{ __('Open your gift card and add it to your DigitalWallet wallet in seconds.') }}</p>
 
         {{-- Sender chip --}}
         <div class="gc-public__sender">
@@ -152,7 +152,7 @@
                     {{ __('Redeem :amount to my wallet', ['amount' => $amountLabel]) }}
                 </a>
                 <a href="{{ route('user.register') }}" class="gc-cta-secondary">
-                    {{ __('New to DigiKash?') }} <strong>{{ __('Sign up to redeem →') }}</strong>
+                    {{ __('New to DigitalWallet?') }} <strong>{{ __('Sign up to redeem →') }}</strong>
                 </a>
             @endauth
         @endif

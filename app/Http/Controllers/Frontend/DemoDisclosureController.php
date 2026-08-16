@@ -18,7 +18,7 @@ class DemoDisclosureController extends Controller
     public function __invoke(): View
     {
         $canonicalUrl = url('/demo-disclosure');
-        $productName  = (string) config('app.demo_product_name', 'DigiKash');
+        $productName  = (string) config('app.demo_product_name', 'DigitalWallet');
         $vendorName   = (string) config('app.demo_vendor_name', 'Coevs');
 
         $payload = [

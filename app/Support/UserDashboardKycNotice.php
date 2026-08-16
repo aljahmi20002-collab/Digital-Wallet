@@ -22,7 +22,7 @@ class UserDashboardKycNotice
             'state'       => $state,
             'is_approved' => $isApproved,
             'dismiss_key' => $isApproved
-                ? 'digikash:kyc-verified-notice-dismissed:'.$user->getKey().':'.($kycSubmission?->updated_at?->timestamp ?? 'active')
+                ? 'digitalwallet:kyc-verified-notice-dismissed:'.$user->getKey().':'.($kycSubmission?->updated_at?->timestamp ?? 'active')
                 : null,
             'notice' => $this->notices()[$state],
         ];

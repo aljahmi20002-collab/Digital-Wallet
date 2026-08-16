@@ -245,7 +245,7 @@
 
                                 <div class="gc-mode-toggle">
                                     <button type="button" class="js-gc-mode is-active" data-mode="user">
-                                        <i class="fa-solid fa-user"></i> {{ __('Existing Digikash user') }}
+                                        <i class="fa-solid fa-user"></i> {{ __('Existing DigitalWallet user') }}
                                     </button>
                                     <button type="button" class="js-gc-mode" data-mode="email">
                                         <i class="fa-solid fa-envelope"></i> {{ __('Send via email') }}
@@ -406,7 +406,7 @@
                                         <strong class="gc-money js-sum-total">—</strong>
                                     </li>
                                 </ul>
-                                <div class="gc-secure-hint"><i class="fa-solid fa-lock"></i> {{ __('Secure transaction via DigiKash') }}</div>
+                                <div class="gc-secure-hint"><i class="fa-solid fa-lock"></i> {{ __('Secure transaction via DigitalWallet') }}</div>
                             </div>
                         </div>
                     </div>
@@ -576,7 +576,7 @@
                         <div style="width:${(w*0.062).toFixed(1)}px; height:${(w*0.062).toFixed(1)}px; border-radius:${(w*0.014).toFixed(1)}px; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.35); display:grid; place-items:center;">
                             <svg viewBox="0 0 24 24" width="${(w*0.04).toFixed(1)}" height="${(w*0.04).toFixed(1)}" fill="none"><path d="M4 7h12a4 4 0 0 1 0 8H4V7z" fill="${ink}"/></svg>
                         </div>
-                        DigiKash
+                        DigitalWallet
                     </div>
                     <div style="position:absolute; top:${(w*0.05).toFixed(1)}px; right:${(w*0.05).toFixed(1)}px; background:${def.chip}; border:1px solid ${chipBorder}; padding:${(w*0.014).toFixed(1)}px ${(w*0.028).toFixed(1)}px; border-radius:999px; font-size:${(w*0.028).toFixed(1)}px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;">${escapeHtml(ribbon)}</div>
                     <div style="position:absolute; left:${(w*0.05).toFixed(1)}px; right:${(w*0.05).toFixed(1)}px; top:38%;">

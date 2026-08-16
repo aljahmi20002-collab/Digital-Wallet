@@ -1,5 +1,5 @@
 /* global React */
-/* Shared icons + app chrome for Digikash dashboard screens */
+/* Shared icons + app chrome for DigitalWallet dashboard screens */
 
 const Icon = ({ name, size = 18, stroke = 2, color = 'currentColor', fill = 'none', style }) => {
   const s = { width: size, height: size, color, ...style };
@@ -131,7 +131,7 @@ window.Breadcrumb = Breadcrumb;
 /* Sample gift-card data ----------------------------------- */
 const SAMPLE_CARDS_SENT = [
   { tpl: 'birthday',    name: 'Tahsin Ahmed',   email: 'tahsin@gmail.com',     amount: 100, status: 'delivered', date: 'May 18, 2026', code: 'DKGC-4F2A-9X7K' },
-  { tpl: 'congrats',    name: 'Marketing Team', email: 'team@digikash.io',     amount: 250, status: 'pending',   date: 'May 17, 2026', code: 'DKGC-7T3R-2P8N' },
+  { tpl: 'congrats',    name: 'Marketing Team', email: 'team@digitalwallet.io',     amount: 250, status: 'pending',   date: 'May 17, 2026', code: 'DKGC-7T3R-2P8N' },
   { tpl: 'thankyou',    name: 'Priya Kapoor',   email: 'priya.k@gmail.com',    amount: 50,  status: 'redeemed',  date: 'May 12, 2026', code: 'DKGC-1B9M-5L4Q' },
   { tpl: 'anniversary', name: 'Daniel Wilson',  email: 'd.wilson@outlook.com', amount: 200, status: 'delivered', date: 'May 09, 2026', code: 'DKGC-8K2J-7H3D' },
   { tpl: 'holiday',     name: 'Mom',            email: 'rashida@yahoo.com',    amount: 75,  status: 'expired',   date: 'Apr 24, 2026', code: 'DKGC-3W1V-6Y9C' },

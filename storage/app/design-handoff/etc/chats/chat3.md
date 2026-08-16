@@ -32,7 +32,7 @@ _[tool: canva__import-design-from-url]_
 
 Banner ti Canva te successfully convert hoye geche! ✅
 
-**Open in Canva:** [DigiKash Preview Banner – Edit](https://www.canva.com/d/HEaQZuj11qiVjhp)
+**Open in Canva:** [DigitalWallet Preview Banner – Edit](https://www.canva.com/d/HEaQZuj11qiVjhp)
 
 Ekhon Canva te direct edit korte parben — text, color, layout shob kichu.
 

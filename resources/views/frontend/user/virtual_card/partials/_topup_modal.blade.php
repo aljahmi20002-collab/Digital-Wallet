@@ -49,7 +49,7 @@
                                 <span class="vc-option__icon"><i class="fa-solid fa-bolt"></i></span>
                                 <div class="vc-option__body">
                                     <div class="vc-option__title-row">
-                                        <span class="vc-option__title">{{ __('Digikash Wallet') }}</span>
+                                        <span class="vc-option__title">{{ __('DigitalWallet Wallet') }}</span>
                                         <span class="vc-option__badge">{{ __('Instant') }}</span>
                                     </div>
                                     <div class="vc-option__sub" data-vc-wallet-source-sub>{{ __('Available balance · no fee') }}</div>
